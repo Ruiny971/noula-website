@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Site Status · Noula (live from GitHub main)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6F1; --warm-sand:#F3EBDF; --coral:#E8724F; --gold:#C49E4C;
+    --emerald:#2D7961; --plum:#4B2E4E; --plum-deep:#3F2743; --plum-black:#2A1A2C;
+    --text-dark:#2A1A2C; --text-light:#6A5F66;
+    --font-heading:'Playfair Display',serif; --font-body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--font-body);background:var(--cream);color:var(--text-dark);line-height:1.5;}
+  a{color:var(--coral);}
+  a:hover{color:var(--plum);}
+  .wrap{max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem 4rem;}
+
+  header.page{
+    background:linear-gradient(135deg,#1a1930 0%,var(--plum) 55%,var(--plum-deep) 100%);
+    color:var(--cream);padding:2.5rem 1.5rem 2.2rem;position:relative;overflow:hidden;
+  }
+  header.page::before,header.page::after{
+    content:"";position:absolute;left:0;right:0;height:8px;
+    background:url('images/madras.svg') repeat;background-size:130px auto;opacity:.9;
+  }
+  header.page::before{top:0;} header.page::after{bottom:0;}
+  header.page .inner{max-width:1000px;margin:0 auto;}
+  header.page h1{font-family:var(--font-heading);font-size:2rem;margin:0 0 .35rem;font-weight:700;}
+  header.page p{margin:0;color:rgba(250,246,241,.82);font-size:1rem;}
+  .live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#7bd8a8;margin-right:.5rem;box-shadow:0 0 0 0 rgba(123,216,168,.7);animation:pulse 2s infinite;vertical-align:middle;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(123,216,168,.6);}70%{box-shadow:0 0 0 8px rgba(123,216,168,0);}100%{box-shadow:0 0 0 0 rgba(123,216,168,0);}}
+
+  .repo-line{margin-top:1.1rem;font-size:.9rem;color:rgba(250,246,241,.75);}
+  .repo-line code{background:rgba(255,255,255,.12);padding:.15rem .5rem;border-radius:5px;font-size:.85rem;}
+
+  .summary{display:flex;flex-wrap:wrap;gap:1rem;margin:2rem 0 1.5rem;}
+  .stat{flex:1 1 180px;background:#fff;border:1px solid #ece3d6;border-radius:12px;padding:1.1rem 1.25rem;box-shadow:0 2px 10px rgba(42,26,44,.05);}
+  .stat .n{font-family:var(--font-heading);font-size:1.9rem;font-weight:700;color:var(--plum);line-height:1;}
+  .stat .l{font-size:.82rem;color:var(--text-light);margin-top:.35rem;text-transform:uppercase;letter-spacing:.04em;}
+  .stat.commit .n{font-size:1.15rem;word-break:break-all;}
+
+  h2.sec{font-family:var(--font-heading);font-size:1.35rem;margin:2rem 0 1rem;color:var(--plum-deep);}
+
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(42,26,44,.06);}
+  thead th{background:var(--warm-sand);text-align:left;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-light);padding:.75rem 1rem;font-weight:600;}
+  tbody td{padding:.8rem 1rem;border-top:1px solid #f0e8dc;font-size:.92rem;vertical-align:middle;}
+  tbody tr:hover{background:#fbf7f1;}
+  td.page-name{font-weight:600;}
+  td.page-name a{text-decoration:none;}
+  td.page-name a:hover{text-decoration:underline;}
+  .path{color:var(--text-light);font-size:.8rem;font-family:ui-monospace,Menlo,monospace;}
+
+  .pill{display:inline-flex;align-items:center;gap:.35rem;padding:.2rem .6rem;border-radius:999px;font-size:.75rem;font-weight:600;white-space:nowrap;}
+  .pill.ok{background:#e3f3ea;color:#1f6b4a;}
+  .pill.missing{background:#fbe4dd;color:#b23c22;}
+  .pill.checking{background:#efe9f0;color:#6a5f66;}
+  .pill.extra{background:#fdf3dd;color:#8a6d1f;}
+
+  .when{font-size:.85rem;color:var(--text-light);}
+  .when.fresh{color:#1f6b4a;font-weight:600;}
+
+  .foot{margin-top:2rem;font-size:.85rem;color:var(--text-light);}
+  .btn{display:inline-block;margin-top:.4rem;background:var(--coral);color:#fff;border:none;border-radius:8px;padding:.55rem 1.1rem;font-family:var(--font-body);font-weight:600;font-size:.9rem;cursor:pointer;}
+  .btn:hover{background:#d5613f;}
+  .err{background:#fbe4dd;border:1px solid #f0b9a8;color:#8a2c14;padding:.9rem 1.1rem;border-radius:10px;font-size:.88rem;margin:1rem 0;}
+  .note{font-size:.82rem;color:var(--text-light);margin:.4rem 0 0;}
+</style>
+</head>
+<body>
+<header class="page">
+  <div class="inner">
+    <h1>Site Status</h1>
+    <p><span class="live-dot"></span>Live from GitHub <strong>main</strong> · this is the actual deployed source of truth</p>
+    <div class="repo-line">Repo <code>Ruiny971/noula-website</code> · branch <code>main</code> · Netlify auto-deploys on merge</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div id="errbox"></div>
+
+  <div class="summary">
+    <div class="stat"><div class="n" id="s-tracked">–</div><div class="l">Pages tracked</div></div>
+    <div class="stat"><div class="n" id="s-live">–</div><div class="l">Live on main</div></div>
+    <div class="stat"><div class="n" id="s-updated">–</div><div class="l">Last commit</div></div>
+    <div class="stat commit"><div class="n" id="s-sha">–</div><div class="l">Commit SHA</div></div>
+  </div>
+
+  <h2 class="sec">Pages</h2>
+  <table>
+    <thead><tr><th>Page</th><th>Path</th><th>Status on main</th><th>Last updated</th></tr></thead>
+    <tbody id="rows-pages"></tbody>
+  </table>
+
+  <h2 class="sec">Shared files</h2>
+  <table>
+    <thead><tr><th>File</th><th>Path</th><th>Status on main</th><th>Last updated</th></tr></thead>
+    <tbody id="rows-shared"></tbody>
+  </table>
+
+  <div id="extra-wrap" style="display:none;">
+    <h2 class="sec">Other files on main <span style="font-weight:400;font-size:.85rem;color:var(--text-light);">(present in repo, not in this manifest)</span></h2>
+    <table>
+      <thead><tr><th>File</th><th>Path</th><th>Status</th><th>Last updated</th></tr></thead>
+      <tbody id="rows-extra"></tbody>
+    </table>
+  </div>
+
+  <div class="foot">
+    <div>Checked against the GitHub API at load. Unauthenticated requests are limited to 60/hour, so refresh sparingly.</div>
+    <button class="btn" onclick="location.reload()">Refresh</button>
+    <p class="note">Deploy pipeline: edit here → export ZIP → merge to <code>main</code> → Netlify deploys. This page reads whatever is currently on <code>main</code>.</p>
+  </div>
+</div>
+
+<script>
+// ---- Manifest: the pages/files this site is expected to contain (paths at repo ROOT) ----
+const OWNER='Ruiny971', REPO='noula-website', BRANCH='main';
+const PAGES=[
+  {name:'Home',path:'index.html'},
+  {name:'About',path:'about.html'},
+  {name:'Contact',path:'contact.html'},
+  {name:'Directory',path:'directory.html'},
+  {name:'Events',path:'events.html'},
+  {name:'Get involved',path:'get-involved.html'},
+  {name:'Noula Day 2026',path:'noula-day.html'},
+  {name:'Programme of the Day',path:'programme-of-the-day.html'},
+  {name:'Stalls',path:'stalls.html'},
+  {name:'Volunteer',path:'volunteer.html'},
+];
+const SHARED=[
+  {name:'Styles',path:'styles.css'},
+  {name:'Forms logic',path:'forms.js'},
+  {name:'Feedback widget',path:'feedback.js'},
+  {name:'Analytics (GA4)',path:'analytics.js'},
+  {name:'Redirects',path:'_redirects'},
+  {name:'Netlify config',path:'netlify.toml'},
+];
+const API=`https://api.github.com/repos/${OWNER}/${REPO}`;
+const known=new Set([...PAGES,...SHARED].map(f=>f.path));
+
+function timeAgo(iso){
+  if(!iso) return '';
+  const d=new Date(iso), now=new Date(), s=Math.floor((now-d)/1000);
+  const day=Math.floor(s/86400);
+  let txt;
+  if(s<3600) txt=Math.max(1,Math.floor(s/60))+' min ago';
+  else if(s<86400) txt=Math.floor(s/3600)+' h ago';
+  else if(day<30) txt=day+' day'+(day>1?'s':'')+' ago';
+  else txt=d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  return {txt, fresh:day<2, date:d.toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})};
+}
+
+async function gh(url){
+  const r=await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});
+  if(!r.ok) throw new Error('GitHub API '+r.status+(r.status===403?' (rate limit — try again in a while)':r.status===404?' (repo not found or private)':''));
+  return r.json();
+}
+
+function row(f,statusHtml,whenHtml){
+  const linkable=f.path.endsWith('.html');
+  const nameCell=linkable?`<a href="${f.path}">${f.name}</a>`:f.name;
+  return `<tr><td class="page-name">${nameCell}</td><td class="path">${f.path}</td><td>${statusHtml}</td><td>${whenHtml}</td></tr>`;
+}
+const checking='<span class="pill checking">checking…</span>';
+
+function seed(list,tbodyId){
+  document.getElementById(tbodyId).innerHTML=list.map(f=>row(f,checking,'<span class="when">…</span>')).join('');
+}
+
+async function fileStatus(f){
+  // last commit that touched this path
+  try{
+    const commits=await gh(`${API}/commits?path=${encodeURIComponent(f.path)}&sha=${BRANCH}&per_page=1`);
+    if(!commits.length) return {present:false};
+    return {present:true, iso:commits[0].commit.committer.date, sha:commits[0].sha};
+  }catch(e){
+    if(String(e).includes('404')||String(e).includes('409')) return {present:false};
+    throw e;
+  }
+}
+
+function paint(tbodyId,list,results){
+  document.getElementById(tbodyId).innerHTML=list.map((f,i)=>{
+    const r=results[i];
+    let status,when;
+    if(r&&r.present){
+      status='<span class="pill ok">✓ live</span>';
+      const t=timeAgo(r.iso);
+      when=`<span class="when ${t.fresh?'fresh':''}" title="${t.date}">${t.txt}</span>`;
+    }else{
+      status='<span class="pill missing">✗ not on main</span>';
+      when='<span class="when">—</span>';
+    }
+    return row(f,status,when);
+  }).join('');
+}
+
+(async function(){
+  seed(PAGES,'rows-pages');
+  seed(SHARED,'rows-shared');
+  document.getElementById('s-tracked').textContent=PAGES.length;
+  try{
+    // Latest commit overall
+    const head=await gh(`${API}/commits/${BRANCH}`);
+    document.getElementById('s-sha').textContent=head.sha.slice(0,7);
+    const ht=timeAgo(head.commit.committer.date);
+    document.getElementById('s-updated').textContent=ht.txt;
+    document.getElementById('s-updated').title=ht.date;
+
+    // Per-file status (sequential to stay gentle on rate limit)
+    const pageRes=[]; for(const f of PAGES) pageRes.push(await fileStatus(f));
+    paint('rows-pages',PAGES,pageRes);
+    const shRes=[]; for(const f of SHARED) shRes.push(await fileStatus(f));
+    paint('rows-shared',SHARED,shRes);
+    document.getElementById('s-live').textContent=pageRes.filter(r=>r&&r.present).length;
+
+    // Anything on main not in the manifest (root .html/.css/.js only)
+    try{
+      const tree=await gh(`${API}/git/trees/${head.sha}?recursive=0`);
+      const extras=tree.tree.filter(n=>n.type==='blob'&&!known.has(n.path)&&/\.(html|css|js)$/.test(n.path)&&!n.path.includes('/'));
+      if(extras.length){
+        document.getElementById('extra-wrap').style.display='block';
+        document.getElementById('rows-extra').innerHTML=extras.map(n=>
+          row({name:n.path,path:n.path},'<span class="pill extra">extra</span>','<span class="when">—</span>')
+        ).join('');
+      }
+    }catch(e){/* non-fatal */}
+
+  }catch(e){
+    document.getElementById('errbox').innerHTML=
+      `<div class="err"><strong>Couldn't read live state.</strong> ${e.message}<br>The page manifest is still shown below; statuses will read "checking".</div>`;
+    document.getElementById('s-live').textContent='?';
+    document.getElementById('s-updated').textContent='?';
+    document.getElementById('s-sha').textContent='?';
+  }
+})();
+</script>
+</body>
+</html>

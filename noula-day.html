@@ -3,43 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</title>
+<title>Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty</title>
 <meta name="description" content="Noula Day 2026 · a full day of French Caribbean culture in Brixton flowing into a warm Chanté Nwèl afterparty. Sat 28 November 2026, St Matthew's Brixton.">
-<meta property="og:title" content="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty">
+<meta property="og:title" content="Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty">
 <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <style>
   .lang-fr { display:none; }
-  .nd-hero { background:linear-gradient(160deg,#1a1930,#2D1F3D 45%,#4B2E4E); padding:3rem 1.5rem 3.5rem; text-align:center; }
-  .nd-hero img.banner { display:block; width:100%; max-width:1100px; height:auto; margin:0 auto 2rem; border-radius:16px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); }
-  .nd-facts { display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; color:#FAF6F1; }
-  .nd-facts small { display:block; font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.65; margin-bottom:0.3rem; }
-  .nd-facts strong { font-size:1.25rem; font-weight:500; }
-  .nd-cta { display:inline-block; margin-top:2rem; background:var(--coral); color:#fff; padding:1.1rem 2.6rem; border-radius:999px; text-decoration:none; font-weight:600; font-size:1.1rem; transition:all 0.2s; }
+  .nd-eyebrow { display:inline-block; letter-spacing:0.16em; text-transform:uppercase; font-size:0.76rem; font-weight:700; color:#E8C078; background:rgba(232,199,138,0.12); border:1px solid rgba(232,199,138,0.4); padding:0.35rem 0.9rem; border-radius:999px; }
+
+  /* Hero: banner + info side by side */
+  .nd-hero { background:linear-gradient(160deg,#1a1930,#2D1F3D 45%,#4B2E4E); padding:2.75rem 1.5rem; }
+  .nd-hero-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr; gap:2.75rem; align-items:center; }
+  .nd-hero .banner { width:100%; height:auto; border-radius:16px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); display:block; }
+  .nd-hero-info { color:#FAF6F1; text-align:left; }
+  .nd-hero-info h1 { font-family:'Playfair Display',Georgia,serif; font-size:3rem; line-height:1.02; margin:1rem 0 0.35rem; color:#FAF6F1; }
+  .nd-hero-info .nd-sub { font-family:'Playfair Display',Georgia,serif; font-style:italic; color:#E8C078; font-size:1.28rem; margin:0 0 1.4rem; }
+  .nd-facts2 { display:flex; flex-direction:column; gap:0.65rem; margin:0 0 1.6rem; }
+  .nd-facts2 .row { display:flex; align-items:baseline; gap:0.85rem; padding-bottom:0.65rem; border-bottom:1px solid rgba(232,199,138,0.18); }
+  .nd-facts2 .row small { width:60px; flex-shrink:0; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#E8C078; }
+  .nd-facts2 .row strong { font-weight:500; font-size:1.06rem; }
+  .nd-btns { display:flex; flex-wrap:wrap; gap:0.8rem; }
+  .nd-cta { display:inline-block; background:var(--coral); color:#fff; padding:0.9rem 1.7rem; border-radius:999px; text-decoration:none; font-weight:700; transition:all 0.2s; }
   .nd-cta:hover { background:#d05f3d; transform:translateY(-2px); }
-  .nd-section { max-width:940px; margin:0 auto; padding:4rem 1.5rem; }
-  .nd-section h2 { font-family:'Playfair Display',Georgia,serif; font-size:2.4rem; color:var(--plum-deep); text-align:center; margin:0 0 1.25rem; }
-  .nd-section p.lead { text-align:center; color:var(--text-light); font-size:1.12rem; line-height:1.7; max-width:720px; margin:0 auto; }
+  .nd-cta.ghost { background:transparent; border:1.5px solid rgba(232,199,138,0.6); color:#F4E3C3; }
+  .nd-cta.ghost:hover { background:rgba(232,199,138,0.15); }
+  .nd-cta.emerald { background:var(--emerald); } .nd-cta.emerald:hover { background:#256551; }
+  .nd-cta.gold { background:var(--candle); color:var(--plum-deep); } .nd-cta.gold:hover { background:#f0d38f; }
+
+  .nd-band { padding:3.25rem 1.5rem; }
   .nd-alt { background:var(--warm-sand); }
-  .nd-two { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center; }
-  .nd-two .card { background:#fff; border-radius:16px; padding:2rem; box-shadow:0 14px 34px -24px rgba(42,26,44,0.5); }
-  .nd-two h3 { font-family:'Playfair Display',Georgia,serif; color:var(--plum-deep); margin:0 0 0.6rem; font-size:1.5rem; }
-  .nd-two p { color:var(--text-light); line-height:1.65; margin:0; }
+  .nd-wrap { max-width:1120px; margin:0 auto; }
+  .nd-kicker { letter-spacing:0.16em; text-transform:uppercase; font-size:0.76rem; font-weight:700; color:var(--coral); margin:0 0 0.5rem; }
+  .nd-h2 { font-family:'Playfair Display',Georgia,serif; font-size:2.1rem; color:var(--plum-deep); margin:0 0 1rem; line-height:1.12; }
+
+  /* Day split: intro left, two cards right */
+  .nd-split { display:grid; grid-template-columns:1fr 1fr; gap:2.75rem; align-items:start; }
+  .nd-split p.body { color:#3F2743; line-height:1.8; font-size:1.16rem; margin:0; }
+  .nd-sensory { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.3rem; }
+  .nd-sensory span { background:#fff; border:1px solid rgba(196,158,76,0.45); color:var(--plum-deep); font-weight:600; padding:0.35rem 0.85rem; border-radius:999px; font-size:0.92rem; }
+  .nd-cards { display:flex; flex-direction:column; gap:1.1rem; }
+  .nd-card { background:#fff; border-radius:14px; padding:1.5rem 1.6rem; box-shadow:0 14px 34px -24px rgba(42,26,44,0.5); border-left:4px solid var(--coral); }
+  .nd-card.night { border-left-color:var(--plum); }
+  .nd-card .tag { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--coral); font-weight:700; }
+  .nd-card.night .tag { color:var(--plum); }
+  .nd-card h3 { font-family:'Playfair Display',Georgia,serif; color:var(--plum-deep); margin:0.25rem 0 0.4rem; font-size:1.3rem; }
+  .nd-card p { color:var(--text-light); line-height:1.6; margin:0; font-size:0.98rem; }
+
+  /* Line-up */
+  .nd-lineup { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:1.5rem; }
+  .nd-artist { background:linear-gradient(160deg,#2D1F3D,#4B2E4E); border-radius:14px; overflow:hidden; box-shadow:0 18px 40px -26px rgba(0,0,0,0.6); }
+  .nd-artist .ph { height:250px; background:#3a2440 url('images/madras.png') center/180px; position:relative; }
+  .nd-artist .ph img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+  .nd-artist .meta { padding:1rem 1.15rem 1.3rem; color:#FAF6F1; }
+  .nd-artist .meta .r { color:#E8C078; font-size:0.76rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+  .nd-artist .meta h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; margin:0.2rem 0 0; color:#FAF6F1; }
+  .nd-note { color:var(--text-light); font-style:italic; margin:1.3rem 0 0; }
+  /* Hero line-up auto slideshow */
+  .nd-lineup-show { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); background:#3a2440 url('images/madras.png') center/200px; aspect-ratio:4/5; }
+  .nls-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; }
+  .nls-slide.active { opacity:1; }
+  .nls-slide img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+  .nls-cap { position:absolute; left:0; right:0; bottom:0; padding:2.6rem 1.4rem 1.3rem; background:linear-gradient(0deg, rgba(20,8,24,0.92), rgba(20,8,24,0)); color:#FAF6F1; text-align:left; }
+  .nls-cap .r { color:#E8C078; font-size:0.76rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+  .nls-cap h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; margin:0.15rem 0 0; color:#FAF6F1; }
+  .nls-eyebrow { position:absolute; top:1rem; left:1rem; z-index:2; }
+  .nls-dots { position:absolute; bottom:1.2rem; right:1.2rem; z-index:2; display:flex; gap:0.4rem; }
+  .nls-dot { width:9px; height:9px; border-radius:999px; background:rgba(250,246,241,0.35); border:none; padding:0; cursor:pointer; transition:background .2s; }
+  .nls-dot.active { background:#E8C078; }
+  /* Flyer thumbnail + lightbox */
+  .nd-flyerthumb { display:flex; flex-direction:column; align-items:flex-start; gap:0.55rem; margin-top:1.4rem; background:transparent; border:none; padding:0; cursor:pointer; font-family:inherit; }
+  .nd-flyerthumb img { width:360px; max-width:100%; height:auto; border-radius:10px; box-shadow:0 16px 40px -20px rgba(0,0,0,0.6); border:1px solid rgba(232,199,138,0.4); transition:transform .3s ease; }
+  .nd-flyerthumb:hover img { transform:translateY(-2px); }
+  .nd-flyerlabel { display:inline-flex; align-items:center; gap:0.5rem; color:#F4E3C3; font-weight:700; font-size:0.98rem; }
+  .nd-zoom { opacity:0.85; font-size:1.05rem; }
+  .nd-lightbox { position:fixed; inset:0; background:rgba(15,7,18,0.92); display:none; align-items:center; justify-content:center; z-index:2000; padding:2rem; }
+  .nd-lightbox.open { display:flex; }
+  .nd-lightbox img { max-width:96vw; max-height:92vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+  .nd-lightbox .close { position:absolute; top:1.1rem; right:1.3rem; background:rgba(255,255,255,0.16); color:#fff; border:none; width:44px; height:44px; border-radius:999px; font-size:1.7rem; line-height:1; cursor:pointer; }
+
+  /* Tickets */
   .nd-tickets { display:grid; grid-template-columns:1.3fr 1fr; gap:2.5rem; align-items:center; background:linear-gradient(160deg,#2D1F3D,#4B2E4E); border-radius:20px; padding:2.5rem; color:#FAF6F1; }
-  .nd-tickets h3 { font-family:'Playfair Display',Georgia,serif; font-size:2rem; margin:0 0 0.6rem; }
-  .nd-tickets p { color:rgba(250,246,241,0.85); line-height:1.6; }
-  .nd-tickets .nd-cta { background:var(--candle); color:var(--plum-deep); }
-  .nd-tickets .nd-cta:hover { background:#f0d38f; }
+  .nd-tickets h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.9rem; margin:0 0 0.5rem; color:#FAF6F1; }
+  .nd-tickets p { color:rgba(250,246,241,0.85); line-height:1.6; margin:0 0 0.6rem; }
   .nd-qr { background:#FAF6F1; border-radius:16px; padding:1rem; width:190px; height:190px; margin:0 auto; }
-  .nd-qr #eb-qr { width:100%; height:100%; }
-  .nd-qr #eb-qr img { width:100%; height:100%; image-rendering:pixelated; }
-  .nd-qr-label { text-align:center; margin-top:0.8rem; font-size:0.9rem; color:var(--candle); font-weight:600; }
-  .nd-list { max-width:640px; margin:1.5rem auto 0; color:var(--text-light); line-height:1.9; font-size:1.05rem; }
-  @media(max-width:760px){ .nd-two,.nd-tickets{grid-template-columns:1fr;} .nd-section h2{font-size:1.9rem;} }
+  .nd-qr #eb-qr { width:100%; height:100%; } .nd-qr #eb-qr img { width:100%; height:100%; image-rendering:pixelated; }
+  .nd-qr-label { text-align:center; margin-top:0.7rem; font-size:0.9rem; color:var(--candle); font-weight:600; }
+
+  @media(max-width:820px){
+    .nd-hero-inner{ grid-template-columns:1fr; gap:1.6rem; }
+    .nd-hero-info h1{ font-size:2.3rem; }
+    .nd-split{ grid-template-columns:1fr; gap:1.6rem; }
+    .nd-lineup{ grid-template-columns:1fr 1fr; }
+    .nd-tickets{ grid-template-columns:1fr; }
+  }
+  @media(max-width:480px){ .nd-lineup{ grid-template-columns:1fr; } }
 </style>
     <script src="analytics.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","name":"Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty","startDate":"2026-11-28T12:00:00+00:00","endDate":"2026-11-28T22:30:00+00:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://noula.org.uk/images/NOULA-Day-2026-banner.png"],"description":"A full day of French Caribbean culture in Brixton flowing into a warm Chanté Nwèl afterparty, at St Matthew's Brixton.","location":{"@type":"Place","name":"St Matthew's Brixton","address":{"@type":"PostalAddress","addressLocality":"Brixton","addressRegion":"London","postalCode":"SW2","addressCountry":"GB"}},"organizer":{"@type":"Organization","name":"Noula","url":"https://noula.org.uk"},"offers":{"@type":"Offer","url":"https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite","availability":"https://schema.org/InStock"}}
+</script>
 </head>
 <body>
   <div class="event-strip">
@@ -55,12 +120,13 @@
       </div>
       <ul class="nav-links">
         <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
-        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
         <li><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
       </ul>
       <div class="lang-switch" role="group" aria-label="Language selection">
         <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
@@ -69,60 +135,83 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="nd-hero">
-    <img class="banner" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty">
-    <div class="nd-facts">
-      <div><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>Sat 28 Nov 2026 · 12h → 22h30</strong></div>
-      <div><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
-      <div><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">All ages, all welcome</span><span class="lang-fr">Tous âges, tous bienvenus</span></strong></div>
-    </div>
-    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book your tickets →</span><span class="lang-fr">Réservez vos billets →</span></a>
-  </section>
-
-  <section class="nd-section">
-    <h2><span class="lang-en">A French Caribbean day in Brixton</span><span class="lang-fr">Une journée antillaise à Brixton</span></h2>
-    <p class="lead">
-      <span class="lang-en">Noula Day 2026 is our flagship event of the year: a full day of French Caribbean culture flowing into a warm Chanté Nwèl afterparty. A Creole kermesse of workshops, cooking demos, storytelling, gwoka drumming, a makers' market and a kids' zone, then traditional carols, live music and dancing into the night.</span>
-      <span class="lang-fr">Noula Day 2026 est notre événement phare de l'année : une journée entière de culture antillaise qui se prolonge dans une chaleureuse afterparty Chanté Nwèl. Une kermesse créole d'ateliers, démonstrations culinaires, contes, tambour gwoka, marché de créateurs et espace enfants, puis cantiques traditionnels, musique live et danse jusqu'au bout de la nuit.</span>
-    </p>
-    <p class="nd-list" style="text-align:center;">
-      <span class="lang-en"><strong>Madras · Accras · Ka · Biguine · Ti-Punch &amp; more</strong></span>
-      <span class="lang-fr"><strong>Madras · Accras · Ka · Biguine · Ti-Punch &amp; plus</strong></span>
-    </p>
-  </section>
-
-  <section class="nd-alt">
-    <div class="nd-section">
-      <h2><span class="lang-en">The programme</span><span class="lang-fr">Le programme</span></h2>
-      <p class="lead"><span class="lang-en">Activities, workshops and live sets run right through the day, each led by artists, chefs, hosts and makers from across the French Caribbean community.</span><span class="lang-fr">Activités, ateliers et concerts se succèdent tout au long de la journée, animés par des artistes, chefs, animateurs et créateurs de toute la communauté antillaise.</span></p>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="programme-of-the-day.html" class="nd-cta" style="background:var(--emerald);"><span class="lang-en">See the Programme of the Day →</span><span class="lang-fr">Voir le programme de la journée →</span></a>
+    <div class="nd-hero-inner">
+      <div class="nd-lineup-show" id="ndShow" aria-label="Meet the line-up">
+        <span class="nd-eyebrow nls-eyebrow"><span class="lang-en">Meet the line-up</span><span class="lang-fr">La programmation</span></span>
+        <div class="nls-slide active"><img src="images/artists/blode-prens.png" alt="Blodè Prens"><div class="nls-cap"><span class="r"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span><h4>Blodè Prens</h4></div></div>
+        <div class="nls-slide"><img src="images/artists/charlz.png" alt="Charlz" loading="lazy"><div class="nls-cap"><span class="r"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span><h4>Charlz</h4></div></div>
+        <div class="nls-slide"><img src="images/artists/jade.png" alt="Jade" loading="lazy"><div class="nls-cap"><span class="r"><span class="lang-en">Madras workshop</span><span class="lang-fr">Atelier madras</span></span><h4>Jade</h4></div></div>
+        <div class="nls-dots" id="ndDots"></div>
+      </div>
+      <div class="nd-hero-info">
+        <span class="nd-eyebrow"><span class="lang-en">Flagship event of the year</span><span class="lang-fr">Événement phare de l'année</span></span>
+        <h1>Noula Day 2026</h1>
+        <p class="nd-sub"><span class="lang-en">The Créole Kermesse + Chanté Nwèl Afterparty</span><span class="lang-fr">The Créole Kermesse + afterparty Chanté Nwèl</span></p>
+        <div class="nd-facts2">
+          <div class="row"><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>Sat 28 Nov 2026 · 12h → 22h30</strong></div>
+          <div class="row"><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
+          <div class="row"><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Everyone · family-friendly</span><span class="lang-fr">Pour tous · en famille</span></strong></div>
+        </div>
+        <div class="nd-btns">
+          <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book tickets →</span><span class="lang-fr">Réserver →</span></a>
+          <a href="programme-of-the-day.html" class="nd-cta ghost"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a>
+          <a href="deroule.html" class="nd-cta ghost"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a>
+        </div>
+        <button type="button" class="nd-flyerthumb" id="flyerBtn"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer"><span class="nd-flyerlabel"><span class="lang-en">Voir le flyer</span><span class="lang-fr">Voir le flyer</span><span class="nd-zoom">⤢</span></span></button>
       </div>
     </div>
   </section>
 
-  <section class="nd-section">
-    <h2><span class="lang-en">Two celebrations, one day</span><span class="lang-fr">Deux célébrations, une journée</span></h2>
-    <div class="nd-two">
-      <div class="card">
-        <h3><span class="lang-en">The Creole Kermesse</span><span class="lang-fr">La kermesse créole</span></h3>
-        <p><span class="lang-en">From midday, a lively daytime fair: madras workshops, cooking demos, créole storytelling, tournaments, gwoka drumming, a kids' zone and a marketplace of French Caribbean makers.</span><span class="lang-fr">Dès midi, une fête de jour animée : ateliers madras, démonstrations culinaires, contes créoles, tournois, tambour gwoka, espace enfants et marché de créateurs antillais.</span></p>
-      </div>
-      <div class="card">
-        <h3><span class="lang-en">The Chanté Nwèl Afterparty</span><span class="lang-fr">L'afterparty Chanté Nwèl</span></h3>
-        <p><span class="lang-en">As evening falls, the day turns into a warm Créole Christmas: traditional carols, biguine and kompa, live music and dancing, shared over food and Ti-Punch.</span><span class="lang-fr">À la tombée du soir, la journée se mue en un chaleureux Noël créole : cantiques traditionnels, biguine et kompa, musique live et danse, autour d'un repas et d'un Ti-Punch.</span></p>
+  <!-- ONE DAY, TWO CELEBRATIONS -->
+  <section class="nd-band nd-alt">
+    <div class="nd-wrap">
+      <div class="nd-split">
+        <div>
+          <p class="nd-kicker"><span class="lang-en">A French Caribbean day in Brixton</span><span class="lang-fr">Une journée antillaise à Brixton</span></p>
+          <h2 class="nd-h2"><span class="lang-en">One day, two celebrations</span><span class="lang-fr">Une journée, deux célébrations</span></h2>
+          <p class="body"><span class="lang-en">A full day of French Caribbean culture flowing into a warm Chanté Nwèl afterparty. Workshops, cooking demos, storytelling, gwoka drumming, a makers' market and a kids' zone through the day, then traditional carols, live music and dancing into the night.</span><span class="lang-fr">Une journée entière de culture antillaise qui se prolonge dans une chaleureuse afterparty Chanté Nwèl. Ateliers, démonstrations culinaires, contes, tambour gwoka, marché de créateurs et espace enfants la journée, puis cantiques traditionnels, musique live et danse jusque tard dans la nuit.</span></p>
+          <div class="nd-sensory">
+            <span>Madras</span><span>Accras</span><span>Ka</span><span>Biguine</span><span>Ti-Punch</span>
+            <span><span class="lang-en">&amp; more</span><span class="lang-fr">&amp; plus</span></span>
+          </div>
+        </div>
+        <div class="nd-cards">
+          <div class="nd-card">
+            <span class="tag"><span class="lang-en">From midday</span><span class="lang-fr">Dès midi</span></span>
+            <h3><span class="lang-en">The Créole Kermesse</span><span class="lang-fr">La kermesse créole</span></h3>
+            <p><span class="lang-en">A lively daytime fair: madras workshops, cooking demos, créole storytelling, tournaments, gwoka drumming, a kids' zone and a marketplace of French Caribbean makers.</span><span class="lang-fr">Une fête de jour animée : ateliers madras, démonstrations culinaires, contes créoles, tournois, tambour gwoka, espace enfants et marché de créateurs antillais.</span></p>
+          </div>
+          <div class="nd-card night">
+            <span class="tag"><span class="lang-en">As night falls</span><span class="lang-fr">À la tombée du soir</span></span>
+            <h3><span class="lang-en">The Chanté Nwèl Afterparty</span><span class="lang-fr">L'afterparty Chanté Nwèl</span></h3>
+            <p><span class="lang-en">A warm Créole Christmas: traditional carols, biguine and kompa, live music and dancing, shared over food and Ti-Punch.</span><span class="lang-fr">Un chaleureux Noël créole : cantiques traditionnels, biguine et kompa, musique live et danse, autour d'un repas et d'un Ti-Punch.</span></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="nd-alt">
-    <div class="nd-section">
+  <!-- Programme pointer -->
+  <section class="nd-band">
+    <div class="nd-wrap" style="text-align:center;">
+      <p class="nd-kicker"><span class="lang-en">The line-up</span><span class="lang-fr">La programmation</span></p>
+      <h2 class="nd-h2" style="text-align:center;"><span class="lang-en">See who's on, and when</span><span class="lang-fr">Qui joue, et quand</span></h2>
+      <p class="nd-note" style="max-width:640px; margin:0 auto;"><span class="lang-en">More performers, hosts and makers to be announced. The full run of activities and workshops, with times, lives on the Programme of the Day.</span><span class="lang-fr">D'autres artistes, animateurs et créateurs à venir. Le déroulé complet des activités et ateliers, avec les horaires, est sur le programme de la journée.</span></p>
+      <div style="margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center;"><a href="programme-of-the-day.html" class="nd-cta emerald"><span class="lang-en">Browse the programme →</span><span class="lang-fr">Parcourir le programme →</span></a><a href="deroule.html" class="nd-cta gold"><span class="lang-en">See it hour by hour →</span><span class="lang-fr">Voir le déroulé →</span></a></div>
+    </div>
+  </section>
+
+  <!-- TICKETS -->
+  <section class="nd-band nd-alt">
+    <div class="nd-wrap">
       <div class="nd-tickets">
         <div>
           <h3><span class="lang-en">Get your tickets</span><span class="lang-fr">Prenez vos billets</span></h3>
           <p><span class="lang-en">Book online through Eventbrite. Come early, stay late, bring the whole family.</span><span class="lang-fr">Réservez en ligne via Eventbrite. Venez tôt, restez tard, en famille.</span></p>
-          <p style="margin-top:0.5rem;"><strong>St Matthew's Brixton, SW2 · Sat 28 November 2026</strong></p>
-          <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book on Eventbrite →</span><span class="lang-fr">Réserver sur Eventbrite →</span></a>
+          <p><strong>St Matthew's Brixton, SW2 · Sat 28 November 2026</strong></p>
+          <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta gold"><span class="lang-en">Book on Eventbrite →</span><span class="lang-fr">Réserver sur Eventbrite →</span></a>
         </div>
         <div>
           <div class="nd-qr"><div id="eb-qr"></div></div>
@@ -131,6 +220,8 @@
       </div>
     </div>
   </section>
+
+  <div class="nd-lightbox" id="flyerLightbox"><button class="close" aria-label="Close">&times;</button><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer"></div>
 
   <footer class="footer">
     <div class="footer-content">
@@ -143,8 +234,8 @@
         <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
         <ul>
           <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
-          <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
-          <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
+          <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+          <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
           <li><a href="directory.html"><span class="lang-en">Noula Directory</span><span class="lang-fr">Annuaire Noula</span></a></li>
           <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         </ul>
@@ -155,6 +246,7 @@
       </div>
     </div>
     <div class="footer-bottom"><p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p></div>
+      <div class="footer-status" style="text-align:center;padding-top:.6rem;"><a href="_status.html" style="color:rgba(255,255,255,0.38);font-size:.75rem;text-decoration:none;letter-spacing:.03em;">Site status</a></div>
   </footer>
 
 <script>
@@ -168,6 +260,26 @@
     function set(l){ document.querySelectorAll('.lang-en,.lang-fr').forEach(e=>e.style.display='none'); document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='inline'); btns.forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l)); document.documentElement.lang=l; localStorage.setItem('selectedLanguage',l); }
     set(cur); btns.forEach(b=>b.addEventListener('click',()=>set(b.getAttribute('data-lang'))));
   });
+</script>
+<script>
+(function(){
+  var show=document.getElementById('ndShow');
+  if(show){
+    var slides=show.querySelectorAll('.nls-slide'); var dotsWrap=document.getElementById('ndDots'); var i=0,t;
+    slides.forEach(function(s,idx){ var b=document.createElement('button'); b.className='nls-dot'+(idx===0?' active':''); b.setAttribute('aria-label','Slide '+(idx+1)); b.addEventListener('click',function(){go(idx);reset();}); dotsWrap.appendChild(b); });
+    var dots=dotsWrap.querySelectorAll('.nls-dot');
+    function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); }
+    function reset(){ clearInterval(t); t=setInterval(function(){go(i+1);},4000); }
+    reset();
+  }
+  var fb=document.getElementById('flyerBtn'), lb=document.getElementById('flyerLightbox');
+  if(fb&&lb){ var c=lb.querySelector('.close');
+    fb.addEventListener('click',function(){lb.classList.add('open');});
+    function close(){lb.classList.remove('open');}
+    c.addEventListener('click',close); lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  }
+})();
 </script>
 <script src="feedback.js" defer></script>
 </body>
