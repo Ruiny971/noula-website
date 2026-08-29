@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme · Noula</title>
+    <meta name="description" content="Noula's 2026 events programme. Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty (28 Nov), plus past events.">
+
+    <meta property="og:title" content="Noula 2026 Programme">
+    <meta property="og:description" content="Full French Caribbean cultural programme · upcoming events, past events, and Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://noula.org.uk/events.html">
+    <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .lang-switch { display: flex; gap: 0.5rem; }
+        .lang-switch button {
+            background: none; border: 2px solid var(--coral); color: var(--coral);
+            padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+            font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+        }
+        .lang-switch button.active { background: var(--coral); color: white; }
+        .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+        .lang-fr { display: none; }
+
+        .event-strip {
+            background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+            color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+        }
+        .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+        .events-section-header {
+            text-align: center; margin: 3rem 0 2rem;
+            padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);
+        }
+        .events-section-header h2 {
+            font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; margin: 0 0 0.5rem;
+        }
+        .events-section-header p { color: #666; margin: 0; font-style: italic; }
+
+        .event-card.featured { border-left: 4px solid #E8724F; background: linear-gradient(135deg, rgba(232,114,79,0.03) 0%, rgba(45,121,97,0.03) 100%); }
+        .event-card.past { opacity: 0.85; }
+        .event-card .status-tag {
+            display: inline-block; padding: 0.2rem 0.7rem; border-radius: 1rem;
+            font-size: 0.7rem; letter-spacing: 0.1rem; text-transform: uppercase; font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .status-flagship { background: #E8724F; color: white; }
+        .status-upcoming { background: #2D7961; color: white; }
+        .status-delivered { background: #666; color: white; }
+        .status-soldout { background: #4B2E4E; color: white; }
+
+        .event-card.past:has(.cn-gallery) { opacity: 1; }
+        .cn-gallery {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 1.4rem;
+        }
+        .cn-shot { margin: 0; overflow: hidden; border-radius: 6px; cursor: zoom-in; background: #ece4d8; aspect-ratio: 4 / 5; }
+        .cn-shot.cn-wide { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+        .cn-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .cn-shot:hover img { transform: scale(1.04); }
+        @media (max-width: 640px) {
+            .cn-gallery { grid-template-columns: repeat(2, 1fr); }
+            .cn-shot.cn-wide { aspect-ratio: 4 / 3; }
+        }
+        .cn-lightbox {
+            position: fixed; inset: 0; z-index: 9999; display: none;
+            background: rgba(28,16,30,0.94); align-items: center; justify-content: center;
+            padding: 3vw; cursor: zoom-out;
+        }
+        .cn-lightbox.open { display: flex; }
+        .cn-lightbox img { max-width: 100%; max-height: 100%; border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .cn-lightbox .cn-close {
+            position: absolute; top: 1.2rem; right: 1.6rem; color: #FAF6F1;
+            font-size: 2.4rem; line-height: 1; background: none; border: none; cursor: pointer; opacity: 0.8;
+        }
+        .cn-lightbox .cn-close:hover { opacity: 1; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty",
+      "startDate": "2026-11-28T12:00:00+00:00",
+      "endDate": "2026-11-28T22:30:00+00:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": ["https://noula.org.uk/images/NOULA-Day-2026-banner.png"],
+      "description": "A full day of French Caribbean culture in Brixton flowing into a warm Chanté Nwèl afterparty. Madras workshops, cooking demos, créole storytelling, tournaments, gwoka drumming, kids' zone, a marketplace of French Caribbean makers, then carols, live music and dancing late into the night.",
+      "location": {
+        "@type": "Place",
+        "name": "St Matthew's Church, Brixton",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "St Matthew's Church",
+          "addressLocality": "Brixton",
+          "addressRegion": "London",
+          "postalCode": "SW2",
+          "addressCountry": "GB"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Noula",
+        "url": "https://noula.org.uk"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01T00:00:00+00:00"
+      }
+    }
+    </script>
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <!-- Top strip -->
+    <div class="event-strip">
+        <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+        <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+        <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+            <span class="lang-en">Book →</span>
+            <span class="lang-fr">Réserver →</span>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link" aria-label="Noula home">
+                    <img src="logo.jpg" alt="Noula logo" class="logo-img">
+                </a>
+                <div class="brand-name"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                <li><a href="events.html" aria-current="page"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+                <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+                <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+                <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+            </ul>
+
+            <div class="lang-switch" role="group" aria-label="Language selection">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="lang-en">Our Programme</span>
+                <span class="lang-fr">Notre Programme</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="lang-en">The Créole soul of the volcanoes</span>
+                <span class="lang-fr">L'âme créole des volcans Soufrière et Pelée</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section class="events-section">
+        <div class="container">
+            <div class="events-section-header">
+                <h2><span class="lang-en">Upcoming events</span><span class="lang-fr">Événements à venir</span></h2>
+                <p><span class="lang-en">What's coming up in 2026</span><span class="lang-fr">À venir en 2026</span></p>
+            </div>
+
+            <!-- Event 3: Noula Day 2026 (FLAGSHIP) -->
+            <div class="event-card featured">
+                <img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty" style="display:block; width:100%; height:auto;">
+                <div class="event-header">
+                    <span class="status-tag status-flagship">
+                        <span class="lang-en">Flagship 2026</span>
+                        <span class="lang-fr">Événement phare</span>
+                    </span>
+                    <h2 class="event-title">
+                        <span class="lang-en">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
+                        <span class="lang-fr">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
+                    </h2>
+                    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #4B2E4E; margin: 0.25rem 0 0.5rem;">Madras · Accras · Ka · Biguine · Ti-Punch</p>
+                    <div class="event-meta">
+                        <span class="event-date"><span class="lang-en">Saturday, 28 November 2026</span><span class="lang-fr">Samedi 28 novembre 2026</span></span>
+                        <span class="event-time"><span class="lang-en">12:00 to 22:30</span><span class="lang-fr">12h à 22h30</span></span>
+                    </div>
+                </div>
+                <div class="event-details">
+                    <div class="event-format">
+                        <span class="format-badge inperson"><span class="lang-en">In person</span><span class="lang-fr">En présentiel</span></span>
+                        <span class="format-badge culture"><span class="lang-en">Cultural day + Chanté Nwèl afterparty</span><span class="lang-fr">Journée culturelle + afterparty Chanté Nwèl</span></span>
+                    </div>
+                    <p class="event-description">
+                        <span class="lang-en">Our biggest event of the year. A full day of French Caribbean culture at St Matthew's Brixton flowing into a warm Chanté Nwèl afterparty. Multi-generational, warm, culturally rooted. Come early, stay late.</span>
+                        <span class="lang-fr">Notre plus grand événement de l'année. Une journée entière de culture antillaise à St Matthew's Brixton qui se prolonge en afterparty Chanté Nwèl chaleureuse. Multi-générationnel, ancré dans nos racines. Venez tôt, restez tard.</span>
+                    </p>
+                    <div class="event-activities">
+                        <h3 class="activities-title"><span class="lang-en">Programme highlights</span><span class="lang-fr">Temps forts</span></h3>
+                        <ul class="activities-list">
+                            <li><span class="lang-en">Traditional Antillean dance workshop</span><span class="lang-fr">Atelier de danse antillaise traditionnelle</span></li>
+                            <li><span class="lang-en">Contes créoles (Créole storytelling)</span><span class="lang-fr">Contes créoles</span></li>
+                            <li><span class="lang-en">Guided créole dégustation</span><span class="lang-fr">Dégustation créole guidée</span></li>
+                            <li><span class="lang-en">Gwoka drum circle + kids' Ka workshop</span><span class="lang-fr">Cercle de tambour gwoka + atelier ka pour enfants</span></li>
+                            <li><span class="lang-en">Madras textile workshop</span><span class="lang-fr">Atelier textile madras</span></li>
+                            <li><span class="lang-en">UKM carnival costume catwalk</span><span class="lang-fr">Défilé carnaval UKM</span></li>
+                            <li><span class="lang-en">Chanté Nwèl · créole Christmas carols, biguine, kompa, feast</span><span class="lang-fr">Chanté Nwèl · cantiques créoles, biguine, kompa, festin</span></li>
+                            <li><span class="lang-en">Zouk / kompa dance intro with Zouk Love London</span><span class="lang-fr">Initiation zouk / kompa avec Zouk Love London</span></li>
+                            <li><span class="lang-en">Père Nwèl Antillais for the kids</span><span class="lang-fr">Père Nwèl Antillais pour les enfants</span></li>
+                            <li><span class="lang-en">Antillean marketplace, kids' zone, photo booth, dominos tournament, live art</span><span class="lang-fr">Marché antillais, coin enfants, photo booth, tournoi de dominos, artiste en direct</span></li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 0.9rem; opacity: 0.75; margin-top: 1rem;">
+                        <span class="lang-en"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 0.25rem;"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>St Matthew's Brixton, SW2 · Kids under 12 free · Donation tickets available</span>
+                        <span class="lang-fr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 0.25rem;"><path d="M12 21s-6-5.5-6-10a6 6 0 1 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>St Matthew's Brixton, SW2 · Enfants moins de 12 ans gratuit · Billets à prix libre disponibles</span>
+                    </p>
+                    <button id="eventbrite-widget-modal-trigger-1987449682501" type="button" class="btn btn-primary" style="border: none; cursor: pointer;">
+                        <span class="lang-en">Get Tickets →</span>
+                        <span class="lang-fr">Réserver →</span>
+                    </button>
+                    <noscript><a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Tickets on Eventbrite →</a></noscript>
+                </div>
+            </div>
+
+            <!-- Event 2: Acras, removed for now -->
+        </div>
+    </section>
+
+    <!-- PAST EVENTS -->
+    <section class="events-section alt">
+        <div class="container">
+            <div class="events-section-header">
+                <h2><span class="lang-en">Past events</span><span class="lang-fr">Événements passés</span></h2>
+                <p><span class="lang-en">The community moments that got us here</span><span class="lang-fr">Les moments qui nous ont menés jusqu'ici</span></p>
+            </div>
+
+            <!-- Chanté Nwèl 2025 -->
+            <div class="event-card past">
+                <div class="event-header">
+                    <span class="status-tag status-soldout">
+                        <span class="lang-en">Past event</span>
+                        <span class="lang-fr">Événement passé</span>
+                    </span>
+                    <h2 class="event-title">
+                        <span class="lang-en">Chanté Nwèl 2025 · our first Créole Christmas in London</span>
+                        <span class="lang-fr">Chanté Nwèl 2025 · notre premier Chanté Nwèl à Londres</span>
+                    </h2>
+                    <div class="event-meta">
+                        <span class="event-date"><span class="lang-en">Sunday, 30 November 2025</span><span class="lang-fr">Dimanche 30 novembre 2025</span></span>
+                    </div>
+                </div>
+                <div class="event-details">
+                    <p class="event-description">
+                        <span class="lang-en">Our very first Chanté Nwèl · an unforgettable evening at Montgomery Hall in Kennington. The community came together for créole Christmas carols, traditional Antillean food, live music and dance. The moment that made this all possible.</span>
+                        <span class="lang-fr">Notre tout premier Chanté Nwèl · une soirée inoubliable à Montgomery Hall, Kennington. La communauté réunie pour les cantiques créoles de Noël, la cuisine antillaise traditionnelle, la musique et la danse en direct. Le moment qui a tout rendu possible.</span>
+                    </p>
+                    <div class="cn-gallery">
+                        <figure class="cn-shot cn-wide" data-full="images/gallery/cn25-crowd.jpg">
+                            <img src="images/gallery/cn25-crowd.jpg" alt="A full community hall singing together at Chanté Nwèl 2025, French Caribbean flags on the walls" loading="lazy">
+                        </figure>
+                        <figure class="cn-shot" data-full="images/gallery/cn25-globe.jpg">
+                            <img src="images/gallery/cn25-globe.jpg" alt="A storyteller holding a painted globe beside the Christmas tree" loading="lazy">
+                        </figure>
+                        <figure class="cn-shot" data-full="images/gallery/cn25-host.jpg">
+                            <img src="images/gallery/cn25-host.jpg" alt="A host in a madras-trimmed shirt chatting with guests at their table" loading="lazy">
+                        </figure>
+                        <figure class="cn-shot" data-full="images/gallery/cn25-table.jpg">
+                            <img src="images/gallery/cn25-table.jpg" alt="Three generations sharing a table under the Guyane and UKM flags" loading="lazy">
+                        </figure>
+                    </div>
+                    <p style="font-size: 0.85rem; opacity: 0.6; margin: 0.6rem 0 0; font-style: italic;">
+                        <span class="lang-en">Montgomery Hall, Kennington · November 2025</span>
+                        <span class="lang-fr">Montgomery Hall, Kennington · novembre 2025</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Volcano workshop -->
+            <div class="event-card past">
+                <div class="event-header">
+                    <span class="status-tag status-delivered">
+                        <span class="lang-en">Delivered</span>
+                        <span class="lang-fr">Réalisé</span>
+                    </span>
+                    <h2 class="event-title">
+                        <span class="lang-en">Build your own Caribbean volcano · kids' workshop</span>
+                        <span class="lang-fr">Construis ton volcan des Antilles · atelier enfants</span>
+                    </h2>
+                    <div class="event-meta">
+                        <span class="event-date"><span class="lang-en">Sunday, 26 April 2026</span><span class="lang-fr">Dimanche 26 avril 2026</span></span>
+                    </div>
+                </div>
+                <div class="event-details">
+                    <p class="event-description">
+                        <span class="lang-en">A free bilingual online workshop hosted by Shinead (age 9) and Eliza. Kids explored the volcanic landscape of Guadeloupe and Martinique · La Soufrière and Montagne Pelée · and built their own volcano models from household materials.</span>
+                        <span class="lang-fr">Un atelier en ligne gratuit et bilingue animé par Shinead (9 ans) et Eliza. Les enfants ont exploré le paysage volcanique de la Guadeloupe et de la Martinique · La Soufrière et la Montagne Pelée · et ont construit leur propre maquette de volcan avec des matériaux de la maison.</span>
+                    </p>
+                    <p style="font-size: 0.9rem; opacity: 0.75;">
+                        <span class="lang-en">Delivered as Event 1 of the STAFE 2026 programme.</span>
+                        <span class="lang-fr">Réalisé dans le cadre de l'Événement 1 du programme STAFE 2026.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Programme -->
+    <section class="programme-info">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">About our 2026 programme</span>
+                <span class="lang-fr">À propos de notre programme 2026</span>
+            </h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><span class="lang-en">Natural heritage</span><span class="lang-fr">Patrimoine naturel</span></h3>
+                    <p><span class="lang-en">The remarkable volcanoes of Guadeloupe and Martinique · La Soufrière and Montagne Pelée · thread through the whole programme, from kids' workshops to visual reference for our flagship event.</span><span class="lang-fr">Les volcans remarquables de la Guadeloupe et de la Martinique · La Soufrière et la Montagne Pelée · traversent tout le programme, des ateliers enfants aux références visuelles de notre événement phare.</span></p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="lang-en">Culinary traditions</span><span class="lang-fr">Traditions culinaires</span></h3>
+                    <p><span class="lang-en">Créole cuisine is culture. Cooking demos, guided dégustations, and shared meals bring us together around the flavours, techniques and family stories at the heart of French Caribbean food.</span><span class="lang-fr">La cuisine créole, c'est de la culture. Démonstrations, dégustations guidées et repas partagés nous rassemblent autour des saveurs, techniques et histoires de famille au cœur de la gastronomie antillaise.</span></p>
+                </div>
+                <div class="info-card">
+                    <h3><span class="lang-en">Community celebration</span><span class="lang-fr">Célébration communautaire</span></h3>
+                    <p><span class="lang-en">Everything culminates in <strong>Noula Day 2026</strong>, our flagship event · The Creole Kermesse + Chanté Nwèl Afterparty. A day-into-night celebration for all ages, all generations, and everyone who wants to experience French Caribbean culture live.</span><span class="lang-fr">Tout culmine avec <strong>Noula Day 2026</strong>, notre événement phare · The Creole Kermesse + Chanté Nwèl Afterparty. Une célébration du jour à la nuit, pour tous les âges, toutes les générations, et tous ceux qui veulent vivre la culture antillaise en vrai.</span></p>
+                </div>
+            </div>
+            <div class="programme-cta">
+                <p>
+                    <span class="lang-en">The 2026 programme is supported by the STAFE grant of the French Ministry of Europe and Foreign Affairs (MEAE).</span>
+                    <span class="lang-fr">Le programme 2026 est soutenu par le programme STAFE du Ministère français de l'Europe et des Affaires étrangères (MEAE).</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Noula</h4>
+                <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span></p>
+                <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+            </div>
+
+            <div class="footer-section">
+                <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+                <ul>
+                    <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                    <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+                    <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+                    <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+                    <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                    <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+                <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+                <div class="footer-social">
+                    <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+                    <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+            setLanguage(currentLang);
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentLang = this.getAttribute('data-lang');
+                    localStorage.setItem('selectedLanguage', currentLang);
+                    setLanguage(currentLang);
+                });
+            });
+            function setLanguage(lang) {
+                document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+                document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+                document.documentElement.lang = lang;
+            }
+        });
+    </script>
+    <div class="cn-lightbox" id="cnLightbox">
+        <button class="cn-close" aria-label="Close">&times;</button>
+        <img src="" alt="Chanté Nwèl 2025 photo enlarged">
+    </div>
+    <script>
+        (function(){
+            var box = document.getElementById('cnLightbox');
+            var full = box.querySelector('img');
+            document.querySelectorAll('.cn-shot').forEach(function(fig){
+                fig.addEventListener('click', function(){
+                    full.src = fig.getAttribute('data-full');
+                    box.classList.add('open');
+                });
+            });
+            function close(){ box.classList.remove('open'); full.src = ''; }
+            box.addEventListener('click', close);
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+        })();
+    </script>
+    <script src="https://www.eventbrite.co.uk/static/widgets/eb_widgets.js"></script>
+    <script type="text/javascript">
+        window.EBWidgets.createWidget({
+            widgetType: 'checkout',
+            eventId: '1987449682501',
+            themeSettings: {
+                brandColor: '#E8724F',
+                fontColor: '#2A1A2C',
+                background: '#FAF6F1'
+            },
+            modal: true,
+            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1987449682501'
+        });
+    </script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

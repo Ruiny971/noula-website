@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noula · Celebrating French Caribbean Heritage in the UK</title>
+    <meta name="description" content="Noula is a UK-registered charity celebrating and sharing French Caribbean heritage. Discover our cultural events, workshops and community programme in London.">
+
+    <meta property="og:title" content="Noula · French Caribbean Heritage in the UK">
+    <meta property="og:description" content="Cultural events, workshops and community celebrations for the French Caribbean diaspora in the UK. Sat 28 Nov 2026: Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://noula.org.uk/">
+    <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Language switcher */
+        .lang-switch { display: flex; gap: 0.5rem; }
+        .lang-switch button {
+            background: none; border: 2px solid var(--coral); color: var(--coral);
+            padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+            font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+        }
+        .lang-switch button.active { background: var(--coral); color: white; }
+        .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+        .lang-fr { display: none; }
+
+        /* Top event strip */
+        .event-strip {
+            background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+            color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+        /* Hero: soft madras side panels framing the content (desktop presence) */
+        .hero { padding: 6rem 2rem 5rem; }
+        .hero::before, .hero::after {
+            top: 0; bottom: 0; height: auto !important; width: 300px !important;
+            background: url('images/madras.png') center/cover no-repeat !important;
+            opacity: 0.22 !important;
+        }
+        .hero::before {
+            left: 0; right: auto;
+            -webkit-mask-image: linear-gradient(90deg, #000 35%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 35%, transparent 100%);
+        }
+        .hero::after {
+            right: 0; left: auto;
+            -webkit-mask-image: linear-gradient(270deg, #000 35%, transparent 100%);
+            mask-image: linear-gradient(270deg, #000 35%, transparent 100%);
+        }
+        @media (max-width: 768px) {
+            .hero::before, .hero::after { width: 90px !important; opacity: 0.13 !important; }
+        }
+
+        /* Photo montage band */
+        .montage-section { padding: 3.5rem 1.5rem; background: linear-gradient(135deg, #2D1F3D 0%, #4B2E4E 100%); }
+        .montage-inner { max-width: 1080px; margin: 0 auto; }
+        .montage-grid {
+            display: grid; grid-template-columns: 1.55fr 1fr; grid-template-rows: 1fr 1fr;
+            gap: 0.7rem; height: 460px;
+        }
+        .montage-grid figure { margin: 0; overflow: hidden; border-radius: 8px; background: #1a1930; cursor: zoom-in; position: relative; }
+        .montage-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .montage-grid figure:hover img { transform: scale(1.05); }
+        .montage-big img { animation: montageDrift 18s ease-in-out infinite alternate; }
+        .montage-big:hover img { animation-play-state: paused; }
+        @keyframes montageDrift { from { transform: scale(1.02); } to { transform: scale(1.1); } }
+        .montage-big { grid-row: 1 / span 2; }
+        .montage-caption {
+            text-align: center; color: rgba(250,246,241,0.82); margin: 1.2rem 0 0;
+            font-size: 0.95rem; font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .montage-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 190px 190px; height: auto; }
+            .montage-big { grid-column: 1 / -1; grid-row: auto; height: 220px; }
+        }
+
+        /* Event 3 flagship hero */
+        .flagship {
+            background: linear-gradient(135deg, #1a1930 0%, #2D1F3D 40%, #4B2E4E 100%);
+            color: #FAF6F1; padding: 5.5rem 2rem; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .flagship::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 10px;
+            background: url('images/madras.svg') repeat; background-size: 130px auto;
+        }
+        .flagship::after {
+            content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 10px;
+            background: url('images/madras.svg') repeat; background-size: 130px auto;
+        }
+        .flagship-tag {
+            display: inline-block; padding: 0.45rem 1.25rem;
+            background: rgba(232, 114, 79, 0.2); border: 1px solid #E8724F;
+            color: #FAF6F1;
+            border-radius: 2rem; font-size: 0.95rem; letter-spacing: 0.15rem;
+            text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .flagship h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #FAF6F1;
+            font-size: 4.4rem; margin: 0.5rem 0; line-height: 1.05;
+        }
+        .flagship .subtitle {
+            font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+            font-size: 1.9rem; color: #E8C078; margin: 0.75rem 0 1.75rem;
+        }
+        .flagship .facts {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;
+            margin: 2rem 0; opacity: 0.95;
+        }
+        .flagship .facts div small { display: block; font-size: 0.9rem; letter-spacing: 0.1rem;
+            text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; }
+        .flagship .facts div strong { font-size: 1.35rem; font-weight: 500; }
+        .flagship .highlights {
+            margin: 1.75rem auto 0; max-width: 940px; font-size: 1.25rem; line-height: 1.75;
+            color: rgba(250, 246, 241, 0.94);
+        }
+        .flagship .btn-primary {
+            background: #E8724F; color: white; padding: 1.15rem 2.75rem;
+            border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 1.15rem;
+            display: inline-block; margin-top: 2rem; transition: all 0.2s;
+        }
+        .flagship .btn-primary:hover { background: #d05f3d; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(192,86,47,0.6); }
+        @media (max-width: 768px) {
+            .flagship { padding: 3.5rem 1.25rem; }
+            .flagship h2 { font-size: 2.6rem; }
+            .flagship .subtitle { font-size: 1.4rem; }
+            .flagship .highlights { font-size: 1.1rem; }
+            .flagship .facts { gap: 1.25rem; }
+        }
+
+        /* Past events chip */
+        .past-events-link { text-align: center; margin-top: 2rem; }
+        .past-events-link a { color: var(--emerald); font-weight: 600; text-decoration: underline; }
+
+        /* Artists line-up slideshow */
+        .artists {
+            background: linear-gradient(160deg, #2D1F3D 0%, #3F2743 55%, #4B2E4E 100%);
+            color: #FAF6F1; padding: 5rem 1.5rem; position: relative; overflow: hidden;
+        }
+        .artists::before, .artists::after {
+            content: ""; position: absolute; left: 0; right: 0; height: 8px;
+            background: url('images/madras.svg') repeat; background-size: 120px auto; opacity: 0.5;
+        }
+        .artists::before { top: 0; }
+        .artists::after { bottom: 0; }
+        .artists-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+        .artists-eyebrow {
+            text-align: center; letter-spacing: 0.22em; text-transform: uppercase;
+            font-size: 0.82rem; color: #E8C078; font-weight: 600; margin: 0 0 0.6rem;
+        }
+        .artists h2 {
+            font-family: 'Playfair Display', Georgia, serif; text-align: center;
+            font-size: 2.9rem; margin: 0 0 0.6rem; color: #FAF6F1;
+        }
+        .artists-sub { text-align: center; color: rgba(250,246,241,0.8); max-width: 620px; margin: 0 auto 2.75rem; font-size: 1.05rem; }
+        .artist-stage { position: relative; }
+        .artist-track { position: relative; min-height: 420px; }
+        .artist-slide {
+            position: absolute; inset: 0; display: grid; grid-template-columns: 300px 1fr;
+            gap: 2.5rem; align-items: center;
+            opacity: 0; visibility: hidden; transform: translateY(14px);
+            transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s;
+        }
+        .artist-slide.active { opacity: 1; visibility: visible; transform: none; }
+        .artist-photo {
+            position: relative; height: 400px; border-radius: 16px; overflow: hidden;
+            background: linear-gradient(160deg, #3a2440 0%, #4B2E4E 100%);
+            box-shadow: 0 24px 50px -20px rgba(0,0,0,0.65); border: 3px solid rgba(232,199,138,0.5);
+        }
+        .artist-photo::after {
+            content: ""; position: absolute; inset: 0; opacity: 0.1; mix-blend-mode: screen;
+            background: url('images/madras.png') center/180px repeat;
+        }
+        .artist-photo img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+        .artist-copy .artist-eyebrow2 {
+            display: inline-block; letter-spacing: 0.14em; text-transform: uppercase;
+            font-size: 0.78rem; font-weight: 700; color: #3F2743; background: linear-gradient(135deg,#EFC878,#C49E4C);
+            padding: 0.28rem 0.85rem; border-radius: 999px; margin-bottom: 1rem;
+        }
+        .artist-copy h3 {
+            font-family: 'Playfair Display', Georgia, serif; font-size: 2.6rem; line-height: 1.05;
+            margin: 0 0 0.35rem; color: #FAF6F1;
+        }
+        .artist-role { color: #E8C078; font-weight: 600; font-size: 1.05rem; margin: 0 0 1.2rem; }
+        .artist-bio { font-size: 1.18rem; line-height: 1.6; color: rgba(250,246,241,0.95); font-style: italic; max-width: 30rem; }
+        .artist-controls { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-top: 2.5rem; }
+        .artist-arrow {
+            width: 46px; height: 46px; border-radius: 999px; border: 1.5px solid rgba(232,199,138,0.6);
+            background: rgba(250,246,241,0.06); color: #E8C078; cursor: pointer; font-size: 1.3rem;
+            display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0;
+        }
+        .artist-arrow:hover { background: rgba(232,199,138,0.18); transform: translateY(-1px); }
+        .artist-dots { display: flex; gap: 0.6rem; }
+        .artist-dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(250,246,241,0.25); border: none; cursor: pointer; padding: 0; transition: all 0.25s; }
+        .artist-dot.active { background: #E8C078; transform: scale(1.25); }
+        .artists-note { text-align: center; margin-top: 2rem; color: rgba(250,246,241,0.7); font-size: 0.95rem; }
+        @media (max-width: 768px) {
+            .artists h2 { font-size: 2.1rem; }
+            .artist-slide { grid-template-columns: 1fr; gap: 1.4rem; text-align: center; }
+            .artist-track { min-height: 640px; }
+            .artist-photo { height: 320px; max-width: 260px; margin: 0 auto; }
+            .artist-copy h3 { font-size: 2rem; }
+            .artist-bio { margin: 0 auto; font-size: 1.05rem; }
+            .artist-copy .artist-eyebrow2 { margin-top: 0.5rem; }
+        }
+    </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <template id="__bundler_thumbnail">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <rect width="100" height="100" fill="#2D1F3D"/>
+            <g transform="translate(50 44)">
+                <circle r="20" fill="none" stroke="#E8C078" stroke-width="2.5"/>
+                <path d="M-13 4 A13 13 0 0 1 13 4 Z" fill="#E8724F"/>
+                <circle cy="-4" r="6" fill="#E8C078"/>
+                <path d="M-16 4 h32" stroke="#2D7961" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <text x="50" y="82" text-anchor="middle" fill="#FAF6F1" font-family="Georgia, serif" font-size="15" font-weight="700" letter-spacing="1">NOULA</text>
+        </svg>
+    </template>
+    <!-- Top strip -->
+    <div class="event-strip">
+        <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+        <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+        <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank">
+            <span class="lang-en">Book →</span>
+            <span class="lang-fr">Réserver →</span>
+        </a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link" aria-label="Noula home">
+                    <img src="logo.jpg" alt="Noula logo" class="logo-img">
+                </a>
+                <div class="brand-name"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" aria-current="page"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+                <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+                <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+                <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+            </ul>
+
+            <div class="lang-switch" role="group" aria-label="Language selection">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="images/logo-hero.png" alt="Noula" class="hero-title" style="display:block; width:min(340px,70%); height:auto; margin:0 auto 1.5rem;">
+            <h2 class="hero-subtitle">
+                <span class="lang-en">Celebrating and sharing French Caribbean culture in the UK</span>
+                <span class="lang-fr">Célébrer et partager la culture antillaise au Royaume-Uni</span>
+            </h2>
+            <p class="hero-tagline">
+                <span class="lang-en">Cultural events, workshops and community celebrations rooted in Guadeloupe, Martinique and the wider French Caribbean diaspora.</span>
+                <span class="lang-fr">Événements culturels, ateliers et célébrations communautaires ancrés dans la Guadeloupe, la Martinique et la diaspora antillaise au sens large.</span>
+            </p>
+            <a href="#flagship" class="btn btn-primary">
+                <span class="lang-en">See our flagship event →</span>
+                <span class="lang-fr">Voir notre événement phare →</span>
+            </a>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Slideshow -->
+    <!-- Photo montage -->
+    <section class="montage-section" aria-label="Photos from Chanté Nwèl 2025">
+        <div class="montage-inner">
+            <div class="montage-grid">
+                <figure class="montage-big" data-full="images/gallery/cn25-crowd.jpg"><img src="images/gallery/cn25-crowd.jpg" alt="A full community hall singing together at Chanté Nwèl 2025" loading="lazy"></figure>
+                <figure data-full="images/gallery/cn25-host.jpg"><img src="images/gallery/cn25-host.jpg" alt="A host in a madras-trimmed shirt with guests" loading="lazy"></figure>
+                <figure data-full="images/gallery/cn25-table.jpg"><img src="images/gallery/cn25-table.jpg" alt="Three generations sharing a table under French Caribbean flags" loading="lazy"></figure>
+            </div>
+            <p class="montage-caption">
+                <span class="lang-en">Chanté Nwèl 2025 · our first Créole Christmas celebration in London</span>
+                <span class="lang-fr">Chanté Nwèl 2025 · notre premier Chanté Nwèl à Londres</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP EVENT 3 -->
+    <section class="flagship" id="flagship">
+        <img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty" style="display:block; width:100%; max-width:1080px; height:auto; margin:0 auto 2.75rem; border-radius:18px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7);">
+        <span class="flagship-tag">
+            <span class="lang-en">Our flagship event of the year</span>
+            <span class="lang-fr">Notre événement phare de l'année</span>
+        </span>
+        <div class="facts">
+            <div><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>12h → 22h30</strong></div>
+            <div><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
+            <div><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Multi-generational · all ages</span><span class="lang-fr">Multi-générationnel · tous âges</span></strong></div>
+        </div>
+        <p class="highlights">
+            <span class="lang-en">A full day of French Caribbean culture in <b>Brixton</b> flowing into a warm Chanté Nwèl afterparty.<br><br>Madras workshops, cooking demos, créole storytelling, tournaments, gwoka drumming, kids' zone, marketplace of French Caribbean makers, then traditional carols, live music followed by an after party.<br><br>Multi-generational. All welcome. Come early, stay late.</span>
+            <span class="lang-fr">Une journée entière de culture antillaise à <b>Brixton</b> qui se prolonge dans une chaleureuse afterparty Chanté Nwèl.<br><br>Ateliers madras, démonstrations culinaires, contes créoles, tournois, tambour gwoka, espace enfants, marché de créateurs antillais, puis cantiques traditionnels et musique live, suivis d'une after party.<br><br>Multi-générationnel. Tous bienvenus. Venez tôt, restez tard.</span>
+        </p>
+        <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="btn-primary">
+            <span class="lang-en">Book Noula Day 2026 →</span>
+            <span class="lang-fr">Réservez Noula Day 2026 →</span>
+        </a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Artists line-up slideshow -->
+    <section class="artists" id="artists" aria-label="Artists performing at Noula Day 2026">
+        <div class="artists-inner">
+            <p class="artists-eyebrow">
+                <span class="lang-en">The line-up · Noula Day 2026</span>
+                <span class="lang-fr">La programmation · Noula Day 2026</span>
+            </p>
+            <h2>
+                <span class="lang-en">Meet the line-up</span>
+                <span class="lang-fr">La programmation</span>
+            </h2>
+            <p class="artists-sub">
+                <span class="lang-en">A taste of who's bringing the day to life, the performers, and the full programme of activities and workshops behind them.</span>
+                <span class="lang-fr">Un aperçu de celles et ceux qui font vivre la journée, les artistes, et le programme complet d'activités et d'ateliers derrière eux.</span>
+            </p>
+
+            <div class="artist-stage">
+                <div class="artist-track" id="artistTrack">
+                    <div class="artist-slide active">
+                        <div class="artist-photo"><img src="images/artists/blode-prens.png" alt="Blodè Prens" loading="lazy"></div>
+                        <div class="artist-copy">
+                            <span class="artist-eyebrow2"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span>
+                            <h3>Blodè Prens</h3>
+                            <p class="artist-role"><span class="lang-en">Vocals &amp; guitar</span><span class="lang-fr">Chant &amp; guitare</span></p>
+                            <p class="artist-bio">
+                                <span class="lang-en">“A Haitian artist whose music is steeped in emotion and hope. Music touches the soul and stirs the heart, so I chose love and faith, through my songs, to share my story.”</span>
+                                <span class="lang-fr">« Artiste haïtien dont la musique est empreinte d'émotion et d'espoir. La musique touche l'âme et fait vibrer les cœurs, alors j'ai choisi l'amour et la foi, à travers mes chansons, pour partager mon histoire. »</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="artist-slide">
+                        <div class="artist-photo"><img src="images/artists/charlz.png" alt="Charlz" loading="lazy"></div>
+                        <div class="artist-copy">
+                            <span class="artist-eyebrow2"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span>
+                            <h3>Charlz</h3>
+                            <p class="artist-role"><span class="lang-en">Vocals</span><span class="lang-fr">Chant</span></p>
+                            <p class="artist-bio">
+                                <span class="lang-en">“A Haitian singer passionate about bringing emotion. I sing in four different languages, blending diverse sounds and influences.”</span>
+                                <span class="lang-fr">« Chanteur haïtien passionné par la transmission de l'émotion. Je chante en quatre langues différentes, mêlant sons et influences variés. »</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="artist-slide">
+                        <div class="artist-photo"><img src="images/artists/jade.png" alt="Jade" loading="lazy"></div>
+                        <div class="artist-copy">
+                            <span class="artist-eyebrow2"><span class="lang-en">Workshop</span><span class="lang-fr">Atelier</span></span>
+                            <h3>Jade</h3>
+                            <p class="artist-role"><span class="lang-en">Madras Craft Workshop</span><span class="lang-fr">Atelier artisanat madras</span></p>
+                            <p class="artist-bio">
+                                <span class="lang-en">“Working with the iconic madras fabric, a hands-on craft session celebrating a thread of French Caribbean heritage.”</span>
+                                <span class="lang-fr">« Autour du tissu madras emblématique, un atelier créatif qui célèbre un fil du patrimoine antillais. »</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artist-controls">
+                    <button class="artist-arrow" id="artistPrev" aria-label="Previous artist">&#8249;</button>
+                    <div class="artist-dots" id="artistDots"></div>
+                    <button class="artist-arrow" id="artistNext" aria-label="Next artist">&#8250;</button>
+                </div>
+                <p class="artists-note">
+                    <span class="lang-en">More artists and activities to be announced, the full line-up is still growing.</span>
+                    <span class="lang-fr">D'autres artistes et activités à venir, la programmation continue de s'étoffer.</span>
+                </p>
+                <div style="text-align:center; margin-top:1.75rem;">
+                    <a href="programme-of-the-day.html" class="btn btn-primary">
+                        <span class="lang-en">See the full Programme of the Day →</span>
+                        <span class="lang-fr">Voir le programme de la journée →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- About preview -->
+    <section class="container section-about" id="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">
+                    <span class="lang-en">Who we are</span>
+                    <span class="lang-fr">Qui sommes-nous</span>
+                </h2>
+
+                <p>
+                    <span class="lang-en">Noula comes from Antillean Créole "nou la" · meaning "we're here". It's a statement of presence, togetherness and belonging. We celebrate the French Caribbean in all its richness · from Guadeloupe and Martinique to French Guiana, Haiti and the wider Francophone Caribbean diaspora. Our mission is to celebrate and share this heritage right here in the UK.</span>
+                    <span class="lang-fr">Noula vient du créole antillais "nou la" · signifiant "nous sommes là". C'est une affirmation de présence, de solidarité et d'appartenance. Nous célébrons les Antilles françaises dans toute leur richesse · de la Guadeloupe et la Martinique à la Guyane française, à Haïti et à la diaspora caribéenne francophone au sens large. Notre mission : célébrer et partager ce patrimoine ici, au Royaume-Uni.</span>
+                </p>
+            </div>
+
+            <div class="about-highlights">
+                <ul class="mission-points">
+                    <li>
+                        <span class="lang-en">Cultural events, workshops and cooking demonstrations</span>
+                        <span class="lang-fr">Événements culturels, ateliers et démonstrations culinaires</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Celebrating and sharing oral histories and traditions</span>
+                        <span class="lang-fr">Célébrer et partager les histoires orales et les traditions</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Connecting the French Caribbean diaspora across the UK</span>
+                        <span class="lang-fr">Connecter la diaspora antillaise à travers le Royaume-Uni</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Building a hub for community businesses and services</span>
+                        <span class="lang-fr">Bâtir un centre pour les entreprises et services communautaires</span>
+                    </li>
+                </ul>
+                <a href="about.html" class="btn btn-outline" style="margin-top: 1.5rem;">
+                    <span class="lang-en">Read our story →</span>
+                    <span class="lang-fr">Notre parcours →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 Programme preview -->
+    <section class="section-events section alt" id="events">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">2026 Programme</span>
+                <span class="lang-fr">Programme 2026</span>
+            </h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem; font-style: italic;">
+                <span class="lang-en">Cultural events, workshops and community celebrations across the year, building toward Noula Day 2026.</span>
+                <span class="lang-fr">Événements culturels, ateliers et célébrations communautaires tout au long de l'année, jusqu'à Noula Day 2026.</span>
+            </p>
+
+            <div class="events-grid">
+                <!-- Event 2: Acras (still upcoming, Sep 26) -->
+                <div class="event-card">
+                    <img class="event-media" src="images/gallery/acras-food.jpg" alt="A basket of golden accras de morue with chilli dipping sauce and lime" loading="lazy">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="lang-en">Saturday, 26 September 2026</span>
+                            <span class="lang-fr">Samedi 26 septembre 2026</span>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">
+                            <span class="lang-en">Accras de morue · Caribbean cooking demo</span>
+                            <span class="lang-fr">Accras de morue · démonstration de cuisine antillaise</span>
+                        </h3>
+                        <p class="event-description">
+                            <span class="lang-en">A live online cooking demonstration with Valerie. Learn the technique for the beloved Antillean salt cod fritter · its history, the family recipe, and the culture behind every mouthful.</span>
+                            <span class="lang-fr">Une démonstration de cuisine en ligne avec Valerie. Apprenez à préparer les accras de morue antillais · l'histoire, la recette familiale et la culture derrière chaque bouchée.</span>
+                        </p>
+                        <div class="event-details">
+                            <div class="event-detail-item"><span class="lang-en">Online</span><span class="lang-fr">En ligne</span></div>
+                            <div class="event-detail-item"><span class="lang-en">Bilingual</span><span class="lang-fr">Bilingue</span></div>
+                        </div>
+                        <a href="https://www.eventbrite.co.uk/e/acras-de-morue-caribbean-cooking-demo-noula-tickets-1986829466418" class="btn btn-primary" target="_blank" rel="noopener">
+                            <span class="lang-en">Register →</span>
+                            <span class="lang-fr">S'inscrire →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Event 3: Noula Day 2026 -->
+                <div class="event-card">
+                    <img class="event-media" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty" loading="lazy" style="object-fit: contain; background: #2D1F3D;">
+                    <div class="event-header">
+                        <div class="event-date">
+                            <span class="lang-en">Saturday, 28 November 2026</span>
+                            <span class="lang-fr">Samedi 28 novembre 2026</span>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">
+                            <span class="lang-en">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
+                            <span class="lang-fr">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
+                        </h3>
+                        <p class="event-description">
+                            <span class="lang-en">Our biggest event of the year. A full day of French Caribbean culture at St Matthew's Brixton flowing into a warm Chanté Nwèl afterparty · workshops, cooking demos, tournaments, marketplace, gwoka drumming, carols, live music and dancing. 12h to 22h30.</span>
+                            <span class="lang-fr">Notre plus grand événement de l'année. Une journée entière de culture antillaise à St Matthew's Brixton qui se prolonge en afterparty Chanté Nwèl · ateliers, démonstrations culinaires, tournois, marché, tambour gwoka, cantiques, musique live et danse. De 12h à 22h30.</span>
+                        </p>
+                        <div class="event-details">
+                            <div class="event-detail-item"><span class="lang-en">In person</span><span class="lang-fr">En présentiel</span></div>
+                            <div class="event-detail-item"><span class="lang-en">All ages</span><span class="lang-fr">Tous âges</span></div>
+                        </div>
+                        <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" class="btn btn-primary" target="_blank" rel="noopener">
+                            <span class="lang-en">Book →</span>
+                            <span class="lang-fr">Réserver →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="past-events-link">
+                <a href="events.html">
+                    <span class="lang-en">See all events, past and upcoming →</span>
+                    <span class="lang-fr">Voir tous les événements, passés et à venir →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Community Hub -->
+    <section class="section-community" id="community">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">Community Hub</span>
+                <span class="lang-fr">Communauté</span>
+            </h2>
+
+            <p class="community-intro">
+                <span class="lang-en">Noula is building a space where the French Caribbean community in the UK can come together, find each other and thrive. Whether you run a business, offer a service, create art, cook, teach or perform · we want to help you connect with your community.</span>
+                <span class="lang-fr">Noula construit un espace où la communauté antillaise au Royaume-Uni peut se retrouver, se reconnaître et s'épanouir. Que vous dirigiez une entreprise, offriez un service, créiez de l'art, cuisiniez, enseigniez ou vous produisiez · nous voulons vous aider à connecter avec votre communauté.</span>
+            </p>
+
+            <div class="hub-grid">
+                <div class="hub-card">
+                    <div class="hub-icon" style="color: var(--emerald);"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v7a2 2 0 0 0 4 0V3M6 10v11"/><path d="M16 3c-1.7 0-3 2-3 5s1.3 4 3 4 3 0 3 0"/><path d="M18 3v18"/></svg></div>
+                    <h3><span class="lang-en">Food &amp; catering</span><span class="lang-fr">Cuisine &amp; traiteur</span></h3>
+                    <p><span class="lang-en">Caterers, chefs, bakers and food producers celebrating Caribbean flavours</span><span class="lang-fr">Traiteurs, chefs, pâtissiers et producteurs alimentaires qui célèbrent les saveurs antillaises</span></p>
+                </div>
+                <div class="hub-card">
+                    <div class="hub-icon" style="color: var(--emerald);"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></div>
+                    <h3><span class="lang-en">Arts &amp; performance</span><span class="lang-fr">Arts &amp; spectacle</span></h3>
+                    <p><span class="lang-en">Musicians, dancers, artists and performers keeping our culture alive</span><span class="lang-fr">Musiciens, danseurs, artistes et performeurs qui font vivre notre culture</span></p>
+                </div>
+                <div class="hub-card">
+                    <div class="hub-icon" style="color: var(--emerald);"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2z"/></svg></div>
+                    <h3><span class="lang-en">Education &amp; language</span><span class="lang-fr">Éducation &amp; langue</span></h3>
+                    <p><span class="lang-en">Teachers, tutors and workshops in Créole, French and heritage education</span><span class="lang-fr">Enseignants, tuteurs et ateliers en créole, français et éducation patrimoniale</span></p>
+                </div>
+                <div class="hub-card">
+                    <div class="hub-icon" style="color: var(--emerald);"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
+                    <h3><span class="lang-en">Services &amp; business</span><span class="lang-fr">Services &amp; entreprises</span></h3>
+                    <p><span class="lang-en">Local businesses and professionals serving the French Caribbean community</span><span class="lang-fr">Entreprises et professionnels au service de la communauté antillaise</span></p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <p style="margin-bottom: 1rem;">
+                    <span class="lang-en">Want to be listed in our community directory? Get in touch.</span>
+                    <span class="lang-fr">Vous souhaitez figurer dans notre annuaire communautaire ? Contactez-nous.</span>
+                </p>
+                <a href="directory.html" class="btn btn-primary">
+                    <span class="lang-en">Join the directory</span>
+                    <span class="lang-fr">Rejoindre l'annuaire</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="section-partners section alt" id="partners">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">Work with us</span>
+                <span class="lang-fr">Travaillez avec nous</span>
+            </h2>
+
+            <p class="partners-intro">
+                <span class="lang-en">We're always looking to connect with organisations, schools, councils and cultural bodies that share our commitment to celebrating and sharing French Caribbean heritage. If you're interested in co-hosting events, providing venues, sponsoring programmes or collaborating on educational projects, we'd love to hear from you.</span>
+                <span class="lang-fr">Nous cherchons toujours à collaborer avec des organisations, écoles, collectivités et institutions culturelles qui partagent notre engagement à célébrer et partager le patrimoine antillais. Si vous êtes intéressé par la co-organisation d'événements, la mise à disposition de lieux, le mécénat ou la collaboration sur des projets éducatifs, nous serions ravis de vous entendre.</span>
+            </p>
+
+            <div class="partners-grid">
+                <div class="partner-type">
+                    <h3><span class="lang-en">Schools &amp; universities</span><span class="lang-fr">Écoles &amp; universités</span></h3>
+                    <p><span class="lang-en">Bring French Caribbean culture into the classroom through workshops, talks and heritage projects</span><span class="lang-fr">Faites entrer la culture antillaise en classe grâce à des ateliers, conférences et projets patrimoniaux</span></p>
+                </div>
+                <div class="partner-type">
+                    <h3><span class="lang-en">Local councils &amp; public bodies</span><span class="lang-fr">Collectivités locales &amp; organismes publics</span></h3>
+                    <p><span class="lang-en">Partner with us on community engagement, cultural programming and diversity initiatives</span><span class="lang-fr">Collaborez avec nous sur l'engagement communautaire, la programmation culturelle et les initiatives de diversité</span></p>
+                </div>
+                <div class="partner-type">
+                    <h3><span class="lang-en">Cultural organisations</span><span class="lang-fr">Organisations culturelles</span></h3>
+                    <p><span class="lang-en">Co-create exhibitions, festivals and cross-cultural events that celebrate our shared Caribbean heritage</span><span class="lang-fr">Co-créez des expositions, festivals et événements interculturels qui célèbrent notre patrimoine antillais commun</span></p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="mailto:fchpf@outlook.com" class="btn btn-primary">
+                    <span class="lang-en">Become a partner</span>
+                    <span class="lang-fr">Devenir partenaire</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="section-support section" id="support">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">Support Noula</span>
+                <span class="lang-fr">Soutenir Noula</span>
+            </h2>
+
+            <p class="support-message">
+                <span class="lang-en">Every event, workshop and community programme is powered by people like you. Stripe donation button coming soon. In the meantime, get in touch.</span>
+                <span class="lang-fr">Chaque événement, atelier et programme est porté par des personnes comme vous. Le bouton de don Stripe arrive bientôt. En attendant, contactez-nous.</span>
+            </p>
+
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="get-involved.html" class="btn btn-primary">
+                    <span class="lang-en">Get in touch →</span>
+                    <span class="lang-fr">Nous contacter →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section-newsletter section alt">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">Stay connected</span>
+                <span class="lang-fr">Restez connecté</span>
+            </h2>
+
+            <p class="newsletter-subtitle">
+                <span class="lang-en">Sign up for updates on events, workshops and community news. We send a few emails a year · no spam, ever.</span>
+                <span class="lang-fr">Inscrivez-vous pour recevoir les actualités des événements, ateliers et de la communauté. Quelques emails par an · jamais de spam.</span>
+            </p>
+
+            <form action="https://facebook.us7.list-manage.com/subscribe/post?u=1187b431fa2a7d6a85d8335cc&id=7787c80d7a" method="post" class="newsletter-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                <div class="newsletter-input-group">
+                    <label for="mc-email-home" style="position: absolute; left: -9999px;">
+                        <span class="lang-en">Your email address</span><span class="lang-fr">Votre adresse email</span>
+                    </label>
+                    <input id="mc-email-home" type="email" value="" name="EMAIL" class="newsletter-email" placeholder="you@example.com" required>
+                    <button type="submit" name="subscribe" class="btn btn-primary newsletter-submit">
+                        <span class="lang-en">Subscribe</span>
+                        <span class="lang-fr">S'abonner</span>
+                    </button>
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 0.75rem; opacity: 0.8; text-align: center;">
+                    <span class="lang-en">By subscribing you agree to receive email updates from Noula. You can unsubscribe at any time.</span>
+                    <span class="lang-fr">En vous abonnant, vous acceptez de recevoir nos actualités par email. Vous pouvez vous désabonner à tout moment.</span>
+                </p>
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="checkbox" name="group[22649][1]" id="mce-group-home-22649-0" value="1" checked></div>
+            </form>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Noula</h4>
+                <p>
+                    <span class="lang-en">French Caribbean Heritage and Preservation Foundation</span>
+                    <span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span>
+                </p>
+                <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+            </div>
+
+            <div class="footer-section">
+                <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+                <ul>
+                    <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                    <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+                    <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+                    <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+                    <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                    <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+                <p>
+                    <span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span>
+                    <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>
+                </p>
+                <div class="footer-social">
+                    <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+                    <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                <span class="lang-en">&copy; 2026 Noula. All rights reserved.</span>
+                <span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span>
+            </p>
+        </div>
+    </footer>
+
+    <div class="cn-lightbox" id="montageLightbox" style="position:fixed; inset:0; z-index:9999; display:none; background:rgba(28,16,30,0.94); align-items:center; justify-content:center; padding:3vw; cursor:zoom-out;">
+        <button aria-label="Close" style="position:absolute; top:1.2rem; right:1.6rem; color:#FAF6F1; font-size:2.4rem; line-height:1; background:none; border:none; cursor:pointer;">&times;</button>
+        <img src="" alt="Chanté Nwèl 2025 photo enlarged" style="max-width:100%; max-height:100%; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    </div>
+    <script>
+        (function(){
+            var box = document.getElementById('montageLightbox');
+            if(!box) return;
+            var full = box.querySelector('img');
+            document.querySelectorAll('.montage-grid figure').forEach(function(fig){
+                fig.addEventListener('click', function(){
+                    full.src = fig.getAttribute('data-full');
+                    box.style.display = 'flex';
+                });
+            });
+            function close(){ box.style.display = 'none'; full.src = ''; }
+            box.addEventListener('click', close);
+            document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+        })();
+    </script>
+
+    <script>
+
+        // Language switcher (EN/FR only)
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+            setLanguage(currentLang);
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentLang = this.getAttribute('data-lang');
+                    localStorage.setItem('selectedLanguage', currentLang);
+                    setLanguage(currentLang);
+                });
+            });
+            function setLanguage(lang) {
+                document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+                document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+                document.documentElement.lang = lang;
+            }
+        });
+    </script>
+    <script>
+        (function(){
+            var track = document.getElementById('artistTrack');
+            if(!track) return;
+            var slides = track.querySelectorAll('.artist-slide');
+            var dotsWrap = document.getElementById('artistDots');
+            var i = 0, timer;
+            slides.forEach(function(_, idx){
+                var d = document.createElement('button');
+                d.className = 'artist-dot' + (idx===0?' active':'');
+                d.setAttribute('aria-label', 'Go to artist ' + (idx+1));
+                d.addEventListener('click', function(){ go(idx); reset(); });
+                dotsWrap.appendChild(d);
+            });
+            var dots = dotsWrap.querySelectorAll('.artist-dot');
+            function go(n){
+                i = (n + slides.length) % slides.length;
+                slides.forEach(function(s,idx){ s.classList.toggle('active', idx===i); });
+                dots.forEach(function(d,idx){ d.classList.toggle('active', idx===i); });
+            }
+            function reset(){ clearInterval(timer); timer = setInterval(function(){ go(i+1); }, 5500); }
+            document.getElementById('artistPrev').addEventListener('click', function(){ go(i-1); reset(); });
+            document.getElementById('artistNext').addEventListener('click', function(){ go(i+1); reset(); });
+            reset();
+        })();
+    </script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

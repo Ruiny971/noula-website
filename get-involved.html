@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved · Noula</title>
+  <meta name="description" content="Four ways to build the French Caribbean community in the UK with Noula: volunteer, apply for a stall or partnership, join the community directory, or donate and support.">
+
+  <meta property="og:title" content="Get Involved with Noula">
+  <meta property="og:description" content="Four ways to build the French Caribbean community in the UK with us.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noula.org.uk/get-involved.html">
+  <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .lang-switch button {
+      background: none; border: 2px solid var(--coral); color: var(--coral);
+      padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+      font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+    }
+    .lang-switch button.active { background: var(--coral); color: white; }
+    .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+    .lang-fr { display: none; }
+
+    .event-strip {
+      background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+      color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+    }
+    .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+    .gi-hero {
+      text-align: center; padding: 4rem 1.5rem 2rem; max-width: 800px; margin: 0 auto;
+    }
+    .gi-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.75rem; margin: 0 0 0.75rem; color: #E8724F; line-height: 1.15; }
+    .gi-hero p { color: #555; font-size: 1.15rem; line-height: 1.6; margin: 0.5rem auto 0; max-width: 640px; }
+
+    .gi-grid {
+      max-width: 1000px; margin: 2rem auto 4rem; padding: 0 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;
+    }
+    .gi-card {
+      background: white; padding: 2rem 1.75rem; border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      display: flex; flex-direction: column;
+      border-top: 4px solid #E8724F;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gi-card:hover { transform: translateY(-3px); box-shadow: 0 8px 26px rgba(0,0,0,0.10); }
+    .gi-card:nth-child(2) { border-top-color: #2D7961; }
+    .gi-card:nth-child(3) { border-top-color: #C49E4C; }
+    .gi-card:nth-child(4) { border-top-color: #C0562F; }
+    .gi-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .gi-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin: 0 0 0.75rem; color: #333; }
+    .gi-card p { color: #555; font-size: 0.98rem; line-height: 1.55; margin: 0 0 1.5rem; flex-grow: 1; }
+    .gi-card .cta {
+      display: inline-block; align-self: flex-start;
+      background: #E8724F; color: white; padding: 0.7rem 1.4rem;
+      border-radius: 6px; text-decoration: none; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .gi-card:nth-child(2) .cta { background: #2D7961; }
+    .gi-card:nth-child(3) .cta { background: #B8952A; }
+    .gi-card:nth-child(4) .cta { background: #C0392B; }
+    .gi-card .cta:hover { filter: brightness(0.92); }
+  </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <!-- Top strip -->
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+      <span class="lang-en">Book →</span>
+      <span class="lang-fr">Réserver →</span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home">
+          <img class="logo-img" src="logo.jpg" alt="Noula logo">
+        </a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="get-involved.html" aria-current="page"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="gi-hero">
+    <h1>
+      <span class="lang-en">Get Involved with Noula</span>
+      <span class="lang-fr">Participer à Noula</span>
+    </h1>
+    <p>
+      <span class="lang-en">Four ways to build the French Caribbean community in the UK with us.</span>
+      <span class="lang-fr">Quatre façons de bâtir la communauté antillaise au Royaume-Uni avec nous.</span>
+    </p>
+  </section>
+
+  <!-- 3 cards -->
+  <section class="gi-grid">
+    <div class="gi-card">
+      <div class="icon" style="color: var(--emerald);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18"/><path d="M5 8v12h14V8"/><path d="M4 8 6 4h12l2 4"/><path d="M9 8v3M12 8v3M15 8v3"/><path d="M9 20v-5h6v5"/></svg></div>
+      <h3><span class="lang-en">Apply for a stall or partnership</span><span class="lang-fr">Postuler comme exposant ou partenaire</span></h3>
+      <p>
+        <span class="lang-en">Bring your business, brand, association or media outlet to Noula Day 2026. Stallholder, sponsor, cultural partner or media partner · we welcome all four.</span>
+        <span class="lang-fr">Amenez votre entreprise, marque, association ou média à Noula Day 2026. Exposant, sponsor, partenaire culturel ou partenaire média · les quatre sont bienvenus.</span>
+      </p>
+      <a href="stalls.html" class="cta">
+        <span class="lang-en">Apply →</span>
+        <span class="lang-fr">Postuler →</span>
+      </a>
+    </div>
+
+    <div class="gi-card">
+      <div class="icon" style="color: var(--gold);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v14"/><path d="M12 6C10 4.5 6.5 4.5 4 5.5V19c2.5-1 6-1 8 .5"/><path d="M12 6c2-1.5 5.5-1.5 8-.5V19c-2.5-1-6-1-8 .5"/></svg></div>
+      <h3><span class="lang-en">Join the community directory</span><span class="lang-fr">Rejoindre l'annuaire communautaire</span></h3>
+      <p>
+        <span class="lang-en">Free listing in the growing hub of French Caribbean businesses, creators and organisations in the UK.</span>
+        <span class="lang-fr">Inscription gratuite dans l'annuaire des entreprises, créateurs et organisations antillais au Royaume-Uni.</span>
+      </p>
+      <a href="directory.html" class="cta">
+        <span class="lang-en">Join the directory →</span>
+        <span class="lang-fr">Rejoindre l'annuaire →</span>
+      </a>
+    </div>
+
+    <div class="gi-card">
+      <div class="icon" style="color: var(--coral);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.5-9C1 8 2.5 4.5 6 4.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 15.5 12 20 12 20z"/></svg></div>
+      <h3><span class="lang-en">Donate &amp; support</span><span class="lang-fr">Faire un don &amp; soutenir</span></h3>
+      <p>
+        <span class="lang-en">Every event, workshop and community programme is powered by people like you. Stripe donation button coming soon. In the meantime, get in touch.</span>
+        <span class="lang-fr">Chaque événement, atelier et programme est porté par des personnes comme vous. Le bouton de don Stripe arrive bientôt. En attendant, contactez-nous.</span>
+      </p>
+      <a href="mailto:fchpf@outlook.com" class="cta">
+        <span class="lang-en">Get in touch →</span>
+        <span class="lang-fr">Nous contacter →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">French Caribbean Heritage and Preservation Foundation</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+          <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+          <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+          <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+          <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <div class="footer-social">
+          <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+          <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+      setLanguage(currentLang);
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          currentLang = this.getAttribute('data-lang');
+          localStorage.setItem('selectedLanguage', currentLang);
+          setLanguage(currentLang);
+        });
+      });
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

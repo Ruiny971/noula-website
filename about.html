@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Noula · a UK-registered charity celebrating and sharing French Caribbean heritage. Our mission, our story, our trustees.">
+
+  <meta property="og:title" content="About Noula · French Caribbean Heritage">
+  <meta property="og:description" content="Our mission, story, trustees, and community.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noula.org.uk/about.html">
+
+  <title>About · Noula</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .lang-switch button {
+        background: none; border: 2px solid var(--coral); color: var(--coral);
+        padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+        font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+    }
+    .lang-switch button.active { background: var(--coral); color: white; }
+    .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+    .lang-fr { display: none; }
+
+    .event-strip {
+        background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+        color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+    }
+    .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+    .trustees-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem; max-width: 900px; margin: 2rem auto 0;
+    }
+    .trustee-card {
+        background: white; padding: 1.5rem; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        border-top: 3px solid #E8724F;
+        text-align: center;
+    }
+    .trustee-avatar {
+        width: 140px; height: 140px; border-radius: 50%;
+        margin: 0 auto 1rem;
+        background-repeat: no-repeat; background-position: center;
+        border: 3px solid #FAF6F1;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    /* Per-trustee tweaks (add as needed): .trustee-avatar.pos-top { object-position: 50% 10%; } */
+    .trustee-card { padding-top: 2rem; }
+    .trustee-card h4 { margin: 0 0 0.35rem; font-size: 1.15rem; font-family: 'Playfair Display', serif; }
+    .trustee-card .role { font-size: 0.8rem; color: #E8724F; margin: 0; letter-spacing: 0.08rem; text-transform: uppercase; font-weight: 600; }
+  </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <!-- Top strip -->
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+      <span class="lang-en">Book →</span>
+      <span class="lang-fr">Réserver →</span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home">
+          <img class="logo-img" src="logo.jpg" alt="Noula logo">
+        </a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html" aria-current="page"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1><span class="lang-en">About Noula</span><span class="lang-fr">À propos de Noula</span></h1>
+        <p><span class="lang-en">Our mission, our story, our community</span><span class="lang-fr">Notre mission, notre histoire, notre communauté</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Are -->
+  <section>
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+        <div>
+          <h2><span class="lang-en">Who we are</span><span class="lang-fr">Qui sommes-nous</span></h2>
+          <p>
+            <span class="lang-en">The name "Noula" comes from Antillean Créole "nou la", meaning "we're here" or "here we are". It's a statement of presence, togetherness and belonging · the idea that we show up for each other and for our culture.</span>
+            <span class="lang-fr">Le nom "Noula" vient du créole antillais "nou la", qui signifie "nous sommes là". C'est une affirmation de présence, de solidarité et d'appartenance · l'idée que nous sommes là les uns pour les autres et pour notre culture.</span>
+          </p>
+          <p>
+            <span class="lang-en">Noula is a UK-registered charity dedicated to celebrating and sharing French Caribbean heritage. We celebrate the culture, history, traditions and contemporary life of the French Caribbean as a whole. Through events, workshops, gatherings and creative expression, we build spaces where this rich heritage is honoured, explored and shared.</span>
+            <span class="lang-fr">Noula est une association caritative britannique dédiée à célébrer et partager le patrimoine antillais. Nous célébrons la culture, l'histoire, les traditions et la vie contemporaine des Antilles françaises dans leur ensemble. À travers des événements, ateliers, rencontres et expressions créatives, nous construisons des espaces où ce patrimoine riche est honoré, exploré et partagé.</span>
+          </p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, var(--plum-deep) 0%, var(--plum-black) 100%); padding: 2rem; border-radius: 12px; color: #FAF6F1;">
+          <h3 style="margin-top: 0; color: #E8C078;"><span class="lang-en">Charity details</span><span class="lang-fr">Détails de l'association</span></h3>
+          <div style="line-height: 1.8;">
+            <div><strong><span class="lang-en">Full name</span><span class="lang-fr">Nom complet</span></strong></div>
+            <div style="margin-bottom: 1.2rem;">French Caribbean Heritage and Preservation Foundation</div>
+
+            <div><strong><span class="lang-en">Working name</span><span class="lang-fr">Nom d'usage</span></strong></div>
+            <div style="margin-bottom: 1.2rem;">Noula</div>
+
+            <div><strong><span class="lang-en">Charity number</span><span class="lang-fr">Numéro d'association</span></strong></div>
+            <div style="margin-bottom: 1.2rem;">1210134</div>
+
+            <div><strong><span class="lang-en">Legal status</span><span class="lang-fr">Statut juridique</span></strong></div>
+            <div style="margin-bottom: 1.2rem;"><span class="lang-en">Charitable Incorporated Organisation (CIO), Foundation model</span><span class="lang-fr">Charitable Incorporated Organisation (CIO), modèle Foundation</span></div>
+
+            <div><strong><span class="lang-en">Registered</span><span class="lang-fr">Enregistrée le</span></strong></div>
+            <div style="margin-bottom: 1.2rem;"><span class="lang-en">20 September 2024 with the Charity Commission for England and Wales</span><span class="lang-fr">20 septembre 2024 auprès de la Charity Commission for England and Wales</span></div>
+
+            <div><strong><span class="lang-en">Financial year end</span><span class="lang-fr">Clôture de l'exercice</span></strong></div>
+            <div style="margin-bottom: 1.2rem;"><span class="lang-en">5 April</span><span class="lang-fr">5 avril</span></div>
+
+            <div style="margin-top: 1.2rem;">
+              <a href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5239503?_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_organisationNumber=5239503" target="_blank" rel="noopener" style="color: #E8724F; font-weight: 600; text-decoration: underline;">
+                <span class="lang-en">View our entry on the Charity Commission register →</span>
+                <span class="lang-fr">Voir notre inscription au registre de la Charity Commission →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trustees -->
+  <section class="alt">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1rem;">
+        <span class="lang-en">Our Trustees</span><span class="lang-fr">Nos Administrateurs</span>
+      </h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem; color: #666;">
+        <span class="lang-en">The people who govern Noula and hold us accountable to our mission.</span>
+        <span class="lang-fr">Les personnes qui gouvernent Noula et garantissent notre mission.</span>
+      </p>
+      <div class="trustees-grid">
+        <div class="trustee-card">
+          <div class="trustee-avatar" role="img" aria-label="Valerie Magunar" style="background-image:url('images/trustee-valerie-2.png'); background-size:116%; background-position:50% 42%;"></div>
+          <h4>Valerie Magunar</h4>
+          <p class="role"><span class="lang-en">Chairperson &amp; Programme Lead</span><span class="lang-fr">Présidente &amp; Responsable de programme</span></p>
+        </div>
+        <div class="trustee-card">
+          <div class="trustee-avatar" role="img" aria-label="Fabrice Troudart" style="background-image:url('images/trustee-fabrice-2.png'); background-size:116%; background-position:50% 45%;"></div>
+          <h4>Fabrice Troudart</h4>
+          <p class="role"><span class="lang-en">Treasurer &amp; Fundraising Lead</span><span class="lang-fr">Trésorier &amp; Responsable collecte de fonds</span></p>
+        </div>
+        <div class="trustee-card">
+          <div class="trustee-avatar" role="img" aria-label="Patricia Robinson" style="background-image:url('images/trustee-patricia-2.png'); background-size:116%; background-position:50% 44%;"></div>
+          <h4>Patricia Robinson</h4>
+          <p class="role"><span class="lang-en">Secretary &amp; Communications Lead</span><span class="lang-fr">Secrétaire &amp; Responsable communications</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Governance -->
+  <section>
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1rem;">
+        <span class="lang-en">Governance</span>
+        <span class="lang-fr">Gouvernance</span>
+      </h2>
+      <p style="text-align: center; max-width: 720px; margin: 0 auto 1.5rem; color: #444; line-height: 1.7;">
+        <span class="lang-en">Noula is a UK-registered Charitable Incorporated Organisation on the Foundation model. Only the trustees are voting members. We report annually to the Charity Commission for England and Wales.</span>
+        <span class="lang-fr">Noula est une organisation caritative britannique de type CIO sur le modèle Foundation. Seuls les administrateurs sont membres votants. Nous rendons compte chaque année à la Charity Commission for England and Wales.</span>
+      </p>
+      <p style="text-align: center; margin: 0 auto;">
+        <a href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5239503?_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_organisationNumber=5239503" target="_blank" rel="noopener" style="color: #E8724F; font-weight: 600; text-decoration: underline;">
+          <span class="lang-en">View our entry on the Charity Commission register →</span>
+          <span class="lang-fr">Voir notre inscription au registre de la Charity Commission →</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section>
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem;"><span class="lang-en">Our Mission</span><span class="lang-fr">Notre Mission</span></h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem;">
+        <span class="lang-en">Celebrating and sharing French Caribbean heritage in the UK · creating spaces where this culture is celebrated, explored and shared by everyone.</span>
+        <span class="lang-fr">Célébrer et partager le patrimoine antillais au Royaume-Uni · créer des espaces où cette culture est célébrée, explorée et partagée par tous.</span>
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Educational events</span><span class="lang-fr">Événements éducatifs</span></h3>
+          <p><span class="lang-en">Learning through celebration. Workshops, talks and events that explore the history, language and contemporary culture of the French Caribbean.</span><span class="lang-fr">Apprendre en célébrant. Ateliers, conférences et événements qui explorent l'histoire, la langue et la culture contemporaine des Antilles françaises.</span></p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Culinary heritage</span><span class="lang-fr">Patrimoine culinaire</span></h3>
+          <p><span class="lang-en">Food is culture. We celebrate the flavours, recipes and stories behind French Caribbean cuisine, bringing communities together through shared meals.</span><span class="lang-fr">La cuisine, c'est la culture. Nous célébrons les saveurs, les recettes et les histoires derrière la gastronomie antillaise, en rassemblant les communautés autour de la table.</span></p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Cultural celebration</span><span class="lang-fr">Célébration culturelle</span></h3>
+          <p><span class="lang-en">Music, dance and festivals. We celebrate the vibrant arts and cultural traditions that define French Caribbean identity · from carnival to Chanté Nwèl.</span><span class="lang-fr">Musique, danse et festivités. Nous célébrons les arts vivants et les traditions qui définissent l'identité antillaise · du carnaval au Chanté Nwèl.</span></p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Community building</span><span class="lang-fr">Construction communautaire</span></h3>
+          <p><span class="lang-en">We create inclusive spaces where people from all backgrounds can connect with French Caribbean heritage and find community. Together is stronger than alone.</span><span class="lang-fr">Nous créons des espaces inclusifs où chacun peut se connecter au patrimoine antillais et trouver une communauté. Ensemble est plus fort que seul.</span></p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Creative expression</span><span class="lang-fr">Expression créative</span></h3>
+          <p><span class="lang-en">Art, storytelling and innovation. We support creative projects that honour our heritage while building something new · from literature to film, craft to digital media.</span><span class="lang-fr">Art, narration et innovation. Nous soutenons les projets créatifs qui honorent notre patrimoine tout en construisant quelque chose de neuf · de la littérature au cinéma, de l'artisanat aux médias numériques.</span></p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Documenting stories</span><span class="lang-fr">Documenter les histoires</span></h3>
+          <p><span class="lang-en">Recording stories, documenting traditions and archiving cultural knowledge. We work to keep the richness of French Caribbean culture alive for future generations.</span><span class="lang-fr">Enregistrer les histoires, documenter les traditions et archiver les savoirs culturels. Nous œuvrons pour que la richesse de la culture antillaise reste vivante pour les générations futures.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The French Caribbean -->
+  <section>
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 1rem;"><span class="lang-en">The French Caribbean</span><span class="lang-fr">Les Antilles françaises</span></h2>
+      <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #666;">
+        <span class="lang-en">Noula celebrates the French Caribbean as a whole · from the islands of Guadeloupe and Martinique, to the forests of French Guiana, and the rich cultural legacy of Haiti and the wider Francophone Caribbean diaspora.</span>
+        <span class="lang-fr">Noula célèbre les Antilles françaises dans leur ensemble · des îles de la Guadeloupe et de la Martinique, aux forêts de la Guyane française, en passant par le riche héritage culturel d'Haïti et de la diaspora antillaise francophone au sens large.</span>
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="background: linear-gradient(135deg, rgba(196,158,76,0.12) 0%, rgba(196,158,76,0.05) 100%); padding: 2rem; border-radius: 8px; border-left: 4px solid #C49E4C;">
+          <h3 style="color: #3F2743; margin-top: 0;">Guadeloupe</h3>
+          <p><span class="lang-en">The butterfly island, shaped like its namesake insect. Guadeloupe is where Créole identity is deeply rooted, with its own distinctive music, dialect and traditions. La Soufrière volcano stands as a symbol of the island's natural power and cultural strength.</span><span class="lang-fr">L'île papillon, dont la forme évoque son homonyme. La Guadeloupe est le berceau d'une identité créole profondément ancrée, avec sa musique, son dialecte et ses traditions. La Soufrière, symbole de la puissance naturelle et de la force culturelle de l'île.</span></p>
+          <div style="margin-top:1.15rem;"><img src="images/flag-guadeloupe.png" alt="Guadeloupe" style="height:82px; width:auto; display:block; filter: drop-shadow(0 4px 10px rgba(42,26,44,0.18));"></div>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(196,158,76,0.12) 0%, rgba(196,158,76,0.05) 100%); padding: 2rem; border-radius: 8px; border-left: 4px solid #C49E4C;">
+          <h3 style="color: #3F2743; margin-top: 0;">Martinique</h3>
+          <p><span class="lang-en">The island of flowers, with a profound literary and intellectual tradition. Martinique has given the world remarkable writers, philosophers and thinkers. Montagne Pelée, the mountain that shaped the island's history, reminds us of resilience and renewal.</span><span class="lang-fr">L'île aux fleurs, avec une tradition littéraire et intellectuelle profonde. La Martinique a donné au monde des écrivains, philosophes et penseurs remarquables. La Montagne Pelée, qui a façonné l'histoire de l'île, nous rappelle la résilience et le renouveau.</span></p>
+          <div style="margin-top:1.15rem;"><img src="images/flag-martinique.png" alt="Martinique" style="height:82px; width:auto; display:block; filter: drop-shadow(0 4px 10px rgba(42,26,44,0.18));"></div>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(196,158,76,0.12) 0%, rgba(196,158,76,0.05) 100%); padding: 2rem; border-radius: 8px; border-left: 4px solid #C49E4C;">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">French Guiana</span><span class="lang-fr">Guyane française</span></h3>
+          <p><span class="lang-en">A land of rainforests, rivers and cultural diversity. French Guiana brings together African, Indigenous and immigrant communities, creating a unique tapestry of traditions. Its multicultural nature enriches the broader French Caribbean identity.</span><span class="lang-fr">Un territoire de forêts tropicales, de fleuves et de diversité culturelle. La Guyane française rassemble des communautés africaines, autochtones et immigrées, créant une mosaïque unique de traditions. Sa nature multiculturelle enrichit l'identité antillaise dans son ensemble.</span></p>
+          <div style="margin-top:1.15rem;"><img src="images/flag-guyane.png" alt="Guyane française" style="height:82px; width:auto; display:block; filter: drop-shadow(0 4px 10px rgba(42,26,44,0.18));"></div>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(196,158,76,0.12) 0%, rgba(196,158,76,0.05) 100%); padding: 2rem; border-radius: 8px; border-left: 4px solid #C49E4C;">
+          <h3 style="color: #3F2743; margin-top: 0;"><span class="lang-en">Haiti</span><span class="lang-fr">Haïti</span></h3>
+          <p><span class="lang-en">The first Black republic and a beacon of resilience. Haiti shares deep language, music and literary roots with the French Antilles. The rhythms of kompa, the power of Haitian literature and the profound historical connections make Haiti inseparable from French Caribbean culture. We honour this shared heritage.</span><span class="lang-fr">La première république noire et un phare de résilience. Haïti partage des racines linguistiques, musicales et littéraires profondes avec les Antilles françaises. Les rythmes du kompa, la puissance de la littérature haïtienne et les liens historiques profonds font d'Haïti une part inséparable de la culture antillaise. Nous honorons cet héritage partagé.</span></p>
+          <div style="margin-top:1.15rem;"><img src="images/flag-haiti.png" alt="Haïti" style="height:82px; width:auto; display:block; filter: drop-shadow(0 4px 10px rgba(42,26,44,0.18));"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Journey -->
+  <section class="alt">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem;"><span class="lang-en">Our Journey</span><span class="lang-fr">Notre Parcours</span></h2>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div style="display: flex; gap: 2rem; margin-bottom: 3rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: #d4a574; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-top: 0.3rem;">1</div>
+          <div>
+            <h3 style="margin-top: 0; color: #333;"><span class="lang-en">Founded to fill a gap (2024)</span><span class="lang-fr">Fondée pour combler un manque (2024)</span></h3>
+            <p style="color: #666; margin-bottom: 0;"><span class="lang-en">French Caribbean heritage remains deeply underrepresented in UK cultural spaces. Noula was founded in 2024 to change that · to educate, inspire and connect communities through the arts, crafts, music, dance, language and cuisine of the French Caribbean.</span><span class="lang-fr">Le patrimoine antillais reste profondément sous-représenté dans les espaces culturels du Royaume-Uni. Noula a été fondée en 2024 pour changer cela · éduquer, inspirer et connecter les communautés à travers les arts, l'artisanat, la musique, la danse, la langue et la cuisine des Antilles françaises.</span></p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; margin-bottom: 3rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: #d4a574; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-top: 0.3rem;">2</div>
+          <div>
+            <h3 style="margin-top: 0; color: #333;"><span class="lang-en">Chanté Nwèl 2025 · our first Christmas together</span><span class="lang-fr">Chanté Nwèl 2025 · notre premier Noël ensemble</span></h3>
+            <p style="color: #666; margin-bottom: 0;"><span class="lang-en">In November 2025 we hosted our very first Chanté Nwèl at Montgomery Hall in Kennington. An unforgettable evening of créole Christmas carols, food, music and dance. The moment that made everything else possible.</span><span class="lang-fr">En novembre 2025, nous avons organisé notre tout premier Chanté Nwèl à Montgomery Hall, Kennington. Une soirée inoubliable de cantiques créoles de Noël, de cuisine, de musique et de danse. Le moment qui a rendu tout le reste possible.</span></p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; margin-bottom: 3rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: #d4a574; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-top: 0.3rem;">3</div>
+          <div>
+            <h3 style="margin-top: 0; color: #333;"><span class="lang-en">Building our 2026 programme</span><span class="lang-fr">Bâtir notre programme 2026</span></h3>
+            <p style="color: #666; margin-bottom: 0;"><span class="lang-en">Supported by the STAFE grant of the French Ministry of Europe and Foreign Affairs (MEAE), we're delivering a full year of events: a kids' volcano workshop, a cook-along, and our flagship <strong>Noula Day 2026</strong> · The Creole Kermesse + Chanté Nwèl Afterparty · combining our Chanté Nwèl with a full cultural day.</span><span class="lang-fr">Soutenue par le programme STAFE du Ministère français de l'Europe et des Affaires étrangères (MEAE), nous déployons une année complète d'événements : un atelier volcans pour enfants, un cook-along et notre événement phare <strong>Noula Day 2026</strong> · The Creole Kermesse + Chanté Nwèl Afterparty · qui associe Chanté Nwèl et journée culturelle complète.</span></p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; margin-bottom: 3rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: #d4a574; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-top: 0.3rem;">4</div>
+          <div>
+            <h3 style="margin-top: 0; color: #333;"><span class="lang-en">Documenting our stories</span><span class="lang-fr">Documenter nos histoires</span></h3>
+            <p style="color: #666; margin-bottom: 0;"><span class="lang-en">We're collecting oral histories, photos and cultural artefacts from the French Caribbean community in the UK. We dream of a dedicated cultural hub · a space where this heritage can live, breathe and be shared.</span><span class="lang-fr">Nous recueillons des histoires orales, des photos et des objets culturels de la communauté antillaise au Royaume-Uni. Nous rêvons d'un lieu culturel dédié · un espace où ce patrimoine peut vivre, respirer et se partager.</span></p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 2rem; align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 40px; height: 40px; background: #d4a574; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-top: 0.3rem;">5</div>
+          <div>
+            <h3 style="margin-top: 0; color: #333;"><span class="lang-en">Building the community hub</span><span class="lang-fr">Construire le centre communautaire</span></h3>
+            <p style="color: #666; margin-bottom: 0;"><span class="lang-en">Our next big project: a directory of French Caribbean businesses, artists, teachers, chefs and cultural leads across the UK. Making it easy for the diaspora to find each other and thrive.</span><span class="lang-fr">Notre prochain grand projet : un annuaire des entreprises, artistes, enseignants, chefs et acteurs culturels antillais à travers le Royaume-Uni. Faciliter la rencontre et l'épanouissement de la diaspora.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved -->
+  <section class="alt">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 3rem;"><span class="lang-en">Get involved</span><span class="lang-fr">Rejoignez-nous</span></h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div style="text-align: center;">
+          <div style="margin-bottom: 1rem; color: var(--coral);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2 2 2 0 0 0 0 4 2 2 0 0 1 0 4 2 2 0 0 1-2 2H6a2 2 0 0 1-2-2 2 2 0 0 0 0-4 2 2 0 0 1 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.5"/></svg></div>
+          <h3><span class="lang-en">Attend events</span><span class="lang-fr">Assister aux événements</span></h3>
+          <p><span class="lang-en">Join us for our cultural events, workshops and celebrations. Check our programme to find something that speaks to you.</span><span class="lang-fr">Rejoignez-nous pour nos événements culturels, ateliers et célébrations. Consultez notre programme pour trouver ce qui vous parle.</span></p>
+        </div>
+        <div style="text-align: center;">
+          <div style="margin-bottom: 1rem; color: var(--emerald);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="17" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><path d="m8.2 10.8 6.6-3.6M8.2 13.2l6.6 3.6"/></svg></div>
+          <h3><span class="lang-en">Follow &amp; share</span><span class="lang-fr">Suivez &amp; partagez</span></h3>
+          <p><span class="lang-en">Follow us on Instagram at @noula_charity and help us spread the word about French Caribbean culture.</span><span class="lang-fr">Suivez-nous sur Instagram à @noula_charity et aidez-nous à faire connaître la culture antillaise.</span></p>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝🏿</div>
+          <h3><span class="lang-en">Volunteer with us</span><span class="lang-fr">Devenir bénévole</span></h3>
+          <p><span class="lang-en">The heart of every Noula event. Kitchen, bar, kids' zone, setup, tech, comms · there's a role for everyone.</span><span class="lang-fr">Le cœur de chaque événement Noula. Cuisine, bar, coin des enfants, installation, technique, communication · il y a un rôle pour chacun.</span></p>
+          <a href="volunteer.html" style="display: inline-block; margin-top: 0.75rem; color: #E8724F; font-weight: 600; text-decoration: underline;">
+            <span class="lang-en">Sign up →</span>
+            <span class="lang-fr">S'inscrire →</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="text-align: center; background: white; padding: 2rem; border-radius: 8px; max-width: 500px; margin: 0 auto;">
+        <h3 style="margin-top: 0;"><span class="lang-en">Get in touch</span><span class="lang-fr">Nous contacter</span></h3>
+        <p style="margin-bottom: 1.5rem; color: #666;"><span class="lang-en">Questions? Want to partner with us? Or just want to say hello?</span><span class="lang-fr">Des questions ? Envie de partenariat ? Ou juste dire bonjour ?</span></p>
+        <a href="mailto:fchpf@outlook.com" style="display: inline-block; background: #d4a574; color: white; padding: 1rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600;">fchpf@outlook.com</a>
+        <p style="margin-top: 1.5rem; color: #999; font-size: 0.9rem;"><span class="lang-en">We'll read your message and get back to you</span><span class="lang-fr">Nous lirons votre message et vous répondrons</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+          <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+          <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+          <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+          <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <div class="footer-social">
+          <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+          <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+      setLanguage(currentLang);
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          currentLang = this.getAttribute('data-lang');
+          localStorage.setItem('selectedLanguage', currentLang);
+          setLanguage(currentLang);
+        });
+      });
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer with Noula · French Caribbean Heritage</title>
+  <meta name="description" content="Volunteer with Noula. Help deliver our French Caribbean cultural events across the UK. Kitchen, bar, kids' zone, setup, tech, comms and more.">
+
+  <meta property="og:title" content="Volunteer with Noula">
+  <meta property="og:description" content="Give your time and skills to celebrate French Caribbean heritage in the UK.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noula.org.uk/volunteer.html">
+  <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .lang-switch button {
+      background: none; border: 2px solid var(--coral); color: var(--coral);
+      padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+      font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+    }
+    .lang-switch button.active { background: var(--coral); color: white; }
+    .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+    .lang-fr { display: none; }
+
+    .event-strip {
+      background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+      color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+    }
+    .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+    .volunteer-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .volunteer-intro { text-align: center; margin-bottom: 3rem; }
+    .volunteer-intro h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0 0 0.5rem; color: #E8724F; }
+    .volunteer-intro p { color: #555; font-size: 1.05rem; line-height: 1.6; margin: 0.5rem 0; }
+
+    .form-card {
+      background: white; padding: 2.5rem 2rem; border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .field { margin-bottom: 1.5rem; }
+    .field label { display: block; font-weight: 600; margin-bottom: 0.4rem; color: #333; font-size: 0.95rem; }
+    .field .hint { display: block; font-size: 0.8rem; color: #888; font-weight: 400; margin-top: 0.15rem; }
+    .field input[type="text"], .field input[type="email"], .field input[type="tel"], .field textarea {
+      width: 100%; padding: 0.7rem 0.9rem;
+      border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+      font-family: inherit; background: #FAF6F1;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field textarea:focus {
+      outline: none; border-color: #E8724F; background: white;
+    }
+    .field textarea { min-height: 100px; resize: vertical; }
+    .checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem; margin-top: 0.5rem; }
+    .checks label {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-weight: 400; font-size: 0.9rem; margin-bottom: 0;
+      padding: 0.5rem 0.75rem; background: #F5E6D3; border-radius: 6px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .checks label:hover { background: rgba(232, 114, 79, 0.15); }
+    .checks input[type="checkbox"] { margin-top: 0.2rem; flex-shrink: 0; }
+    .consent {
+      background: #FAF6F1; padding: 1rem; border-radius: 6px;
+      font-size: 0.85rem; color: #555; display: flex; gap: 0.5rem; align-items: flex-start;
+    }
+    .consent input { margin-top: 0.25rem; flex-shrink: 0; }
+    .submit-btn {
+      background: #E8724F; color: white; border: none;
+      padding: 1rem 2.5rem; font-size: 1.05rem; font-weight: 600;
+      border-radius: 6px; cursor: pointer;
+      transition: all 0.2s; width: 100%; margin-top: 1rem;
+    }
+    .submit-btn:hover { background: #d05f3d; transform: translateY(-1px); }
+    .submit-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+    /* Honeypot */
+    .honeypot { position: absolute; left: -5000px; visibility: hidden; }
+  </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <!-- Top strip -->
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+      <span class="lang-en">Book →</span>
+      <span class="lang-fr">Réserver →</span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home">
+          <img class="logo-img" src="logo.jpg" alt="Noula logo">
+        </a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="get-involved.html" aria-current="page"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="volunteer-wrap">
+    <div class="volunteer-intro">
+      <h1><span class="lang-en">Volunteer with Noula</span><span class="lang-fr">Devenez bénévole avec Noula</span></h1>
+      <p>
+        <span class="lang-en">Volunteers are the backbone of everything we do. From the kitchen at our Chanté Nwèl to the kids' zone at our showcases, from setup to social media, there's a role for everyone.</span>
+        <span class="lang-fr">Les bénévoles sont la colonne vertébrale de tout ce que nous faisons. De la cuisine à notre Chanté Nwèl au coin des enfants dans nos événements, de l'installation aux réseaux sociaux, il y a un rôle pour chacun.</span>
+      </p>
+      <p>
+        <span class="lang-en">Fill in the form below and we'll get in touch to talk through how you'd like to help.</span>
+        <span class="lang-fr">Remplissez le formulaire ci-dessous et nous vous recontacterons pour discuter de la façon dont vous aimeriez aider.</span>
+      </p>
+    </div>
+
+    <div class="form-card">
+      <!-- Submits to Airtable via /.netlify/functions/submit-volunteer -->
+      <form name="volunteer" data-airtable-fn="submit-volunteer" data-success-en="Thank you, you’re on the volunteer list." data-success-fr="Merci, vous êtes sur la liste des bénévoles.">
+        <p class="honeypot"><label>Don't fill this: <input name="bot-field"></label></p>
+
+        <div class="field">
+          <label><span class="lang-en">How would you like to help?</span><span class="lang-fr">Comment aimeriez-vous aider ?</span></label>
+          <div class="checks">
+            <label><input type="checkbox" name="help-type[]" value="Noula Day 2026"> <span class="lang-en">Noula Day 2026</span><span class="lang-fr">Noula Day 2026</span></label>
+            <label><input type="checkbox" name="help-type[]" value="Ongoing support"> <span class="lang-en">Ongoing support</span><span class="lang-fr">Soutien régulier</span></label>
+            <label><input type="checkbox" name="help-type[]" value="Skills-based"> <span class="lang-en">Skills-based</span><span class="lang-fr">Compétences spécifiques</span></label>
+            <label><input type="checkbox" name="help-type[]" value="Community ambassador"> <span class="lang-en">Community ambassador</span><span class="lang-fr">Ambassadeur communautaire</span></label>
+            <label><input type="checkbox" name="help-type[]" value="Just curious"> <span class="lang-en">Just curious</span><span class="lang-fr">Simple curiosité</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="name"><span class="lang-en">Your name</span><span class="lang-fr">Votre nom</span> *</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email"><span class="lang-en">Email address</span><span class="lang-fr">Adresse email</span> *</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="phone"><span class="lang-en">Phone (optional)</span><span class="lang-fr">Téléphone (facultatif)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label><span class="lang-en">Which event(s) would you like to help with?</span><span class="lang-fr">Pour quel(s) événement(s) souhaitez-vous aider ?</span></label>
+          <div class="checks">
+            <label><input type="checkbox" name="events[]" value="Noula Day 2026 - 28 Nov 2026"> <span class="lang-en">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty (Sat 28 Nov 2026)</span><span class="lang-fr">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty (sam. 28 nov. 2026)</span></label>
+            <label><input type="checkbox" name="events[]" value="Any upcoming event"> <span class="lang-en">Any upcoming event</span><span class="lang-fr">Tout événement à venir</span></label>
+            <label><input type="checkbox" name="events[]" value="Ongoing / general help"> <span class="lang-en">Ongoing / general help</span><span class="lang-fr">Aide générale / long-terme</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label><span class="lang-en">What areas would you like to help with?</span><span class="lang-fr">Dans quels domaines aimeriez-vous aider ?</span></label>
+          <div class="checks">
+            <label><input type="checkbox" name="areas[]" value="Kitchen"> <span class="lang-en">Kitchen / food</span><span class="lang-fr">Cuisine</span></label>
+            <label><input type="checkbox" name="areas[]" value="Bar"> <span class="lang-en">Bar service</span><span class="lang-fr">Bar</span></label>
+            <label><input type="checkbox" name="areas[]" value="Registration"> <span class="lang-en">Registration / cloakroom</span><span class="lang-fr">Accueil / vestiaire</span></label>
+            <label><input type="checkbox" name="areas[]" value="Kids zone"> <span class="lang-en">Kids' zone</span><span class="lang-fr">Coin des enfants</span></label>
+            <label><input type="checkbox" name="areas[]" value="Setup breakdown"> <span class="lang-en">Setup &amp; breakdown</span><span class="lang-fr">Installation &amp; démontage</span></label>
+            <label><input type="checkbox" name="areas[]" value="Stage tech"> <span class="lang-en">Stage &amp; tech</span><span class="lang-fr">Scène &amp; technique</span></label>
+            <label><input type="checkbox" name="areas[]" value="Photo video"> <span class="lang-en">Photography / video</span><span class="lang-fr">Photo / vidéo</span></label>
+            <label><input type="checkbox" name="areas[]" value="Marketing social"> <span class="lang-en">Marketing / social media</span><span class="lang-fr">Marketing / réseaux sociaux</span></label>
+            <label><input type="checkbox" name="areas[]" value="Fundraising"> <span class="lang-en">Fundraising / grants</span><span class="lang-fr">Collecte de fonds / subventions</span></label>
+            <label><input type="checkbox" name="areas[]" value="Other"> <span class="lang-en">Something else (tell us below)</span><span class="lang-fr">Autre (dites-nous ci-dessous)</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="availability"><span class="lang-en">Availability</span><span class="lang-fr">Disponibilité</span></label>
+          <input type="text" id="availability" name="availability" placeholder="e.g. weekends, evenings, event day only">
+        </div>
+
+        <div class="field">
+          <label for="skills"><span class="lang-en">Skills, experience, or anything else you'd like us to know</span><span class="lang-fr">Compétences, expérience, ou toute autre information utile</span></label>
+          <textarea id="skills" name="skills"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="referral"><span class="lang-en">How did you hear about us? (optional)</span><span class="lang-fr">Comment avez-vous entendu parler de nous ? (facultatif)</span></label>
+          <input type="text" id="referral" name="referral">
+        </div>
+
+        <div class="field">
+          <label class="consent">
+            <input type="checkbox" name="consent" value="yes" required>
+            <span>
+              <span class="lang-en">I agree to Noula storing my contact details to follow up about volunteering. I can withdraw consent at any time by emailing <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span>
+              <span class="lang-fr">J'accepte que Noula conserve mes coordonnées pour me recontacter au sujet du bénévolat. Je peux retirer mon consentement à tout moment en envoyant un email à <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span>
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="lang-en">Send my volunteer application</span>
+          <span class="lang-fr">Envoyer ma candidature bénévole</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+          <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+          <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+          <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+          <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <div class="footer-social">
+          <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+          <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+      setLanguage(currentLang);
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          currentLang = this.getAttribute('data-lang');
+          localStorage.setItem('selectedLanguage', currentLang);
+          setLanguage(currentLang);
+        });
+      });
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
+    <script src="forms.js" defer></script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

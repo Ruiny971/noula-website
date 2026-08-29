@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory · Noula · The French Caribbean community in the UK</title>
+  <meta name="description" content="Discover Créole businesses, makers, artists and community organisations in the UK. Browse the Noula Directory and join us.">
+
+  <meta property="og:title" content="Noula Directory · The French Caribbean community in the UK">
+  <meta property="og:description" content="Discover Créole businesses, makers, artists and community organisations near you. Free to join.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noula.org.uk/directory.html">
+  <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .lang-switch button {
+      background: none; border: 2px solid var(--coral); color: var(--coral);
+      padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+      font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+    }
+    .lang-switch button.active { background: var(--coral); color: white; }
+    .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+    .lang-fr { display: none; }
+
+    .event-strip {
+      background: linear-gradient(90deg, var(--emerald) 0%, var(--coral) 100%);
+      color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+    }
+    .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+    .directory-wrap { max-width: 1080px; margin: 0 auto; padding: 3.5rem 1.5rem 4rem; }
+    .directory-hero { text-align: center; margin-bottom: 3rem; }
+    .directory-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; margin: 0 0 0.9rem; color: var(--plum); line-height: 1.12; letter-spacing: -0.01em; }
+    .directory-hero p.subtitle { color: var(--text-light); font-size: 1.15rem; line-height: 1.6; max-width: 620px; margin: 0 auto; }
+
+    .directory-section { margin-bottom: 4rem; }
+    .directory-section > h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.9rem;
+      color: var(--plum-deep); margin-bottom: 0.4rem;
+    }
+    .directory-section p.intro { color: var(--text-light); font-size: 1.02rem; line-height: 1.6; margin-bottom: 1.75rem; }
+
+    /* ---- Browse controls ---- */
+    .dir-controls { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2rem; }
+    .dir-search {
+      position: relative; max-width: 460px;
+    }
+    .dir-search input {
+      width: 100%; padding: 0.85rem 1rem 0.85rem 2.9rem;
+      border: 1.5px solid #e3d8c6; border-radius: 999px;
+      font-family: var(--font-body); font-size: 1rem; color: var(--text-dark);
+      background: #fff; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .dir-search input:focus { outline: none; border-color: var(--coral); box-shadow: 0 0 0 4px rgba(232,114,79,0.12); }
+    .dir-search svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #b8a98f; }
+
+    .dir-filters { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .dir-filter {
+      padding: 0.5rem 1.05rem; border-radius: 999px;
+      border: 1.5px solid #e3d8c6; background: #fff; color: var(--plum-deep);
+      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .dir-filter:hover { border-color: var(--coral); color: var(--coral); }
+    .dir-filter.active { background: var(--plum); border-color: var(--plum); color: #fff; }
+
+    /* ---- Card grid ---- */
+    .dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .dir-card {
+      background: #fff; border: 1px solid #efe6da; border-radius: 1rem;
+      padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 20px 40px -30px rgba(42,26,44,0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .dir-card:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 28px 50px -28px rgba(42,26,44,0.55); }
+    .dir-card-top { display: flex; align-items: center; gap: 0.9rem; }
+    .dir-logo {
+      width: 54px; height: 54px; border-radius: 12px; flex: none;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.4rem; color: var(--plum);
+      background: #F3E9DB;
+    }
+    .dir-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .dir-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 0 0 0.35rem; color: var(--plum-deep); line-height: 1.2; }
+    .dir-chip {
+      display: inline-block; padding: 0.2rem 0.7rem; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .cat-food { background: #F5E1D5; color: #B04A28; }
+    .cat-craft { background: #F4E7C8; color: #997521; }
+    .cat-art { background: #F2DCE0; color: #7A2E3B; }
+    .cat-music { background: #DCEAE3; color: #23614C; }
+    .cat-community { background: #E7DFEA; color: #4B2E4E; }
+    .cat-other { background: #ECE6DD; color: #6A5F66; }
+    .dir-desc { color: var(--text-light); font-size: 0.94rem; line-height: 1.6; margin: 0; flex: 1; }
+    .dir-meta { display: flex; align-items: center; gap: 0.4rem; color: var(--plum-deep); font-size: 0.88rem; font-weight: 500; }
+    .dir-meta svg { color: var(--coral); flex: none; }
+    .dir-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.15rem; }
+    .dir-links a {
+      display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap;
+      font-size: 0.85rem; font-weight: 600; color: var(--emerald);
+      padding: 0.4rem 0.8rem; border: 1px solid #e0ddd2; border-radius: 999px;
+      text-decoration: none; transition: all 0.2s ease;
+    }
+    .dir-links a:hover { border-color: var(--emerald); background: #eef4f0; }
+    .dir-perk {
+      display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+      background: linear-gradient(135deg, var(--gold), #d8b76a); color: #3a2a10;
+      font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.8rem; border-radius: 999px;
+    }
+    .dir-status { color: var(--text-light); font-size: 0.95rem; padding: 1rem 0; }
+    .dir-note {
+      font-size: 0.82rem; color: #8a7f70; font-style: italic; margin: 0 0 1.25rem;
+      padding: 0.6rem 0.9rem; background: #F6EFE3; border-radius: 8px; display: none;
+    }
+    .dir-note.dir-note-alert { color: #8A3324; background: #FBEDE7; font-style: normal; border-left: 3px solid #C0562F; }
+    .dir-skeleton { background: #fff; border: 1px solid #efe6da; border-radius: 1rem; height: 220px; position: relative; overflow: hidden; }
+    .dir-skeleton::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent);
+      transform: translateX(-100%); animation: dshimmer 1.3s infinite;
+    }
+    @keyframes dshimmer { 100% { transform: translateX(100%); } }
+
+    .member-perk-note {
+      background: var(--warm-sand); padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--coral); border-radius: 0 8px 8px 0;
+      margin-bottom: 1.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-dark);
+    }
+    .member-perk-note strong { color: var(--emerald); }
+
+    .airtable-embed { border-radius: 12px; box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 20px 44px -30px rgba(42,26,44,0.5); background: white; }
+
+    .related-link {
+      margin-top: 2rem; padding: 1.75rem; background: var(--warm-sand);
+      border-radius: 12px; text-align: center;
+    }
+    .related-link a { color: var(--emerald); font-weight: 600; }
+
+    /* ---- French Caribbean directory styling ---- */
+    .directory-hero {
+      position: relative; overflow: hidden; text-align: center;
+      background: linear-gradient(135deg, var(--plum) 0%, var(--plum-deep) 60%, var(--plum-black) 100%);
+      color: var(--cream); border-radius: 20px; padding: 3.25rem 2rem; margin-bottom: 3rem;
+    }
+    .directory-hero::before {
+      content: ''; position: absolute; top: -40px; right: -40px; width: 240px; height: 240px;
+      background: url('images/madras.png') center/cover; opacity: 0.22; border-radius: 50%; pointer-events: none;
+    }
+    .directory-hero::after {
+      content: ''; position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px;
+      background: url('images/madras.png') center/cover; opacity: 0.15; border-radius: 50%; pointer-events: none;
+    }
+    .directory-hero .kicker { position: relative; display: inline-block; font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; color: var(--gold-pale); margin-bottom: 1rem; }
+    .dir-hero-pin { position: relative; display: block; width: 64px; height: 84px; object-fit: contain; margin: 0 auto 1.1rem; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
+    .directory-hero h1 { position: relative; color: var(--cream) !important; }
+    .directory-hero p.subtitle { position: relative; color: #e9ddd0 !important; }
+
+    .dir-card { padding: 0 !important; gap: 0 !important; }
+    .dir-card-media { position: relative; aspect-ratio: 16 / 10; background: #F3E9DB; overflow: hidden; }
+    .dir-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .dir-card-media.placeholder { background: url('images/madras.png') center/cover; }
+    .dir-card-media.placeholder::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(75,46,78,0.30), rgba(42,26,44,0.60)); }
+    .dir-monogram { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2.6rem; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+    .dir-card-body { padding: 1.35rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
+    .dir-card-head { display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-start; }
+    .dir-card-head h3 { margin: 0 !important; }
+    .dir-perk { position: absolute !important; top: 0.7rem; right: 0.7rem; z-index: 2; align-self: auto !important; white-space: nowrap; box-shadow: 0 4px 12px -4px rgba(0,0,0,0.45); }
+    .dir-sample-badge {
+      position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2;
+      background: rgba(42,26,44,0.82); color: #FAF6F1; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase; padding: 0.28rem 0.6rem; border-radius: 999px;
+      backdrop-filter: blur(2px);
+    }
+    .dir-card.is-sample { position: relative; }
+
+    .dir-form { margin-top: 1.75rem; }
+    .dir-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1.25rem; }
+    .dir-field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .dir-field.dir-span { grid-column: 1 / -1; }
+    .dir-label { font-weight: 600; font-size: 0.9rem; color: var(--plum); }
+    .dir-field input, .dir-field select, .dir-field textarea {
+      width: 100%; padding: 0.7rem 0.9rem; border: 1px solid #E1D4C2; border-radius: 7px;
+      font-family: inherit; font-size: 1rem; background: #fff; color: var(--text-dark);
+    }
+    .dir-field textarea { resize: vertical; }
+    .dir-field input:focus, .dir-field select:focus, .dir-field textarea:focus {
+      outline: none; border-color: var(--coral); box-shadow: 0 0 0 3px rgba(232,114,79,0.15);
+    }
+    .dir-check { flex-direction: row; align-items: flex-start; gap: 0.6rem; font-size: 0.92rem; color: #4a4a4a; }
+    .dir-check input { width: auto; margin-top: 0.2rem; flex-shrink: 0; }
+    .dir-submit {
+      margin-top: 1.4rem; background: var(--coral); color: #fff; border: none;
+      padding: 0.9rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 7px; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .dir-submit:hover { background: #d05f3d; transform: translateY(-1px); }
+    .dir-submit:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+    .dir-form-status { margin-top: 1rem; font-size: 0.95rem; }
+    .dir-form-status.err { color: #B23A2E; }
+    .dir-card { cursor: pointer; }
+    .dir-modal { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; padding: 5vw; background: rgba(28,16,30,0.72); }
+    .dir-modal.open { display: flex; }
+    .dir-modal-card { background: #fff; border-radius: 18px; max-width: 540px; width: 100%; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.7); position: relative; max-height: 90vh; overflow-y: auto; }
+    .dir-modal-media { position: relative; height: 240px; background: url('images/madras.png') center/220px; display: flex; align-items: center; justify-content: center; }
+    .dir-modal-media img { max-width: 78%; max-height: 82%; object-fit: contain; border-radius: 10px; box-shadow: 0 12px 30px -12px rgba(0,0,0,0.5); }
+    .dir-modal-media .dir-monogram { font-size: 3.4rem; font-weight: 700; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+    .dir-modal-body { padding: 1.6rem 1.8rem 2rem; }
+    .dir-modal-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; margin: 0 0 0.5rem; color: var(--text-dark); }
+    .dir-modal-body .dir-desc { font-size: 1rem; color: #4a4a4a; line-height: 1.6; margin: 0.8rem 0; }
+    .dir-modal-close { position: absolute; top: 12px; right: 14px; z-index: 3; width: 34px; height: 34px; border: none; border-radius: 50%; background: rgba(28,16,30,0.6); color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+    .dir-modal-perk { display: inline-flex; align-items: center; gap: 0.4rem; margin: 0.6rem 0 0; background: linear-gradient(135deg, var(--gold), #d8b76a); color: #3a2a10; font-size: 0.82rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 999px; }
+    .dir-hp { position: absolute; left: -5000px; visibility: hidden; }
+    @media (max-width: 620px) { .dir-form-grid { grid-template-columns: 1fr; } }
+  </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <!-- Top strip -->
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+      <span class="lang-en">Book →</span>
+      <span class="lang-fr">Réserver →</span>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home">
+          <img class="logo-img" src="logo.jpg" alt="Noula logo">
+        </a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="directory-wrap">
+    <div class="directory-hero">
+      <img src="images/directory-pin.png" alt="" aria-hidden="true" class="dir-hero-pin">
+      <span class="kicker"><span class="lang-en">L'annuaire · the Noula Directory</span><span class="lang-fr">L'annuaire Noula</span></span>
+      <h1>
+        <span class="lang-en">L'annuaire Noula · the French Caribbean community in the UK</span>
+        <span class="lang-fr">L'annuaire Noula · la communauté antillaise au Royaume-Uni</span>
+      </h1>
+      <p class="subtitle">
+        <span class="lang-en">Discover Créole businesses, makers, artists and community organisations near you.</span>
+        <span class="lang-fr">Découvrez les entreprises, créateurs, artistes et associations créoles près de chez vous.</span>
+      </p>
+    </div>
+
+    <!-- Section 1: Browse listings -->
+    <section class="directory-section">
+      <h2>
+        <span class="lang-en">Browse listings</span>
+        <span class="lang-fr">Parcourir l'annuaire</span>
+      </h2>
+      <p class="intro">
+        <span class="lang-en">All approved listings, updated in real time. Filter by category or search by name.</span>
+        <span class="lang-fr">Toutes les inscriptions validées, mises à jour en temps réel. Filtrez par catégorie ou recherchez par nom.</span>
+      </p>
+
+      <div class="dir-controls">
+        <div class="dir-search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="dir-search-input" type="search" autocomplete="off" placeholder="Search by name or keyword · Rechercher…" aria-label="Search the directory">
+        </div>
+        <div class="dir-filters" id="dir-filters" role="group" aria-label="Category filters">
+          <button class="dir-filter active" data-cat="all"><span class="lang-en">All</span><span class="lang-fr">Tout</span></button>
+          <button class="dir-filter" data-cat="food"><span class="lang-en">Food &amp; drink</span><span class="lang-fr">Cuisine &amp; boissons</span></button>
+          <button class="dir-filter" data-cat="craft"><span class="lang-en">Craft &amp; textile</span><span class="lang-fr">Artisanat &amp; textile</span></button>
+          <button class="dir-filter" data-cat="art"><span class="lang-en">Art</span><span class="lang-fr">Art</span></button>
+          <button class="dir-filter" data-cat="music"><span class="lang-en">Music</span><span class="lang-fr">Musique</span></button>
+          <button class="dir-filter" data-cat="community"><span class="lang-en">Community</span><span class="lang-fr">Communauté</span></button>
+        </div>
+      </div>
+
+      <p class="dir-note" id="dir-note">
+        <span class="lang-en">A taste of what's coming · these are sample listings while we build the directory. Real French Caribbean businesses, creators and organisations will appear here soon.</span>
+        <span class="lang-fr">Un avant-goût · voici des exemples le temps que nous construisons l'annuaire. De vraies entreprises, créateurs et organisations antillais y apparaîtront bientôt.</span>
+      </p>
+
+      <div class="dir-grid" id="dir-results" aria-live="polite"></div>
+      <p class="dir-status" id="dir-status"></p>
+    </section>
+
+    <!-- Section 2: Join the directory -->
+    <section class="directory-section">
+      <h2>
+        <span class="lang-en">Join the directory</span>
+        <span class="lang-fr">Rejoindre l'annuaire</span>
+      </h2>
+      <p class="intro">
+        <span class="lang-en">Free to join. We'll review your listing and get in touch.</span>
+        <span class="lang-fr">Gratuit. Nous examinerons votre demande et vous recontacterons.</span>
+      </p>
+
+      <div class="member-perk-note">
+        <span class="lang-en"><strong>About the "Member perk?" field.</strong> In the future, Noula will launch a membership programme. Directory partners can offer their members a small perk (a discount, early access, a welcome gift) in exchange for visibility in the directory. If you might be interested when that launches, tick the box below. No commitment now.</span>
+        <span class="lang-fr"><strong>À propos du champ "Avantage membre ?".</strong> Noula lancera prochainement un programme d'adhésion. Les partenaires de l'annuaire pourront offrir à leurs membres un petit avantage (une remise, un accès anticipé, un cadeau de bienvenue) en échange d'une visibilité dans l'annuaire. Si cela vous intéresse au lancement, cochez la case ci-dessous. Aucun engagement pour le moment.</span>
+      </div>
+
+      <form class="dir-form" id="dir-form" name="directory" data-airtable-fn="submit-directory" data-success-en="Thank you, your listing is in for review." data-success-fr="Merci, votre fiche est en cours d'examen.">
+        <p class="dir-hp"><label>Don't fill this: <input name="bot-field"></label></p>
+
+        <div class="dir-form-grid">
+          <label class="dir-field dir-span">
+            <span class="dir-label"><span class="lang-en">Business or project name</span><span class="lang-fr">Nom de l'entreprise ou du projet</span> *</span>
+            <input type="text" name="business-name" required autocomplete="organization">
+          </label>
+          <label class="dir-field">
+            <span class="dir-label"><span class="lang-en">Category</span><span class="lang-fr">Catégorie</span> *</span>
+            <select name="category" required>
+              <option value=""></option>
+              <option value="Food & drink">Food &amp; drink</option>
+              <option value="Craft & textile">Craft &amp; textile</option>
+              <option value="Art">Art</option>
+              <option value="Music">Music</option>
+              <option value="Community">Community</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label class="dir-field">
+            <span class="dir-label"><span class="lang-en">Location</span><span class="lang-fr">Localisation</span></span>
+            <input type="text" name="location" placeholder="Brixton, London" autocomplete="address-level2">
+          </label>
+          <label class="dir-field dir-span">
+            <span class="dir-label"><span class="lang-en">Short description</span><span class="lang-fr">Brève description</span></span>
+            <textarea name="description" rows="3"></textarea>
+          </label>
+          <label class="dir-field">
+            <span class="dir-label"><span class="lang-en">Website</span><span class="lang-fr">Site web</span></span>
+            <input type="url" name="website" placeholder="https://">
+          </label>
+          <label class="dir-field">
+            <span class="dir-label">Instagram</span>
+            <input type="text" name="instagram" placeholder="@yourhandle">
+          </label>
+          <label class="dir-field">
+            <span class="dir-label"><span class="lang-en">Your name</span><span class="lang-fr">Votre nom</span> *</span>
+            <input type="text" name="contact-name" required autocomplete="name">
+          </label>
+          <label class="dir-field">
+            <span class="dir-label"><span class="lang-en">Email</span><span class="lang-fr">E-mail</span> *</span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="dir-field dir-span dir-check">
+            <input type="checkbox" name="perk-interest" value="Yes">
+            <span><span class="lang-en">I might be interested in offering a member perk when Noula launches its membership programme.</span><span class="lang-fr">Je pourrais être intéressé(e) à offrir un avantage membre au lancement du programme d'adhésion de Noula.</span></span>
+          </label>
+        </div>
+
+        <button type="submit" class="dir-submit">
+          <span class="lang-en">Submit my listing →</span>
+          <span class="lang-fr">Envoyer ma fiche →</span>
+        </button>
+        <p class="form-status dir-form-status" id="dir-form-status" style="display:none;"></p>
+      </form>
+    </section>
+
+    <!-- Related link -->
+    <div class="related-link">
+      <p style="margin: 0 0 0.5rem;">
+        <span class="lang-en">Are you a maker, chef or artist wanting a stall at Noula Day 2026?</span>
+        <span class="lang-fr">Vous êtes créateur, chef ou artiste et souhaitez un stand à Noula Day 2026 ?</span>
+      </p>
+      <a href="stalls.html">
+        <span class="lang-en">Apply for a stall →</span>
+        <span class="lang-fr">Postuler pour un stand →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+          <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+          <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+          <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+          <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <div class="footer-social">
+          <p><span class="lang-en">Follow us</span><span class="lang-fr">Suivez-nous</span></p>
+          <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Language switcher (shared mechanism) ----
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+      setLanguage(currentLang);
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          currentLang = this.getAttribute('data-lang');
+          localStorage.setItem('selectedLanguage', currentLang);
+          setLanguage(currentLang);
+        });
+      });
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
+
+  <script>
+    // ================= Noula Directory =================
+    (function() {
+      const grid = document.getElementById('dir-results');
+      const statusEl = document.getElementById('dir-status');
+      const noteEl = document.getElementById('dir-note');
+      const searchInput = document.getElementById('dir-search-input');
+      const filterWrap = document.getElementById('dir-filters');
+
+      let listings = [];
+      let activeCat = 'all';
+      let term = '';
+      let currentFiltered = [];
+
+      const CAT_MATCH = {
+        food: /food|drink|cuisine|boisson|caterer|cater|bak|chef|traiteur|restaurant|rhum|punch|p[aâ]tiss/i,
+        craft: /craft|textile|artisan|madras|maker|jewel|bijou|cloth|couture|sew|candle|soap|cosmet/i,
+        art: /\bart\b|paint|peinture|illustrat|photograph|photo|design|sculpt|print/i,
+        music: /music|musique|drum|tambour|gwoka|ka\b|dj|band|dance|danse|singer|chant/i,
+        community: /communaut|community|associ|charity|caritat|educat|langue|langu|school|[eé]cole|club|network|r[eé]seau/i
+      };
+      const CAT_LABEL = {
+        food: 'Food & drink', craft: 'Craft & textile', art: 'Art',
+        music: 'Music', community: 'Community', other: 'Community'
+      };
+      const CAT_LABEL_FR = {
+        food: 'Cuisine & boissons', craft: 'Artisanat & textile', art: 'Art',
+        music: 'Musique', community: 'Communauté', other: 'Communauté'
+      };
+      function bilingual(en, fr) {
+        return '<span class="lang-en">' + esc(en) + '</span><span class="lang-fr">' + esc(fr || en) + '</span>';
+      }
+      // A field may be a plain string (real data) or { en, fr } (sample data).
+      function field(v) {
+        if (v && typeof v === 'object') return bilingual(v.en || v.fr || '', v.fr || v.en || '');
+        return esc(v);
+      }
+
+      function catKey(text) {
+        const t = (text || '').toLowerCase();
+        for (const k of Object.keys(CAT_MATCH)) { if (CAT_MATCH[k].test(t)) return k; }
+        return 'other';
+      }
+      function esc(s) {
+        return (s == null ? '' : String(s)).replace(/[&<>"']/g, function(c) {
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+        });
+      }
+      function normUrl(u) {
+        if (!u) return '';
+        return /^https?:\/\//i.test(u) ? u : 'https://' + u;
+      }
+      function igUrl(h) {
+        if (!h) return '';
+        if (/^https?:\/\//i.test(h)) return h;
+        return 'https://instagram.com/' + h.replace(/^@/, '').trim();
+      }
+      function initials(name) {
+        return (name || '?').split(/\s+/).slice(0, 2).map(w => w[0] || '').join('').toUpperCase();
+      }
+
+      const PIN = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
+      const EXT = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+
+      function cardHtml(l) {
+        const key = catKey(l.category);
+        const perk = l.perk ? '<span class="dir-perk">★ <span class="lang-en">Member perk</span><span class="lang-fr">Avantage membre</span></span>' : '';
+        const sample = l.__sample ? '<span class="dir-sample-badge"><span class="lang-en">Coming soon</span><span class="lang-fr">Bientôt</span></span>' : '';
+        const media = l.logo
+          ? '<div class="dir-card-media"><img src="' + esc(l.logo) + '" alt="' + esc(l.name) + '" loading="lazy">' + sample + perk + '</div>'
+          : '<div class="dir-card-media placeholder"><span class="dir-monogram">' + esc(initials(l.name)) + '</span>' + sample + perk + '</div>';
+        const links = [];
+        if (l.website) links.push('<a href="' + esc(normUrl(l.website)) + '" target="_blank" rel="noopener">' + bilingual('Website', 'Site web') + ' ' + EXT + '</a>');
+        if (l.instagram) links.push('<a href="' + esc(igUrl(l.instagram)) + '" target="_blank" rel="noopener">Instagram</a>');
+        return '<article class="dir-card' + (l.__sample ? ' is-sample' : '') + '">' + media +
+          '<div class="dir-card-body">' +
+            '<div class="dir-card-head"><h3>' + field(l.name) + '</h3>' +
+            (l.category ? '<span class="dir-chip cat-' + key + '">' + bilingual(CAT_LABEL[key], CAT_LABEL_FR[key]) + '</span>' : '') +
+            '</div>' +
+            (l.description ? '<p class="dir-desc">' + field(l.description) + '</p>' : '<p class="dir-desc"></p>') +
+            (l.location ? '<div class="dir-meta">' + PIN + field(l.location) + '</div>' : '') +
+            (links.length ? '<div class="dir-links">' + links.join('') + '</div>' : '') +
+          '</div>' +
+        '</article>';
+      }
+
+      function applyLang() {
+        const lang = localStorage.getItem('selectedLanguage') || 'en';
+        grid.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        grid.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+      }
+
+      function render() {
+        const filtered = listings.filter(l => {
+          const okCat = activeCat === 'all' || catKey(l.category) === activeCat;
+          const hay = (l.name + ' ' + l.description + ' ' + l.category + ' ' + l.location).toLowerCase();
+          const okTerm = !term || hay.indexOf(term) !== -1;
+          return okCat && okTerm;
+        });
+        if (!filtered.length) {
+          grid.innerHTML = '';
+          const fr = (localStorage.getItem('selectedLanguage') || 'en') === 'fr';
+          statusEl.textContent = listings.length
+            ? (fr ? 'Aucune fiche ne correspond à votre recherche pour le moment.' : 'No listings match your search yet.')
+            : (fr ? 'Aucune fiche à afficher.' : 'No listings to show.');
+          return;
+        }
+        statusEl.textContent = '';
+        currentFiltered = filtered;
+        grid.innerHTML = filtered.map(cardHtml).join('');
+        applyLang();
+      }
+
+      // Click a card to open a detail modal
+      let dirModal = null;
+      function ensureModal() {
+        if (dirModal) return dirModal;
+        dirModal = document.createElement('div');
+        dirModal.className = 'dir-modal';
+        document.body.appendChild(dirModal);
+        dirModal.addEventListener('click', function (e) { if (e.target === dirModal) closeDirModal(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDirModal(); });
+        return dirModal;
+      }
+      function closeDirModal() { if (dirModal) dirModal.classList.remove('open'); }
+      function openDirModal(l) {
+        const m = ensureModal();
+        const key = catKey(l.category);
+        const media = l.logo
+          ? '<img src="' + esc(l.logo) + '" alt="' + esc(l.name) + '">'
+          : '<span class="dir-monogram">' + esc(initials(l.name)) + '</span>';
+        const links = [];
+        if (l.website) links.push('<a href="' + esc(normUrl(l.website)) + '" target="_blank" rel="noopener">' + bilingual('Website', 'Site web') + ' ' + EXT + '</a>');
+        if (l.instagram) links.push('<a href="' + esc(igUrl(l.instagram)) + '" target="_blank" rel="noopener">Instagram</a>');
+        const perk = l.perk ? '<div class="dir-modal-perk">★ ' + field(l.perk) + '</div>' : '';
+        m.innerHTML = '<div class="dir-modal-card">' +
+          '<button class="dir-modal-close" aria-label="Close">&times;</button>' +
+          '<div class="dir-modal-media">' + media + '</div>' +
+          '<div class="dir-modal-body">' +
+            '<span class="dir-chip cat-' + key + '" style="position:static;">' + bilingual(CAT_LABEL[key], CAT_LABEL_FR[key]) + '</span>' +
+            '<h3 style="margin-top:0.6rem;">' + field(l.name) + '</h3>' +
+            (l.location ? '<div class="dir-meta">' + PIN + field(l.location) + '</div>' : '') +
+            (l.description ? '<p class="dir-desc">' + field(l.description) + '</p>' : '') +
+            perk +
+            (links.length ? '<div class="dir-links" style="margin-top:1rem;">' + links.join('') + '</div>' : '') +
+          '</div></div>';
+        m.querySelector('.dir-modal-close').onclick = closeDirModal;
+        // apply current language to freshly built modal
+        const lang = localStorage.getItem('selectedLanguage') || 'en';
+        m.querySelectorAll('.lang-en, .lang-fr').forEach(function (el) { el.style.display = el.classList.contains('lang-' + lang) ? 'inline' : 'none'; });
+        m.classList.add('open');
+      }
+      grid.addEventListener('click', function (e) {
+        const card = e.target.closest('.dir-card');
+        if (!card) return;
+        const idx = Array.prototype.indexOf.call(grid.children, card);
+        if (idx > -1 && currentFiltered[idx]) openDirModal(currentFiltered[idx]);
+      });
+
+      function skeleton() {
+        grid.innerHTML = Array.from({ length: 6 }).map(() => '<div class="dir-skeleton"></div>').join('');
+      }
+
+      // controls
+      filterWrap.addEventListener('click', function(e) {
+        const btn = e.target.closest('.dir-filter');
+        if (!btn) return;
+        activeCat = btn.getAttribute('data-cat');
+        filterWrap.querySelectorAll('.dir-filter').forEach(b => b.classList.toggle('active', b === btn));
+        render();
+      });
+      searchInput.addEventListener('input', function() {
+        term = this.value.trim().toLowerCase();
+        render();
+      });
+
+      const SAMPLE = [
+        { name: 'Ti Sucré', category: 'Food & drink', description: { en: 'Antillean pastries, spiced rum cakes and ti-punch for events across London.', fr: 'Pâtisseries antillaises, gâteaux au rhum épicé et ti-punch pour vos événements à Londres.' }, location: 'Brixton, London', website: 'tisucre.co.uk', instagram: '@tisucre', perk: '10% off for members' },
+        { name: 'Atelier Madras', category: 'Craft & textile', description: { en: 'Hand-sewn madras textiles, headwraps and accessories made in the Antillean tradition.', fr: 'Textiles madras cousus main, foulards et accessoires dans la tradition antillaise.' }, location: 'Peckham, London', website: 'ateliermadras.com', instagram: '@atelier.madras', perk: '' },
+        { name: 'Studio Gwoka', category: 'Music', description: { en: 'Ka drum classes, gwoka workshops and live performance for events and schools.', fr: 'Cours de tambour ka, ateliers gwoka et performances live pour événements et écoles.' }, location: 'Manchester', website: '', instagram: '@studiogwoka', perk: 'Free taster class' },
+        { name: 'Kanpèch Arts', category: 'Art', description: { en: 'Caribbean painting, illustration and prints celebrating Guadeloupean landscapes.', fr: 'Peinture, illustration et tirages caribéens célébrant les paysages guadeloupéens.' }, location: 'Bristol', website: 'kanpecharts.com', instagram: '', perk: '' },
+        { name: 'Kréyòl Konnect', category: 'Community', description: { en: 'A network connecting the French Caribbean diaspora with events, language meetups and support.', fr: 'Un réseau qui relie la diaspora antillaise à des événements, rencontres linguistiques et entraide.' }, location: 'London-wide', website: 'kreyolkonnect.org', instagram: '@kreyolkonnect', perk: '' },
+        { name: 'Chez Manman', category: 'Food & drink', description: { en: 'Home-style Martinican catering: colombo, accras, boudin and festive Chanté Nwèl menus.', fr: 'Traiteur martiniquais maison : colombo, accras, boudin et menus festifs de Chanté Nwèl.' }, location: 'Croydon, London', website: '', instagram: '@chezmanman.uk', perk: 'Welcome gift for members' }
+      ];
+
+      function showNote(kind, msg) {
+        noteEl.style.display = 'block';
+        if (kind === 'preview' || kind === 'empty') return; // keep default bilingual coming-soon message
+        noteEl.classList.add('dir-note-alert');
+        noteEl.textContent = 'The live directory could not load right now, so we’re showing a preview below.';
+      }
+
+      skeleton();
+      fetch('/.netlify/functions/directory')
+        .then(async r => {
+          const ct = r.headers.get('content-type') || '';
+          if (!ct.includes('application/json')) throw { kind: 'preview' };
+          const data = await r.json();
+          if (!r.ok) throw { kind: 'error', msg: (data && (data.error || data.detail)) || ('HTTP ' + r.status) };
+          return data;
+        })
+        .then(data => {
+          listings = (data && data.listings) || [];
+          if (!listings.length) { listings = SAMPLE.map(s => ({ ...s, __sample: true })); showNote('empty'); }
+          render();
+        })
+        .catch(e => {
+          listings = SAMPLE.map(s => ({ ...s, __sample: true }));
+          if (e && e.kind === 'error') showNote('error', e.msg);
+          else showNote('preview');
+          render();
+        });
+    })();
+  </script>
+    <script src="forms.js" defer></script>
+    <script src="feedback.js" defer></script>
+</body>
+</html>

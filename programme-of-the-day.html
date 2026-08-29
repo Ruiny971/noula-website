@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme of the Day · Noula Day 2026</title>
+<meta name="description" content="The full programme for Noula Day 2026, activities, workshops and live sets through the day, and the people making them happen.">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  .lang-fr { display:none; }
+  .prog { background:#FAF6F1; }
+  .prog-head { text-align:center; padding:3.5rem 1.5rem 1rem; max-width:780px; margin:0 auto; }
+  .prog-eyebrow { letter-spacing:0.22em; text-transform:uppercase; font-size:0.8rem; font-weight:700; color:var(--gold); }
+  .prog-head h1 { font-family:'Playfair Display',Georgia,serif; font-size:3rem; color:var(--plum-deep); margin:0.4rem 0 0.6rem; }
+  .prog-head p { color:var(--text-light); font-size:1.08rem; }
+  .prog-filters { display:flex; flex-wrap:wrap; gap:0.55rem; justify-content:center; max-width:900px; margin:2rem auto 2.5rem; padding:0 1.5rem; }
+  .prog-filter { border:1.5px solid rgba(63,39,67,0.16); background:#fff; color:var(--plum-deep); padding:0.5rem 1.1rem; border-radius:999px; font-weight:600; font-size:0.92rem; cursor:pointer; transition:all 0.18s; }
+  .prog-filter:hover { border-color:var(--gold); }
+  .prog-filter.active { background:var(--plum-deep); color:#fff; border-color:var(--plum-deep); }
+  .prog-grid { max-width:1120px; margin:0 auto; padding:0 1.5rem 2rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+  .prog-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 14px 34px -22px rgba(42,26,44,0.5); border:1px solid rgba(63,39,67,0.06); display:flex; flex-direction:column; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s; text-align:left; padding:0; font:inherit; }
+  .prog-card:hover { transform:translateY(-3px); box-shadow:0 22px 44px -22px rgba(42,26,44,0.55); }
+  .prog-media { position:relative; height:210px; background:linear-gradient(160deg,#3a2440,#4B2E4E); overflow:hidden; }
+  .prog-media img { width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block; }
+  .prog-madras { position:absolute; inset:0; background:url('images/madras.png') center/150px repeat; }
+  .prog-madras::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg,rgba(63,39,67,0.28),rgba(63,39,67,0.05)); }
+  .prog-time { position:absolute; top:12px; left:12px; z-index:2; background:rgba(42,26,44,0.86); color:#fff; font-weight:700; font-size:0.9rem; padding:0.32rem 0.7rem; border-radius:999px; }
+  .prog-cat { position:absolute; top:12px; right:12px; z-index:2; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.3rem 0.7rem; border-radius:999px; color:#fff; }
+  .prog-body { padding:1.25rem 1.35rem 1.5rem; flex:1; display:flex; flex-direction:column; }
+  .prog-body h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; color:var(--plum-deep); margin:0 0 0.5rem; line-height:1.15; }
+  .prog-people { font-size:0.9rem; color:var(--gold); font-weight:600; margin:0 0 0.6rem; }
+  .prog-desc { font-size:0.96rem; color:var(--text-light); line-height:1.55; margin:0; }
+  .prog-note { text-align:center; color:var(--text-light); max-width:640px; margin:0 auto 5rem; padding:0 1.5rem; font-style:italic; }
+  .cat-Music{background:#E8724F} .cat-Food{background:#2D7961} .cat-Workshop{background:#7A2E3B} .cat-Storytelling{background:#B07A2E}
+  .cat-Kids{background:#3F7CA0} .cat-DJ{background:#8A4E8C} .cat-Market{background:#C49E4C} .cat-Host{background:#556B2F} .cat-Tournament{background:#4A6C8C}
+  .prog-addon { display:inline-block; align-self:flex-start; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#fff; background:var(--coral); padding:0.28rem 0.65rem; border-radius:999px; margin-bottom:0.6rem; }
+  /* popup */
+  .prog-modal { position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center; padding:4vw; background:rgba(28,16,30,0.7); }
+  .prog-modal.open { display:flex; }
+  .pm-card { background:#fff; border-radius:18px; max-width:560px; width:100%; overflow:hidden; box-shadow:0 40px 90px -30px rgba(0,0,0,0.7); position:relative; max-height:90vh; overflow-y:auto; }
+  .pm-media { position:relative; height:360px; background:linear-gradient(160deg,#3a2440,#4B2E4E); }
+  .pm-media img { width:100%; height:100%; object-fit:cover; object-position:center 22%; }
+  .pm-madras { position:absolute; inset:0; background:url('images/madras.png') center/170px repeat; }
+  .pm-close { position:absolute; top:12px; right:14px; z-index:3; background:rgba(42,26,44,0.8); color:#fff; border:none; width:38px; height:38px; border-radius:999px; font-size:1.4rem; cursor:pointer; line-height:1; }
+  .pm-body { padding:1.75rem; }
+  .pm-body .row { display:flex; gap:0.6rem; align-items:center; margin-bottom:0.8rem; }
+  .pm-body .pm-time { background:var(--plum-deep); color:#fff; font-weight:700; padding:0.3rem 0.75rem; border-radius:999px; font-size:0.9rem; }
+  .pm-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.9rem; color:var(--plum-deep); margin:0.3rem 0 0.4rem; }
+  .pm-people { color:var(--gold); font-weight:600; margin:0 0 1rem; }
+  .pm-body p { color:var(--text-dark); line-height:1.6; margin:0; }
+  @media(max-width:600px){ .prog-head h1{font-size:2.2rem;} }
+</style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank"><span class="lang-en">Book →</span><span class="lang-fr">Réserver →</span></a>
+  </div>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img src="logo.jpg" alt="Noula logo" class="logo-img"></a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+        <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+        <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="prog">
+    <div class="prog-head">
+      <div class="prog-eyebrow"><span class="lang-en">Noula Day 2026</span><span class="lang-fr">Noula Day 2026</span></div>
+      <h1><span class="lang-en">Programme of the Day</span><span class="lang-fr">Programme de la journée</span></h1>
+      <p>
+        <span class="lang-en">Every activity, workshop and live set through the day, and the people making it happen. More is being added as the programme comes together.</span>
+        <span class="lang-fr">Chaque activité, atelier et concert de la journée, et les personnes qui les animent. D'autres seront ajoutés à mesure que le programme se précise.</span>
+      </p>
+    </div>
+    <div class="prog-filters" id="filters"></div>
+    <div class="prog-grid" id="grid"></div>
+    <p class="prog-note">
+      <span class="lang-en">The full hour-by-hour programme will be published closer to the day. Check back soon.</span>
+      <span class="lang-fr">Le programme complet, heure par heure, sera publié à l'approche de l'événement. Revenez bientôt.</span>
+    </p>
+  </section>
+
+  <div class="prog-modal" id="modal"><div class="pm-card" id="pmCard"></div></div>
+
+<script>
+const DAY = [
+  { time:'12:00', cat:'Food', addon:'preorder', people:[{n:'Noula kitchen'}],
+    en:{t:'Noula kitchen · French Caribbean catering', d:'Noula caters the whole day with traditional French Caribbean dishes, served from noon. Full menu to be announced. Dishes can be pre-ordered as an add-on when you book on Eventbrite.'},
+    fr:{t:'Cuisine Noula · traiteur antillais', d:"Noula assure la restauration toute la journée avec des plats antillais traditionnels, servis dès midi. Menu complet à venir. Les plats peuvent être précommandés en option lors de votre réservation sur Eventbrite."} },
+  { time:'12:00', cat:'Market', people:[{n:'Noula team'}],
+    en:{t:"Doors & Makers' Market", d:'The day opens with a marketplace of French Caribbean makers, crafts, food and community stalls, running right through until the evening.'},
+    fr:{t:"Ouverture & marché des créateurs", d:"La journée s'ouvre sur un marché de créateurs antillais, artisanat, cuisine et stands communautaires, jusqu'au soir."} },
+  { time:'All day', cat:'Workshop', addon:'book', madrasBg:true, people:[{n:'Jade',img:'images/artists/jade.png',pos:'center 24%'}],
+    en:{t:'Madras Craft Workshop', d:'Work with the iconic madras fabric in a hands-on craft session led by Jade. Places are limited, book as an add-on on Eventbrite.'},
+    fr:{t:'Atelier artisanat madras', d:"Travaillez le tissu madras emblématique lors d'un atelier créatif animé par Jade. Places limitées, réservez en option sur Eventbrite."} },
+  { time:'All day', cat:'Tournament', addon:'book', madrasBg:true, people:[{n:'Noula team',img:'images/illustrations/dominoes.png',illo:true}],
+    en:{t:'Dominoes tournament', d:'The classic French Caribbean domino table, played in friendly tournaments through the day. Places are limited, enter as an add-on when you book on Eventbrite.'},
+    fr:{t:'Tournoi de dominos', d:"Le jeu de dominos antillais par excellence, en tournois conviviaux tout au long de la journée. Places limitées, inscrivez-vous en option lors de votre réservation sur Eventbrite."} },
+  { time:'All day', cat:'Tournament', addon:'book', people:[{n:'Noula team'}],
+    en:{t:'Belote tournament', d:'The beloved French Caribbean card game, played in friendly tournaments through the day. Places are limited, enter as an add-on when you book on Eventbrite.'},
+    fr:{t:'Tournoi de belote', d:"Le jeu de cartes adoré des Antilles, en tournois conviviaux tout au long de la journée. Places limitées, inscrivez-vous en option lors de votre réservation sur Eventbrite."} },
+  { time:'15:00', cat:'Music', madrasBg:true, people:[{n:'Blodè Prens',img:'images/artists/blode-prens.png',pos:'center 20%'},{n:'Charlz',img:'images/artists/charlz.png',pos:'center 16%'}],
+    en:{t:'Live set', d:'Live music with Blodè Prens and Charlz, bringing the sound of the islands to Brixton.'},
+    fr:{t:'Concert', d:"Concert avec Blodè Prens et Charlz, pour faire résonner les îles à Brixton."} },
+];
+function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
+const cats = ['All', ...Array.from(new Set(DAY.map(d=>d.cat)))];
+const catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'}};
+const addonLabel = {
+  preorder:{en:'Pre-order add-on',fr:'Option à précommander'},
+  book:{en:'Limited places · book add-on',fr:'Places limitées · option'}
+};
+function addonText(d,L){ var k=(d.addon===true)?'preorder':d.addon; return addonLabel[k][L]; }
+const filters=document.getElementById('filters'), grid=document.getElementById('grid'), modal=document.getElementById('modal'), pmCard=document.getElementById('pmCard');
+let active='All';
+function mediaHTML(d, big){
+  const withImg=d.people.filter(p=>p.img);
+  if(withImg.length){
+    const fitFor = p => (p.illo || big) ? 'contain' : 'cover';
+    const posFor = p => (p.illo) ? 'center' : (big ? 'center bottom' : (p.pos||'center 20%'));
+    const pad = p => p.illo ? 'padding:10px;' : '';
+    if(withImg.length>1) return `<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">${withImg.map(p=>`<div style="flex:1;height:100%;overflow:hidden;"><img src="${p.img}" alt="${p.n}" style="width:100%;height:100%;object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;"></div>`).join('')}</div>`;
+    const p=withImg[0];
+    return `<img src="${p.img}" alt="${p.n}" style="object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;">`;
+  }
+  return `<div class="${big?'pm-madras':'prog-madras'}"></div>`;
+}
+function names(d){ return d.people.map(p=>p.n).join(' · '); }
+function render(){
+  const L=lang();
+  grid.innerHTML='';
+  DAY.filter(d=>active==='All'||d.cat===active).forEach((d,i)=>{
+    const c=document.createElement('button'); c.className='prog-card'; c.type='button';
+    c.innerHTML=`<div class="prog-media"${d.madrasBg?` style="background:url('images/madras.png') center/200px"`:''}><span class="prog-time">${d.time}</span><span class="prog-cat cat-${d.cat}">${catLabel[d.cat][L]}</span>${mediaHTML(d,false)}</div>
+      <div class="prog-body">${d.addon?`<span class="prog-addon">${addonText(d,L)}</span>`:''}<h3>${d[L].t}</h3><p class="prog-people">${names(d)}</p><p class="prog-desc">${d[L].d}</p></div>`;
+    c.onclick=()=>openModal(d);
+    grid.appendChild(c);
+  });
+}
+function openModal(d){
+  const L=lang();
+  pmCard.innerHTML=`<button class="pm-close" aria-label="Close">&times;</button>
+    <div class="pm-media"${d.madrasBg?` style="background:url('images/madras.png') center/230px"`:''}>${mediaHTML(d,true)}</div>
+    <div class="pm-body"><div class="row"><span class="pm-time">${d.time}</span><span class="prog-cat cat-${d.cat}" style="position:static;">${catLabel[d.cat][L]}</span></div>
+    <h2>${d[L].t}</h2><p class="pm-people">${names(d)}</p>${d.addon?`<p style="margin:0 0 0.75rem;"><a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">${addonText(d,L)} →</a></p>`:''}<p>${d[L].d}</p></div>`;
+  pmCard.querySelector('.pm-close').onclick=closeModal;
+  modal.classList.add('open');
+}
+function closeModal(){ modal.classList.remove('open'); }
+modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+function buildFilters(){
+  const L=lang(); filters.innerHTML='';
+  cats.forEach(c=>{ const b=document.createElement('button'); b.className='prog-filter'+(c===active?' active':''); b.textContent=catLabel[c][L];
+    b.onclick=()=>{ active=c; document.querySelectorAll('.prog-filter').forEach(x=>x.classList.remove('active')); b.classList.add('active'); render(); };
+    filters.appendChild(b); });
+}
+buildFilters(); render();
+
+// Language switcher
+document.addEventListener('DOMContentLoaded',function(){
+  const btns=document.querySelectorAll('.lang-btn'); let cur=lang();
+  function set(l){ document.querySelectorAll('.lang-en,.lang-fr').forEach(e=>e.style.display='none'); document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='inline'); btns.forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l)); document.documentElement.lang=l; localStorage.setItem('selectedLanguage',l); buildFilters(); render(); }
+  set(cur);
+  btns.forEach(b=>b.addEventListener('click',()=>set(b.getAttribute('data-lang'))));
+});
+</script>
+<script src="feedback.js" defer></script>
+</body>
+</html>
