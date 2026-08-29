@@ -7,7 +7,7 @@
     <meta name="description" content="Noula is a UK-registered charity celebrating and sharing French Caribbean heritage. Discover our cultural events, workshops and community programme in London.">
 
     <meta property="og:title" content="Noula · French Caribbean Heritage in the UK">
-    <meta property="og:description" content="Cultural events, workshops and community celebrations for the French Caribbean diaspora in the UK. Sat 28 Nov 2026: Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty.">
+    <meta property="og:description" content="Cultural events, workshops and community celebrations for the French Caribbean diaspora in the UK. Sat 28 Nov 2026: Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://noula.org.uk/">
     <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
@@ -127,6 +127,11 @@
             display: inline-block; margin-top: 2rem; transition: all 0.2s;
         }
         .flagship .btn-primary:hover { background: #d05f3d; transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(192,86,47,0.6); }
+        .hl-chip { display:inline-flex; align-items:center; gap:0.45rem; padding:0.4rem 0.95rem; background:rgba(250,246,241,0.08); border:1px solid rgba(232,199,138,0.35); border-radius:999px; font-size:0.95rem; color:#F4E3C3; }
+        .hl-dot { width:6px; height:6px; background:#E8724F; transform:rotate(45deg); flex-shrink:0; }
+        .nav-donate { display:inline-flex; align-items:center; gap:0.4rem; background:linear-gradient(135deg,#2D7961,#256551); color:#fff !important; padding:0.45rem 0.95rem; border-radius:999px; font-weight:700; cursor:default; box-shadow:0 6px 16px -8px rgba(45,121,97,0.7); }
+        .nav-donate:hover { filter:brightness(1.06); }
+        .soon-badge { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.05em; background:rgba(255,255,255,0.28); padding:0.1rem 0.42rem; border-radius:999px; font-weight:700; }
         @media (max-width: 768px) {
             .flagship { padding: 3.5rem 1.25rem; }
             .flagship h2 { font-size: 2.6rem; }
@@ -228,8 +233,8 @@
     </template>
     <!-- Top strip -->
     <div class="event-strip">
-        <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
-        <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+        <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
+        <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
         <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank">
             <span class="lang-en">Book →</span>
             <span class="lang-fr">Réserver →</span>
@@ -248,11 +253,12 @@
 
             <ul class="nav-links">
                 <li><a href="index.html" aria-current="page"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
-                <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
-                <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt="Noula Directory"></a></li>
+                <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+                <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
                 <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
                 <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
                 <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+                <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
             </ul>
 
             <div class="lang-switch" role="group" aria-label="Language selection">
@@ -270,6 +276,7 @@
                 <span class="lang-en">Celebrating and sharing French Caribbean culture in the UK</span>
                 <span class="lang-fr">Célébrer et partager la culture antillaise au Royaume-Uni</span>
             </h2>
+            <div aria-hidden="true" title="Rooted in the French Caribbean, made in the UK" style="width:132px; height:12px; margin:1.4rem auto 0.35rem; border-radius:3px; background: repeating-linear-gradient(90deg,#012169 0 12px,#FAF6F1 12px 16px,#C8102E 16px 28px,#FAF6F1 28px 32px), repeating-linear-gradient(0deg, rgba(255,255,255,0.22) 0 2px, transparent 2px 6px); box-shadow:0 3px 10px rgba(0,0,0,0.18);"></div>
             <p class="hero-tagline">
                 <span class="lang-en">Cultural events, workshops and community celebrations rooted in Guadeloupe, Martinique and the wider French Caribbean diaspora.</span>
                 <span class="lang-fr">Événements culturels, ateliers et célébrations communautaires ancrés dans la Guadeloupe, la Martinique et la diaspora antillaise au sens large.</span>
@@ -283,37 +290,35 @@
 
     <hr class="section-divider">
 
-    <!-- Slideshow -->
-    <!-- Photo montage -->
-    <section class="montage-section" aria-label="Photos from Chanté Nwèl 2025">
-        <div class="montage-inner">
-            <div class="montage-grid">
-                <figure class="montage-big" data-full="images/gallery/cn25-crowd.jpg"><img src="images/gallery/cn25-crowd.jpg" alt="A full community hall singing together at Chanté Nwèl 2025" loading="lazy"></figure>
-                <figure data-full="images/gallery/cn25-host.jpg"><img src="images/gallery/cn25-host.jpg" alt="A host in a madras-trimmed shirt with guests" loading="lazy"></figure>
-                <figure data-full="images/gallery/cn25-table.jpg"><img src="images/gallery/cn25-table.jpg" alt="Three generations sharing a table under French Caribbean flags" loading="lazy"></figure>
-            </div>
-            <p class="montage-caption">
-                <span class="lang-en">Chanté Nwèl 2025 · our first Créole Christmas celebration in London</span>
-                <span class="lang-fr">Chanté Nwèl 2025 · notre premier Chanté Nwèl à Londres</span>
-            </p>
-        </div>
-    </section>
+
 
     <!-- FLAGSHIP EVENT 3 -->
     <section class="flagship" id="flagship">
-        <img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty" style="display:block; width:100%; max-width:1080px; height:auto; margin:0 auto 2.75rem; border-radius:18px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7);">
-        <span class="flagship-tag">
-            <span class="lang-en">Our flagship event of the year</span>
-            <span class="lang-fr">Notre événement phare de l'année</span>
-        </span>
+        <a href="images/NOULA-Day-2026-banner.png" id="homeFlyer" style="display:block; width:100%; max-width:1320px; margin:0 auto 2.75rem; cursor:zoom-in;"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty" style="display:block; width:100%; height:auto; border-radius:18px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7);"></a>
         <div class="facts">
             <div><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>12h → 22h30</strong></div>
             <div><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
-            <div><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Multi-generational · all ages</span><span class="lang-fr">Multi-générationnel · tous âges</span></strong></div>
+            <div><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Everyone!</span><span class="lang-fr">Pour tous !</span></strong></div>
         </div>
-        <p class="highlights">
-            <span class="lang-en">A full day of French Caribbean culture in <b>Brixton</b> flowing into a warm Chanté Nwèl afterparty.<br><br>Madras workshops, cooking demos, créole storytelling, tournaments, gwoka drumming, kids' zone, marketplace of French Caribbean makers, then traditional carols, live music followed by an after party.<br><br>Multi-generational. All welcome. Come early, stay late.</span>
-            <span class="lang-fr">Une journée entière de culture antillaise à <b>Brixton</b> qui se prolonge dans une chaleureuse afterparty Chanté Nwèl.<br><br>Ateliers madras, démonstrations culinaires, contes créoles, tournois, tambour gwoka, espace enfants, marché de créateurs antillais, puis cantiques traditionnels et musique live, suivis d'une after party.<br><br>Multi-générationnel. Tous bienvenus. Venez tôt, restez tard.</span>
+        <div style="text-align:center; margin:0.25rem 0 0.75rem;"><span style="display:inline-flex; align-items:center; gap:0.55rem; padding:0.45rem 1.15rem; background:rgba(45,121,97,0.22); border:1px solid rgba(232,199,138,0.5); border-radius:999px; font-size:0.98rem; color:#F4E3C3; font-weight:600;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBC98A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"></circle><circle cx="17" cy="8.5" r="2"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M16.5 13.5A4 4 0 0 1 21 17.5V19"></path></svg><span class="lang-en">Family-friendly · kids welcome</span><span class="lang-fr">En famille · enfants bienvenus</span></span></div>
+        <p class="highlights" style="max-width:800px;">
+            <span class="lang-en">A full day of French Caribbean culture in <b>Brixton</b>, flowing into a warm Chanté Nwèl afterparty.</span>
+            <span class="lang-fr">Une journée entière de culture antillaise à <b>Brixton</b>, qui se prolonge dans une chaleureuse afterparty Chanté Nwèl.</span>
+        </p>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width:860px; margin:1.6rem auto 0;">
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Madras workshops</span><span class="lang-fr">Ateliers madras</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Cooking demos</span><span class="lang-fr">Démos culinaires</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Créole storytelling</span><span class="lang-fr">Contes créoles</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Tournaments</span><span class="lang-fr">Tournois</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Gwoka drumming</span><span class="lang-fr">Tambour gwoka</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Kids' zone</span><span class="lang-fr">Espace enfants</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Makers' market</span><span class="lang-fr">Marché de créateurs</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Live music</span><span class="lang-fr">Musique live</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Afterparty</span><span class="lang-fr">Afterparty</span></span>
+        </div>
+        <p class="highlights" style="margin-top:1.5rem; font-size:1.12rem; color:rgba(250,246,241,0.85);">
+            <span class="lang-en">All welcome. Come early, stay late.</span>
+            <span class="lang-fr">Tous bienvenus. Venez tôt, restez tard.</span>
         </p>
         <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="btn-primary">
             <span class="lang-en">Book Noula Day 2026 →</span>
@@ -486,7 +491,7 @@
 
                 <!-- Event 3: Noula Day 2026 -->
                 <div class="event-card">
-                    <img class="event-media" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty" loading="lazy" style="object-fit: contain; background: #2D1F3D;">
+                    <img class="event-media" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty" loading="lazy" style="object-fit: contain; background: #2D1F3D;">
                     <div class="event-header">
                         <div class="event-date">
                             <span class="lang-en">Saturday, 28 November 2026</span>
@@ -495,8 +500,8 @@
                     </div>
                     <div class="event-body">
                         <h3 class="event-title">
-                            <span class="lang-en">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
-                            <span class="lang-fr">Noula Day 2026 · The Creole Kermesse + Chanté Nwèl Afterparty</span>
+                            <span class="lang-en">Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty</span>
+                            <span class="lang-fr">Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty</span>
                         </h3>
                         <p class="event-description">
                             <span class="lang-en">Our biggest event of the year. A full day of French Caribbean culture at St Matthew's Brixton flowing into a warm Chanté Nwèl afterparty · workshops, cooking demos, tournaments, marketplace, gwoka drumming, carols, live music and dancing. 12h to 22h30.</span>
@@ -563,8 +568,8 @@
 
             <div style="text-align: center; margin-top: 2.5rem;">
                 <p style="margin-bottom: 1rem;">
-                    <span class="lang-en">Want to be listed in our community directory? Get in touch.</span>
-                    <span class="lang-fr">Vous souhaitez figurer dans notre annuaire communautaire ? Contactez-nous.</span>
+                    <span class="lang-en">Want to be listed in our Noula directory? Get in touch.</span>
+                    <span class="lang-fr">Vous souhaitez figurer dans notre annuaire Noula ? Contactez-nous.</span>
                 </p>
                 <a href="directory.html" class="btn btn-primary">
                     <span class="lang-en">Join the directory</span>
@@ -668,6 +673,27 @@
 
     <hr class="section-divider">
 
+    <!-- Past events (moved from top of page) -->
+    <section class="montage-section" aria-label="Photos from Chanté Nwèl 2025">
+        <div class="montage-inner">
+            <p style="text-align:center; letter-spacing:0.22em; text-transform:uppercase; font-size:0.82rem; color:#E8C078; font-weight:600; margin:0 0 0.4rem;"><span class="lang-en">Past events</span><span class="lang-fr">Événements passés</span></p>
+            <h2 style="font-family:'Playfair Display',Georgia,serif; text-align:center; color:#FAF6F1; font-size:2rem; margin:0 0 1.75rem;">Chanté Nwèl 2025</h2>
+            <div class="montage-grid">
+                <figure class="montage-big" data-full="images/gallery/cn25-crowd.jpg"><img src="images/gallery/cn25-crowd.jpg" alt="A full community hall singing together at Chanté Nwèl 2025" loading="lazy"></figure>
+                <figure data-full="images/gallery/cn25-host.jpg"><img src="images/gallery/cn25-host.jpg" alt="A host in a madras-trimmed shirt with guests" loading="lazy"></figure>
+                <figure data-full="images/gallery/cn25-table.jpg"><img src="images/gallery/cn25-table.jpg" alt="Three generations sharing a table under French Caribbean flags" loading="lazy"></figure>
+            </div>
+            <p class="montage-caption">
+                <span class="lang-en">Chanté Nwèl 2025 · our first Créole Christmas celebration in London</span>
+                <span class="lang-fr">Chanté Nwèl 2025 · notre premier Chanté Nwèl à Londres</span>
+            </p>
+        </div>
+    </section>
+
+  <!-- Home flyer lightbox -->
+  <div id="flyerLB" style="position:fixed; inset:0; background:rgba(15,7,18,0.92); display:none; align-items:center; justify-content:center; z-index:3000; padding:2rem; cursor:zoom-out;"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer" style="max-width:96vw; max-height:92vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,0.6);"></div>
+  <script>(function(){var a=document.getElementById('homeFlyer'),lb=document.getElementById('flyerLB');if(a&&lb){a.addEventListener('click',function(e){e.preventDefault();lb.style.display='flex';});lb.addEventListener('click',function(){lb.style.display='none';});document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none';});}})();</script>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -684,7 +710,7 @@
                 <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
                 <ul>
                     <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
-                    <li><a href="events.html"><span class="lang-en">Programme</span><span class="lang-fr">Programme</span></a></li>
+                    <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
                     <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
                     <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
                     <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
@@ -711,7 +737,8 @@
                 <span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span>
             </p>
         </div>
-    </footer>
+        <div class="footer-status" style="text-align:center;padding-top:.6rem;"><a href="_status.html" style="color:rgba(255,255,255,0.38);font-size:.75rem;text-decoration:none;letter-spacing:.03em;">Site status</a></div>
+  </footer>
 
     <div class="cn-lightbox" id="montageLightbox" style="position:fixed; inset:0; z-index:9999; display:none; background:rgba(28,16,30,0.94); align-items:center; justify-content:center; padding:3vw; cursor:zoom-out;">
         <button aria-label="Close" style="position:absolute; top:1.2rem; right:1.6rem; color:#FAF6F1; font-size:2.4rem; line-height:1; background:none; border:none; cursor:pointer;">&times;</button>

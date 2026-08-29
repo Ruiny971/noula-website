@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hour by hour · Noula Day 2026</title>
+<meta name="description" content="Noula Day 2026 hour by hour: the timed running order, room by room, from the first workshops to the Chanté Nwèl and afterparty. Sat 28 November 2026, St Matthew's Brixton.">
+<meta property="og:title" content="Hour by hour · Noula Day 2026">
+<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  .lang-fr { display:none; }
+  .pg-hero { background:linear-gradient(160deg,#1a1930,#2D1F3D 45%,#4B2E4E); color:#FAF6F1; padding:2.75rem 1.5rem; }
+  .pg-hero-inner { max-width:1040px; margin:0 auto; }
+  .pg-eyebrow { display:inline-block; letter-spacing:0.16em; text-transform:uppercase; font-size:0.78rem; font-weight:700; color:#E8C078; background:rgba(232,199,138,0.12); border:1px solid rgba(232,199,138,0.4); padding:0.35rem 0.9rem; border-radius:999px; }
+  .pg-hero h1 { font-family:'Playfair Display',Georgia,serif; font-size:3rem; line-height:1.02; margin:1rem 0 0.5rem; color:#FAF6F1; }
+  .pg-hero p { color:rgba(250,246,241,0.88); font-size:1.15rem; line-height:1.65; max-width:660px; margin:0 0 1.4rem; }
+  .pg-hero .meta { color:#F4E3C3; font-weight:600; font-size:1.05rem; }
+  .pg-viewlink { display:inline-block; margin-top:1.1rem; color:#F4E3C3; text-decoration:none; font-weight:600; border-bottom:1px solid rgba(244,227,195,0.5); padding-bottom:2px; }
+  .pg-viewlink:hover { color:#fff; }
+  .pg-wrap { max-width:1040px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+
+  .pg-prebook { display:grid; grid-template-columns:96px 1fr auto; gap:1.4rem; align-items:center; background:linear-gradient(135deg,#FBF1DC,#F3E7C9); border:1px solid #E8C078; border-radius:18px; padding:1.6rem 1.8rem; margin-bottom:2.5rem; }
+  .pg-prebook .illo { width:96px; height:96px; }
+  .pg-prebook h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; color:var(--plum-deep); margin:0 0 0.4rem; }
+  .pg-prebook p { color:#5a4a34; font-size:1.05rem; line-height:1.6; margin:0; }
+  .pg-prebook .cta { display:inline-block; background:var(--coral); color:#fff; text-decoration:none; font-weight:700; padding:0.9rem 1.6rem; border-radius:999px; white-space:nowrap; transition:all 0.2s; }
+  .pg-prebook .cta:hover { background:#d05f3d; transform:translateY(-2px); }
+
+  .pg-rooms { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:2.75rem; }
+  .pg-room-card { background:#fff; border-radius:14px; padding:1.4rem 1.5rem; box-shadow:0 14px 34px -24px rgba(42,26,44,0.5); border-left:5px solid var(--coral); }
+  .pg-room-card.cour { border-left-color:#3F7CA0; }
+  .pg-room-card h3 { margin:0 0 0.4rem; }
+  .pg-room-card p { color:var(--text-light); font-size:1.02rem; line-height:1.55; margin:0; }
+
+  .pg-group { font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; color:var(--plum-deep); margin:2.5rem 0 1.1rem; padding-bottom:0.6rem; border-bottom:2px solid rgba(196,158,76,0.45); }
+  .pg-group span.sub { font-family:'Inter',sans-serif; font-size:1rem; font-weight:600; color:var(--coral); margin-left:0.6rem; }
+  .pg-item { display:grid; grid-template-columns:170px 1fr 150px; gap:1.2rem; align-items:center; padding:1.05rem 0.6rem; border-bottom:1px solid #ece3d6; }
+  .pg-item:hover { background:#fbf7f1; }
+  .pg-time { font-family:'Playfair Display',Georgia,serif; font-weight:700; color:var(--plum-deep); font-size:1.2rem; white-space:nowrap; }
+  .pg-act { color:#3a2440; font-size:1.2rem; line-height:1.4; font-weight:500; }
+  .pg-act .tbc { display:inline-block; margin-left:0.5rem; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#8a6d1f; background:#fdf3dd; padding:0.15rem 0.5rem; border-radius:999px; vertical-align:middle; }
+  .pg-room { justify-self:start; display:inline-flex; align-items:center; gap:0.45rem; font-size:1rem; font-weight:600; padding:0.4rem 0.9rem; border-radius:999px; white-space:nowrap; }
+  .pg-room::before { content:""; width:10px; height:10px; border-radius:50%; background:currentColor; flex-shrink:0; }
+  .room-bal { background:rgba(232,114,79,0.15); color:#b23c22; }
+  .room-cour { background:rgba(63,124,160,0.16); color:#2c6389; }
+  .room-none { color:var(--text-light); font-weight:600; font-size:1rem; justify-self:start; }
+
+  @media(max-width:720px){
+    .pg-hero h1 { font-size:2.2rem; }
+    .pg-prebook { grid-template-columns:1fr; text-align:center; gap:1rem; }
+    .pg-prebook .illo { margin:0 auto; }
+    .pg-rooms { grid-template-columns:1fr; }
+    .pg-item { grid-template-columns:1fr auto; grid-template-areas:"time room" "act act"; gap:0.5rem 1rem; padding:1.1rem 0.5rem; }
+    .pg-time { grid-area:time; } .pg-room, .room-none { grid-area:room; justify-self:end; }
+    .pg-act { grid-area:act; font-size:1.15rem; }
+  }
+</style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank"><span class="lang-en">Book →</span><span class="lang-fr">Réserver →</span></a>
+  </div>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img src="logo.jpg" alt="Noula logo" class="logo-img"></a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+        <li><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pg-hero">
+    <div class="pg-hero-inner">
+      <span class="pg-eyebrow"><span class="lang-en">Noula Day 2026 · Programme</span><span class="lang-fr">Noula Day 2026 · Programme</span></span>
+      <h1><span class="lang-en">Hour by hour</span><span class="lang-fr">Le déroulé, heure par heure</span></h1>
+      <p><span class="lang-en">The timed running order for the day, room by room, from the first workshops to the Chanté Nwèl and the afterparty.</span><span class="lang-fr">Le déroulé chronométré de la journée, salle par salle, des premiers ateliers au Chanté Nwèl et à l'afterparty.</span></p>
+      <p class="meta">St Matthew's Brixton, SW2 · <span class="lang-en">Sat 28 November 2026 · 12h → 22h30</span><span class="lang-fr">Sam. 28 novembre 2026 · 12h → 22h30</span></p>
+      <a href="programme-of-the-day.html" class="pg-viewlink"><span class="lang-en">← Browse the programme by type</span><span class="lang-fr">← Parcourir le programme par type</span></a>
+    </div>
+  </section>
+
+  <div class="pg-wrap">
+    <div class="pg-prebook">
+      <svg class="illo" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="6" y="14" width="42" height="34" rx="5" fill="#E8724F"></rect>
+        <line x1="6" y1="24" x2="48" y2="24" stroke="#FAF6F1" stroke-width="2.5"></line>
+        <line x1="16" y1="10" x2="16" y2="18" stroke="#4B2E4E" stroke-width="3" stroke-linecap="round"></line>
+        <line x1="38" y1="10" x2="38" y2="18" stroke="#4B2E4E" stroke-width="3" stroke-linecap="round"></line>
+        <circle cx="16" cy="33" r="2.4" fill="#FAF6F1"></circle><circle cx="27" cy="33" r="2.4" fill="#FAF6F1"></circle><circle cx="38" cy="33" r="2.4" fill="#FAF6F1"></circle>
+        <circle cx="16" cy="42" r="2.4" fill="#FAF6F1"></circle><circle cx="27" cy="42" r="2.4" fill="#FAF6F1"></circle>
+        <g transform="rotate(-12 44 44)"><rect x="34" y="36" width="26" height="17" rx="4" fill="#2D7961"></rect><line x1="47" y1="36" x2="47" y2="53" stroke="#FAF6F1" stroke-width="2" stroke-dasharray="2 3"></line><circle cx="34" cy="44.5" r="3.5" fill="#FBF1DC"></circle><circle cx="60" cy="44.5" r="3.5" fill="#FBF1DC"></circle></g>
+      </svg>
+      <div>
+        <h2><span class="lang-en">Book your places ahead</span><span class="lang-fr">Réservez vos places à l'avance</span></h2>
+        <p><span class="lang-en">Workshops, kids' activities and the tournament have limited places and fill up fast. We really recommend pre-booking them as free add-ons when you get your ticket, so your spot is saved on the day.</span><span class="lang-fr">Les ateliers, les activités enfants et le tournoi ont un nombre de places limité et partent vite. Nous vous recommandons vraiment de les réserver en option gratuite au moment de prendre votre billet, pour garder votre place le jour J.</span></p>
+      </div>
+      <a class="cta" href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank"><span class="lang-en">Pre-book on Eventbrite →</span><span class="lang-fr">Réserver sur Eventbrite →</span></a>
+    </div>
+
+    <div class="pg-rooms">
+      <div class="pg-room-card">
+        <h3><span class="pg-room room-bal">Bal Kréol</span></h3>
+        <p><span class="lang-en">The main stage and dancefloor. Live music, dance, the carnival catwalk, and the whole Chanté Nwèl into the afterparty.</span><span class="lang-fr">La scène principale et la piste de danse. Musique live, danse, défilé carnaval, et tout le Chanté Nwèl jusqu'à l'afterparty.</span></p>
+      </div>
+      <div class="pg-room-card cour">
+        <h3><span class="pg-room room-cour">La Cour</span></h3>
+        <p><span class="lang-en">The hands-on courtyard. Workshops, kids' activities, the sorbet corner, food and the dominoes &amp; belote tournament.</span><span class="lang-fr">La cour des activités. Ateliers, activités enfants, coin sorbet, cuisine et le tournoi de dominos &amp; belote.</span></p>
+      </div>
+    </div>
+
+    <h2 class="pg-group"><span class="lang-en">Daytime</span><span class="lang-fr">Journée</span><span class="sub"><span class="lang-en">The Créole Kermesse</span><span class="lang-fr">La kermesse créole</span></span></h2>
+    <div id="pg-day"></div>
+
+    <h2 class="pg-group"><span class="lang-en">Evening</span><span class="lang-fr">Soirée</span><span class="sub"><span class="lang-en">Chanté Nwèl &amp; afterparty</span><span class="lang-fr">Chanté Nwèl &amp; afterparty</span></span></h2>
+    <div id="pg-eve"></div>
+
+    <p style="margin-top:1.75rem; color:var(--text-light); font-size:1rem; font-style:italic;"><span class="lang-en">Times and rooms may still change · items marked TBC are being confirmed.</span><span class="lang-fr">Horaires et salles susceptibles de changer · les éléments marqués TBC sont en cours de confirmation.</span></p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+          <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
+          <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+          <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+          <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p></div>
+      <div class="footer-status" style="text-align:center;padding-top:.6rem;"><a href="_status.html" style="color:rgba(255,255,255,0.38);font-size:.75rem;text-decoration:none;letter-spacing:.03em;">Site status</a></div>
+  </footer>
+
+<script src="programme-data.js"></script>
+<script>
+  function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
+  var P=(window.NOULA_PROGRAMME||[]).filter(d=>d.inAgenda).slice().sort((a,b)=>a.start.localeCompare(b.start));
+  var day=P.filter(d=>d.start<'1830'), eve=P.filter(d=>d.start>='1830');
+  var roomName={bal:'Bal Kréol',cour:'La Cour'};
+  function row(d,L){
+    var room = d.room ? '<span class="pg-room room-'+d.room+'">'+roomName[d.room]+'</span>' : '<span class="room-none">—</span>';
+    var tbc = d.tbc ? ' <span class="tbc">TBC</span>' : '';
+    return '<div class="pg-item"><span class="pg-time">'+d.time+'</span><span class="pg-act">'+d[L].t+tbc+'</span>'+room+'</div>';
+  }
+  function renderAgenda(){ var L=lang(); document.getElementById('pg-day').innerHTML=day.map(function(d){return row(d,L);}).join(''); document.getElementById('pg-eve').innerHTML=eve.map(function(d){return row(d,L);}).join(''); }
+  renderAgenda();
+  document.addEventListener('DOMContentLoaded',function(){
+    var btns=document.querySelectorAll('.lang-btn'); var cur=lang();
+    function set(l){ document.querySelectorAll('.lang-en,.lang-fr').forEach(e=>e.style.display='none'); document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='inline'); btns.forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l)); document.documentElement.lang=l; localStorage.setItem('selectedLanguage',l); renderAgenda(); }
+    set(cur); btns.forEach(b=>b.addEventListener('click',()=>set(b.getAttribute('data-lang'))));
+  });
+</script>
+<script src="feedback.js" defer></script>
+</body>
+</html>

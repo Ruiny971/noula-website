@@ -910,7 +910,7 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Chanté Nwel teaser */
+/* Chanté Nwèl teaser */
 .chante-nwel-teaser {
   background: linear-gradient(135deg, var(--navy), var(--plum-black));
   color: white;
@@ -1070,7 +1070,7 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Chanté Nwel Section Styling */
+/* Chanté Nwèl Section Styling */
 .section-chante-nwel {
   background: linear-gradient(135deg, var(--navy), var(--plum-black));
   color: white;
@@ -1395,6 +1395,86 @@ footer {
 }
 .nav-links a.nav-day::after { display: none; }
 
+/* Noula Day dropdown (parent = coral pill, menu drops beneath) */
+.nav-links li.nav-dropdown { position: relative; }
+.nav-links li.nav-dropdown .nav-dropdown-caret {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.75em;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.nav-links li.nav-dropdown:hover > a.nav-dropdown-toggle .nav-dropdown-caret,
+.nav-links li.nav-dropdown:focus-within > a.nav-dropdown-toggle .nav-dropdown-caret,
+.nav-links li.nav-dropdown > a.nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+.nav-links ul.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  min-width: 220px;
+  margin: 0;
+  padding: 0.4rem 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px -8px rgba(63, 39, 67, 0.28), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(63, 39, 67, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  z-index: 1200;
+}
+.nav-links li.nav-dropdown:hover > ul.nav-dropdown-menu,
+.nav-links li.nav-dropdown:focus-within > ul.nav-dropdown-menu,
+.nav-links li.nav-dropdown > a.nav-dropdown-toggle[aria-expanded="true"] + ul.nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s;
+}
+.nav-links ul.nav-dropdown-menu li { margin: 0; }
+.nav-links ul.nav-dropdown-menu a {
+  display: block;
+  padding: 0.55rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  white-space: nowrap;
+  border-radius: 6px;
+  margin: 0 0.35rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav-links ul.nav-dropdown-menu a::after { display: none; }
+.nav-links ul.nav-dropdown-menu a:hover,
+.nav-links ul.nav-dropdown-menu a:focus-visible {
+  background: rgba(232, 114, 79, 0.1);
+  color: var(--coral);
+}
+.nav-links ul.nav-dropdown-menu a[aria-current="page"] {
+  color: var(--coral);
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .nav-links ul.nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 1rem;
+    min-width: 0;
+  }
+  .nav-links li.nav-dropdown .nav-dropdown-caret { display: none; }
+}
+
 /* Shared form status + inline success panel */
 .form-status {
   margin-top: 1rem;
@@ -1617,3 +1697,16 @@ footer {
   .dir-filters { gap: 0.4rem; }
   .dir-filter { font-size: 0.82rem; padding: 0.45rem 0.85rem; }
 }
+
+
+/* --- Nav additions (design side): bigger Directory pin + label, Support us button --- */
+.nav-directory { display: inline-flex; align-items: center; gap: 0.4rem; }
+.nav-dir-icon { width: 46px !important; height: auto; vertical-align: middle; }
+.nav-dir-label { font-size: 1rem; font-weight: 600; }
+.nav-donate { display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg,#2D7961,#256551); color: #fff !important; padding: 0.45rem 0.95rem; border-radius: 999px; font-weight: 700; }
+.nav-donate:hover { filter: brightness(1.06); }
+.soon-badge { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.28); padding: 0.1rem 0.42rem; border-radius: 999px; font-weight: 700; }
+/* Keep every nav item on one line (FR labels are longer) */
+.nav-links a, .nav-day, .nav-donate { white-space: nowrap; }
+.nav-donate { padding: 0.38rem 0.8rem; font-size: 0.9rem; }
+.nav-dir-label { white-space: nowrap; }
