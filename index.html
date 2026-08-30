@@ -140,6 +140,11 @@
             .flagship .facts { gap: 1.25rem; }
         }
 
+        /* 2026 Programme cards: hug text, pin CTA to bottom */
+        #events .event-description { flex-grow: 0; margin-bottom: 1.25rem; }
+        #events .event-body > a.btn { margin-top: auto; }
+        #events .event-details { margin-bottom: 1.25rem; }
+
         /* Past events chip */
         .past-events-link { text-align: center; margin-top: 2rem; }
         .past-events-link a { color: var(--emerald); font-weight: 600; text-decoration: underline; }
@@ -254,7 +259,13 @@
             <ul class="nav-links">
                 <li><a href="index.html" aria-current="page"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
                 <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-                <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+                <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
                 <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
                 <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
                 <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -309,10 +320,10 @@
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Madras workshops</span><span class="lang-fr">Ateliers madras</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Cooking demos</span><span class="lang-fr">Démos culinaires</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Créole storytelling</span><span class="lang-fr">Contes créoles</span></span>
-            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Tournaments</span><span class="lang-fr">Tournois</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Dominoes &amp; Belote tournaments</span><span class="lang-fr">Tournois de dominos &amp; belote</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Gwoka drumming</span><span class="lang-fr">Tambour gwoka</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Kids' zone</span><span class="lang-fr">Espace enfants</span></span>
-            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Makers' market</span><span class="lang-fr">Marché de créateurs</span></span>
+            <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">French Caribbean makers' market</span><span class="lang-fr">Marché de créateurs antillais</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Live music</span><span class="lang-fr">Musique live</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Afterparty</span><span class="lang-fr">Afterparty</span></span>
         </div>
@@ -390,8 +401,8 @@
                     <button class="artist-arrow" id="artistNext" aria-label="Next artist">&#8250;</button>
                 </div>
                 <p class="artists-note">
-                    <span class="lang-en">More artists and activities to be announced, the full line-up is still growing.</span>
-                    <span class="lang-fr">D'autres artistes et activités à venir, la programmation continue de s'étoffer.</span>
+                    <span class="lang-en">More artists and activities to be announced.</span>
+                    <span class="lang-fr">D'autres artistes et activités à venir.</span>
                 </p>
                 <div style="text-align:center; margin-top:1.75rem;">
                     <a href="programme-of-the-day.html" class="btn btn-primary">
@@ -450,19 +461,21 @@
     <!-- 2026 Programme preview -->
     <section class="section-events section alt" id="events">
         <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">2026 Programme</span>
-                <span class="lang-fr">Programme 2026</span>
-            </h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem; font-style: italic;">
-                <span class="lang-en">Cultural events, workshops and community celebrations across the year, building toward Noula Day 2026.</span>
-                <span class="lang-fr">Événements culturels, ateliers et célébrations communautaires tout au long de l'année, jusqu'à Noula Day 2026.</span>
-            </p>
+            <div style="text-align: center; margin-bottom: 2.75rem;">
+                <h2 class="section-title">
+                    <span class="lang-en">2026 Programme</span>
+                    <span class="lang-fr">Programme 2026</span>
+                </h2>
+                <p style="max-width: 640px; margin: 1.1rem auto 0; font-style: italic; color: #6a5f66; line-height: 1.6;">
+                    <span class="lang-en">Cultural events, workshops and community celebrations across the year, building toward Noula Day 2026.</span>
+                    <span class="lang-fr">Événements culturels, ateliers et célébrations communautaires tout au long de l'année, jusqu'à Noula Day 2026.</span>
+                </p>
+            </div>
 
             <div class="events-grid">
                 <!-- Event 2: Acras (still upcoming, Sep 26) -->
                 <div class="event-card">
-                    <img class="event-media" src="images/gallery/acras-food.jpg" alt="A basket of golden accras de morue with chilli dipping sauce and lime" loading="lazy">
+                    <img class="event-media" src="images/gallery/accras-flyer.png" alt="Accras de morue · Caribbean cooking demo with Valerie" loading="lazy" style="object-fit: contain; background: #F3E7D2;">
                     <div class="event-header">
                         <div class="event-date">
                             <span class="lang-en">Saturday, 26 September 2026</span>
@@ -533,9 +546,10 @@
     <!-- Community Hub -->
     <section class="section-community" id="community">
         <div class="container">
+            <img src="images/directory-pin.png" alt="" aria-hidden="true" style="display:block; width:52px; height:auto; margin:0 auto 0.6rem; filter:drop-shadow(0 4px 10px rgba(42,26,44,0.18));">
             <h2 class="section-title">
-                <span class="lang-en">Community Hub</span>
-                <span class="lang-fr">Communauté</span>
+                <span class="lang-en">Noula Directory</span>
+                <span class="lang-fr">Annuaire Noula</span>
             </h2>
 
             <p class="community-intro">
@@ -608,7 +622,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="mailto:fchpf@outlook.com" class="btn btn-primary">
+                <a href="stalls.html" class="btn btn-primary">
                     <span class="lang-en">Become a partner</span>
                     <span class="lang-fr">Devenir partenaire</span>
                 </a>

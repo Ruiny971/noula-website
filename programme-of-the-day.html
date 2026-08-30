@@ -27,8 +27,8 @@
   .prog-card:hover { transform:translateY(-3px); box-shadow:0 22px 44px -22px rgba(42,26,44,0.55); }
   .prog-media { position:relative; height:210px; background:linear-gradient(160deg,#3a2440,#4B2E4E); overflow:hidden; }
   .prog-media img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-  .prog-madras { position:absolute; inset:0; background:url('images/madras.png') center/150px repeat; }
-  .prog-madras::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg,rgba(63,39,67,0.28),rgba(63,39,67,0.05)); }
+  .prog-madras { position:absolute; inset:0; background:url('images/madras.png') center/200px repeat; }
+  .prog-madras::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(42,26,44,0.22),rgba(42,26,44,0) 45%); }
   .prog-time { position:absolute; top:12px; left:12px; z-index:2; background:rgba(42,26,44,0.86); color:#fff; font-weight:700; font-size:0.9rem; padding:0.32rem 0.7rem; border-radius:999px; }
   .prog-cat { position:absolute; top:12px; right:12px; z-index:2; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.3rem 0.7rem; border-radius:999px; color:#fff; }
   .prog-body { padding:1.25rem 1.35rem 1.5rem; flex:1; display:flex; flex-direction:column; }
@@ -38,8 +38,12 @@
   .prog-note { text-align:center; color:var(--text-light); max-width:640px; margin:0 auto 5rem; padding:0 1.5rem; font-style:italic; }
   .cat-Music{background:#E8724F} .cat-Food{background:#2D7961} .cat-Workshop{background:#7A2E3B} .cat-Storytelling{background:#B07A2E}
   .cat-Kids{background:#3F7CA0} .cat-DJ{background:#8A4E8C} .cat-Market{background:#C49E4C} .cat-Host{background:#556B2F} .cat-Tournament{background:#4A6C8C}
-  .cat-Dance{background:#B0506E} .cat-Chante{background:#9C3B2E}
+  .cat-Dance{background:#B0506E} .cat-Chante{background:#9C3B2E} .cat-Carnival{background:#B23A7A}
   .prog-addon { display:inline-block; align-self:flex-start; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#fff; background:var(--coral); padding:0.28rem 0.65rem; border-radius:999px; margin-bottom:0.6rem; }
+  .prog-chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.6rem; }
+  .prog-chips .prog-addon { margin-bottom:0; }
+  .prog-tag { display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--plum-deep); background:transparent; border:1.5px solid rgba(63,39,67,0.28); padding:0.26rem 0.65rem; border-radius:999px; }
+  .pm-tag { font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--plum-deep); background:transparent; border:1.5px solid rgba(63,39,67,0.28); padding:0.3rem 0.7rem; border-radius:999px; }
   .prog-modal { position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center; padding:4vw; background:rgba(28,16,30,0.7); }
   .prog-modal.open { display:flex; }
   .pm-card { background:#fff; border-radius:18px; max-width:560px; width:100%; overflow:hidden; box-shadow:0 40px 90px -30px rgba(0,0,0,0.7); position:relative; max-height:90vh; overflow-y:auto; }
@@ -74,8 +78,14 @@
       <ul class="nav-links">
         <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
         <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-        <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html" aria-current="page"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -96,7 +106,7 @@
         <span class="lang-en">Every activity, workshop, live set and the people behind them. Browse by type below, or see the whole day hour by hour.</span>
         <span class="lang-fr">Chaque activité, atelier, concert et les personnes qui les animent. Parcourez par type ci-dessous, ou voyez toute la journée heure par heure.</span>
       </p>
-      <a href="deroule.html" class="prog-viewlink"><span class="lang-en">See it hour by hour →</span><span class="lang-fr">Voir le déroulé heure par heure →</span></a>
+      <a href="deroule.html" class="prog-viewlink"><span class="lang-en">See the running order →</span><span class="lang-fr">Voir le déroulé →</span></a>
     </div>
     <div class="prog-filters" id="filters"></div>
     <div class="prog-grid" id="grid"></div>
@@ -112,12 +122,16 @@
 <script>
 const DAY = (window.NOULA_PROGRAMME||[]).filter(d=>d.inGrid);
 function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
-const catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'},Dance:{en:'Dance',fr:'Danse'},Chante:{en:'Chanté Nwèl',fr:'Chanté Nwèl'}};
-const catOrder = ['All','Music','Chante','Dance','Workshop','Kids','Tournament','DJ','Storytelling','Food','Market','Host'];
-const present = new Set(DAY.map(d=>d.cat));
+const catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'},Dance:{en:'Dance',fr:'Danse'},Chante:{en:'Chanté Nwèl',fr:'Chanté Nwèl'},Carnival:{en:'Carnival',fr:'Carnaval'}};
+const catOrder = ['All','Music','Chante','Dance','Carnival','Workshop','Craft','Cooking','Kids','Tournament','DJ','Storytelling','Food','Market','Host'];
+const present = new Set();
+DAY.forEach(d=>{ present.add(d.cat); if(d.tag) present.add(d.tag); });
 const cats = catOrder.filter(c=>c==='All'||present.has(c));
+function filterLabel(k,L){ return ((catLabel[k]||tagLabel[k])||{en:k,fr:k})[L]; }
+function matches(d){ return active==='All'||d.cat===active||d.tag===active; }
 const roomLabel = {bal:'Bal Kréol',cour:'La Cour'};
 const addonLabel = { preorder:{en:'Pre-order add-on',fr:'Option à précommander'}, book:{en:'Limited places · book add-on',fr:'Places limitées · option'} };
+const tagLabel = {Dance:{en:'Dance',fr:'Danse'},Craft:{en:'Craft',fr:'Artisanat'},Cooking:{en:'Cooking',fr:'Cuisine'},Music:{en:'Music',fr:'Musique'}};
 function addonText(d,L){ return addonLabel[d.addon][L]; }
 const filters=document.getElementById('filters'), grid=document.getElementById('grid'), modal=document.getElementById('modal'), pmCard=document.getElementById('pmCard');
 let active='All';
@@ -136,10 +150,10 @@ function mediaHTML(d, big){
 function names(d){ return (d.people||[]).map(p=>p.n).join(' · '); }
 function render(){
   const L=lang(); grid.innerHTML='';
-  DAY.filter(d=>active==='All'||d.cat===active).forEach(d=>{
+  DAY.filter(matches).forEach(d=>{
     const c=document.createElement('button'); c.className='prog-card'; c.type='button';
     c.innerHTML=`<div class="prog-media"${d.madrasBg?` style="background:url('images/madras.png') center/200px"`:''}><span class="prog-time">${d.time}</span><span class="prog-cat cat-${d.cat}">${catLabel[d.cat][L]}</span>${mediaHTML(d,false)}</div>
-      <div class="prog-body">${d.addon?`<span class="prog-addon">${addonText(d,L)}</span>`:''}<h3>${d[L].t}</h3><p class="prog-people">${names(d)}</p><p class="prog-desc">${d[L].d}</p></div>`;
+      <div class="prog-body">${(d.addon||d.tag)?`<div class="prog-chips">${d.addon?`<span class="prog-addon">${addonText(d,L)}</span>`:''}${d.tag?`<span class="prog-tag">${tagLabel[d.tag][L]}</span>`:''}</div>`:''}<h3>${d[L].t}</h3><p class="prog-people">${names(d)}</p><p class="prog-desc">${d[L].d}</p></div>`;
     c.onclick=()=>openModal(d);
     grid.appendChild(c);
   });
@@ -149,7 +163,7 @@ function openModal(d){
   const roomChip = d.room ? `<span class="pm-room ${d.room}">${roomLabel[d.room]}</span>` : '';
   pmCard.innerHTML=`<button class="pm-close" aria-label="Close">&times;</button>
     <div class="pm-media"${d.madrasBg?` style="background:url('images/madras.png') center/230px"`:''}>${mediaHTML(d,true)}</div>
-    <div class="pm-body"><div class="row"><span class="pm-time">${d.time}</span><span class="prog-cat cat-${d.cat}" style="position:static;">${catLabel[d.cat][L]}</span>${roomChip}</div>
+    <div class="pm-body"><div class="row"><span class="pm-time">${d.time}</span><span class="prog-cat cat-${d.cat}" style="position:static;">${catLabel[d.cat][L]}</span>${d.tag?`<span class="pm-tag">${tagLabel[d.tag][L]}</span>`:''}${roomChip}</div>
     <h2>${d[L].t}</h2><p class="pm-people">${names(d)}</p>${d.addon?`<p style="margin:0 0 0.75rem;"><a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">${addonText(d,L)} →</a></p>`:''}<p>${d[L].d}</p></div>`;
   pmCard.querySelector('.pm-close').onclick=closeModal;
   modal.classList.add('open');
@@ -159,7 +173,7 @@ modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 function buildFilters(){
   const L=lang(); filters.innerHTML='';
-  cats.forEach(c=>{ const b=document.createElement('button'); b.className='prog-filter'+(c===active?' active':''); b.textContent=catLabel[c][L];
+  cats.forEach(c=>{ const b=document.createElement('button'); b.className='prog-filter'+(c===active?' active':''); b.textContent=filterLabel(c,L);
     b.onclick=()=>{ active=c; document.querySelectorAll('.prog-filter').forEach(x=>x.classList.remove('active')); b.classList.add('active'); render(); };
     filters.appendChild(b); });
 }

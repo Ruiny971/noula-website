@@ -177,6 +177,11 @@
       backdrop-filter: blur(2px);
     }
     .dir-card.is-sample { position: relative; }
+    /* Premium listing treatment */
+    .dir-card.is-premium { border: 2px solid var(--gold); box-shadow: 0 0 0 1px rgba(196,158,76,0.5), 0 30px 56px -24px rgba(196,158,76,0.6); }
+    .dir-card.is-premium .dir-card-media::before { content: ''; position: absolute; inset: 0; z-index: 1; box-shadow: inset 0 0 0 3px rgba(255,255,255,0.35); pointer-events: none; }
+    .dir-premium { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 3; display: inline-flex; align-items: center; gap: 0.35rem; background: linear-gradient(135deg, #F0CE82, #C49E4C); color: #3a2a10; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.32rem 0.7rem; border-radius: 999px; box-shadow: 0 6px 14px -5px rgba(58,42,16,0.5); }
+    .dir-modal-premium { display: inline-flex; align-items: center; gap: 0.4rem; margin: 0 0 0.4rem; background: linear-gradient(135deg, #F0CE82, #C49E4C); color: #3a2a10; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.32rem 0.75rem; border-radius: 999px; }
 
     .dir-form { margin-top: 1.75rem; }
     .dir-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1.25rem; }
@@ -242,8 +247,14 @@
       <ul class="nav-links">
         <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
         <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-        <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -280,6 +291,10 @@
         <span class="lang-en">All approved listings, updated in real time. Filter by category or search by name.</span>
         <span class="lang-fr">Toutes les inscriptions validées, mises à jour en temps réel. Filtrez par catégorie ou recherchez par nom.</span>
       </p>
+      <div class="member-perk-note" style="margin-bottom:1.75rem;">
+        <span class="lang-en">Every listing offers a <strong>Noula member perk</strong>, a small thank-you (a discount, a freebie or early access) for the Noula community.</span>
+        <span class="lang-fr">Chaque fiche propose un <strong>avantage membre Noula</strong>, un petit geste (remise, cadeau ou accès anticipé) pour la communauté Noula.</span>
+      </div>
 
       <div class="dir-controls">
         <div class="dir-search">
@@ -317,8 +332,8 @@
       </p>
 
       <div class="member-perk-note">
-        <span class="lang-en"><strong>About the "Member perk?" field.</strong> In the future, Noula will launch a membership programme. Directory partners can offer their members a small perk (a discount, early access, a welcome gift) in exchange for visibility in the directory. If you might be interested when that launches, tick the box below. No commitment now.</span>
-        <span class="lang-fr"><strong>À propos du champ "Avantage membre ?".</strong> Noula lancera prochainement un programme d'adhésion. Les partenaires de l'annuaire pourront offrir à leurs membres un petit avantage (une remise, un accès anticipé, un cadeau de bienvenue) en échange d'une visibilité dans l'annuaire. Si cela vous intéresse au lancement, cochez la case ci-dessous. Aucun engagement pour le moment.</span>
+        <span class="lang-en">Every Noula Directory listing includes a <strong>member perk</strong>, a small thank-you you offer the Noula community: a discount, a freebie or early access. Tell us yours below.</span>
+        <span class="lang-fr">Chaque fiche de l'annuaire Noula inclut un <strong>avantage membre</strong>, un petit geste que vous offrez à la communauté Noula : une remise, un cadeau ou un accès anticipé. Indiquez le vôtre ci-dessous.</span>
       </div>
 
       <form class="dir-form" id="dir-form" name="directory" data-airtable-fn="submit-directory" data-success-en="Thank you, your listing is in for review." data-success-fr="Merci, votre fiche est en cours d'examen.">
@@ -365,9 +380,9 @@
             <span class="dir-label"><span class="lang-en">Email</span><span class="lang-fr">E-mail</span> *</span>
             <input type="email" name="email" required autocomplete="email">
           </label>
-          <label class="dir-field dir-span dir-check">
-            <input type="checkbox" name="perk-interest" value="Yes">
-            <span><span class="lang-en">I might be interested in offering a member perk when Noula launches its membership programme.</span><span class="lang-fr">Je pourrais être intéressé(e) à offrir un avantage membre au lancement du programme d'adhésion de Noula.</span></span>
+          <label class="dir-field dir-span">
+            <span class="dir-label"><span class="lang-en">The member perk you'll offer</span><span class="lang-fr">L'avantage membre que vous proposez</span> *</span>
+            <input type="text" name="member-perk" required placeholder="e.g. 10% off · a free taster · early access">
           </label>
         </div>
 
@@ -515,17 +530,20 @@
       const PIN = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>';
       const EXT = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
 
+      const STAR = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 21.4l1.4-6.8L2.2 9l6.9-.7z"/></svg>';
+
       function cardHtml(l) {
         const key = catKey(l.category);
         const perk = l.perk ? '<span class="dir-perk">★ <span class="lang-en">Member perk</span><span class="lang-fr">Avantage membre</span></span>' : '';
-        const sample = l.__sample ? '<span class="dir-sample-badge"><span class="lang-en">Coming soon</span><span class="lang-fr">Bientôt</span></span>' : '';
+        const premium = l.premium ? '<span class="dir-premium">' + STAR + '<span class="lang-en">Premium</span><span class="lang-fr">Premium</span></span>' : '';
+        const sample = (l.__sample && !l.real) ? '<span class="dir-sample-badge"><span class="lang-en">Coming soon</span><span class="lang-fr">Bientôt</span></span>' : '';
         const media = l.logo
-          ? '<div class="dir-card-media"><img src="' + esc(l.logo) + '" alt="' + esc(l.name) + '" loading="lazy">' + sample + perk + '</div>'
-          : '<div class="dir-card-media placeholder"><span class="dir-monogram">' + esc(initials(l.name)) + '</span>' + sample + perk + '</div>';
+          ? '<div class="dir-card-media"><img src="' + esc(l.logo) + '" alt="' + esc(l.name) + '" loading="lazy">' + sample + premium + '</div>'
+          : '<div class="dir-card-media placeholder"><span class="dir-monogram">' + esc(initials(l.name)) + '</span>' + sample + premium + '</div>';
         const links = [];
         if (l.website) links.push('<a href="' + esc(normUrl(l.website)) + '" target="_blank" rel="noopener">' + bilingual('Website', 'Site web') + ' ' + EXT + '</a>');
         if (l.instagram) links.push('<a href="' + esc(igUrl(l.instagram)) + '" target="_blank" rel="noopener">Instagram</a>');
-        return '<article class="dir-card' + (l.__sample ? ' is-sample' : '') + '">' + media +
+        return '<article class="dir-card' + (l.__sample ? ' is-sample' : '') + (l.premium ? ' is-premium' : '') + '">' + media +
           '<div class="dir-card-body">' +
             '<div class="dir-card-head"><h3>' + field(l.name) + '</h3>' +
             (l.category ? '<span class="dir-chip cat-' + key + '">' + bilingual(CAT_LABEL[key], CAT_LABEL_FR[key]) + '</span>' : '') +
@@ -549,7 +567,7 @@
           const hay = (l.name + ' ' + l.description + ' ' + l.category + ' ' + l.location).toLowerCase();
           const okTerm = !term || hay.indexOf(term) !== -1;
           return okCat && okTerm;
-        });
+        }).sort((a, b) => (b.premium ? 1 : 0) - (a.premium ? 1 : 0));
         if (!filtered.length) {
           grid.innerHTML = '';
           const fr = (localStorage.getItem('selectedLanguage') || 'en') === 'fr';
@@ -586,12 +604,14 @@
         if (l.website) links.push('<a href="' + esc(normUrl(l.website)) + '" target="_blank" rel="noopener">' + bilingual('Website', 'Site web') + ' ' + EXT + '</a>');
         if (l.instagram) links.push('<a href="' + esc(igUrl(l.instagram)) + '" target="_blank" rel="noopener">Instagram</a>');
         const perk = l.perk ? '<div class="dir-modal-perk">★ ' + field(l.perk) + '</div>' : '';
+        const premium = l.premium ? '<div class="dir-modal-premium">★ <span class="lang-en">Premium listing</span><span class="lang-fr">Fiche premium</span></div>' : '';
         m.innerHTML = '<div class="dir-modal-card">' +
           '<button class="dir-modal-close" aria-label="Close">&times;</button>' +
           '<div class="dir-modal-media">' + media + '</div>' +
           '<div class="dir-modal-body">' +
             '<span class="dir-chip cat-' + key + '" style="position:static;">' + bilingual(CAT_LABEL[key], CAT_LABEL_FR[key]) + '</span>' +
             '<h3 style="margin-top:0.6rem;">' + field(l.name) + '</h3>' +
+            premium +
             (l.location ? '<div class="dir-meta">' + PIN + field(l.location) + '</div>' : '') +
             (l.description ? '<p class="dir-desc">' + field(l.description) + '</p>' : '') +
             perk +
@@ -628,12 +648,12 @@
       });
 
       const SAMPLE = [
+        { name: "Bokit'la", real: true, premium: true, category: 'Food & drink', description: { en: 'Guadeloupean bokits and street food, the fried-bread sandwich done properly, for events and pop-ups.', fr: 'Bokits et street food guadeloupéens, le sandwich au pain frit fait dans les règles, pour événements et pop-ups.' }, location: 'London', website: '', instagram: '@bokitla', perk: '' },
+        { name: 'Zouk Love London', logo: 'images/zouklove-black.png', real: true, premium: true, category: 'Music', description: { en: 'Zouk and kompa dance classes, socials and workshops bringing French Caribbean partner dance to London.', fr: 'Cours de zouk et kompa, soirées et ateliers qui font vivre la danse antillaise à deux à Londres.' }, location: 'London', website: '', instagram: '@zouklovelondon', perk: '' },
+        { name: 'UKM', real: true, category: 'Community', description: { en: 'United Kreyol Mas, a carnival collective bringing costumes, drums and Créole carnival energy to events.', fr: 'United Kreyol Mas, un collectif de carnaval qui apporte costumes, tambours et l\u2019énergie du carnaval créole aux événements.' }, location: 'London', website: '', instagram: '@unitedkreyolmas', perk: '' },
         { name: 'Ti Sucré', category: 'Food & drink', description: { en: 'Antillean pastries, spiced rum cakes and ti-punch for events across London.', fr: 'Pâtisseries antillaises, gâteaux au rhum épicé et ti-punch pour vos événements à Londres.' }, location: 'Brixton, London', website: 'tisucre.co.uk', instagram: '@tisucre', perk: '10% off for members' },
         { name: 'Atelier Madras', category: 'Craft & textile', description: { en: 'Hand-sewn madras textiles, headwraps and accessories made in the Antillean tradition.', fr: 'Textiles madras cousus main, foulards et accessoires dans la tradition antillaise.' }, location: 'Peckham, London', website: 'ateliermadras.com', instagram: '@atelier.madras', perk: '' },
-        { name: 'Studio Gwoka', category: 'Music', description: { en: 'Ka drum classes, gwoka workshops and live performance for events and schools.', fr: 'Cours de tambour ka, ateliers gwoka et performances live pour événements et écoles.' }, location: 'Manchester', website: '', instagram: '@studiogwoka', perk: 'Free taster class' },
-        { name: 'Kanpèch Arts', category: 'Art', description: { en: 'Caribbean painting, illustration and prints celebrating Guadeloupean landscapes.', fr: 'Peinture, illustration et tirages caribéens célébrant les paysages guadeloupéens.' }, location: 'Bristol', website: 'kanpecharts.com', instagram: '', perk: '' },
-        { name: 'Kréyòl Konnect', category: 'Community', description: { en: 'A network connecting the French Caribbean diaspora with events, language meetups and support.', fr: 'Un réseau qui relie la diaspora antillaise à des événements, rencontres linguistiques et entraide.' }, location: 'London-wide', website: 'kreyolkonnect.org', instagram: '@kreyolkonnect', perk: '' },
-        { name: 'Chez Manman', category: 'Food & drink', description: { en: 'Home-style Martinican catering: colombo, accras, boudin and festive Chanté Nwèl menus.', fr: 'Traiteur martiniquais maison : colombo, accras, boudin et menus festifs de Chanté Nwèl.' }, location: 'Croydon, London', website: '', instagram: '@chezmanman.uk', perk: 'Welcome gift for members' }
+        { name: 'Studio Gwoka', category: 'Music', description: { en: 'Ka drum classes, gwoka workshops and live performance for events and schools.', fr: 'Cours de tambour ka, ateliers gwoka et performances live pour événements et écoles.' }, location: 'Manchester', website: '', instagram: '@studiogwoka', perk: 'Free taster class' }
       ];
 
       function showNote(kind, msg) {

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hour by hour · Noula Day 2026</title>
+<title>Running order · Noula Day 2026</title>
 <meta name="description" content="Noula Day 2026 hour by hour: the timed running order, room by room, from the first workshops to the Chanté Nwèl and afterparty. Sat 28 November 2026, St Matthew's Brixton.">
-<meta property="og:title" content="Hour by hour · Noula Day 2026">
+<meta property="og:title" content="Running order · Noula Day 2026">
 <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -36,8 +36,9 @@
 
   .pg-group { font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; color:var(--plum-deep); margin:2.5rem 0 1.1rem; padding-bottom:0.6rem; border-bottom:2px solid rgba(196,158,76,0.45); }
   .pg-group span.sub { font-family:'Inter',sans-serif; font-size:1rem; font-weight:600; color:var(--coral); margin-left:0.6rem; }
-  .pg-item { display:grid; grid-template-columns:170px 1fr 150px; gap:1.2rem; align-items:center; padding:1.05rem 0.6rem; border-bottom:1px solid #ece3d6; }
+  .pg-item { display:grid; grid-template-columns:170px 1fr 150px; gap:1.2rem; align-items:center; padding:1.05rem 0.6rem; border-bottom:1px solid #ece3d6; cursor:pointer; transition:background 0.15s; border-radius:8px; }
   .pg-item:hover { background:#fbf7f1; }
+  .pg-item:focus-visible { outline:2px solid var(--coral); outline-offset:-2px; }
   .pg-time { font-family:'Playfair Display',Georgia,serif; font-weight:700; color:var(--plum-deep); font-size:1.2rem; white-space:nowrap; }
   .pg-act { color:#3a2440; font-size:1.2rem; line-height:1.4; font-weight:500; }
   .pg-act .tbc { display:inline-block; margin-left:0.5rem; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#8a6d1f; background:#fdf3dd; padding:0.15rem 0.5rem; border-radius:999px; vertical-align:middle; }
@@ -74,8 +75,14 @@
       <ul class="nav-links">
         <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
         <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-        <li><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -91,7 +98,7 @@
   <section class="pg-hero">
     <div class="pg-hero-inner">
       <span class="pg-eyebrow"><span class="lang-en">Noula Day 2026 · Programme</span><span class="lang-fr">Noula Day 2026 · Programme</span></span>
-      <h1><span class="lang-en">Hour by hour</span><span class="lang-fr">Le déroulé, heure par heure</span></h1>
+      <h1><span class="lang-en">The running order</span><span class="lang-fr">Le déroulé, heure par heure</span></h1>
       <p><span class="lang-en">The timed running order for the day, room by room, from the first workshops to the Chanté Nwèl and the afterparty.</span><span class="lang-fr">Le déroulé chronométré de la journée, salle par salle, des premiers ateliers au Chanté Nwèl et à l'afterparty.</span></p>
       <p class="meta">St Matthew's Brixton, SW2 · <span class="lang-en">Sat 28 November 2026 · 12h → 22h30</span><span class="lang-fr">Sam. 28 novembre 2026 · 12h → 22h30</span></p>
       <a href="programme-of-the-day.html" class="pg-viewlink"><span class="lang-en">← Browse the programme by type</span><span class="lang-fr">← Parcourir le programme par type</span></a>
@@ -147,7 +154,7 @@
         <h4><span class="lang-en">Navigation</span><span class="lang-fr">Navigation</span></h4>
         <ul>
           <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
-          <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
+          <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
           <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
           <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
           <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -164,6 +171,7 @@
   </footer>
 
 <script src="programme-data.js"></script>
+<script src="programme-modal.js"></script>
 <script>
   function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
   var P=(window.NOULA_PROGRAMME||[]).filter(d=>d.inAgenda).slice().sort((a,b)=>a.start.localeCompare(b.start));
@@ -172,10 +180,16 @@
   function row(d,L){
     var room = d.room ? '<span class="pg-room room-'+d.room+'">'+roomName[d.room]+'</span>' : '<span class="room-none">—</span>';
     var tbc = d.tbc ? ' <span class="tbc">TBC</span>' : '';
-    return '<div class="pg-item"><span class="pg-time">'+d.time+'</span><span class="pg-act">'+d[L].t+tbc+'</span>'+room+'</div>';
+    return '<div class="pg-item" role="button" tabindex="0" data-id="'+d.id+'"><span class="pg-time">'+d.time+'</span><span class="pg-act">'+d[L].t+tbc+'</span>'+room+'</div>';
   }
   function renderAgenda(){ var L=lang(); document.getElementById('pg-day').innerHTML=day.map(function(d){return row(d,L);}).join(''); document.getElementById('pg-eve').innerHTML=eve.map(function(d){return row(d,L);}).join(''); }
   renderAgenda();
+  var byId={}; P.forEach(function(d){ byId[d.id]=d; });
+  function openRow(el){ var id=el.getAttribute('data-id'); if(id&&window.NoulaProgrammeModal&&byId[id]) window.NoulaProgrammeModal.open(byId[id]); }
+  ['pg-day','pg-eve'].forEach(function(cid){ var c=document.getElementById(cid); if(!c) return;
+    c.addEventListener('click',function(e){ var it=e.target.closest('.pg-item'); if(it) openRow(it); });
+    c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ var it=e.target.closest('.pg-item'); if(it){ e.preventDefault(); openRow(it); } } });
+  });
   document.addEventListener('DOMContentLoaded',function(){
     var btns=document.querySelectorAll('.lang-btn'); var cur=lang();
     function set(l){ document.querySelectorAll('.lang-en,.lang-fr').forEach(e=>e.style.display='none'); document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='inline'); btns.forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')===l)); document.documentElement.lang=l; localStorage.setItem('selectedLanguage',l); renderAgenda(); }
