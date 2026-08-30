@@ -63,12 +63,16 @@
   .nd-note { color:var(--text-light); font-style:italic; margin:1.3rem 0 0; }
   /* Hero line-up auto slideshow */
   .nd-lineup-show { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); background:#3a2440 url('images/madras.png') center/200px; aspect-ratio:4/5; }
-  .nls-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; }
+  .nls-track { position:absolute; inset:0; }
+  .nls-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; cursor:pointer; pointer-events:none; }
+  .nls-slide.active { pointer-events:auto; }
+  .nls-slide:focus-visible { outline:3px solid #E8C078; outline-offset:-3px; }
   .nls-slide.active { opacity:1; }
   .nls-slide img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
   .nls-cap { position:absolute; left:0; right:0; bottom:0; padding:2.6rem 1.4rem 1.3rem; background:linear-gradient(0deg, rgba(20,8,24,0.92), rgba(20,8,24,0)); color:#FAF6F1; text-align:left; }
-  .nls-cap .r { color:#E8C078; font-size:0.76rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+  .nls-cap .r { display:inline-block; color:#3F2743; background:linear-gradient(135deg,#EFC878,#C49E4C); font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.08em; padding:0.28rem 0.75rem; border-radius:999px; box-shadow:0 4px 12px -4px rgba(0,0,0,0.4); }
   .nls-cap h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; margin:0.15rem 0 0; color:#FAF6F1; }
+  .nls-more { display:inline-block; margin-top:0.7rem; font-size:0.82rem; font-weight:700; letter-spacing:0.02em; color:#3F2743; background:linear-gradient(135deg,#EFC878,#C49E4C); padding:0.32rem 0.85rem; border-radius:999px; }
   .nls-eyebrow { position:absolute; top:1rem; left:1rem; z-index:2; }
   .nls-dots { position:absolute; bottom:1.2rem; right:1.2rem; z-index:2; display:flex; gap:0.4rem; }
   .nls-dot { width:9px; height:9px; border-radius:999px; background:rgba(250,246,241,0.35); border:none; padding:0; cursor:pointer; transition:background .2s; }
@@ -121,8 +125,14 @@
       <ul class="nav-links">
         <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
         <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-        <li><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day" aria-current="page"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -140,9 +150,7 @@
     <div class="nd-hero-inner">
       <div class="nd-lineup-show" id="ndShow" aria-label="Meet the line-up">
         <span class="nd-eyebrow nls-eyebrow"><span class="lang-en">Meet the line-up</span><span class="lang-fr">La programmation</span></span>
-        <div class="nls-slide active"><img src="images/artists/blode-prens.png" alt="Blodè Prens"><div class="nls-cap"><span class="r"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span><h4>Blodè Prens</h4></div></div>
-        <div class="nls-slide"><img src="images/artists/charlz.png" alt="Charlz" loading="lazy"><div class="nls-cap"><span class="r"><span class="lang-en">Singer</span><span class="lang-fr">Chanteur</span></span><h4>Charlz</h4></div></div>
-        <div class="nls-slide"><img src="images/artists/jade.png" alt="Jade" loading="lazy"><div class="nls-cap"><span class="r"><span class="lang-en">Madras workshop</span><span class="lang-fr">Atelier madras</span></span><h4>Jade</h4></div></div>
+        <div class="nls-track" id="ndTrack"></div>
         <div class="nls-dots" id="ndDots"></div>
       </div>
       <div class="nd-hero-info">
@@ -157,7 +165,7 @@
         <div class="nd-btns">
           <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book tickets →</span><span class="lang-fr">Réserver →</span></a>
           <a href="programme-of-the-day.html" class="nd-cta ghost"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a>
-          <a href="deroule.html" class="nd-cta ghost"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a>
+          <a href="deroule.html" class="nd-cta ghost"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a>
         </div>
         <button type="button" class="nd-flyerthumb" id="flyerBtn"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer"><span class="nd-flyerlabel"><span class="lang-en">Voir le flyer</span><span class="lang-fr">Voir le flyer</span><span class="nd-zoom">⤢</span></span></button>
       </div>
@@ -199,7 +207,7 @@
       <p class="nd-kicker"><span class="lang-en">The line-up</span><span class="lang-fr">La programmation</span></p>
       <h2 class="nd-h2" style="text-align:center;"><span class="lang-en">See who's on, and when</span><span class="lang-fr">Qui joue, et quand</span></h2>
       <p class="nd-note" style="max-width:640px; margin:0 auto;"><span class="lang-en">More performers, hosts and makers to be announced. The full run of activities and workshops, with times, lives on the Programme of the Day.</span><span class="lang-fr">D'autres artistes, animateurs et créateurs à venir. Le déroulé complet des activités et ateliers, avec les horaires, est sur le programme de la journée.</span></p>
-      <div style="margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center;"><a href="programme-of-the-day.html" class="nd-cta emerald"><span class="lang-en">Browse the programme →</span><span class="lang-fr">Parcourir le programme →</span></a><a href="deroule.html" class="nd-cta gold"><span class="lang-en">See it hour by hour →</span><span class="lang-fr">Voir le déroulé →</span></a></div>
+      <div style="margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center;"><a href="programme-of-the-day.html" class="nd-cta emerald"><span class="lang-en">Browse the programme →</span><span class="lang-fr">Parcourir le programme →</span></a><a href="deroule.html" class="nd-cta gold"><span class="lang-en">See the running order →</span><span class="lang-fr">Voir le déroulé →</span></a></div>
     </div>
   </section>
 
@@ -235,7 +243,7 @@
         <ul>
           <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
           <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-          <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li>
+          <li><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a></li>
           <li><a href="directory.html"><span class="lang-en">Noula Directory</span><span class="lang-fr">Annuaire Noula</span></a></li>
           <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         </ul>
@@ -261,15 +269,41 @@
     set(cur); btns.forEach(b=>b.addEventListener('click',()=>set(b.getAttribute('data-lang'))));
   });
 </script>
+<script src="programme-data.js"></script>
+<script src="programme-modal.js"></script>
 <script>
 (function(){
-  var show=document.getElementById('ndShow');
-  if(show){
-    var slides=show.querySelectorAll('.nls-slide'); var dotsWrap=document.getElementById('ndDots'); var i=0,t;
-    slides.forEach(function(s,idx){ var b=document.createElement('button'); b.className='nls-dot'+(idx===0?' active':''); b.setAttribute('aria-label','Slide '+(idx+1)); b.addEventListener('click',function(){go(idx);reset();}); dotsWrap.appendChild(b); });
+  var show=document.getElementById('ndShow'), track=document.getElementById('ndTrack');
+  if(show&&track){
+    var LINEUP=[
+      {id:'blode', img:'images/artists/blode-prens.png', name:'Blodè Prens', roleEn:'Singer', roleFr:'Chanteur'},
+      {id:'charlz', img:'images/artists/charlz.png', name:'Charlz', roleEn:'Singer', roleFr:'Chanteur'},
+      {id:'beguine', img:'images/artists/joyce.png', name:'Joyce', roleEn:'Biguine initiation', roleFr:'Initiation biguine'},
+      {id:'tales', img:'images/artists/ralphy.png', name:'Ralphy', roleEn:'Storytelling for kids', roleFr:'Contes pour enfants'},
+      {id:'madras', img:'images/artists/jade.png', name:'Jade', roleEn:'Madras workshop', roleFr:'Atelier madras'},
+      {id:'catwalk', img:'images/artists/ukm.png', name:'UKM', roleEn:'Carnival catwalk', roleFr:'Défilé carnaval', contain:true},
+      {id:'after', img:'images/artists/djahman.png', name:'DJ Djahman', roleEn:'DJ · Afterparty', roleFr:'DJ · Afterparty'},
+      {id:'cn1', img:'images/artists/ziloka.png', name:'Ziloka', roleEn:'Chanté Nwèl', roleFr:'Chanté Nwèl'}
+    ];
+    track.innerHTML=LINEUP.map(function(a,idx){
+      var st = a.contain ? 'object-fit:contain;object-position:center;padding:9%;box-sizing:border-box;' : '';
+      return '<div class="nls-slide'+(idx===0?' active':'')+'" data-id="'+a.id+'" role="button" tabindex="0" aria-label="'+a.name+', view details">'
+        +'<img src="'+a.img+'" alt="'+a.name+'"'+(st?(' style="'+st+'"'):'')+(idx?' loading="lazy"':'')+'>'
+        +'<div class="nls-cap"><span class="r"><span class="lang-en">'+a.roleEn+'</span><span class="lang-fr">'+a.roleFr+'</span></span><h4>'+a.name+'</h4>'
+        +'<span class="nls-more"><span class="lang-en">View details →</span><span class="lang-fr">Voir les détails →</span></span></div></div>';
+    }).join('');
+    var slides=track.querySelectorAll('.nls-slide'), dotsWrap=document.getElementById('ndDots'), i=0, t;
+    slides.forEach(function(s,idx){ var b=document.createElement('button'); b.className='nls-dot'+(idx===0?' active':''); b.setAttribute('aria-label','Slide '+(idx+1)); b.addEventListener('click',function(e){e.stopPropagation();go(idx);reset();}); dotsWrap.appendChild(b); });
     var dots=dotsWrap.querySelectorAll('.nls-dot');
-    function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); }
+    function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); applyLang(slides[i]); }
     function reset(){ clearInterval(t); t=setInterval(function(){go(i+1);},4000); }
+    function applyLang(scope){ var l=(localStorage.getItem('selectedLanguage')==='fr')?'fr':'en'; (scope||track).querySelectorAll('.lang-en,.lang-fr').forEach(function(e){ e.style.display=e.classList.contains('lang-'+l)?'inline':'none'; }); }
+    function openCur(el){ var id=el.getAttribute('data-id'); if(id&&window.NoulaProgrammeModal) window.NoulaProgrammeModal.openById(id); }
+    slides.forEach(function(s){
+      s.addEventListener('click',function(){ openCur(s); });
+      s.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openCur(s); } });
+    });
+    applyLang();
     reset();
   }
   var fb=document.getElementById('flyerBtn'), lb=document.getElementById('flyerLightbox');

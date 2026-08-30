@@ -1,137 +1,28 @@
-# Noula Charity Website
+# Noula website changes · 2026-08-30-1536
 
-A modern, warm, and welcoming website for Noula - a UK charity promoting French Caribbean heritage.
+Apply these files to the GitHub repo (Ruiny971/noula-website, branch main), overwriting by path. Netlify auto-deploys on merge.
 
-## Quick Start
+## Code files (overwrite)
+- index.html · home: chips reworded (Dominoes & Belote tournaments; French Caribbean makers' market; removed "line-up still growing"; removed "Come early, stay late"); 2026 Programme header centered; "Community Hub" section renamed "Noula Directory" + madras pin; "Become a partner" now links stalls.html; Accras card uses the Valerie flyer; nav dropdown + stacked "Noula/Directory" label.
+- events.html · removed STAFE line; flagship highlights now chips + links to programme pages; removed "feast"; volcano workshop card shows its flyer; nav dropdown.
+- noula-day.html · line-up slideshow rebuilt (8 performers, click opens the programme detail modal); nav dropdown; "Hour by hour" -> "Running order".
+- deroule.html · agenda rows clickable (open detail modal); "Hour by hour" -> "Running order"; nav dropdown.
+- programme-of-the-day.html · category + discipline-tag filtering (an item shows under both its category and its tag, e.g. Joyce under Workshop AND Dance); new "Carnival" category; madras backgrounds unified; performer photos wired; nav dropdown.
+- directory.html · Premium listing treatment (gold border, ribbon, sorted first); member-perk explained once and now a REQUIRED form field; "Noula Directory" nav label; Zouk Love London logo; nav dropdown.
+- programme-data.js · single source for both programme views. Belote split from Dominoes; Biguine spelling; Joyce = Workshop (tag Dance); accras (tag Cooking) & Jade (tag Craft); performer/illustration images wired; "French Caribbean makers' market".
+- programme-modal.js · NEW shared file, loaded by noula-day.html and deroule.html. Keep at repo root alongside the HTML.
+- styles.css · nav dropdown styles + stacked Directory label.
+- about.html, contact.html, stalls.html, volunteer.html · nav dropdown + Directory label only.
 
-### View the Site Locally
+## New images (add)
+- images/artists/joyce.png, ralphy.png, ukm.png, djahman.png, ziloka.png · new
+- images/gallery/volcano-workshop.png · new
+- images/gallery/accras-flyer.png · new
+- images/illustrations/caribbean-catering.png, sorbet.png, belote.png, kidoka.png, kidoka2.png, makers-market.png · new
+- images/zouklove-black.png, zouklove-gold.png, zouklove-card.png · new
 
-1. Open `index.html` in your web browser
-2. Click through the pages to preview the full site
+All other images already in the repo are unchanged and referenced by path; no re-upload needed.
 
-That's it! No build process, no dependencies needed.
-
-### Deploy to Netlify
-
-See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for complete instructions.
-
-**Quick version:**
-1. Push this folder to GitHub
-2. Connect your GitHub repo to Netlify at [netlify.com](https://netlify.com)
-3. Custom domain `noula.org.uk` can be configured in Netlify dashboard
-
-## Site Pages
-
-- **index.html** — Home page with events preview
-- **events.html** — Full STAFE 2026 programme (3 events with Eventbrite links)
-- **about.html** — Charity information and mission
-
-## What's Included
-
-- Complete responsive design (mobile, tablet, desktop)
-- Caribbean-inspired colour palette with Madras pattern accents
-- Google Fonts integration (Playfair Display + Inter)
-- Sticky navigation bar
-- Event cards with Eventbrite links
-- Footer with charity info and social links
-- Email contact links
-- Instagram integration
-
-## Key Features
-
-✓ **Static Site** — Pure HTML/CSS/JavaScript, no frameworks  
-✓ **Fast** — Loads in under 1 second  
-✓ **Mobile-Friendly** — Perfect for Instagram link-in-bio  
-✓ **Accessible** — Semantic HTML, good contrast, keyboard navigable  
-✓ **Netlify Ready** — Includes netlify.toml and _redirects  
-✓ **SEO Optimized** — Meta tags, semantic markup  
-
-## Customization
-
-### Change Colours
-Edit `:root` variables in `styles.css`:
-```css
---coral: #E8724F;
---emerald: #2D7961;
---gold: #D4AF37;
-```
-
-### Add Your Logo
-1. Place logo in `assets/logo.png` (create assets folder)
-2. Replace SVG in nav with `<img src="assets/logo.png">`
-
-### Update Event Details
-Edit event cards in `events.html` or `index.html`
-
-### Change Contact Email
-Replace `hello@noula.org.uk` throughout (use Find & Replace)
-
-## Files
-
-```
-website/
-├── index.html              # Home
-├── events.html             # Programme
-├── about.html              # About us
-├── styles.css              # All styling
-├── netlify.toml            # Netlify config
-├── _redirects              # URL rewrites
-├── README.md               # This file
-└── DEPLOYMENT_GUIDE.md     # Detailed deployment instructions
-```
-
-## Browser Support
-
-Works on all modern browsers:
-- Chrome, Firefox, Safari, Edge
-- Mobile browsers (iOS, Android)
-- Internet Explorer not supported (outdated)
-
-## Deployment
-
-### Option 1: Netlify (Recommended)
-- Free hosting with automatic SSL
-- Custom domain support
-- Automatic deployments from GitHub
-- See DEPLOYMENT_GUIDE.md for setup
-
-### Option 2: Any Static Host
-- GitHub Pages
-- Vercel
-- Cloudflare Pages
-- AWS S3 + CloudFront
-- Your own server
-
-## Events & Links
-
-The site includes links to three STAFE 2026 events:
-
-1. **La Soufrière & Montagne Pelée Volcano Workshop**
-   - Date: Saturday, 26 April 2026
-   - Format: Online, Free
-   - Hosted by: Shinead (age 9)
-   - Register: Eventbrite link included
-
-2. **Acras de Morue Caribbean Cooking Demo**
-   - Date: Wednesday, 27 May 2026
-   - Format: Online
-   - Register: Eventbrite link included
-
-3. **French Caribbean Cultural Showcase**
-   - Date: Friday, 27 June 2026
-   - Format: In-Person
-   - Register: Eventbrite link included
-
-## Contact
-
-- **Email**: hello@noula.org.uk
-- **Instagram**: @noula_charity
-- **Charity Number**: 1210134
-
-## License
-
-© 2026 Noula - French Caribbean Heritage Promotion Foundation
-
----
-
-**Ready to deploy?** See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+## ACTION NEEDED IN AIRTABLE (backend, not front-end)
+1. Directory "Premium" tier: the site renders a Premium treatment when a listing is flagged premium. Add a Premium field (boolean) to the directory table, set TRUE on Bokit'la and Zouk Love London, and add UKM as a standard (non-premium) listing.
+2. The directory form now sends a REQUIRED field named `member-perk` (replacing the old optional `perk-interest` checkbox). Add a matching "Member perk" column so submissions capture it.

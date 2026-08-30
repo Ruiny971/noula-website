@@ -83,6 +83,15 @@
             font-size: 2.4rem; line-height: 1; background: none; border: none; cursor: pointer; opacity: 0.8;
         }
         .cn-lightbox .cn-close:hover { opacity: 1; }
+
+        /* Flagship programme highlights as chips */
+        .event-card.featured .event-activities { margin-top: 1.25rem; }
+        .event-card.featured .activities-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; color: var(--plum-deep); margin: 0 0 0.85rem; }
+        .event-card.featured .activities-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .event-card.featured .activities-list li { background: #fff; border: 1px solid rgba(196,158,76,0.45); color: #3F2743; padding: 0.42rem 0.9rem; border-radius: 999px; font-size: 0.9rem; font-weight: 500; line-height: 1.3; }
+        .flagship-links { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.4rem; }
+        .flagship-links a.btn-ghost { display: inline-flex; align-items: center; border: 1.5px solid var(--emerald); color: var(--emerald); background: transparent; padding: 0.75rem 1.4rem; border-radius: 999px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .flagship-links a.btn-ghost:hover { background: var(--emerald); color: #fff; }
     </style>
     <script type="application/ld+json">
     {
@@ -146,7 +155,13 @@
             <ul class="nav-links">
                 <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
                 <li><a href="events.html" aria-current="page"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
-                <li class="nav-dropdown"><a href="noula-day.html" class="nav-day nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span><span class="nav-dropdown-caret" aria-hidden="true"> ▾</span></a><ul class="nav-dropdown-menu" role="menu"><li role="none"><a role="menuitem" href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Vue d’ensemble</span></a></li><li role="none"><a role="menuitem" href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme du jour</span></a></li><li role="none"><a role="menuitem" href="deroule.html"><span class="lang-en">Hour by hour</span><span class="lang-fr">Heure par heure</span></a></li></ul></li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+                <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
                 <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
                 <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
                 <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -205,8 +220,8 @@
                         <span class="format-badge culture"><span class="lang-en">Cultural day + Chanté Nwèl afterparty</span><span class="lang-fr">Journée culturelle + afterparty Chanté Nwèl</span></span>
                     </div>
                     <p class="event-description">
-                        <span class="lang-en">Our biggest event of the year. A full day of French Caribbean culture at St Matthew's Brixton flowing into a warm Chanté Nwèl afterparty. Multi-generational, warm, culturally rooted. Come early, stay late.</span>
-                        <span class="lang-fr">Notre plus grand événement de l'année. Une journée entière de culture antillaise à St Matthew's Brixton qui se prolonge en afterparty Chanté Nwèl chaleureuse. Multi-générationnel, ancré dans nos racines. Venez tôt, restez tard.</span>
+                        <span class="lang-en">Our biggest event of the year. A full day of French Caribbean culture at St Matthew's Brixton flowing into a warm Chanté Nwèl afterparty. Multi-generational, warm, culturally rooted.</span>
+                        <span class="lang-fr">Notre plus grand événement de l'année. Une journée entière de culture antillaise à St Matthew's Brixton qui se prolonge en afterparty Chanté Nwèl chaleureuse. Multi-générationnel, ancré dans nos racines.</span>
                     </p>
                     <div class="event-activities">
                         <h3 class="activities-title"><span class="lang-en">Programme highlights</span><span class="lang-fr">Temps forts</span></h3>
@@ -216,7 +231,7 @@
                             <li><span class="lang-en">Gwoka drum circle + KIDOKA (kids' drumming)</span><span class="lang-fr">Cercle de tambour gwoka + KIDOKA (enfants)</span></li>
                             <li><span class="lang-en">Madras textile workshop</span><span class="lang-fr">Atelier textile madras</span></li>
                             <li><span class="lang-en">UKM carnival costume catwalk</span><span class="lang-fr">Défilé carnaval UKM</span></li>
-                            <li><span class="lang-en">Chanté Nwèl · créole Christmas carols, biguine, kompa, feast</span><span class="lang-fr">Chanté Nwèl · cantiques créoles, biguine, kompa, festin</span></li>
+                            <li><span class="lang-en">Chanté Nwèl · créole Christmas carols, biguine, kompa</span><span class="lang-fr">Chanté Nwèl · cantiques créoles, biguine, kompa</span></li>
                             <li><span class="lang-en">Zouk / kompa dance intro with Zouk Love London</span><span class="lang-fr">Initiation zouk / kompa avec Zouk Love London</span></li>
                             <li><span class="lang-en">Père Nwèl Antillais for the kids</span><span class="lang-fr">Père Nwèl Antillais pour les enfants</span></li>
                             <li><span class="lang-en">Antillean marketplace, kids' zone, photo booth, dominos tournament, live art</span><span class="lang-fr">Marché antillais, coin enfants, photo booth, tournoi de dominos, artiste en direct</span></li>
@@ -231,6 +246,10 @@
                         <span class="lang-fr">Réserver →</span>
                     </button>
                     <noscript><a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Tickets on Eventbrite →</a></noscript>
+                    <div class="flagship-links">
+                        <a href="programme-of-the-day.html" class="btn-ghost"><span class="lang-en">Programme of the day →</span><span class="lang-fr">Programme de la journée →</span></a>
+                        <a href="deroule.html" class="btn-ghost"><span class="lang-en">Running order →</span><span class="lang-fr">Le déroulé →</span></a>
+                    </div>
                 </div>
             </div>
 
@@ -289,6 +308,10 @@
 
             <!-- Volcano workshop -->
             <div class="event-card past">
+                <a href="images/gallery/volcano-workshop.png" class="flyer-link" title="Voir le flyer">
+                    <img src="images/gallery/volcano-workshop.png" alt="Construis ton volcan des Antilles · atelier créatif pour enfants avec Shinead" loading="lazy" style="display:block; width:100%; height:auto;">
+                    <span class="flyer-cta"><span class="lang-en">View the flyer →</span><span class="lang-fr">Voir le flyer →</span></span>
+                </a>
                 <div class="event-header">
                     <span class="status-tag status-delivered">
                         <span class="lang-en">Delivered</span>
@@ -306,10 +329,6 @@
                     <p class="event-description">
                         <span class="lang-en">A free bilingual online workshop hosted by Shinead (age 9) and Eliza. Kids explored the volcanic landscape of Guadeloupe and Martinique · La Soufrière and Montagne Pelée · and built their own volcano models from household materials.</span>
                         <span class="lang-fr">Un atelier en ligne gratuit et bilingue animé par Shinead (9 ans) et Eliza. Les enfants ont exploré le paysage volcanique de la Guadeloupe et de la Martinique · La Soufrière et la Montagne Pelée · et ont construit leur propre maquette de volcan avec des matériaux de la maison.</span>
-                    </p>
-                    <p style="font-size: 0.9rem; opacity: 0.75;">
-                        <span class="lang-en">Delivered as Event 1 of the STAFE 2026 programme.</span>
-                        <span class="lang-fr">Réalisé dans le cadre de l'Événement 1 du programme STAFE 2026.</span>
                     </p>
                 </div>
             </div>
