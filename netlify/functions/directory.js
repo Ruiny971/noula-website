@@ -69,6 +69,8 @@ exports.handler = async function () {
         const perk = asText(perkRaw).trim();
         const perkYes = /^(y|yes|true|1|oui)/i.test(perk) || (perk && perk.length > 3);
 
+        const premium = f['Premium'] === true || f['premium'] === true || f['isPremium'] === true;
+
         return {
           id: r.id,
           name: asText(pick('Name', 'Business name', 'Business', 'Title', 'Listing name')).trim(),
@@ -80,10 +82,12 @@ exports.handler = async function () {
           website: asText(pick('Website', 'Site', 'URL', 'Web', 'Link')).trim(),
           instagram: asText(pick('Instagram', 'IG', 'Insta', 'Instagram handle')).trim(),
           perk: perkYes ? perk : '',
+          premium,
           logo,
         };
       })
-      .filter((l) => l.name);
+      .filter((l) => l.name)
+      .sort((a, b) => (b.premium === true) - (a.premium === true));
 
     return json(200, { listings }, { 'Cache-Control': 'public, max-age=300' });
   } catch (e) {
