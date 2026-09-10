@@ -66,14 +66,27 @@
     .gi-card:nth-child(3) .cta { background: #B8952A; }
     .gi-card:nth-child(4) .cta { background: #C0392B; }
     .gi-card .cta:hover { filter: brightness(0.92); }
+
+    .gi-volunteer { max-width: 1000px; margin: 2rem auto 0; padding: 0 1.5rem; }
+    .gi-vol-card { background: #fff; border-radius: 14px; border-top: 5px solid #E8724F; box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 2.25rem 2.25rem 2.5rem; }
+    .gi-vol-icon { color: #E8724F; margin-bottom: 0.4rem; }
+    .gi-vol-card h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #333; margin: 0 0 0.6rem; }
+    .gi-vol-intro { color: #555; font-size: 1.05rem; line-height: 1.6; margin: 0 0 1.5rem; max-width: 720px; }
+    .gi-vol-rolelabel { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #2D7961; margin-bottom: 0.7rem; }
+    .gi-vol-roles { list-style: none; padding: 0; margin: 0 0 1.6rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .gi-vol-roles li { display: inline-flex; align-items: center; gap: 0.45rem; background: #FBF3E9; border: 1px solid #EAD9C2; color: #4B2E4E; padding: 0.5rem 0.95rem; border-radius: 999px; font-size: 0.92rem; font-weight: 600; }
+    .gi-vol-roles li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #E8724F; flex-shrink: 0; }
+    .gi-vol-note { background: linear-gradient(135deg, rgba(45,121,97,0.09), rgba(45,121,97,0.03)); border-left: 4px solid #2D7961; border-radius: 8px; padding: 0.9rem 1.15rem; color: #35473f; font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.7rem; }
+    .gi-vol-cta { display: inline-block; background: #E8724F; color: #fff; padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: filter 0.2s; }
+    .gi-vol-cta:hover { filter: brightness(0.92); }
   </style>
     <script src="analytics.js"></script>
 </head>
 <body>
   <!-- Top strip -->
   <div class="event-strip">
-    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
-    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Kermesse Créole + Chanté Nwèl Afterparty · Billets en vente</span>
     <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
       <span class="lang-en">Book →</span>
       <span class="lang-fr">Réserver →</span>
@@ -95,14 +108,22 @@
         <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
-            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
           </ul>
         </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
-        <li><a href="get-involved.html" aria-current="page"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
-        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
+        <li class="nav-sub nav-gi has-sub"><a href="get-involved.html" class="nav-getinvolved"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span><span class="gi-caret" aria-hidden="true">▾</span></a>
+          <ul class="nav-submenu">
+            <li><a href="volunteer.html"><span class="lang-en">Volunteer</span><span class="lang-fr">Bénévolat</span></a></li>
+            <li><a href="partners.html"><span class="lang-en">Partners</span><span class="lang-fr">Partenaires</span></a></li>
+            <li><a href="sponsor.html"><span class="lang-en">Sponsor</span><span class="lang-fr">Sponsor</span></a></li>
+            <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+            <li><a href="get-involved.html#donate"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
+          </ul>
+        </li>
       </ul>
       <div class="lang-switch" role="group" aria-label="Language selection">
         <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
@@ -118,9 +139,31 @@
       <span class="lang-fr">Participer à Noula</span>
     </h1>
     <p>
-      <span class="lang-en">Four ways to build the French Caribbean community in the UK with us.</span>
-      <span class="lang-fr">Quatre façons de bâtir la communauté antillaise au Royaume-Uni avec nous.</span>
+      <span class="lang-en">Five ways to build the French Caribbean community in the UK with us.</span>
+      <span class="lang-fr">Cinq façons de bâtir la communauté antillaise au Royaume-Uni avec nous.</span>
     </p>
+  </section>
+
+  <!-- Volunteer feature -->
+  <section class="gi-volunteer">
+    <div class="gi-vol-card">
+      <div class="gi-vol-icon"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h2><span class="lang-en">Volunteer with Noula</span><span class="lang-fr">Devenez bénévole</span></h2>
+      <p class="gi-vol-intro">
+        <span class="lang-en">Noula Day runs on its volunteers. Give a few hours on the day and you're part of the team that brings French Caribbean culture to life in Brixton, warm, hands-on and a lot of fun. No experience needed, just good energy.</span>
+        <span class="lang-fr">Noula Day fonctionne grâce à ses bénévoles. Donnez quelques heures le jour J et rejoignez l'équipe qui fait vivre la culture antillaise à Brixton, une expérience chaleureuse, concrète et joyeuse. Aucune expérience requise, juste de la bonne énergie.</span>
+      </p>
+      <span class="gi-vol-rolelabel"><span class="lang-en">Roles on the day</span><span class="lang-fr">Rôles le jour J</span></span>
+      <ul class="gi-vol-roles">
+        <li><span class="lang-en">Kitchen</span><span class="lang-fr">Cuisine</span></li>
+        <li><span class="lang-en">Bar</span><span class="lang-fr">Bar</span></li>
+        <li><span class="lang-en">Welcome</span><span class="lang-fr">Accueil</span></li>
+        <li><span class="lang-en">Kids' zone</span><span class="lang-fr">Espace enfants</span></li>
+        <li><span class="lang-en">Setup + breakdown</span><span class="lang-fr">Montage + démontage</span></li>
+        <li><span class="lang-en">Roaming</span><span class="lang-fr">Volant</span></li>
+      </ul>
+      <a href="volunteer.html" class="gi-vol-cta"><span class="lang-en">Sign up to volunteer →</span><span class="lang-fr">Devenir bénévole →</span></a>
+    </div>
   </section>
 
   <!-- 3 cards -->
@@ -129,12 +172,25 @@
       <div class="icon" style="color: var(--emerald);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18"/><path d="M5 8v12h14V8"/><path d="M4 8 6 4h12l2 4"/><path d="M9 8v3M12 8v3M15 8v3"/><path d="M9 20v-5h6v5"/></svg></div>
       <h3><span class="lang-en">Apply for a stall or partnership</span><span class="lang-fr">Postuler comme exposant ou partenaire</span></h3>
       <p>
-        <span class="lang-en">Bring your business, brand, association or media outlet to Noula Day 2026. Stallholder, sponsor, cultural partner or media partner · we welcome all four.</span>
-        <span class="lang-fr">Amenez votre entreprise, marque, association ou média à Noula Day 2026. Exposant, sponsor, partenaire culturel ou partenaire média · les quatre sont bienvenus.</span>
+        <span class="lang-en">Bring your business, brand, association or media outlet to Noula Day 2026. Stallholder, cultural partner or media partner · we welcome them all.</span>
+        <span class="lang-fr">Amenez votre entreprise, marque, association ou média à Noula Day 2026. Exposant, partenaire culturel ou partenaire média · tous sont bienvenus.</span>
       </p>
-      <a href="stalls.html" class="cta">
+      <a href="partners.html" class="cta">
         <span class="lang-en">Apply →</span>
         <span class="lang-fr">Postuler →</span>
+      </a>
+    </div>
+
+    <div class="gi-card">
+      <div class="icon" style="color: var(--emerald);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <h3><span class="lang-en">Sponsor Noula Day</span><span class="lang-fr">Sponsoriser Noula Day</span></h3>
+      <p>
+        <span class="lang-en">Back the flagship French Caribbean event in London and be recognised as a founding sponsor. See the tiers and what each includes in the sponsorship pack.</span>
+        <span class="lang-fr">Soutenez l'événement antillais phare de Londres et rejoignez les sponsors fondateurs. Découvrez les niveaux et ce qu'ils incluent dans le dossier de sponsoring.</span>
+      </p>
+      <a href="sponsor.html" class="cta">
+        <span class="lang-en">See the sponsorship pack →</span>
+        <span class="lang-fr">Voir le dossier de sponsoring →</span>
       </a>
     </div>
 
@@ -151,7 +207,7 @@
       </a>
     </div>
 
-    <div class="gi-card">
+    <div class="gi-card" id="donate">
       <div class="icon" style="color: var(--coral);"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.5-9C1 8 2.5 4.5 6 4.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 15.5 12 20 12 20z"/></svg></div>
       <h3><span class="lang-en">Donate &amp; support</span><span class="lang-fr">Faire un don &amp; soutenir</span></h3>
       <p>
@@ -222,6 +278,5 @@
       }
     });
   </script>
-    <script src="feedback.js" defer></script>
 </body>
 </html>

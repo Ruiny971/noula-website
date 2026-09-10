@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorship Pack · Noula Day 2026 · Noula</title>
+  <meta name="description" content="Sponsor Noula Day 2026, the flagship French Caribbean event in London. Founding sponsor slots open. Saturday 28 November 2026, St Matthew's Brixton.">
+  <meta property="og:title" content="Noula Day 2026 · Sponsorship Pack">
+  <meta property="og:description" content="Founding sponsor slots open. The flagship French Caribbean event in London, Saturday 28 November 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noula.org.uk/sponsor.html">
+  <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lang-switch { display: flex; gap: 0.5rem; }
+    .lang-switch button { background: none; border: 2px solid var(--coral); color: var(--coral); padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+    .lang-switch button.active { background: var(--coral); color: white; }
+    .lang-fr { display: none; }
+
+    .event-strip { background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%); color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500; }
+    .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+
+    :root { --madras: repeating-linear-gradient(90deg,#E8724F 0 8px,transparent 8px 20px,#2D7961 20px 28px,transparent 28px 40px),repeating-linear-gradient(0deg,#E8724F 0 8px,transparent 8px 20px,#2D7961 20px 28px,transparent 28px 40px); }
+
+    /* Hero */
+    .sp-hero { position: relative; overflow: hidden; background: #3F2743; color: #FAF6F1; padding: 4.5rem 1.5rem 4rem; text-align: center; }
+    .sp-hero .madras-bg { position: absolute; inset: 0; background-color: #F4D98A; background-image: var(--madras); opacity: 0.10; mix-blend-mode: screen; }
+    .sp-hero-inner { position: relative; max-width: 820px; margin: 0 auto; }
+    .sp-brandline { font-size: 0.82rem; letter-spacing: 0.22em; text-transform: uppercase; color: #E8C078; font-weight: 600; margin-bottom: 1.25rem; }
+    .sp-tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 700; color: #3F2743; background: #E8C078; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.4rem; }
+    .sp-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; margin: 0 0 1rem; color: #FAF6F1; }
+    .sp-hero p.sub { font-size: 1.15rem; line-height: 1.6; color: #EBD9C4; margin: 0 auto 0.5rem; max-width: 620px; }
+    .sp-hero p.founding { font-size: 1.05rem; color: #E8C078; font-weight: 600; margin: 1.25rem 0 1.75rem; }
+    .sp-btn { display: inline-block; background: var(--coral); color: #fff; padding: 0.95rem 2.1rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 1.02rem; transition: filter 0.2s, transform 0.2s; }
+    .sp-btn:hover { filter: brightness(0.94); transform: translateY(-1px); }
+    .sp-btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.55); margin-left: 0.6rem; }
+    .sp-btn-ghost:hover { background: rgba(255,255,255,0.08); filter: none; }
+    @media (max-width: 620px) { .sp-btn-ghost { margin-left: 0; margin-top: 0.6rem; } }
+
+    /* Sticky mini-nav */
+    .sp-mininav { position: sticky; top: 0; z-index: 40; background: rgba(250,246,241,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid #eaded0; }
+    .sp-mininav ul { list-style: none; margin: 0 auto; padding: 0.7rem 1rem; max-width: 1000px; display: flex; gap: 0.4rem 1.4rem; flex-wrap: wrap; justify-content: center; }
+    .sp-mininav a { color: #6b5a6d; text-decoration: none; font-size: 0.86rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s; }
+    .sp-mininav a:hover { color: var(--coral); }
+
+    /* Sections */
+    .sp-wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+    .sp-section { padding: 3.25rem 0 1rem; scroll-margin-top: 70px; }
+    .sp-section h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #3F2743; margin: 0 0 1.25rem; }
+    .sp-section p { color: #444; font-size: 1.03rem; line-height: 1.7; margin: 0 0 1rem; }
+    .madras-band { height: 8px; background-color: #F4D98A; background-image: var(--madras); background-size: 40px 40px; opacity: 0.28; margin: 1.5rem auto 0; max-width: 880px; }
+
+    /* Fact block */
+    .fact-block { display: grid; grid-template-columns: max-content 1fr; gap: 0.6rem 1.4rem; background: #FAF6F1; border-left: 3px solid var(--coral); border-radius: 8px; padding: 1.4rem 1.6rem; margin: 0 0 1.5rem; }
+    .fact-block dt { font-weight: 700; color: #3F2743; font-size: 0.95rem; }
+    .fact-block dd { margin: 0; color: #444; font-size: 0.98rem; }
+    .room-list { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+    .room-list li { padding: 0.55rem 0 0.55rem 1.4rem; position: relative; color: #444; line-height: 1.55; border-bottom: 1px solid #f0e8dd; }
+    .room-list li:before { content: '·'; position: absolute; left: 0.3rem; color: var(--coral); font-weight: 700; }
+    .room-list strong { color: #3F2743; }
+
+    /* Reasons */
+    .reason { display: flex; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid #f0e8dd; }
+    .reason:last-child { border-bottom: none; }
+    .reason .r-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px; background: rgba(232,114,79,0.12); color: var(--coral); display: flex; align-items: center; justify-content: center; }
+    .reason h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #3F2743; margin: 0 0 0.3rem; }
+    .reason p { margin: 0; font-size: 0.98rem; }
+
+    /* Audience */
+    .aud-list { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.6rem; }
+    .aud-list li { padding: 0.75rem 1rem 0.75rem 2.2rem; position: relative; background: #FAF6F1; border-radius: 8px; color: #444; font-size: 0.98rem; line-height: 1.5; }
+    .aud-list li:before { content: ''; position: absolute; left: 0.9rem; top: 1.15rem; width: 8px; height: 8px; background: var(--emerald); border-radius: 50%; }
+    .aud-list strong { color: #3F2743; }
+
+    /* Tier table */
+    .tier-wrap { overflow-x: auto; margin: 0.5rem 0 1.25rem; }
+    .sp-tier { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 560px; }
+    .sp-tier th, .sp-tier td { padding: 0.65rem 0.8rem; border-bottom: 1px solid #eee; text-align: center; }
+    .sp-tier thead th { background: #3F2743; color: #FAF6F1; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; }
+    .sp-tier thead th .price { display: block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.82rem; color: #E8C078; margin-top: 0.15rem; }
+    .sp-tier th:first-child, .sp-tier td:first-child { text-align: left; color: #444; }
+    .sp-tier .tick { color: #3F2743; font-weight: 800; }
+    .sp-tier .no { color: #cfc6bd; }
+    .sp-tier tbody tr:nth-child(even) { background: #FBF7F1; }
+    .sp-tier .col-found { background: #FBF1DC; border-left: 2px solid #E8C078; border-right: 2px solid #E8C078; }
+    .sp-tier thead .col-found { background: #4B2E4E; }
+    .sp-tier tbody tr:last-child .col-found { border-bottom: 2px solid #E8C078; }
+    .tier-note { font-size: 0.9rem; color: #777; margin: 0.3rem 0 0; }
+
+    /* Checklist */
+    .ask-list, .inkind-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+    .ask-list li, .inkind-list li { padding: 0.5rem 0 0.5rem 1.9rem; position: relative; color: #444; line-height: 1.55; }
+    .ask-list li:before, .inkind-list li:before { content: '✓'; position: absolute; left: 0.2rem; top: 0.5rem; color: var(--emerald); font-weight: 800; }
+    .sub-label { font-weight: 700; color: #3F2743; margin: 0.5rem 0 0.4rem; }
+
+    /* Contact */
+    .sp-contact { text-align: center; background: linear-gradient(135deg, #2D1F3D, #4B2E4E); color: #FAF6F1; border-radius: 16px; padding: 3rem 2rem; margin: 1.5rem 0 3.5rem; }
+    .sp-contact h2 { color: #FAF6F1; }
+    .sp-contact p { color: rgba(250,246,241,0.9); font-size: 1.08rem; }
+    .sp-contact a.mail { color: #E8C078; font-weight: 600; text-decoration: none; }
+    .sp-contact .sp-btn { margin-top: 1.25rem; }
+
+    @media (max-width: 620px) { .fact-block { grid-template-columns: 1fr; gap: 0.15rem 0; } .fact-block dt { margin-top: 0.6rem; } }
+
+    /* Print / PDF */
+    @media print {
+      .event-strip, .navbar, .sp-mininav, .lang-switch, .vol-float, .sp-btn { display: none !important; }
+      .lang-fr { display: none !important; }
+      body { background: #fff; }
+      .sp-hero { background: #3F2743 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 2rem 1.5rem; }
+      .sp-section { padding: 1.2rem 0 0.5rem; page-break-inside: avoid; }
+      .sp-section h2 { page-break-after: avoid; }
+      .sp-tier, .fact-block, .reason, .sp-contact { page-break-inside: avoid; }
+      .sp-tier thead th, .sp-tier .col-found, .reason .r-icon, .aud-list li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .sp-contact { background: #3F2743 !important; }
+    }
+  </style>
+  <script src="analytics.js"></script>
+</head>
+<body>
+  <div class="event-strip">
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Kermesse Créole + Chanté Nwèl Afterparty · Billets en vente</span>
+    <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener"><span class="lang-en">Book →</span><span class="lang-fr">Réserver →</span></a>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-left">
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img class="logo-img" src="logo.jpg" alt="Noula logo"></a>
+        <div class="brand-name"></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+        <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+        <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
+          </ul>
+        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+        <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        <li class="nav-sub nav-gi has-sub"><a href="get-involved.html" class="nav-getinvolved"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span><span class="gi-caret" aria-hidden="true">▾</span></a>
+          <ul class="nav-submenu">
+            <li><a href="volunteer.html"><span class="lang-en">Volunteer</span><span class="lang-fr">Bénévolat</span></a></li>
+            <li><a href="partners.html"><span class="lang-en">Partners</span><span class="lang-fr">Partenaires</span></a></li>
+            <li><a href="sponsor.html"><span class="lang-en">Sponsor</span><span class="lang-fr">Sponsor</span></a></li>
+            <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+            <li><a href="get-involved.html#donate"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="lang-switch" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1 · Hero -->
+  <header class="sp-hero">
+    <div class="madras-bg"></div>
+    <div class="sp-hero-inner">
+      <div class="sp-tag"><span class="lang-en">Sponsorship Pack</span><span class="lang-fr">Dossier de sponsoring</span></div>
+      <div class="sp-brandline">
+        <span class="lang-en">Noula Day 2026 · French Créole Fair · Chanté Nwèl &amp; Afterparty</span>
+        <span class="lang-fr">Noula Day 2026 · Kermesse Créole · Chanté Nwèl &amp; Afterparty</span>
+      </div>
+      <h1><span class="lang-en">Support Noula Day 2026</span><span class="lang-fr">Soutenez Noula Day 2026</span></h1>
+      <p class="sub">
+        <span class="lang-en">The flagship French Caribbean event in London.<br>Saturday 28 November 2026 · St Matthew's Brixton.</span>
+        <span class="lang-fr">L'événement phare antillais à Londres.<br>Samedi 28 novembre 2026 · St Matthew's Brixton.</span>
+      </p>
+      <p class="founding"><span class="lang-en">Founding sponsor slots open now.</span><span class="lang-fr">Les places de sponsors fondateurs sont ouvertes.</span></p>
+      <a href="#contact" class="sp-btn"><span class="lang-en">Discuss sponsorship</span><span class="lang-fr">Discuter d'un partenariat</span></a>
+    </div>
+  </header>
+
+  <!-- Sticky mini-nav -->
+  <nav class="sp-mininav" aria-label="Section navigation">
+    <ul>
+      <li><a href="#who"><span class="lang-en">Who is Noula</span><span class="lang-fr">Qui est Noula</span></a></li>
+      <li><a href="#day"><span class="lang-en">Noula Day 2026</span><span class="lang-fr">Noula Day 2026</span></a></li>
+      <li><a href="#why"><span class="lang-en">Why sponsor</span><span class="lang-fr">Pourquoi sponsoriser</span></a></li>
+      <li><a href="#audience"><span class="lang-en">Audience</span><span class="lang-fr">Audience</span></a></li>
+      <li><a href="#tiers"><span class="lang-en">Tiers</span><span class="lang-fr">Niveaux</span></a></li>
+      <li><a href="#inkind"><span class="lang-en">In-kind</span><span class="lang-fr">En nature</span></a></li>
+      <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="sp-wrap">
+
+    <!-- 2 · Who is Noula -->
+    <section class="sp-section" id="who">
+      <h2><span class="lang-en">Who is Noula</span><span class="lang-fr">Qui est Noula</span></h2>
+      <p>
+        <span class="lang-en">Noula is a UK-registered charity celebrating and preserving French Caribbean heritage in Britain. Language, food, music, dance, storytelling, community traditions from Guadeloupe, Martinique, Haiti and beyond · kept alive here in London.</span>
+        <span class="lang-fr">Noula est une association caritative britannique qui célèbre et préserve le patrimoine antillais au Royaume-Uni. Langue, cuisine, musique, danse, contes, traditions communautaires de Guadeloupe, de Martinique, d'Haïti et au-delà · maintenus vivants ici à Londres.</span>
+      </p>
+      <p>
+        <span class="lang-en">Founded by a group of trustees and organisers rooted in the diaspora, Noula runs cultural events, builds a directory of French Caribbean businesses in the UK, and connects a community that's rarely centred in London's cultural sector.</span>
+        <span class="lang-fr">Fondée par un groupe de trustees et d'organisateurs ancrés dans la diaspora, Noula organise des événements culturels, construit un annuaire des entreprises antillaises au Royaume-Uni, et connecte une communauté rarement mise en avant dans le secteur culturel londonien.</span>
+      </p>
+      <p style="font-size:0.92rem;color:#777;"><span class="lang-en">UK Registered Charity 1210134.</span><span class="lang-fr">Association caritative britannique enregistrée n° 1210134.</span></p>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 3 · What is Noula Day 2026 -->
+    <section class="sp-section" id="day">
+      <h2><span class="lang-en">What is Noula Day 2026</span><span class="lang-fr">Qu'est-ce que Noula Day 2026</span></h2>
+      <dl class="fact-block">
+        <dt><span class="lang-en">Date</span><span class="lang-fr">Date</span></dt>
+        <dd><span class="lang-en">Saturday 28 November 2026</span><span class="lang-fr">Samedi 28 novembre 2026</span></dd>
+        <dt><span class="lang-en">Venue</span><span class="lang-fr">Lieu</span></dt>
+        <dd>St Matthew's Brixton · London SW2</dd>
+        <dt><span class="lang-en">Hours</span><span class="lang-fr">Horaires</span></dt>
+        <dd>12h00 · 22h30</dd>
+        <dt><span class="lang-en">Format</span><span class="lang-fr">Format</span></dt>
+        <dd><span class="lang-en">French Créole Fair by day · Chanté Nwèl &amp; Afterparty by evening</span><span class="lang-fr">Kermesse Créole en journée · Chanté Nwèl &amp; Afterparty en soirée</span></dd>
+        <dt><span class="lang-en">Edition</span><span class="lang-fr">Édition</span></dt>
+        <dd><span class="lang-en">First · flagship annual event</span><span class="lang-fr">Première · événement phare annuel</span></dd>
+      </dl>
+      <p>
+        <span class="lang-en">A full day and evening of French Caribbean culture in Brixton. Workshops · live music · dance · a dominoes and belote tournament · kids' zone · food and drinks · storytelling. The evening opens with Chanté Nwèl (French Caribbean Carols) sung together, and DJ Djahman closes the night.</span>
+        <span class="lang-fr">Une journée et soirée entières de culture antillaise à Brixton. Ateliers · musique live · danse · tournoi de dominos et belote · espace enfants · cuisine et boissons · contes. La soirée s'ouvre sur les Chanté Nwèl chantés ensemble, et DJ Djahman clôture la nuit.</span>
+      </p>
+      <p class="sub-label"><span class="lang-en">The programme spans three rooms:</span><span class="lang-fr">Le programme se déploie sur trois salles :</span></p>
+      <ul class="room-list">
+        <li><strong>Bal Kréol</strong> · <span class="lang-en">main stage · performances, dance, Chanté Nwèl, DJ, tombola</span><span class="lang-fr">scène principale · performances, danse, Chanté Nwèl, DJ, tombola</span></li>
+        <li><strong>La Cour</strong> · <span class="lang-en">workshops, games, kids and family</span><span class="lang-fr">ateliers, jeux, enfants et famille</span></li>
+        <li><strong>Noula Food &amp; Drinks</strong> · <span class="lang-en">kitchen and bar</span><span class="lang-fr">cuisine et bar</span></li>
+      </ul>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 4 · Why sponsor -->
+    <section class="sp-section" id="why">
+      <h2><span class="lang-en">Why sponsor Noula Day</span><span class="lang-fr">Pourquoi sponsoriser Noula Day</span></h2>
+      <div class="reason">
+        <div class="r-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg></div>
+        <div>
+          <h3><span class="lang-en">Direct access to a niche audience</span><span class="lang-fr">Accès direct à une audience de niche</span></h3>
+          <p><span class="lang-en">The French Caribbean diaspora in London is small, engaged, and hard to reach through mainstream channels. A sponsor of Noula Day is present in the room, in front of the community.</span><span class="lang-fr">La diaspora antillaise à Londres est petite, engagée, et difficile à atteindre via les canaux grand public. Sponsoriser Noula Day, c'est être présent dans la salle, face à la communauté.</span></p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="r-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8l6 .5-4.5 4 1.5 6L12 15l-6 3.5 1.5-6L3 8.5 9 8z"/></svg></div>
+        <div>
+          <h3><span class="lang-en">Cultural authenticity</span><span class="lang-fr">Authenticité culturelle</span></h3>
+          <p><span class="lang-en">Noula is community-led, CIO-registered, first-flagship. No corporate compromise. Association with the founding year of a rising cultural fixture.</span><span class="lang-fr">Noula est portée par la communauté, enregistrée comme CIO, en édition inaugurale. Aucun compromis corporate. Association avec l'année fondatrice d'un rendez-vous culturel en pleine construction.</span></p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="r-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <div>
+          <h3><span class="lang-en">Reach beyond our own channels</span><span class="lang-fr">Rayonnement au-delà de nos propres canaux</span></h3>
+          <p><span class="lang-en">Our trustees and organisers are plugged into UKM, French Institute, Alliance Française, community media, and wider French Caribbean networks across the UK. Our real reach is amplified by our people, not just our accounts.</span><span class="lang-fr">Nos trustees et organisateurs sont connectés à UKM, à l'Institut Français, à l'Alliance Française, aux médias communautaires et aux réseaux antillais élargis au Royaume-Uni. Notre vraie portée passe par nos personnes, pas seulement nos comptes.</span></p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="r-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M12 3v4"/></svg></div>
+        <div>
+          <h3><span class="lang-en">Founding sponsor status</span><span class="lang-fr">Statut de sponsor fondateur</span></h3>
+          <p><span class="lang-en">Y1 pricing, priority for Y2, and a place on the founding sponsor list that gains value as Noula grows.</span><span class="lang-fr">Tarifs Y1, priorité pour Y2, et une place sur la liste des sponsors fondateurs qui prend de la valeur avec Noula.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 5 · The audience -->
+    <section class="sp-section" id="audience">
+      <h2><span class="lang-en">The audience</span><span class="lang-fr">L'audience</span></h2>
+      <p class="sub-label"><span class="lang-en">Noula Day 2026 brings together:</span><span class="lang-fr">Noula Day 2026 rassemble :</span></p>
+      <ul class="aud-list">
+        <li><strong><span class="lang-en">French Caribbean diaspora in the UK</span><span class="lang-fr">La diaspora antillaise au Royaume-Uni</span></strong> · <span class="lang-en">primarily London · Guadeloupe, Martinique, French Guiana, Saint-Martin, Réunion roots</span><span class="lang-fr">principalement Londres · racines Guadeloupe, Martinique, Guyane, Saint-Martin, Réunion</span></li>
+        <li><strong><span class="lang-en">Wider Caribbean and French-speaking African diaspora</span><span class="lang-fr">La diaspora caribéenne élargie et africaine francophone</span></strong> <span class="lang-en">with cultural ties</span><span class="lang-fr">ayant des liens culturels</span></li>
+        <li><strong><span class="lang-en">Cultural enthusiasts</span><span class="lang-fr">Les amateurs de culture</span></strong> <span class="lang-en">drawn to dance, world music, French language, and Caribbean food</span><span class="lang-fr">attirés par la danse, les musiques du monde, la langue française et la cuisine caribéenne</span></li>
+        <li><strong><span class="lang-en">Families with young children</span><span class="lang-fr">Les familles avec de jeunes enfants</span></strong> <span class="lang-en">looking for heritage-rich experiences</span><span class="lang-fr">en quête d'expériences culturellement riches</span></li>
+        <li><strong><span class="lang-en">French cultural sector allies</span><span class="lang-fr">Les alliés du secteur culturel français</span></strong> · <span class="lang-en">Institut Français, Alliance Française, French Consulate teams</span><span class="lang-fr">Institut Français, Alliance Française, équipes du Consulat de France</span></li>
+        <li><strong><span class="lang-en">Local Brixton and South London community</span><span class="lang-fr">La communauté locale de Brixton et du sud de Londres</span></strong></li>
+      </ul>
+      <p><span class="lang-en">The audience is warm, engaged, culturally curious, multi-generational, and multilingual (English, French, créole).</span><span class="lang-fr">Une audience chaleureuse, engagée, curieuse, intergénérationnelle et multilingue (anglais, français, créole).</span></p>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 6 · Sponsor tiers -->
+    <section class="sp-section" id="tiers">
+      <h2><span class="lang-en">Sponsor tiers</span><span class="lang-fr">Niveaux de sponsoring</span></h2>
+      <div class="tier-wrap">
+        <table class="sp-tier">
+          <thead>
+            <tr>
+              <th><span class="lang-en">Benefit</span><span class="lang-fr">Avantage</span></th>
+              <th>Community<span class="price">£250</span></th>
+              <th>Supporter<span class="price">£500</span></th>
+              <th class="col-found">Founding Partner<span class="price">£1,000+</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="lang-en">Logo on sponsor page</span><span class="lang-fr">Logo sur la page sponsors</span></td><td class="tick">✓</td><td class="tick">✓</td><td class="col-found tick"><span class="lang-en">✓ · top-tier</span><span class="lang-fr">✓ · privilégié</span></td></tr>
+            <tr><td><span class="lang-en">Named in sponsor thank-you</span><span class="lang-fr">Mention dans les remerciements</span></td><td class="tick">✓</td><td class="tick">✓</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Logo on screens during the day</span><span class="lang-fr">Logo sur les écrans pendant la journée</span></td><td class="tick">✓</td><td class="tick">✓</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Post-event thank-you post</span><span class="lang-fr">Post de remerciement après l'événement</span></td><td class="tick">✓</td><td class="tick">✓</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Logo on printed materials (flyer, programme)</span><span class="lang-fr">Logo sur les supports imprimés (flyer, programme)</span></td><td class="no">–</td><td class="tick">✓</td><td class="col-found tick"><span class="lang-en">✓ · top-tier</span><span class="lang-fr">✓ · privilégié</span></td></tr>
+            <tr><td><span class="lang-en">On-mic shoutout during the day</span><span class="lang-fr">Mention micro pendant la journée</span></td><td class="no">–</td><td class="tick">✓</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Featured across pre-event campaign (Insta post + Reel + story)</span><span class="lang-fr">Mise en avant campagne pré-événement (post Insta + Reel + story)</span></td><td class="no">–</td><td class="no">–</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Free stall at the event</span><span class="lang-fr">Stand offert à l'événement</span></td><td class="no">–</td><td class="no">–</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Case-by-case activation (tasting station, brand story moment)</span><span class="lang-fr">Activation sur mesure (dégustation, moment marque)</span></td><td class="no">–</td><td class="no">–</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Founding Partner status + priority for Y2</span><span class="lang-fr">Statut Founding Partner + priorité pour Y2</span></td><td class="no">–</td><td class="no">–</td><td class="col-found tick">✓</td></tr>
+            <tr><td><span class="lang-en">Free entry tickets</span><span class="lang-fr">Entrées gratuites</span></td><td>1</td><td>2</td><td class="col-found">4</td></tr>
+            <tr><td><span class="lang-en">Food vouchers</span><span class="lang-fr">Bons repas</span></td><td>1</td><td>2</td><td class="col-found">4</td></tr>
+            <tr><td><span class="lang-en">Drink vouchers</span><span class="lang-fr">Bons boissons</span></td><td>1</td><td>2</td><td class="col-found">4</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tier-note"><span class="lang-en">Typical Founding Partner commitments sit between £1,000 and £2,500 in cash or in-kind value. Bigger contributions unlock case-by-case extras.</span><span class="lang-fr">Les engagements typiques de Founding Partner se situent entre £1,000 et £2,500 en valeur monétaire ou en nature. Contributions plus importantes : extras sur mesure.</span></p>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 7 · In-kind -->
+    <section class="sp-section" id="inkind">
+      <h2><span class="lang-en">In-kind option</span><span class="lang-fr">Contribution en nature</span></h2>
+      <p><span class="lang-en">Sponsors can contribute goods or services of equivalent value in lieu of cash.</span><span class="lang-fr">Les sponsors peuvent contribuer en biens ou services de valeur équivalente au lieu de cash.</span></p>
+      <p class="sub-label"><span class="lang-en">Examples:</span><span class="lang-fr">Exemples :</span></p>
+      <ul class="inkind-list">
+        <li><span class="lang-en">Rum, spirits, or drinks donation for the bar</span><span class="lang-fr">Don de rhum, spiritueux ou boissons pour le bar</span></li>
+        <li><span class="lang-en">Food donation for stalls or team catering</span><span class="lang-fr">Don de nourriture pour les stands ou pour l'équipe</span></li>
+        <li><span class="lang-en">Printing, design, or marketing services</span><span class="lang-fr">Services d'impression, de design ou marketing</span></li>
+        <li><span class="lang-en">Product for the tombola or prizes</span><span class="lang-fr">Produits pour la tombola ou comme prix</span></li>
+        <li><span class="lang-en">Volunteer time from your team on the day (setup, front-of-house, teardown)</span><span class="lang-fr">Temps de bénévolat de votre équipe le jour J (installation, accueil, rangement)</span></li>
+        <li><span class="lang-en">Any product or service with a measurable retail value</span><span class="lang-fr">Tout produit ou service avec une valeur commerciale mesurable</span></li>
+      </ul>
+      <p><span class="lang-en">In-kind is treated on equal footing with cash · same recognition, same tier placement based on retail value.</span><span class="lang-fr">Le don en nature est traité à égalité avec le cash · même reconnaissance, même niveau selon la valeur commerciale.</span></p>
+      <p class="sub-label"><span class="lang-en">Delivery window: mid-October to mid-November.</span><span class="lang-fr">Fenêtre de livraison : de mi-octobre à mi-novembre.</span></p>
+    </section>
+
+    <div class="madras-band"></div>
+
+    <!-- 8 · What we ask -->
+    <section class="sp-section" id="ask">
+      <h2><span class="lang-en">What we ask</span><span class="lang-fr">Ce qu'on demande</span></h2>
+      <ul class="ask-list">
+        <li><span class="lang-en">Cash or in-kind equivalent at your chosen tier</span><span class="lang-fr">Cash ou don en nature équivalent selon le niveau choisi</span></li>
+        <li><span class="lang-en">Logo files and brand guidelines</span><span class="lang-fr">Fichiers logo et charte graphique</span></li>
+        <li><span class="lang-en">Cross-promotion on your own channels (whatever works for your audience)</span><span class="lang-fr">Relais sur vos propres canaux (selon ce qui parle à votre audience)</span></li>
+        <li><strong><span class="lang-en">Commit by mid-October</span><span class="lang-fr">Engagement avant mi-octobre</span></strong> <span class="lang-en">so branding lands in printed materials</span><span class="lang-fr">pour que votre marque figure sur les supports imprimés</span></li>
+        <li><span class="lang-en">Simple 1-page sponsorship letter signed by both sides</span><span class="lang-fr">Simple lettre de partenariat d'une page signée des deux côtés</span></li>
+      </ul>
+    </section>
+
+    <!-- 9 · Contact -->
+    <section class="sp-section" id="contact">
+      <div class="sp-contact">
+        <h2><span class="lang-en">Get in touch</span><span class="lang-fr">Nous contacter</span></h2>
+        <p><span class="lang-en">Ready to talk? Apply through the partner form and we'll be in touch, or email the Noula trustees directly.</span><span class="lang-fr">Prêt à en discuter ? Postulez via le formulaire partenaire et nous vous recontacterons, ou écrivez directement aux trustees de Noula.</span></p>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">Email :</span> <a class="mail" href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <a href="partners.html?type=Sponsor" class="sp-btn"><span class="lang-en">Apply as a sponsor →</span><span class="lang-fr">Postuler comme sponsor →</span></a>
+        <a href="mailto:fchpf@outlook.com?subject=Noula%20Day%202026%20sponsorship" class="sp-btn sp-btn-ghost"><span class="lang-en">Or email us →</span><span class="lang-fr">Ou écrivez-nous →</span></a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Noula</h4>
+        <p><span class="lang-en">French Caribbean Heritage and Preservation Foundation</span><span class="lang-fr">French Caribbean Heritage and Preservation Foundation</span></p>
+        <p><span class="lang-en">UK Registered Charity: 1210134</span><span class="lang-fr">Association caritative UK : 1210134</span></p>
+      </div>
+      <div class="footer-section">
+        <h4><span class="lang-en">Connect</span><span class="lang-fr">Contact</span></h4>
+        <p><span class="lang-en">Email:</span><span class="lang-fr">E-mail :</span> <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a></p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@noula_charity</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const langButtons = document.querySelectorAll('.lang-btn');
+      let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+      if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+      setLanguage(currentLang);
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          currentLang = this.getAttribute('data-lang');
+          localStorage.setItem('selectedLanguage', currentLang);
+          setLanguage(currentLang);
+        });
+      });
+      function setLanguage(lang) {
+        document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = ''; });
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
+        document.documentElement.lang = lang;
+      }
+    });
+  </script>
+</body>
+</html>

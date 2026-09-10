@@ -1660,3 +1660,12 @@ footer {
 }
 .nav-submenu a:hover { background: #F5ECDD; color: var(--coral); }
 .nav-submenu a::after { display: none !important; }
+
+/* --- Get Involved CTA pill + dropdown --- */
+.nav-getinvolved { display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #E8724F, #C0562F); color: #fff !important; padding: 0.45rem 0.95rem; border-radius: 999px; font-weight: 700; box-shadow: 0 3px 12px -3px rgba(232,114,79,0.6); transition: filter 0.18s ease, transform 0.18s ease; white-space: nowrap; }
+.nav-getinvolved:hover { filter: brightness(1.06); transform: translateY(-1px); color: #fff !important; }
+.nav-getinvolved::after { display: none !important; }
+.nav-getinvolved .gi-caret { font-size: 0.7em; opacity: 0.9; transition: transform 0.18s ease; }
+.nav-gi:hover .gi-caret, .nav-gi:focus-within .gi-caret { transform: translateY(1px) rotate(180deg); }
+.nav-gi > .nav-submenu { left: auto; right: 0; transform: translateY(6px); }
+.nav-gi:hover > .nav-submenu, .nav-gi:focus-within > .nav-submenu { transform: translateY(0); }

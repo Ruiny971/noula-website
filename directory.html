@@ -70,6 +70,13 @@
 
     /* ---- Card grid ---- */
     .dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .dir-preview-banner { display: flex; align-items: center; gap: 0.9rem; background: linear-gradient(135deg, #E8724F, #C0562F); color: #fff; border-radius: 12px; padding: 1rem 1.3rem; margin-bottom: 1.75rem; box-shadow: 0 10px 26px -10px rgba(232,114,79,0.7); }
+    .dir-preview-banner svg { flex-shrink: 0; }
+    .dir-preview-banner p { margin: 0; font-size: 1rem; line-height: 1.45; }
+    .dir-preview-banner strong { font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; }
+    .dir-grid-wrap { position: relative; }
+    .dir-watermark { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
+    .dir-watermark-word { font-family: 'Playfair Display', serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: clamp(4rem, 15vw, 12rem); color: rgba(75,46,78,0.13); transform: rotate(-24deg); white-space: nowrap; }
     .dir-card {
       background: #fff; border: 1px solid #efe6da; border-radius: 1rem;
       padding: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem;
@@ -227,8 +234,8 @@
 <body>
   <!-- Top strip -->
   <div class="event-strip">
-    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Tickets on sale</span>
-    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · The Créole Kermesse + Chanté Nwèl Afterparty · Billets en vente</span>
+    <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty · Tickets on sale</span>
+    <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Kermesse Créole + Chanté Nwèl Afterparty · Billets en vente</span>
     <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
       <span class="lang-en">Book →</span>
       <span class="lang-fr">Réserver →</span>
@@ -250,15 +257,23 @@
         <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
-            <li><a href="programme-of-the-day.html"><span class="lang-en">Programme of the day</span><span class="lang-fr">Programme de la journée</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Running order</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
           </ul>
         </li>
         <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
-        <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+        
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
-        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
+        <li class="nav-sub nav-gi has-sub"><a href="get-involved.html" class="nav-getinvolved"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span><span class="gi-caret" aria-hidden="true">▾</span></a>
+          <ul class="nav-submenu">
+            <li><a href="volunteer.html"><span class="lang-en">Volunteer</span><span class="lang-fr">Bénévolat</span></a></li>
+            <li><a href="partners.html"><span class="lang-en">Partners</span><span class="lang-fr">Partenaires</span></a></li>
+            <li><a href="sponsor.html"><span class="lang-en">Sponsor</span><span class="lang-fr">Sponsor</span></a></li>
+            <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+            <li><a href="get-involved.html#donate"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
+          </ul>
+        </li>
       </ul>
       <div class="lang-switch" role="group" aria-label="Language selection">
         <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
@@ -279,10 +294,18 @@
         <span class="lang-en">Discover Créole businesses, makers, artists and community organisations near you.</span>
         <span class="lang-fr">Découvrez les entreprises, créateurs, artistes et associations créoles près de chez vous.</span>
       </p>
+      <div style="position:relative; margin-top:1.6rem;"><a href="#join" class="nd-cta" style="display:inline-block; background:var(--coral); color:#fff; padding:0.9rem 1.7rem; border-radius:999px; text-decoration:none; font-weight:700;"><span class="lang-en">Join the directory →</span><span class="lang-fr">Rejoindre l'annuaire →</span></a></div>
     </div>
 
     <!-- Section 1: Browse listings -->
     <section class="directory-section">
+      <div class="dir-preview-banner" role="note">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+        <p>
+          <span class="lang-en"><strong>Preview ·</strong> The Noula Directory launch is upcoming. These are for example purpose only</span>
+          <span class="lang-fr"><strong>Aperçu ·</strong> L'annuaire Noula sera lancé prochainement. Ces listing sont des exemples.</span>
+        </p>
+      </div>
       <h2>
         <span class="lang-en">Browse listings</span>
         <span class="lang-fr">Parcourir l'annuaire</span>
@@ -316,12 +339,15 @@
         <span class="lang-fr">Un avant-goût · voici des exemples le temps que nous construisons l'annuaire. De vraies entreprises, créateurs et organisations antillais y apparaîtront bientôt.</span>
       </p>
 
-      <div class="dir-grid" id="dir-results" aria-live="polite"></div>
+      <div class="dir-grid-wrap">
+        <div class="dir-watermark" aria-hidden="true"><div class="dir-watermark-word"><span class="lang-en">PREVIEW</span><span class="lang-fr">APERÇU</span></div></div>
+        <div class="dir-grid" id="dir-results" aria-live="polite"></div>
+      </div>
       <p class="dir-status" id="dir-status"></p>
     </section>
 
     <!-- Section 2: Join the directory -->
-    <section class="directory-section">
+    <section class="directory-section" id="join">
       <h2>
         <span class="lang-en">Join the directory</span>
         <span class="lang-fr">Rejoindre l'annuaire</span>
@@ -400,7 +426,7 @@
         <span class="lang-en">Are you a maker, chef or artist wanting a stall at Noula Day 2026?</span>
         <span class="lang-fr">Vous êtes créateur, chef ou artiste et souhaitez un stand à Noula Day 2026 ?</span>
       </p>
-      <a href="stalls.html">
+      <a href="partners.html">
         <span class="lang-en">Apply for a stall →</span>
         <span class="lang-fr">Postuler pour un stand →</span>
       </a>
@@ -686,6 +712,5 @@
     })();
   </script>
     <script src="forms.js" defer></script>
-    <script src="feedback.js" defer></script>
 </body>
 </html>

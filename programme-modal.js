@@ -6,7 +6,8 @@
   var EB = 'https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite';
   var catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'},Dance:{en:'Dance',fr:'Danse'},Chante:{en:'Chanté Nwèl',fr:'Chanté Nwèl'},Carnival:{en:'Carnival',fr:'Carnaval'}};
   var roomLabel = { bal:'Bal Kréol', cour:'La Cour' };
-  var addonLabel = { preorder:{en:'Pre-order add-on',fr:'Option à précommander'}, book:{en:'Limited places · book add-on',fr:'Places limitées · option'} };
+  var addonLabel = { preorder:{en:'Pre-order',fr:'Option à précommander'}, book:{en:'Limited places · book',fr:'Places limitées · réserver'}, dropin:{en:'No booking · just turn up',fr:'Sans réservation · venez'} };
+  var ctaLabel = { preorder:{en:'Pre-order on Eventbrite',fr:'Précommander sur Eventbrite'}, book:{en:'Book on Eventbrite',fr:'Réserver sur Eventbrite'} };
   var tagLabel = {Dance:{en:'Dance',fr:'Danse'},Craft:{en:'Craft',fr:'Artisanat'},Cooking:{en:'Cooking',fr:'Cuisine'},Music:{en:'Music',fr:'Musique'}};
 
   var CSS = ''
@@ -30,6 +31,56 @@
     + '.pm-cat.cat-Kids{background:#3F7CA0}.pm-cat.cat-DJ{background:#8A4E8C}.pm-cat.cat-Market{background:#C49E4C}.pm-cat.cat-Host{background:#556B2F}.pm-cat.cat-Tournament{background:#4A6C8C}'
     + '.pm-cat.cat-Dance{background:#B0506E}.pm-cat.cat-Chante{background:#9C3B2E}.pm-cat.cat-Carnival{background:#B23A7A}'
     + '.pm-tag{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--plum-deep);background:transparent;border:1.5px solid rgba(63,39,67,0.28);padding:0.3rem 0.7rem;border-radius:999px;}';
+
+  // ---- Shared pre-orderable menu block (used in the kitchen modal + on noula-day.html) ----
+  var menuCopy = {
+    heading: { en:'The menu', fr:'Le menu' },
+    note: {
+      en:'Pre-order with your ticket to enjoy a lower price. On the day, dishes are served while stocks last, so ordering ahead is the surest way to get what you fancy.',
+      fr:"Précommandez avec votre billet pour profiter d'un tarif réduit. Le jour même, les plats sont servis dans la limite des stocks disponibles, alors commander à l'avance reste le plus sûr moyen d'avoir ce qui vous fait envie."
+    },
+    cta: { en:'Pre-order on Eventbrite', fr:'Précommander sur Eventbrite' },
+    disclaimer: {
+      en:'Menu is provisional and may vary on the day. Non-meat / non-pork eaters accommodated with substitutions. Additional drinks + sides available at the bar and kitchen on the day (chokola nwèl + pain au beurre combo, gratin banane jaune as a side, shrub, jus de groseille pays, ti-punch, rhum arrangé, and more).',
+      fr:'Le menu est indicatif et peut varier le jour J. Substitutions possibles pour sans viande / sans porc. Boissons et accompagnements supplémentaires disponibles au bar et en cuisine le jour même (combo chokola nwèl + pain au beurre, gratin banane jaune en accompagnement, shrub, jus de groseille pays, ti-punch, rhum arrangé, et plus).'
+    }
+  };
+  var MENU_CSS = ''
+    + '.nm-block{margin:0;}'
+    + '.nm-note{display:flex;gap:0.6rem;align-items:flex-start;background:rgba(232,114,79,0.10);border:1px solid rgba(232,114,79,0.32);border-radius:12px;padding:0.8rem 1rem;color:var(--plum-deep);font-size:0.9rem;line-height:1.5;margin:0 0 1.1rem;}'
+    + '.nm-note svg{flex:0 0 auto;margin-top:2px;}'
+    + '.nm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem;}'
+    + '.nm-dish{background:#fff;border:1px solid rgba(63,39,67,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 24px -18px rgba(0,0,0,0.5);}'
+    + '.nm-img{position:relative;height:140px;background:url("images/madras.png") center/150px repeat;}'
+    + '.nm-img img{width:100%;height:100%;object-fit:cover;display:block;}'
+    + '.nm-dish .nm-txt{padding:0.85rem 0.95rem;}'
+    + '.nm-dish h4{font-family:"Playfair Display",Georgia,serif;font-size:1.12rem;color:var(--plum-deep);margin:0 0 0.35rem;line-height:1.2;}'
+    + '.nm-dish p{color:var(--text-dark);font-size:0.85rem;line-height:1.5;margin:0;}'
+    + '.nm-cta{margin:1.2rem 0 0.6rem;}'
+    + '.nm-cta a{display:inline-block;background:var(--coral);color:#fff;padding:0.65rem 1.3rem;border-radius:999px;font-weight:700;font-size:0.95rem;text-decoration:none;}'
+    + '.nm-disc{color:rgba(63,39,67,0.6);font-size:0.72rem;line-height:1.5;margin:0.6rem 0 0;}'
+    + '@media(max-width:600px){.nm-grid{grid-template-columns:1fr;}}';
+
+  function menuHTML(d, L, opts){
+    opts = opts || {};
+    var menu = d.menu || [];
+    if (!menu.length) return '';
+    var cards = menu.map(function (m){
+      var t = m[L] || m.en || {};
+      var img = m.img ? '<div class="nm-img"><img src="' + m.img + '" alt="' + (t.n || '') + '" onerror="this.style.display=\'none\'"></div>' : '<div class="nm-img"></div>';
+      return '<div class="nm-dish">' + img + '<div class="nm-txt"><h4>' + (t.n || '') + '</h4><p>' + (t.d || '') + '</p></div></div>';
+    }).join('');
+    var head = opts.heading ? '<h3 class="nm-head" style="font-family:\'Playfair Display\',Georgia,serif;color:var(--plum-deep);font-size:1.5rem;margin:0 0 0.9rem;">' + menuCopy.heading[L] + '</h3>' : '';
+    var note = '<div class="nm-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c04a26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span>' + menuCopy.note[L] + '</span></div>';
+    var cta = '<p class="nm-cta"><a href="' + EB + '" target="_blank" rel="noopener">' + menuCopy.cta[L] + ' →</a></p>';
+    var disc = '<p class="nm-disc">' + menuCopy.disclaimer[L] + '</p>';
+    return '<div class="nm-block">' + head + note + '<div class="nm-grid">' + cards + '</div>' + cta + disc + '</div>';
+  }
+  function ensureMenuCSS(){
+    if (document.getElementById('nm-css')) return;
+    var s = document.createElement('style'); s.id = 'nm-css'; s.textContent = MENU_CSS; document.head.appendChild(s);
+  }
+  window.NoulaMenu = { html: menuHTML, ensureCSS: ensureMenuCSS, copy: menuCopy };
 
   function lang(){ var l = localStorage.getItem('selectedLanguage'); return (l === 'fr') ? 'fr' : 'en'; }
   function names(d){ return (d.people || []).map(function (p) { return p.n; }).join(' · '); }
@@ -68,16 +119,23 @@
   function open(d){
     if (!d) return;
     ensure();
+    ensureMenuCSS();
     var L = lang();
+    if (window.noulaTrack) window.noulaTrack('programme_card_click', { card_id: d.id, card_name: (d[L] && d[L].t) || d.id });
     var roomChip = d.room ? '<span class="pm-room ' + d.room + '">' + roomLabel[d.room] + '</span>' : '';
-    var addon = d.addon
-      ? '<p style="margin:0 0 0.75rem;"><a href="' + EB + '" target="_blank" rel="noopener" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">' + addonLabel[d.addon][L] + ' →</a></p>'
-      : '';
+    var addon = '';
+    if (d.addon === 'preorder' || d.addon === 'book') {
+      addon = '<p style="margin:0 0 0.75rem;"><a href="' + EB + '" target="_blank" rel="noopener" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">' + ctaLabel[d.addon][L] + ' →</a></p>';
+    } else if (d.addon === 'dropin') {
+      addon = '<p style="margin:0 0 0.75rem;"><span style="display:inline-block;background:#2D7961;color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;">' + addonLabel[d.addon][L] + '</span></p>';
+    }
     pmCard.innerHTML = '<button class="pm-close" aria-label="Close">&times;</button>'
       + '<div class="pm-media"' + (d.madrasBg ? ' style="background:url(\'images/madras.png\') center/230px"' : '') + '>' + mediaHTML(d) + '</div>'
       + '<div class="pm-body"><div class="row"><span class="pm-time">' + d.time + '</span>'
       + '<span class="pm-cat cat-' + d.cat + '">' + catLabel[d.cat][L] + '</span>' + (d.tag ? '<span class="pm-tag">' + tagLabel[d.tag][L] + '</span>' : '') + roomChip + '</div>'
-      + '<h2>' + d[L].t + '</h2><p class="pm-people">' + names(d) + '</p>' + addon + '<p>' + d[L].d + '</p></div>';
+      + '<h2>' + d[L].t + '</h2><p class="pm-people">' + names(d) + '</p>' + addon + '<p>' + d[L].d + '</p>'
+      + (d.menu && d.menu.length ? '<div style="margin-top:1.4rem;">' + menuHTML(d, L, { heading:true }) + '</div>' : '')
+      + '</div>';
     pmCard.querySelector('.pm-close').onclick = close;
     modal.classList.add('open');
   }

@@ -43,6 +43,17 @@
       '<h3><span class="lang-en">' + en + '</span><span class="lang-fr">' + fr + '</span></h3>' +
       '<p><span class="lang-en">' + subEn + '</span><span class="lang-fr">' + subFr + '</span></p>';
     form.parentNode.replaceChild(wrap, form);
+    // GA4: fire the mapped success event (only sends if consent granted)
+    try {
+      var _fn = form.getAttribute('data-airtable-fn');
+      var _map = {
+        'submit-directory': 'directory_signup_submit',
+        'submit-volunteer': 'volunteer_signup_submit',
+        'submit-contact': 'contact_form_submit',
+        'submit-feedback': 'feedback_submit'
+      };
+      if (window.noulaTrack && _map[_fn]) window.noulaTrack(_map[_fn], {});
+    } catch (e) {}
     // re-apply current language to the freshly inserted nodes
     var cur = lang();
     wrap.querySelectorAll('.lang-en, .lang-fr').forEach(function (el) {
@@ -67,6 +78,20 @@
       var hp = form.querySelector('[name=bot-field]');
       if (hp && hp.value) return;
       var data = collect(form);
+      // Preview test mode: on any non-production host (Claude preview, localhost,
+      // *.netlify.app deploy previews) walk the full client flow — validation,
+      // conditionals, success panel — and log the payload so field names can be
+      // verified, without hitting the backend. On noula.org.uk it never triggers,
+      // so production submits for real. Add ?formlive=1 to force a real submit
+      // anywhere for a final backend check.
+      var host = location.hostname;
+      var isProd = /(^|\.)noula\.org\.uk$/i.test(host);
+      var forceLive = /[?&]formlive=1/.test(location.search);
+      if (!isProd && !forceLive) {
+        try { console.log('[formtest] ' + fn + ' payload →', JSON.stringify(data, null, 2)); } catch (e) {}
+        successPanel(form);
+        return;
+      }
       if (btn) btn.disabled = true;
       statusEl.style.display = 'block';
       statusEl.classList.remove('err');
@@ -205,7 +230,11 @@
         var want = (sec.getAttribute('data-when-value') || '').split(',').map(function (s) { return s.trim(); });
         var ctrl = form.querySelector('[name="' + field + '"]');
         var val = ctrl ? ctrl.value : '';
-        sec.style.display = want.indexOf(val) >= 0 ? '' : 'none';
+        var show = want.indexOf(val) >= 0;
+        sec.style.display = show ? '' : 'none';
+        // Disable inputs inside a hidden section so their `required` never
+        // blocks submission and their (stale) values aren't sent.
+        sec.querySelectorAll('input, select, textarea').forEach(function (f) { f.disabled = !show; });
       });
     }
     form.querySelectorAll('[name]').forEach(function (el) {

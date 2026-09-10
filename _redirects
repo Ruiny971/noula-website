@@ -1,2 +1,6 @@
 # Multi-page static site — no catch-all rewrite.
 # All pages are real .html files served directly.
+/stalls      /partners      301
+/stalls.html /partners.html 301
+# Clean URL for the sponsorship pack
+/sponsor     /sponsor.html  200
