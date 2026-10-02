@@ -32,7 +32,7 @@
     }
     .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
 
-    .volunteer-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; }
+    .volunteer-wrap { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem; }
     .volunteer-intro { text-align: center; margin-bottom: 3rem; }
     .volunteer-intro h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 0 0 0.5rem; color: #E8724F; }
     .volunteer-intro p { color: #555; font-size: 1.05rem; line-height: 1.6; margin: 0.5rem 0; }
@@ -41,6 +41,15 @@
       background: white; padding: 2.5rem 2rem; border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
+    .perks-card {
+      background: linear-gradient(135deg, #2D1F3D, #4B2E4E); color: #FAF6F1;
+      padding: 2.25rem 2rem; border-radius: 12px; margin-bottom: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .perks-card h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0 0 1.25rem; color: #F5C542; }
+    .perks-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+    .perks-list li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 1rem; line-height: 1.5; }
+    .perks-list li svg { flex-shrink: 0; margin-top: 0.15rem; color: #F5C542; }
     .field { margin-bottom: 1.5rem; }
     .field label { display: block; font-weight: 600; margin-bottom: 0.4rem; color: #333; font-size: 0.95rem; }
     .field .hint { display: block; font-size: 0.8rem; color: #888; font-weight: 400; margin-top: 0.15rem; }
@@ -79,6 +88,9 @@
 
     /* Honeypot */
     .honeypot { position: absolute; left: -5000px; visibility: hidden; }
+    .perks-collapse summary::-webkit-details-marker { display:none; }
+    .perks-collapse summary { list-style:none; }
+    .perks-collapse[open] .pc-caret { transform: rotate(45deg); }
   </style>
     <script src="analytics.js"></script>
 </head>
@@ -109,7 +121,7 @@
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
             <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         
@@ -144,6 +156,26 @@
         <span class="lang-fr">Remplissez le formulaire ci-dessous et nous vous recontacterons pour discuter de la façon dont vous aimeriez aider.</span>
       </p>
     </div>
+
+    <details class="perks-collapse" style="background:linear-gradient(135deg,#2D1F3D,#4B2E4E); color:#FAF6F1; border-radius:12px; margin-bottom:2.5rem; box-shadow:0 4px 20px rgba(0,0,0,0.08); overflow:hidden;">
+      <summary style="cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.5rem 2rem; font-family:'Playfair Display',serif; font-size:1.5rem; color:#F5C542;">
+        <span><span class="lang-en">What do I get in return?</span><span class="lang-fr">Qu'est-ce que je reçois en retour ?</span></span>
+        <span class="pc-caret" aria-hidden="true" style="font-family:system-ui,sans-serif; font-weight:400; font-size:1.7rem; line-height:1; transition:transform .2s;">+</span>
+      </summary>
+      <div style="padding:0 2rem 2rem;">
+        <p style="margin:0 0 1.2rem; color:rgba(250,246,241,0.9); font-size:1.02rem;"><span class="lang-en">Not paid, but not empty-handed:</span><span class="lang-fr">Pas rémunéré, mais pas les mains vides :</span></p>
+        <ul class="perks-list" style="list-style:none; margin:0; padding:0; display:grid; gap:0.85rem;">
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Free entry to Noula Day · fair + Chanté Nwèl + afterparty</span><span class="lang-fr">Entrée gratuite à Noula Day · kermesse + Chanté Nwèl + afterparty</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Free entry to any workshop you'd like to join in your off-shift</span><span class="lang-fr">Entrée gratuite à tout atelier auquel vous souhaitez participer pendant votre temps libre</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">2-shift structure so you enjoy the other half of the event as a guest</span><span class="lang-fr">Un fonctionnement en 2 créneaux pour profiter de l'autre moitié de l'événement en tant qu'invité</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Meal + drink voucher during your shift</span><span class="lang-fr">Bon repas + boisson pendant votre créneau</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Noula volunteer t-shirt · yours to keep</span><span class="lang-fr">T-shirt bénévole Noula · à garder</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">1-year free Noula membership for 2027</span><span class="lang-fr">1 an d'adhésion Noula offerte pour 2027</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Being part of a warm French Caribbean community day!</span><span class="lang-fr">Faire partie d'une chaleureuse journée communautaire antillaise !</span></span></li>
+        </ul>
+        <p style="margin:1.4rem 0 0; padding-top:1.2rem; border-top:1px solid rgba(245,197,66,0.25); font-size:0.92rem; color:rgba(250,246,241,0.78); font-style:italic; line-height:1.55;"><span class="lang-en">Note: volunteers are not paid. We're a young charity in Y1 with limited means. What we can give you is time together, community, and a proper welcome.</span><span class="lang-fr">Note : les bénévoles ne sont pas rémunérés. Nous sommes une jeune association en Y1 aux moyens limités. Ce que nous pouvons vous offrir, c'est du temps ensemble, une communauté et un vrai accueil.</span></p>
+      </div>
+    </details>
 
     <div class="form-card">
       <!-- Submits to Airtable via /.netlify/functions/submit-volunteer -->
@@ -185,30 +217,51 @@
           </div>
         </div>
 
-        <div class="field">
-          <label><span class="lang-en">What areas would you like to help with?</span><span class="lang-fr">Dans quels domaines aimeriez-vous aider ?</span></label>
+        <div class="field" id="noula-day-shift-field" style="display:none;">
+          <label><span class="lang-en">When would you like to help on Noula Day?</span><span class="lang-fr">Quand aimeriez-vous aider le jour de Noula Day ?</span></label>
           <div class="checks">
-            <label><input type="checkbox" name="areas[]" value="Kitchen"> <span class="lang-en">Kitchen / food</span><span class="lang-fr">Cuisine</span></label>
-            <label><input type="checkbox" name="areas[]" value="Bar"> <span class="lang-en">Bar service</span><span class="lang-fr">Bar</span></label>
-            <label><input type="checkbox" name="areas[]" value="Registration"> <span class="lang-en">Registration / cloakroom</span><span class="lang-fr">Accueil / vestiaire</span></label>
-            <label><input type="checkbox" name="areas[]" value="Kids zone"> <span class="lang-en">Kids' zone</span><span class="lang-fr">Coin des enfants</span></label>
-            <label><input type="checkbox" name="areas[]" value="Setup breakdown"> <span class="lang-en">Setup &amp; breakdown</span><span class="lang-fr">Installation &amp; démontage</span></label>
-            <label><input type="checkbox" name="areas[]" value="Stage tech"> <span class="lang-en">Stage &amp; tech</span><span class="lang-fr">Scène &amp; technique</span></label>
-            <label><input type="checkbox" name="areas[]" value="Photo video"> <span class="lang-en">Photography / video</span><span class="lang-fr">Photo / vidéo</span></label>
-            <label><input type="checkbox" name="areas[]" value="Marketing social"> <span class="lang-en">Marketing / social media</span><span class="lang-fr">Marketing / réseaux sociaux</span></label>
-            <label><input type="checkbox" name="areas[]" value="Fundraising"> <span class="lang-en">Fundraising / grants</span><span class="lang-fr">Collecte de fonds / subventions</span></label>
-            <label><input type="checkbox" name="areas[]" value="Other"> <span class="lang-en">Something else (tell us below)</span><span class="lang-fr">Autre (dites-nous ci-dessous)</span></label>
+            <label><input type="radio" name="noula-day-shift" value="1st half 12h00-17h00"> <span class="lang-en">1st half · 12h00 → 17h00 (fair, workshops, food service peak)</span><span class="lang-fr">1re moitié · 12h00 → 17h00 (kermesse, ateliers, pic du service repas)</span></label>
+            <label><input type="radio" name="noula-day-shift" value="2nd half 17h00-22h30"> <span class="lang-en">2nd half · 17h00 → 22h30 (Chanté Nwèl + afterparty)</span><span class="lang-fr">2e moitié · 17h00 → 22h30 (Chanté Nwèl + afterparty)</span></label>
+            <label><input type="radio" name="noula-day-shift" value="Full day"> <span class="lang-en">Full day</span><span class="lang-fr">Journée complète</span></label>
+            <label><input type="radio" name="noula-day-shift" value="Setup day (Fri 27 Nov)"> <span class="lang-en">Setup day (Fri 27 Nov)</span><span class="lang-fr">Jour d'installation (ven. 27 nov.)</span></label>
+            <label><input type="radio" name="noula-day-shift" value="Flexible"> <span class="lang-en">Flexible</span><span class="lang-fr">Flexible</span></label>
           </div>
+          <p class="hint" style="margin-top:0.5rem; color:#888; font-size:0.85rem;"><span class="lang-en">We run 2 shifts (1st + 2nd half) so each volunteer enjoys the other half of the event as a guest.</span><span class="lang-fr">Nous fonctionnons en 2 créneaux (1re + 2e moitié) pour que chaque bénévole profite de l'autre moitié en tant qu'invité.</span></p>
         </div>
 
         <div class="field">
-          <label for="availability"><span class="lang-en">Availability</span><span class="lang-fr">Disponibilité</span></label>
-          <input type="text" id="availability" name="availability" placeholder="e.g. weekends, evenings, event day only">
+          <label><span class="lang-en">Availability</span><span class="lang-fr">Disponibilité</span></label>
+          <div class="checks">
+            <label><input type="checkbox" name="availability[]" value="Weekday mornings"> <span class="lang-en">Weekday mornings</span><span class="lang-fr">Matins en semaine</span></label>
+            <label><input type="checkbox" name="availability[]" value="Weekday afternoons"> <span class="lang-en">Weekday afternoons</span><span class="lang-fr">Après-midis en semaine</span></label>
+            <label><input type="checkbox" name="availability[]" value="Weekday evenings"> <span class="lang-en">Weekday evenings</span><span class="lang-fr">Soirs en semaine</span></label>
+            <label><input type="checkbox" name="availability[]" value="Weekends"> <span class="lang-en">Weekends</span><span class="lang-fr">Week-ends</span></label>
+            <label><input type="checkbox" name="availability[]" value="Event day only (Sat 28 Nov)"> <span class="lang-en">Event day only (Sat 28 Nov)</span><span class="lang-fr">Jour J uniquement (sam. 28 nov.)</span></label>
+            <label><input type="checkbox" name="availability[]" value="Setup day (Fri 27 Nov)"> <span class="lang-en">Setup day (Fri 27 Nov)</span><span class="lang-fr">Jour d'installation (ven. 27 nov.)</span></label>
+            <label><input type="checkbox" name="availability[]" value="Flexible"> <span class="lang-en">Flexible</span><span class="lang-fr">Flexible</span></label>
+          </div>
+          <input type="text" id="availability-other" name="availability-other" placeholder="Anything else we should know about your availability" style="margin-top:0.75rem;">
         </div>
 
         <div class="field">
-          <label for="skills"><span class="lang-en">Skills, experience, or anything else you'd like us to know</span><span class="lang-fr">Compétences, expérience, ou toute autre information utile</span></label>
-          <textarea id="skills" name="skills"></textarea>
+          <label><span class="lang-en">Skills &amp; experience</span><span class="lang-fr">Compétences &amp; expérience</span></label>
+          <div class="checks">
+            <label><input type="checkbox" name="skills[]" value="Event setup + logistics"> <span class="lang-en">Event setup + logistics</span><span class="lang-fr">Installation + logistique</span></label>
+            <label><input type="checkbox" name="skills[]" value="Food prep / kitchen"> <span class="lang-en">Food prep / kitchen</span><span class="lang-fr">Cuisine / prépa</span></label>
+            <label><input type="checkbox" name="skills[]" value="Bar service (over 18)"> <span class="lang-en">Bar service (over 18)</span><span class="lang-fr">Service bar (18+)</span></label>
+            <label><input type="checkbox" name="skills[]" value="Customer service / hosting"> <span class="lang-en">Customer service / hosting</span><span class="lang-fr">Accueil / service</span></label>
+            <label><input type="checkbox" name="skills[]" value="Photography / video"> <span class="lang-en">Photography / video</span><span class="lang-fr">Photo / vidéo</span></label>
+            <label><input type="checkbox" name="skills[]" value="Social media / content"> <span class="lang-en">Social media / content</span><span class="lang-fr">Réseaux sociaux / contenu</span></label>
+            <label><input type="checkbox" name="skills[]" value="Kids / childcare (DBS if applicable)"> <span class="lang-en">Kids / childcare (DBS if applicable)</span><span class="lang-fr">Enfants / garde (DBS si applicable)</span></label>
+            <label><input type="checkbox" name="skills[]" value="Sound / tech"> <span class="lang-en">Sound / tech</span><span class="lang-fr">Son / technique</span></label>
+            <label><input type="checkbox" name="skills[]" value="Design / graphics"> <span class="lang-en">Design / graphics</span><span class="lang-fr">Design / graphisme</span></label>
+            <label><input type="checkbox" name="skills[]" value="Marketing / fundraising"> <span class="lang-en">Marketing / fundraising</span><span class="lang-fr">Marketing / collecte de fonds</span></label>
+            <label><input type="checkbox" name="skills[]" value="First aid trained"> <span class="lang-en">First aid trained</span><span class="lang-fr">Formation premiers secours</span></label>
+            <label><input type="checkbox" name="skills[]" value="Driving licence + car"> <span class="lang-en">Driving licence + car</span><span class="lang-fr">Permis + voiture</span></label>
+            <label><input type="checkbox" name="skills[]" value="Languages: FR, EN, Créole"> <span class="lang-en">Languages: FR, EN, Créole</span><span class="lang-fr">Langues : FR, EN, Créole</span></label>
+            <label><input type="checkbox" name="skills[]" value="No specific skills, happy to help wherever"> <span class="lang-en">No specific skills, happy to help wherever</span><span class="lang-fr">Pas de compétence particulière, prêt à aider partout</span></label>
+          </div>
+          <textarea id="skills-other" name="skills-other" placeholder="Anything else" style="margin-top:0.75rem;"></textarea>
         </div>
 
         <div class="field">
@@ -292,5 +345,17 @@
     });
   </script>
     <script src="forms.js" defer></script>
+<script>
+(function(){
+  var form=document.querySelector('form[name="volunteer"]');
+  if(!form) return;
+  var shift=document.getElementById('noula-day-shift-field');
+  var cb=form.querySelector('input[name="events[]"][value="Noula Day 2026 - 28 Nov 2026"]');
+  if(!shift||!cb) return;
+  function sync(){ var on=cb.checked; shift.style.display=on?'':'none'; shift.querySelectorAll('input').forEach(function(i){ i.disabled=!on; }); }
+  cb.addEventListener('change',sync);
+  sync();
+})();
+</script>
 </body>
 </html>

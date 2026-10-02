@@ -33,13 +33,13 @@
     .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
 
     .gi-hero {
-      text-align: center; padding: 4rem 1.5rem 2rem; max-width: 800px; margin: 0 auto;
+      text-align: center; padding: 4rem 1.5rem 2rem; max-width: 940px; margin: 0 auto;
     }
     .gi-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.75rem; margin: 0 0 0.75rem; color: #E8724F; line-height: 1.15; }
     .gi-hero p { color: #555; font-size: 1.15rem; line-height: 1.6; margin: 0.5rem auto 0; max-width: 640px; }
 
     .gi-grid {
-      max-width: 1000px; margin: 2rem auto 4rem; padding: 0 1.5rem;
+      max-width: 1140px; margin: 2rem auto 4rem; padding: 0 1.5rem;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;
     }
     .gi-card {
@@ -67,7 +67,7 @@
     .gi-card:nth-child(4) .cta { background: #C0392B; }
     .gi-card .cta:hover { filter: brightness(0.92); }
 
-    .gi-volunteer { max-width: 1000px; margin: 2rem auto 0; padding: 0 1.5rem; }
+    .gi-volunteer { max-width: 1140px; margin: 2rem auto 0; padding: 0 1.5rem; }
     .gi-vol-card { background: #fff; border-radius: 14px; border-top: 5px solid #E8724F; box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 2.25rem 2.25rem 2.5rem; }
     .gi-vol-icon { color: #E8724F; margin-bottom: 0.4rem; }
     .gi-vol-card h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: #333; margin: 0 0 0.6rem; }
@@ -79,6 +79,9 @@
     .gi-vol-note { background: linear-gradient(135deg, rgba(45,121,97,0.09), rgba(45,121,97,0.03)); border-left: 4px solid #2D7961; border-radius: 8px; padding: 0.9rem 1.15rem; color: #35473f; font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.7rem; }
     .gi-vol-cta { display: inline-block; background: #E8724F; color: #fff; padding: 0.8rem 1.6rem; border-radius: 6px; text-decoration: none; font-weight: 700; transition: filter 0.2s; }
     .gi-vol-cta:hover { filter: brightness(0.92); }
+    .perks-collapse summary::-webkit-details-marker { display:none; }
+    .perks-collapse summary { list-style:none; }
+    .perks-collapse[open] .pc-caret { transform: rotate(45deg); }
   </style>
     <script src="analytics.js"></script>
 </head>
@@ -109,7 +112,7 @@
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
             <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         
@@ -162,7 +165,26 @@
         <li><span class="lang-en">Setup + breakdown</span><span class="lang-fr">Montage + démontage</span></li>
         <li><span class="lang-en">Roaming</span><span class="lang-fr">Volant</span></li>
       </ul>
-      <a href="volunteer.html" class="gi-vol-cta"><span class="lang-en">Sign up to volunteer →</span><span class="lang-fr">Devenir bénévole →</span></a>
+<details class="perks-collapse" style="background:linear-gradient(135deg,#2D1F3D,#4B2E4E); color:#FAF6F1; border-radius:12px; margin:0 0 1.6rem; box-shadow:0 4px 20px rgba(0,0,0,0.08); overflow:hidden;">
+        <summary style="cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.35rem 1.6rem; font-family:'Playfair Display',serif; font-size:1.35rem; color:#F5C542;">
+          <span><span class="lang-en">What do I get in return?</span><span class="lang-fr">Qu'est-ce que je reçois en retour ?</span></span>
+          <span class="pc-caret" aria-hidden="true" style="font-family:system-ui,sans-serif; font-weight:400; font-size:1.6rem; line-height:1; transition:transform .2s;">+</span>
+        </summary>
+        <div style="padding:0 1.6rem 1.6rem;">
+          <p style="margin:0 0 1.1rem; color:rgba(250,246,241,0.9); font-size:1rem;"><span class="lang-en">Not paid, but not empty-handed:</span><span class="lang-fr">Pas rémunéré, mais pas les mains vides :</span></p>
+          <ul style="list-style:none; margin:0; padding:0; display:grid; gap:0.8rem;">
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Free entry to Noula Day · fair + Chanté Nwèl + afterparty</span><span class="lang-fr">Entrée gratuite à Noula Day · kermesse + Chanté Nwèl + afterparty</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Free entry to any workshop you'd like to join in your off-shift</span><span class="lang-fr">Entrée gratuite à tout atelier auquel vous souhaitez participer pendant votre temps libre</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">2-shift structure so you enjoy the other half of the event as a guest</span><span class="lang-fr">Un fonctionnement en 2 créneaux pour profiter de l'autre moitié de l'événement en tant qu'invité</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Meal + drink voucher during your shift</span><span class="lang-fr">Bon repas + boisson pendant votre créneau</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Noula volunteer t-shirt · yours to keep</span><span class="lang-fr">T-shirt bénévole Noula · à garder</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">1-year free Noula membership for 2027</span><span class="lang-fr">1 an d'adhésion Noula offerte pour 2027</span></span></li>
+          <li style="display:flex; align-items:flex-start; gap:0.7rem; font-size:1rem; line-height:1.5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-en">Being part of a warm French Caribbean community day!</span><span class="lang-fr">Faire partie d'une chaleureuse journée communautaire antillaise !</span></span></li>
+          </ul>
+          <p style="margin:1.3rem 0 0; padding-top:1.1rem; border-top:1px solid rgba(245,197,66,0.25); font-size:0.9rem; color:rgba(250,246,241,0.78); font-style:italic; line-height:1.55;"><span class="lang-en">Note: volunteers are not paid. We're a young charity in Y1 with limited means. What we can give you is time together, community, and a proper welcome.</span><span class="lang-fr">Note : les bénévoles ne sont pas rémunérés. Nous sommes une jeune association en Y1 aux moyens limités. Ce que nous pouvons vous offrir, c'est du temps ensemble, une communauté et un vrai accueil.</span></p>
+        </div>
+      </details>
+            <a href="volunteer.html" class="gi-vol-cta"><span class="lang-en">Sign up to volunteer →</span><span class="lang-fr">Devenir bénévole →</span></a>
     </div>
   </section>
 

@@ -59,6 +59,10 @@ window.NOULA_PROGRAMME = [
     en:{t:'Accras workshop with Valerie', d:'Learn to make accras de morue, the classic French Caribbean cod fritters, with Valerie. Held in the kitchen. Limited places, pre-book as an add-on.'},
     fr:{t:'Atelier Accras avec Valerie', d:"Apprenez à préparer les accras de morue, les beignets antillais par excellence, avec Valerie. En cuisine. Places limitées, réservez en option."} },
 
+  { id:'volcano', time:'12h30-13h30', start:'1230', room:'cour', cat:'Kids', tag:'Craft', addon:'book', madrasBg:true, inAgenda:true, inGrid:true, people:[{n:'Shinead',img:'images/artists/shinead.png'}],
+    en:{t:'Volcano workshop with Shinead', d:"Build your own erupting volcano and discover the story of the islands' two great mountains, La Soufrière (Guadeloupe) and Mount Pelée (Martinique), with Shinead. Ages 5-12. Free · book a ticket on Eventbrite. An adult must stay with the children. Time to be confirmed."},
+    fr:{t:'Atelier volcan avec Shinead', d:"Fabrique ton volcan en éruption et découvre l'histoire des deux grandes montagnes des îles, La Soufrière (Guadeloupe) et la Montagne Pelée (Martinique), avec Shinead. 5-12 ans. Gratuit · réservez un billet sur Eventbrite. Un adulte doit accompagner les enfants. Horaire à confirmer."} },
+
   { id:'blode', time:'14h00-14h15', start:'1400', room:'bal', cat:'Music', madrasBg:true, inAgenda:true, inGrid:true, people:[{n:'Blodè Prens',img:'images/artists/blode-prens.png'}],
     en:{t:'Blodè Prens', d:'A live set from Haitian singer Blodè Prens, opening the afternoon on the Bal Kréol stage.'},
     fr:{t:'Blodè Prens', d:"Un concert du chanteur haïtien Blodè Prens, ouvrant l'après-midi sur la scène Bal Kréol."} },

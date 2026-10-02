@@ -101,6 +101,16 @@
             border-radius: 2rem; font-size: 0.95rem; letter-spacing: 0.15rem;
             text-transform: uppercase; margin-bottom: 1.5rem;
         }
+        .noula-countdown { margin:1.5rem auto 0.5rem; }
+        .noula-countdown .cd-label { display:block; letter-spacing:0.14em; text-transform:uppercase; font-size:0.75rem; font-weight:700; color:#E8C078; margin-bottom:0.65rem; }
+        .noula-countdown .cd-grid { display:inline-flex; gap:0.6rem; }
+        .noula-countdown .cd-unit { min-width:76px; padding:0.7rem 0.4rem; background:rgba(232,199,138,0.1); border:1px solid rgba(232,199,138,0.4); border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:0.18rem; }
+        .noula-countdown .cd-num { font-family:'Playfair Display',Georgia,serif; font-size:2.2rem; line-height:1; color:#FAF6F1; font-variant-numeric:tabular-nums; }
+        .noula-countdown .cd-cap { font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:#EBC98A; }
+        .noula-countdown .cd-live { display:none; font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; color:#E8C078; }
+        .noula-countdown.is-live .cd-grid, .noula-countdown.is-live .cd-label { display:none; }
+        .noula-countdown.is-live .cd-live { display:inline-block; }
+        @media (max-width:480px){ .noula-countdown .cd-unit { min-width:62px; } .noula-countdown .cd-num { font-size:1.7rem; } }
         .flagship h2 {
             font-family: 'Playfair Display', Georgia, serif;
             color: #FAF6F1;
@@ -118,7 +128,7 @@
             text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; }
         .flagship .facts div strong { font-size: 1.35rem; font-weight: 500; }
         .flagship .highlights {
-            margin: 1.75rem auto 0; max-width: 940px; font-size: 1.25rem; line-height: 1.75;
+            margin: 1.75rem auto 0; max-width: 1080px; font-size: 1.25rem; line-height: 1.75;
             color: rgba(250, 246, 241, 0.94);
         }
         .flagship .btn-primary {
@@ -160,7 +170,7 @@
         }
         .artists::before { top: 0; }
         .artists::after { bottom: 0; }
-        .artists-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+        .artists-inner { max-width: 1140px; margin: 0 auto; position: relative; z-index: 1; }
         .artists-eyebrow {
             text-align: center; letter-spacing: 0.22em; text-transform: uppercase;
             font-size: 0.82rem; color: #E8C078; font-weight: 600; margin: 0 0 0.6rem;
@@ -263,7 +273,7 @@
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
             <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
                 
@@ -319,12 +329,22 @@
             <div><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
             <div><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Everyone!</span><span class="lang-fr">Pour tous !</span></strong></div>
         </div>
+        <div class="noula-countdown" data-countdown="2026-11-28T12:00:00">
+            <span class="cd-label"><span class="lang-en">Countdown to Noula Day</span><span class="lang-fr">Compte à rebours vers Noula Day</span></span>
+            <div class="cd-grid">
+                <div class="cd-unit"><span class="cd-num cd-d">–</span><span class="cd-cap"><span class="lang-en">days</span><span class="lang-fr">jours</span></span></div>
+                <div class="cd-unit"><span class="cd-num cd-h">–</span><span class="cd-cap"><span class="lang-en">hrs</span><span class="lang-fr">h</span></span></div>
+                <div class="cd-unit"><span class="cd-num cd-m">–</span><span class="cd-cap"><span class="lang-en">min</span><span class="lang-fr">min</span></span></div>
+                <div class="cd-unit"><span class="cd-num cd-s">–</span><span class="cd-cap"><span class="lang-en">sec</span><span class="lang-fr">sec</span></span></div>
+            </div>
+            <span class="cd-live"><span class="lang-en">It's happening today!</span><span class="lang-fr">C'est aujourd'hui !</span></span>
+        </div>
         <div style="text-align:center; margin:0.25rem 0 0.75rem;"><span style="display:inline-flex; align-items:center; gap:0.55rem; padding:0.45rem 1.15rem; background:rgba(45,121,97,0.22); border:1px solid rgba(232,199,138,0.5); border-radius:999px; font-size:0.98rem; color:#F4E3C3; font-weight:600;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBC98A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"></circle><circle cx="17" cy="8.5" r="2"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M16.5 13.5A4 4 0 0 1 21 17.5V19"></path></svg><span class="lang-en">Family-friendly · kids welcome</span><span class="lang-fr">En famille · enfants bienvenus</span></span></div>
-        <p class="highlights" style="max-width:800px;">
+        <p class="highlights" style="max-width: 940px;">
             <span class="lang-en">A full day of French Caribbean culture in <b>Brixton</b>, flowing into a warm Chanté Nwèl afterparty.</span>
             <span class="lang-fr">Une journée entière de culture antillaise à <b>Brixton</b>, qui se prolonge dans une chaleureuse afterparty Chanté Nwèl.</span>
         </p>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width:860px; margin:1.6rem auto 0;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width: 1000px; margin:1.6rem auto 0;">
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Madras workshops</span><span class="lang-fr">Ateliers madras</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Cooking demos</span><span class="lang-fr">Démos culinaires</span></span>
             <span class="hl-chip"><span class="hl-dot"></span><span class="lang-en">Créole storytelling</span><span class="lang-fr">Contes créoles</span></span>
@@ -781,6 +801,24 @@
             document.getElementById('artistNext').addEventListener('click', function(){ go(i+1); reset(); });
             reset();
         })();
+    </script>
+    <script>
+    (function(){
+        document.querySelectorAll('[data-countdown]').forEach(function(el){
+            var target=new Date(el.getAttribute('data-countdown')).getTime();
+            var d=el.querySelector('.cd-d'),h=el.querySelector('.cd-h'),m=el.querySelector('.cd-m'),s=el.querySelector('.cd-s');
+            function pad(n){return('0'+n).slice(-2);}
+            function tick(){
+                var diff=target-Date.now();
+                if(diff<=0){el.classList.add('is-live');return;}
+                d.textContent=Math.floor(diff/86400000);
+                h.textContent=pad(Math.floor(diff%86400000/3600000));
+                m.textContent=pad(Math.floor(diff%3600000/60000));
+                s.textContent=pad(Math.floor(diff%60000/1000));
+            }
+            tick();setInterval(tick,1000);
+        });
+    })();
     </script>
 </body>
 </html>

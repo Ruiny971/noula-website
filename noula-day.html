@@ -26,6 +26,16 @@
   .nd-facts2 .row small { width:60px; flex-shrink:0; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:#E8C078; }
   .nd-facts2 .row strong { font-weight:500; font-size:1.06rem; }
   .nd-btns { display:flex; flex-wrap:wrap; gap:0.8rem; }
+  .noula-countdown { margin:0 0 1.6rem; }
+  .noula-countdown .cd-label { display:block; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; font-weight:700; color:#E8C078; margin-bottom:0.6rem; }
+  .noula-countdown .cd-grid { display:inline-flex; gap:0.55rem; }
+  .noula-countdown .cd-unit { min-width:70px; padding:0.65rem 0.4rem; background:rgba(232,199,138,0.1); border:1px solid rgba(232,199,138,0.4); border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:0.15rem; }
+  .noula-countdown .cd-num { font-family:'Playfair Display',Georgia,serif; font-size:2rem; line-height:1; color:#FAF6F1; font-variant-numeric:tabular-nums; }
+  .noula-countdown .cd-cap { font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:#EBC98A; }
+  .noula-countdown .cd-live { display:none; font-family:'Playfair Display',Georgia,serif; font-size:1.4rem; color:#E8C078; }
+  .noula-countdown.is-live .cd-grid, .noula-countdown.is-live .cd-label { display:none; }
+  .noula-countdown.is-live .cd-live { display:inline-block; }
+  @media(max-width:480px){ .noula-countdown .cd-unit { min-width:58px; } .noula-countdown .cd-num { font-size:1.55rem; } }
   .nd-cta { display:inline-block; background:var(--coral); color:#fff; padding:0.9rem 1.7rem; border-radius:999px; text-decoration:none; font-weight:700; transition:all 0.2s; }
   .nd-cta:hover { background:#d05f3d; transform:translateY(-2px); }
   .nd-cta.ghost { background:transparent; border:1.5px solid rgba(232,199,138,0.6); color:#F4E3C3; }
@@ -129,7 +139,7 @@
           <ul class="nav-submenu">
             <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
             <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
-            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li>
         <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
@@ -169,6 +179,16 @@
           <div class="row"><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>Sat 28 Nov 2026 · 12h → 22h30</strong></div>
           <div class="row"><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>St Matthew's Brixton, SW2</strong></div>
           <div class="row"><small><span class="lang-en">Who</span><span class="lang-fr">Pour qui</span></small><strong><span class="lang-en">Everyone · family-friendly</span><span class="lang-fr">Pour tous · en famille</span></strong></div>
+        </div>
+        <div class="noula-countdown" data-countdown="2026-11-28T12:00:00">
+          <span class="cd-label"><span class="lang-en">Countdown to Noula Day</span><span class="lang-fr">Compte à rebours vers Noula Day</span></span>
+          <div class="cd-grid">
+            <div class="cd-unit"><span class="cd-num cd-d">–</span><span class="cd-cap"><span class="lang-en">days</span><span class="lang-fr">jours</span></span></div>
+            <div class="cd-unit"><span class="cd-num cd-h">–</span><span class="cd-cap"><span class="lang-en">hrs</span><span class="lang-fr">h</span></span></div>
+            <div class="cd-unit"><span class="cd-num cd-m">–</span><span class="cd-cap"><span class="lang-en">min</span><span class="lang-fr">min</span></span></div>
+            <div class="cd-unit"><span class="cd-num cd-s">–</span><span class="cd-cap"><span class="lang-en">sec</span><span class="lang-fr">sec</span></span></div>
+          </div>
+          <span class="cd-live"><span class="lang-en">It's happening today!</span><span class="lang-fr">C'est aujourd'hui !</span></span>
         </div>
         <div class="nd-btns">
           <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book tickets →</span><span class="lang-fr">Réserver →</span></a>
@@ -337,6 +357,24 @@
   }
   renderMenu();
   document.querySelectorAll('.lang-btn').forEach(function(b){ b.addEventListener('click',function(){ setTimeout(renderMenu,0); }); });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('[data-countdown]').forEach(function(el){
+    var target=new Date(el.getAttribute('data-countdown')).getTime();
+    var d=el.querySelector('.cd-d'),h=el.querySelector('.cd-h'),m=el.querySelector('.cd-m'),s=el.querySelector('.cd-s');
+    function pad(n){return('0'+n).slice(-2);}
+    function tick(){
+      var diff=target-Date.now();
+      if(diff<=0){el.classList.add('is-live');return;}
+      d.textContent=Math.floor(diff/86400000);
+      h.textContent=pad(Math.floor(diff%86400000/3600000));
+      m.textContent=pad(Math.floor(diff%3600000/60000));
+      s.textContent=pad(Math.floor(diff%60000/1000));
+    }
+    tick();setInterval(tick,1000);
+  });
 })();
 </script>
 </body>

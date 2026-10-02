@@ -1,137 +1,24 @@
-# Noula Charity Website
-
-A modern, warm, and welcoming website for Noula - a UK charity promoting French Caribbean heritage.
-
-## Quick Start
-
-### View the Site Locally
-
-1. Open `index.html` in your web browser
-2. Click through the pages to preview the full site
-
-That's it! No build process, no dependencies needed.
-
-### Deploy to Netlify
-
-See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for complete instructions.
-
-**Quick version:**
-1. Push this folder to GitHub
-2. Connect your GitHub repo to Netlify at [netlify.com](https://netlify.com)
-3. Custom domain `noula.org.uk` can be configured in Netlify dashboard
-
-## Site Pages
-
-- **index.html** — Home page with events preview
-- **events.html** — Full STAFE 2026 programme (3 events with Eventbrite links)
-- **about.html** — Charity information and mission
-
-## What's Included
-
-- Complete responsive design (mobile, tablet, desktop)
-- Caribbean-inspired colour palette with Madras pattern accents
-- Google Fonts integration (Playfair Display + Inter)
-- Sticky navigation bar
-- Event cards with Eventbrite links
-- Footer with charity info and social links
-- Email contact links
-- Instagram integration
-
-## Key Features
-
-✓ **Static Site** — Pure HTML/CSS/JavaScript, no frameworks  
-✓ **Fast** — Loads in under 1 second  
-✓ **Mobile-Friendly** — Perfect for Instagram link-in-bio  
-✓ **Accessible** — Semantic HTML, good contrast, keyboard navigable  
-✓ **Netlify Ready** — Includes netlify.toml and _redirects  
-✓ **SEO Optimized** — Meta tags, semantic markup  
-
-## Customization
-
-### Change Colours
-Edit `:root` variables in `styles.css`:
-```css
---coral: #E8724F;
---emerald: #2D7961;
---gold: #D4AF37;
-```
-
-### Add Your Logo
-1. Place logo in `assets/logo.png` (create assets folder)
-2. Replace SVG in nav with `<img src="assets/logo.png">`
-
-### Update Event Details
-Edit event cards in `events.html` or `index.html`
-
-### Change Contact Email
-Replace `hello@noula.org.uk` throughout (use Find & Replace)
+# Noula website changes · 2026-10-02 20:25
+Front-end changes from Claude Design, diffed against `main` @ c03d280f7765. Drop each file at the repo root (same path). Unchanged files (analytics.js, forms.js, programme-modal.js, all other images) are not included.
 
 ## Files
+- `partners.html` · Media Partner section (#media): "Discuss coverage" mailto replaced by an inline media form (submit-application, partner-type=Media, fields contact-name, business, email, platforms[] tick boxes, website, coverage; at-least-one platform check). Also the earlier stalls → partners work: deadline badge 30 Oct 2026, four partner tiles + full-detail views, sponsor tier table, Space / Room placement / Power access rows, insurance tickbox. "Media partner" kept in the Apply now dropdown.
+- `_redirects` · new: `/stalls` → `/partners` (301), clean `/sponsor` URL.
+- `volunteer.html` · collapsible "What do I get in return?" perks; redesigned form (availability + skills tick boxes with free text, conditional Noula Day shift radios).
+- `get-involved.html` · volunteer perks block; partners links.
+- `index.html` · countdown to Sat 28 Nov 2026 12:00; shared line-up carousel; nav update.
+- `noula-day.html` · countdown; shared artists slideshow; nav update.
+- `artists-data.js` · Shinead (Volcano workshop) added to the line-up; Fritz entry.
+- `programme-data.js` · Shinead volcano workshop (ages 5-12, free Eventbrite ticket, adult must stay, time TBC) and latest programme edits.
+- `events.html` · 26 Sep online cooking demo card removed; nav update.
+- `about.html` · nav update. **Contains TEMP verification code `oZDpN9` at the end: remove once the check is done.**
+- `contact.html`, `deroule.html`, `directory.html`, `programme-of-the-day.html`, `sponsor.html`, `_status.html`, `_draft-lineup-option-c-full-programme.html` · site-wide nav: Stallholders item under Noula Day, de-duplicated menu, What's on / Agenda labels.
+- `styles.css` · small shared style tweak for the above.
 
-```
-website/
-├── index.html              # Home
-├── events.html             # Programme
-├── about.html              # About us
-├── styles.css              # All styling
-├── netlify.toml            # Netlify config
-├── _redirects              # URL rewrites
-├── README.md               # This file
-└── DEPLOYMENT_GUIDE.md     # Detailed deployment instructions
-```
+## Images
+- `images/artists/shinead.png` · new
 
-## Browser Support
-
-Works on all modern browsers:
-- Chrome, Firefox, Safari, Edge
-- Mobile browsers (iOS, Android)
-- Internet Explorer not supported (outdated)
-
-## Deployment
-
-### Option 1: Netlify (Recommended)
-- Free hosting with automatic SSL
-- Custom domain support
-- Automatic deployments from GitHub
-- See DEPLOYMENT_GUIDE.md for setup
-
-### Option 2: Any Static Host
-- GitHub Pages
-- Vercel
-- Cloudflare Pages
-- AWS S3 + CloudFront
-- Your own server
-
-## Events & Links
-
-The site includes links to three STAFE 2026 events:
-
-1. **La Soufrière & Montagne Pelée Volcano Workshop**
-   - Date: Saturday, 26 April 2026
-   - Format: Online, Free
-   - Hosted by: Shinead (age 9)
-   - Register: Eventbrite link included
-
-2. **Acras de Morue Caribbean Cooking Demo**
-   - Date: Wednesday, 27 May 2026
-   - Format: Online
-   - Register: Eventbrite link included
-
-3. **French Caribbean Cultural Showcase**
-   - Date: Friday, 27 June 2026
-   - Format: In-Person
-   - Register: Eventbrite link included
-
-## Contact
-
-- **Email**: hello@noula.org.uk
-- **Instagram**: @noula_charity
-- **Charity Number**: 1210134
-
-## License
-
-© 2026 Noula - French Caribbean Heritage Promotion Foundation
-
----
-
-**Ready to deploy?** See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+## Backend notes for cowork (not in this ZIP)
+- `submit-application` now also receives `platforms` (array) and `coverage` from the media form. Map them to Airtable fields, or confirm the function ignores unknown keys.
+- Contact form `MODEL_NOT_FOUND` on the deployed function still open.
+- Real GA4 ID in `analytics.js` still placeholder.

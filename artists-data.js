@@ -48,6 +48,12 @@ window.NOULA_LINEUP = [
     bioFr: '« Découvrez l\'histoire et la signification du madras dans les Antilles, et comment ce tissu éclatant a porté des histoires d\'héritage, d\'identité et d\'appartenance de génération en génération. Après une courte introduction, créez votre mini toile en madras à garder ou à offrir. »'
   },
   {
+    id: 'volcano', img: 'images/artists/shinead.png', name: 'Shinead',
+    catEn: 'Workshop', catFr: 'Atelier',
+    roleEn: 'Volcano workshop', roleFr: 'Atelier volcan',
+    roleDetailEn: 'Build your own volcano', roleDetailFr: 'Fabrique ton volcan', contain: true
+  },
+  {
     id: 'sorbet', img: 'images/artists/fritz.png', name: 'Fritz',
     catEn: 'Workshop', catFr: 'Atelier',
     roleEn: 'Kids sorbet', roleFr: 'Sorbet des enfants',

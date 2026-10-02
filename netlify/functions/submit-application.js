@@ -15,6 +15,9 @@
 //   Tier                Single select   (stallholder only)
 //   Public liability    Single select   (Confirmed)  (stallholder only)
 //   Offer               Long text       (sponsor/cultural/media)
+//   Platforms           Multiple select (media form: Instagram, TikTok, YouTube, Podcast, Website / blog,
+//                                        Newspaper / magazine, Radio / TV, Other)
+//   Coverage idea       Long text       (media form)
 //   Member perk         Single select   (Yes, Maybe, No)
 //   Member perk details Long text
 //   Notes               Long text
@@ -55,6 +58,16 @@ exports.handler = async function (event) {
     fields['What selling'] = clean(body['what-selling']);
     fields.Tier = clean(body['tier']);
     if (clean(body['pli-confirmed'])) fields['Public liability'] = 'Confirmed';
+  } else if (type === 'Media') {
+    // Short media partner form (Media Partner section on partners.html):
+    // contact-name, business (outlet name or handle), email, platforms[] (checkboxes),
+    // website (link to work), coverage
+    const platforms = Array.isArray(body['platforms'])
+      ? body['platforms'].map(clean).filter(Boolean)
+      : clean(body['platforms']) ? [clean(body['platforms'])] : [];
+    if (platforms.length) fields.Platforms = platforms;
+    fields['Coverage idea'] = clean(body['coverage']);
+    if (clean(body['offer'])) fields.Offer = clean(body['offer']); // still accepted from the main form
   } else {
     fields.Offer = clean(body['offer']);
   }
