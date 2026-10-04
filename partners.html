@@ -250,7 +250,7 @@
             <li><a href="partners.html"><span class="lang-en">Partners</span><span class="lang-fr">Partenaires</span></a></li>
             <li><a href="sponsor.html"><span class="lang-en">Sponsor</span><span class="lang-fr">Sponsor</span></a></li>
             <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
-            <li><a href="get-involved.html#donate"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
+            <li><a href="https://donate.stripe.com/8x29ATgrQ3FNf4Wc2zgjC00" target="_blank" rel="noopener"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
           </ul>
         </li>
       </ul>
@@ -306,7 +306,7 @@
           <summary><span class="lang-en">Premium</span><span class="lang-fr">Premium</span><span class="tier-fee">£120</span></summary>
           <p class="pb-line" style="margin-top:0.6rem;"><span class="lang-en">Everything in Standard, plus:</span><span class="lang-fr">Tout le Standard, plus :</span></p>
           <ul>
-            <li><span class="lang-en">Placement in the same room as the main stage (Bal Kréol)</span><span class="lang-fr">Emplacement dans la salle de la scène principale (Bal Kréol)</span></li>
+            <li><span class="lang-en">Placement in the same room as the main stage</span><span class="lang-fr">Emplacement dans la salle de la scène principale</span></li>
             <li><span class="lang-en">Host announcements about your stall during the day</span><span class="lang-fr">Annonces sur votre stand par le présentateur au fil de la journée</span></li>
             <li><span class="lang-en">2 free meal + 2 free drink tokens for your team</span><span class="lang-fr">2 repas + 2 boissons offerts pour votre équipe</span></li>
           </ul>
@@ -510,8 +510,8 @@
           </div>
 
           <div class="field">
-            <label for="media-business"><span class="lang-en">Outlet name or handle</span><span class="lang-fr">Nom du média ou compte</span> *</label>
-            <input type="text" id="media-business" name="business" required placeholder="@yourhandle or outlet name">
+            <label for="media-business"><span class="lang-en">Your page, channel or publication</span><span class="lang-fr">Votre page, chaîne ou média</span> *</label>
+            <input type="text" id="media-business" name="business" required placeholder="@yourhandle, podcast or magazine name">
           </div>
 
           <div class="field">
@@ -522,15 +522,16 @@
           <div class="field">
             <label><span class="lang-en">Where do you publish?</span><span class="lang-fr">Où publiez-vous ?</span> *</label>
             <div class="checks" id="media-platforms">
-              <label><input type="checkbox" name="platforms[]" value="Instagram" required> Instagram</label>
-              <label><input type="checkbox" name="platforms[]" value="TikTok" required> TikTok</label>
-              <label><input type="checkbox" name="platforms[]" value="YouTube" required> YouTube</label>
-              <label><input type="checkbox" name="platforms[]" value="Podcast" required> Podcast</label>
-              <label><input type="checkbox" name="platforms[]" value="Website / blog" required> <span class="lang-en">Website / blog</span><span class="lang-fr">Site / blog</span></label>
-              <label><input type="checkbox" name="platforms[]" value="Newspaper / magazine" required> <span class="lang-en">Newspaper / magazine</span><span class="lang-fr">Journal / magazine</span></label>
-              <label><input type="checkbox" name="platforms[]" value="Radio / TV" required> Radio / TV</label>
-              <label><input type="checkbox" name="platforms[]" value="Other" required> <span class="lang-en">Other</span><span class="lang-fr">Autre</span></label>
+              <label><input type="checkbox" name="platforms[]" value="Instagram"> Instagram</label>
+              <label><input type="checkbox" name="platforms[]" value="TikTok"> TikTok</label>
+              <label><input type="checkbox" name="platforms[]" value="YouTube"> YouTube</label>
+              <label><input type="checkbox" name="platforms[]" value="Podcast"> Podcast</label>
+              <label><input type="checkbox" name="platforms[]" value="Website / blog"> <span class="lang-en">Website / blog</span><span class="lang-fr">Site / blog</span></label>
+              <label><input type="checkbox" name="platforms[]" value="Newspaper / magazine"> <span class="lang-en">Newspaper / magazine</span><span class="lang-fr">Journal / magazine</span></label>
+              <label><input type="checkbox" name="platforms[]" value="Radio / TV"> Radio / TV</label>
+              <label><input type="checkbox" name="platforms[]" value="Other"> <span class="lang-en">Other</span><span class="lang-fr">Autre</span></label>
             </div>
+            <span id="media-platforms-error" class="hint" role="alert" style="display: none; color: #C0392B; font-weight: 600;"><span class="lang-en">Please tick at least one platform</span><span class="lang-fr">Cochez au moins une plateforme</span></span>
           </div>
 
           <div class="field">
@@ -579,7 +580,7 @@
           </thead>
           <tbody>
             <tr><td><span class="lang-en">Space</span><span class="lang-fr">Espace</span></td><td><span class="lang-en">Table + 2 chairs</span><span class="lang-fr">Table + 2 chaises</span></td><td class="food"><span class="lang-en">Table + 2 chairs</span><span class="lang-fr">Table + 2 chaises</span></td></tr>
-            <tr><td><span class="lang-en">Room placement</span><span class="lang-fr">Emplacement</span></td><td><span class="lang-en">La Cour (Gallery)</span><span class="lang-fr">La Cour (Galerie)</span></td><td class="food"><span class="lang-en">Bal Kréol (main stage room)</span><span class="lang-fr">Bal Kréol (salle de la scène principale)</span></td></tr>
+            <tr><td><span class="lang-en">Room placement</span><span class="lang-fr">Emplacement</span></td><td><span class="lang-en">Activities space (name TBC)</span><span class="lang-fr">Espace activités (nom à confirmer)</span></td><td class="food"><span class="lang-en">Main stage room</span><span class="lang-fr">Salle de la scène principale</span></td></tr>
             <tr><td><span class="lang-en">Named in stallholder promo</span><span class="lang-fr">Cité dans la communication exposants</span></td><td><span class="tick">✓</span></td><td class="food"><span class="tick">✓</span></td></tr>
             <tr><td><span class="lang-en">Cross-promotion on Noula socials</span><span class="lang-fr">Relais sur les réseaux de Noula</span></td><td><span class="tick">✓</span></td><td class="food"><span class="tick">✓</span></td></tr>
             <tr><td><span class="lang-en">Host announcements about your stall</span><span class="lang-fr">Annonces au micro sur votre stand</span></td><td class="no">–</td><td class="food"><span class="tick">✓</span></td></tr>
@@ -813,7 +814,7 @@
           <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
           <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
           <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
-        <li><a href="#" class="nav-donate" aria-disabled="true" title="Coming soon" onclick="return false;"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span><span class="soon-badge">soon</span></a></li>
+        <li><a href="https://donate.stripe.com/8x29ATgrQ3FNf4Wc2zgjC00" class="nav-donate" target="_blank" rel="noopener"><span class="lang-en">Support us</span><span class="lang-fr">Nous soutenir</span></a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -904,12 +905,21 @@
     })();
   </script>
   <script>
-    // Media form: at least one platform tick box required
+    // Media form: at least one platform tick box required (checked on submit, before forms.js sends)
     (function(){
-      var boxes = document.querySelectorAll('#media-platforms input[type=checkbox]');
-      function sync(){ var any = Array.prototype.some.call(boxes, function(b){ return b.checked; }); boxes.forEach(function(b){ b.required = !any; }); }
-      boxes.forEach(function(b){ b.addEventListener('change', sync); });
-      sync();
+      var form = document.getElementById('media-form');
+      var err = document.getElementById('media-platforms-error');
+      if (!form || !err) return;
+      function anyTicked(){ return !!form.querySelector('input[name="platforms[]"]:checked'); }
+      form.addEventListener('submit', function(ev){
+        if (anyTicked()) { err.style.display = 'none'; return; }
+        ev.preventDefault(); ev.stopImmediatePropagation();
+        err.style.display = 'block';
+        var first = form.querySelector('input[name="platforms[]"]'); if (first) first.focus();
+      }, true);
+      form.querySelectorAll('input[name="platforms[]"]').forEach(function(b){
+        b.addEventListener('change', function(){ if (anyTicked()) err.style.display = 'none'; });
+      });
     })();
   </script>
 </body>

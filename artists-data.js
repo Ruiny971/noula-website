@@ -30,11 +30,6 @@ window.NOULA_LINEUP = [
     roleEn: 'Biguine initiation', roleFr: 'Initiation biguine'
   },
   {
-    id: 'camille', img: 'images/artists/camille.png', name: 'Camille',
-    catEn: 'Singer', catFr: 'Chanteuse',
-    roleEn: 'Live set', roleFr: 'Set live'
-  },
-  {
     id: 'tales', img: 'images/artists/ralphy.png', name: 'Ralphy',
     catEn: 'Storytelling', catFr: 'Contes',
     roleEn: 'Storytelling for kids', roleFr: 'Contes pour enfants'

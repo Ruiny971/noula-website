@@ -1,25 +1,24 @@
-# Noula website changes · 2026-10-02 20:40
-Supersedes noula-changes-2026-10-02-2025.
-Front-end changes from Claude Design, diffed against `main` @ c03d280f7765. Drop each file at the repo root (same path). Unchanged files (analytics.js, forms.js, programme-modal.js, all other images) are not included.
+# Noula website · soft launch changes · 2026-10-04 21:20
+
+Copy each file to the repo root (same path), replacing the existing file. No new or replaced images. All images referenced already exist in images/.
 
 ## Files
-- `partners.html` · Media Partner section (#media): "Discuss coverage" mailto replaced by an inline media form (submit-application, partner-type=Media, fields contact-name, business, email, platforms[] tick boxes, website, coverage). Bug fix: tick boxes no longer individually required; on submit, at least one platform must be ticked, else an inline EN/FR error shows under the group). Also the earlier stalls → partners work: deadline badge 30 Oct 2026, four partner tiles + full-detail views, sponsor tier table, Space / Room placement / Power access rows, insurance tickbox. "Media partner" kept in the Apply now dropdown.
-- `_redirects` · new: `/stalls` → `/partners` (301), clean `/sponsor` URL.
-- `volunteer.html` · collapsible "What do I get in return?" perks; redesigned form (availability + skills tick boxes with free text, conditional Noula Day shift radios).
-- `get-involved.html` · volunteer perks block; partners links.
-- `index.html` · countdown to Sat 28 Nov 2026 12:00; shared line-up carousel; nav update.
-- `noula-day.html` · countdown; shared artists slideshow; nav update.
-- `artists-data.js` · Shinead (Volcano workshop) added to the line-up; Fritz entry.
-- `programme-data.js` · Shinead volcano workshop (ages 5-12, free Eventbrite ticket, adult must stay, time TBC) and latest programme edits.
-- `events.html` · 26 Sep online cooking demo card removed; nav update.
-- `about.html` · nav update. TEMP verification code `oZDpN9` removed.
-- `contact.html`, `deroule.html`, `directory.html`, `programme-of-the-day.html`, `sponsor.html`, `_status.html`, `_draft-lineup-option-c-full-programme.html` · site-wide nav: Stallholders item under Noula Day, de-duplicated menu, What's on / Agenda labels.
-- `styles.css` · small shared style tweak for the above.
+- programme-data.js · soft-launch flags: NOULA_SHOW_TIMES=false (times hidden), NOULA_SHOW_ROOMS=false (rooms show "Room to be announced"), NOULA_ADDONS_OPEN=false (add-on booking shown as coming soon). Camille removed. Room names + booking instructions removed from descriptions.
+- programme-of-the-day.html · What's on: "Afternoon / Evening / All day" instead of times; room chip "to be announced"; add-on badges "booking soon" / "pre-orders open soon"; modal shows "booking opens soon" + entry ticket link.
+- deroule.html · Agenda: no time column, Afternoon/Evening groups; room cards removed; "Coming soon · Workshop bookings open soon" banner with entry-ticket CTA + "Get notified" link to newsletter; new "All day · French Caribbean food & drinks" card; intro "Programme of the day · more to be announced"; TBC tags now "To be announced"; meta description updated; dash display fix.
+- programme-modal.js · times hidden in the shared programme modal.
+- artists-data.js · Camille removed from line-up.
+- index.html · Donate CTA to Stripe; newsletter section id="newsletter" (anchor); "few emails a year · no spam" line removed.
+- get-involved.html · Donate section live (Stripe link, Gift Aid line EN/FR, charity No. 1210134); coming-soon state removed.
+- sponsor.html · room names replaced with "Main stage" / "Activities space (names TBC)"; donate links.
+- partners.html · room names removed from stall tiers/table; media form label "Your page, channel or publication"; donate links.
+- about.html, contact.html, directory.html, events.html, noula-day.html, volunteer.html · nav "Donate" + footer "Support us" link to Stripe (new tab), soon badge removed.
 
-## Images
-- `images/artists/shinead.png` · new
+## Preserved
+Netlify function endpoints, Airtable field names, Eventbrite URL (?aff=NoulaWebsite), Mailchimp embed, EN/FR span mechanism.
 
-## Backend notes for cowork (not in this ZIP)
-- `submit-application` now also receives `platforms` (array) and `coverage` from the media form. Map them to Airtable fields, or confirm the function ignores unknown keys.
-- Contact form `MODEL_NOT_FOUND` on the deployed function still open.
-- Real GA4 ID in `analytics.js` still placeholder.
+## Optional
+- images/artists/camille.png is no longer referenced (can be deleted from the repo).
+
+## Queue
+Soft launch prep (times hidden, rooms TBC, add-ons coming soon, donations live, Camille removed) → move to Recently done.

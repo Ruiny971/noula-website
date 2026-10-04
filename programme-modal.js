@@ -131,7 +131,7 @@
     }
     pmCard.innerHTML = '<button class="pm-close" aria-label="Close">&times;</button>'
       + '<div class="pm-media"' + (d.madrasBg ? ' style="background:url(\'images/madras.png\') center/230px"' : '') + '>' + mediaHTML(d) + '</div>'
-      + '<div class="pm-body"><div class="row"><span class="pm-time">' + d.time + '</span>'
+      + '<div class="pm-body"><div class="row"><span class="pm-time">' + (window.noulaTimeLabel ? window.noulaTimeLabel(d, L) : d.time) + '</span>'
       + '<span class="pm-cat cat-' + d.cat + '">' + catLabel[d.cat][L] + '</span>' + (d.tag ? '<span class="pm-tag">' + tagLabel[d.tag][L] + '</span>' : '') + roomChip + '</div>'
       + '<h2>' + d[L].t + '</h2><p class="pm-people">' + names(d) + '</p>' + addon + '<p>' + d[L].d + '</p>'
       + (d.menu && d.menu.length ? '<div style="margin-top:1.4rem;">' + menuHTML(d, L, { heading:true }) + '</div>' : '')
