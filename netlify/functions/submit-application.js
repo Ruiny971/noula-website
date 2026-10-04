@@ -76,7 +76,9 @@ exports.handler = async function (event) {
   if (clean(body['member-perk-details'])) fields['Member perk details'] = clean(body['member-perk-details']);
 
   // Duplicate check: Organisation OR Email (case-insensitive)
-  const dupFormula = `OR(LOWER({Organisation})=LOWER('${esc(org)}'), LOWER({Email})=LOWER('${esc(email)}'))`;
+  // Only block a repeat of the SAME application type (same email or org + same partner type),
+  // so someone can apply as e.g. stallholder AND media partner.
+  const dupFormula = `AND({Partner type}='${esc(type)}', OR(LOWER({Organisation})=LOWER('${esc(org)}'), LOWER({Email})=LOWER('${esc(email)}')))`;
   const dup = await findRecord('Applications', dupFormula);
   if (dup.record) return json(409, { error: DUP_MESSAGE, duplicate: true });
 
