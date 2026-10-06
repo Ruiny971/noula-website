@@ -374,12 +374,12 @@
             <span class="dir-label"><span class="lang-en">Category</span><span class="lang-fr">Catégorie</span> *</span>
             <select name="category" required>
               <option value=""></option>
-              <option value="Food & drink">Food &amp; drink</option>
-              <option value="Craft & textile">Craft &amp; textile</option>
-              <option value="Art">Art</option>
-              <option value="Music">Music</option>
-              <option value="Community">Community</option>
-              <option value="Other">Other</option>
+              <option value="Food & drink" data-fr="Cuisine &amp; boissons">Food &amp; drink</option>
+              <option value="Craft & textile" data-fr="Artisanat &amp; textile">Craft &amp; textile</option>
+              <option value="Art" data-fr="Art">Art</option>
+              <option value="Music" data-fr="Musique">Music</option>
+              <option value="Community" data-fr="Communauté">Community</option>
+              <option value="Other" data-fr="Autre">Other</option>
             </select>
           </label>
           <label class="dir-field">
@@ -714,5 +714,6 @@
     })();
   </script>
     <script src="forms.js" defer></script>
+<script>(function(){function t(){var fr=document.documentElement.lang==='fr';document.querySelectorAll('option[data-fr]').forEach(function(o){if(!o.getAttribute('data-en'))o.setAttribute('data-en',o.textContent);o.textContent=fr?o.getAttribute('data-fr'):o.getAttribute('data-en');});}new MutationObserver(t).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});document.addEventListener('DOMContentLoaded',t);t();})();</script>
 </body>
 </html>

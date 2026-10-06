@@ -237,11 +237,11 @@
                             <label for="c-topic" style="display:block;font-weight:600;margin-bottom:0.4rem;"><span class="lang-en">What's it about?</span><span class="lang-fr">À quel sujet ?</span></label>
                             <select id="c-topic" name="topic" style="width:100%;padding:0.7rem 0.85rem;border:1px solid #d9cfc2;border-radius:8px;font:inherit;background:white;">
                                 <option value=""></option>
-                                <option value="Events">Events &amp; Programme</option>
-                                <option value="Directory">Community Directory</option>
-                                <option value="Partnerships">Partnerships</option>
-                                <option value="Volunteering">Volunteering &amp; Support</option>
-                                <option value="Other">Something else</option>
+                                <option value="Events" data-fr="Événements &amp; Programme">Events &amp; Programme</option>
+                                <option value="Directory" data-fr="Annuaire communautaire">Community Directory</option>
+                                <option value="Partnerships" data-fr="Partenariats">Partnerships</option>
+                                <option value="Volunteering" data-fr="Bénévolat &amp; Soutien">Volunteering &amp; Support</option>
+                                <option value="Other" data-fr="Autre chose">Something else</option>
                             </select>
                         </div>
 
@@ -345,5 +345,6 @@
         });
     </script>
     <script src="forms.js" defer></script>
+<script>(function(){function t(){var fr=document.documentElement.lang==='fr';document.querySelectorAll('option[data-fr]').forEach(function(o){if(!o.getAttribute('data-en'))o.setAttribute('data-en',o.textContent);o.textContent=fr?o.getAttribute('data-fr'):o.getAttribute('data-en');});}new MutationObserver(t).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});document.addEventListener('DOMContentLoaded',t);t();})();</script>
 </body>
 </html>
