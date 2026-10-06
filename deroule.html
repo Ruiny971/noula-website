@@ -152,7 +152,7 @@
       <div>
         <span class="eyebrow"><span class="lang-en">All day</span><span class="lang-fr">Toute la journée</span></span>
         <h2><span class="lang-en">French Caribbean food &amp; drinks</span><span class="lang-fr">Cuisine et boissons antillaises</span></h2>
-        <p><span class="lang-en">Traditional French Caribbean dishes and drinks on sale all day, from the Noula kitchen and bar. Full menu published closer to the event. <a href="programme-of-the-day.html">See the dishes →</a></span><span class="lang-fr">Plats et boissons antillais traditionnels en vente toute la journée, à la cuisine et au bar Noula. Menu complet publié plus près de l'événement. <a href="programme-of-the-day.html">Voir les plats →</a></span></p>
+        <p><span class="lang-en">Traditional French Caribbean dishes and drinks on sale all day, from the Noula kitchen and bar. Full menu published closer to the event. <a href="noula-day.html#ndMenuSection">See the dishes →</a></span><span class="lang-fr">Plats et boissons antillais traditionnels en vente toute la journée, à la cuisine et au bar Noula. Menu complet publié plus près de l'événement. <a href="noula-day.html#ndMenuSection">Voir les plats →</a></span></p>
       </div>
     </div>
 
@@ -189,7 +189,7 @@
       </div>
     </div>
     <div class="footer-bottom"><p><span class="lang-en">&copy; 2026 Noula. All rights reserved.</span><span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span></p></div>
-      <div class="footer-status" style="text-align:center;padding-top:.6rem;"><a href="_status.html" style="color:rgba(255,255,255,0.38);font-size:.75rem;text-decoration:none;letter-spacing:.03em;">Site status</a></div>
+        <div class="footer-legal" style="text-align:center;padding-top:.6rem;"><a href="privacy.html" style="color:rgba(255,255,255,0.7);font-size:.8rem;letter-spacing:.03em;"><span class="lang-en">Privacy notice</span><span class="lang-fr">Confidentialité</span></a></div>
   </footer>
 
 <script src="programme-data.js"></script>
@@ -200,7 +200,7 @@
   var day=P.filter(d=>d.start<'1830'), eve=P.filter(d=>d.start>='1830');
   var roomName={bal:'Bal Kréol',cour:'La Cour'};
   function row(d,L){
-    var room = d.room ? '<span class="pg-room room-'+(window.NOULA_SHOW_ROOMS?d.room:'tbc')+'">'+window.noulaRoomLabel(d.room,L)+'</span>' : '<span class="room-none">—</span>';
+    var room = d.room ? '<span class="pg-room room-'+(window.NOULA_SHOW_ROOMS?d.room:'tbc')+'">'+window.noulaRoomLabel(d.room,L)+'</span>' : '<span class="room-none">·</span>';
     var tbc = d.tbc ? ' <span class="tbc">'+(L==='fr'?'À annoncer':'To be announced')+'</span>' : '';
     var time = window.NOULA_SHOW_TIMES ? '<span class="pg-time">'+d.time+'</span>' : '';
     return '<div class="pg-item'+(window.NOULA_SHOW_TIMES?'':' no-time')+'" role="button" tabindex="0" data-id="'+d.id+'">'+time+'<span class="pg-act">'+d[L].t+tbc+'</span>'+room+'</div>';

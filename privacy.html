@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy notice · how Noula (French Caribbean Heritage and Preservation Foundation) collects, uses and stores your personal data.">
+    <title>Privacy notice · Noula</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .lang-switch { display: flex; gap: 0.5rem; }
+        .lang-switch button {
+            background: none; border: 2px solid var(--coral); color: var(--coral);
+            padding: 0.25rem 0.75rem; border-radius: 0.25rem; cursor: pointer;
+            font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;
+        }
+        .lang-switch button.active { background: var(--coral); color: white; }
+        .lang-switch button:focus-visible { outline: 2px solid var(--emerald); outline-offset: 2px; }
+        .lang-fr { display: none; }
+
+        .event-strip {
+            background: linear-gradient(90deg, #2D7961 0%, #E8724F 100%);
+            color: white; padding: 0.6rem 1rem; text-align: center; font-size: 0.9rem; font-weight: 500;
+        }
+        .event-strip a { color: white; text-decoration: underline; font-weight: 600; margin-left: 0.5rem; }
+    </style>
+    <script src="analytics.js"></script>
+</head>
+<body>
+    <!-- Top strip -->
+    <div class="event-strip">
+        <span class="lang-en">Sat 28 Nov 2026 · Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty · Tickets on sale</span>
+        <span class="lang-fr">Sam. 28 nov. 2026 · Noula Day 2026 · Kermesse Créole + Chanté Nwèl Afterparty · Billets en vente</span>
+        <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" rel="noopener">
+            <span class="lang-en">Book →</span>
+            <span class="lang-fr">Réserver →</span>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="logo-link" aria-label="Noula home">
+                    <img src="logo.jpg" alt="Noula logo" class="logo-img">
+                </a>
+                <div class="brand-name"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+                <li class="nav-sub has-sub"><a href="noula-day.html" class="nav-day"><span class="lang-en">Noula Day</span><span class="lang-fr">Noula Day</span></a>
+          <ul class="nav-submenu">
+            <li><a href="noula-day.html"><span class="lang-en">Overview</span><span class="lang-fr">Aperçu</span></a></li>
+            <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
+            <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
+          </ul>
+        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+                
+                <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+        <li class="nav-sub nav-gi has-sub"><a href="get-involved.html" class="nav-getinvolved"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span><span class="gi-caret" aria-hidden="true">▾</span></a>
+          <ul class="nav-submenu">
+            <li><a href="volunteer.html"><span class="lang-en">Volunteer</span><span class="lang-fr">Bénévolat</span></a></li>
+            <li><a href="partners.html"><span class="lang-en">Partners</span><span class="lang-fr">Partenaires</span></a></li>
+            <li><a href="sponsor.html"><span class="lang-en">Sponsor</span><span class="lang-fr">Sponsor</span></a></li>
+            <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+            <li><a href="https://donate.stripe.com/8x29ATgrQ3FNf4Wc2zgjC00" target="_blank" rel="noopener"><span class="lang-en">Donate</span><span class="lang-fr">Faire un don</span></a></li>
+          </ul>
+        </li>
+            </ul>
+
+            <div class="lang-switch" role="group" aria-label="Language selection">
+                <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="fr" aria-label="Français">FR</button>
+            </div>
+        </div>
+    </nav>
+
+    <hr class="section-divider">
+
+    <section class="hero" style="padding: 4rem 2rem;">
+        <div class="hero-content">
+            <h1><span class="lang-en">Privacy notice</span><span class="lang-fr">Confidentialité</span></h1>
+            <p class="hero-tagline"><span class="lang-en">How we look after your personal data.</span><span class="lang-fr">Comment nous protégeons vos données personnelles.</span></p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container" style="max-width:760px;margin:0 auto;">
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">Who we are</span><span class="lang-fr">Qui sommes-nous</span></h2>
+            <p><span class="lang-en">Noula is the working name of The French Caribbean Heritage and Preservation Foundation, a charitable incorporated organisation (CIO) registered in England and Wales, charity number 1210134. We are responsible for the personal data you share with us. Contact: <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span><span class="lang-fr">Noula est le nom d'usage de The French Caribbean Heritage and Preservation Foundation (Fondation pour la Préservation du Patrimoine des Antilles Françaises), organisation caritative (CIO) enregistrée en Angleterre et au Pays de Galles sous le numéro 1210134. Nous sommes responsables des données personnelles que vous nous confiez. Contact : <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span></p>
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">What we collect</span><span class="lang-fr">Ce que nous collectons</span></h2>
+            <p><span class="lang-en">The details you give us through our forms:</span><span class="lang-fr">Les informations que vous nous donnez via nos formulaires :</span></p>
+            <ul style="margin:0.4rem 0 0 1.2rem;line-height:1.7;"><li><span class="lang-en">Contact form</span><span class="lang-fr">Formulaire de contact</span></li><li><span class="lang-en">Volunteer applications</span><span class="lang-fr">Candidatures bénévoles</span></li><li><span class="lang-en">Partner and media partner applications</span><span class="lang-fr">Candidatures partenaires et partenaires média</span></li><li><span class="lang-en">Noula Directory listings</span><span class="lang-fr">Fiches de l'annuaire Noula</span></li><li><span class="lang-en">Newsletter sign-up</span><span class="lang-fr">Inscription à la newsletter</span></li></ul>
+            <p><span class="lang-en">We only use analytics cookies if you accept them in the cookie banner. You can change your choice at any time with the "Manage cookies" link in the footer.</span><span class="lang-fr">Nous n'utilisons des cookies de mesure d'audience que si vous les acceptez dans le bandeau cookies. Vous pouvez modifier votre choix à tout moment via le lien « Gérer les cookies » en bas de page.</span></p>
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">Why we use it</span><span class="lang-fr">Pourquoi nous les utilisons</span></h2>
+            <p><span class="lang-en">To reply to you, to organise Noula Day, to run the Noula Directory and to send our newsletter. We do not sell your data.</span><span class="lang-fr">Pour vous répondre, organiser Noula Day, faire vivre l'annuaire Noula et envoyer notre newsletter. Nous ne vendons pas vos données.</span></p>
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">Where it is stored</span><span class="lang-fr">Où elles sont conservées</span></h2>
+            <p><span class="lang-en">We use trusted services to run the site and our events:</span><span class="lang-fr">Nous utilisons des services de confiance pour faire fonctionner le site et nos événements :</span></p>
+            <ul style="margin:0.4rem 0 0 1.2rem;line-height:1.7;"><li><span class="lang-en">Airtable · form responses</span><span class="lang-fr">Airtable · réponses aux formulaires</span></li><li><span class="lang-en">Netlify · website hosting and form handling</span><span class="lang-fr">Netlify · hébergement du site et traitement des formulaires</span></li><li><span class="lang-en">Google Analytics · site statistics, only with your consent</span><span class="lang-fr">Google Analytics · statistiques du site, uniquement avec votre accord</span></li><li><span class="lang-en">Eventbrite · ticket bookings</span><span class="lang-fr">Eventbrite · réservation des billets</span></li><li><span class="lang-en">Stripe · payments and donations</span><span class="lang-fr">Stripe · paiements et dons</span></li></ul>
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">How long we keep it</span><span class="lang-fr">Combien de temps nous les gardons</span></h2>
+            <p><span class="lang-en">Only as long as we need it, and no more than 2 years after your last contact with us.</span><span class="lang-fr">Uniquement le temps nécessaire, et au maximum 2 ans après votre dernier contact avec nous.</span></p>
+            <h2 style="font-size:1.35rem;margin:2.2rem 0 0.6rem;"><span class="lang-en">Your rights</span><span class="lang-fr">Vos droits</span></h2>
+            <p><span class="lang-en">You can ask to see, correct or delete your data, and withdraw your consent at any time. Email <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span><span class="lang-fr">Vous pouvez demander à consulter, corriger ou supprimer vos données, et retirer votre consentement à tout moment. Écrivez à <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>.</span></p>
+            <p><span class="lang-en">If you are unhappy with how we handle your data, you can complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk</a>.</span><span class="lang-fr">Si vous n'êtes pas satisfait de la façon dont nous traitons vos données, vous pouvez déposer une plainte auprès de l'Information Commissioner's Office (ICO), l'autorité britannique de protection des données : <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk</a>.</span></p>
+            <p style="color:#888;font-size:0.9rem;margin-top:2.2rem;"><span class="lang-en">Last updated: October 2026</span><span class="lang-fr">Dernière mise à jour : octobre 2026</span></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Noula</h4>
+                <p>
+                    <span class="lang-en">French Caribbean Heritage and Preservation Foundation</span>
+                    <span class="lang-fr">Fondation pour la Préservation du Patrimoine des Antilles Françaises</span>
+                </p>
+                <p>
+                    <span class="lang-en">UK Registered Charity: 1210134</span>
+                    <span class="lang-fr">Association caritative UK : 1210134</span>
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>
+                    <span class="lang-en">Navigation</span>
+                    <span class="lang-fr">Navigation</span>
+                </h4>
+                <ul>
+                    <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-fr">Accueil</span></a></li>
+                    <li><a href="events.html"><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+                    <li><a href="directory.html"><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></a></li>
+                    <li><a href="get-involved.html"><span class="lang-en">Get Involved</span><span class="lang-fr">Participer</span></a></li>
+                    <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
+                    <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>
+                    <span class="lang-en">Connect</span>
+                    <span class="lang-fr">Contact</span>
+                </h4>
+                <p>
+                    <span class="lang-en">Email:</span>
+                    <span class="lang-fr">E-mail :</span>
+                    <a href="mailto:fchpf@outlook.com">fchpf@outlook.com</a>
+                </p>
+                <div class="footer-social">
+                    <p>
+                        <span class="lang-en">Follow us</span>
+                        <span class="lang-fr">Suivez-nous</span>
+                    </p>
+                    <a href="https://www.instagram.com/noula_charity/" target="_blank" rel="noopener" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram" style="vertical-align: middle; margin-right: 0.4rem;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram @noula_charity</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                <span class="lang-en">&copy; 2026 Noula. All rights reserved.</span>
+                <span class="lang-fr">&copy; 2026 Noula. Tous droits réservés.</span>
+            </p>
+        </div>
+        <div class="footer-legal" style="text-align:center;padding-top:.6rem;"><a href="privacy.html" style="color:rgba(255,255,255,0.7);font-size:.8rem;letter-spacing:.03em;"><span class="lang-en">Privacy notice</span><span class="lang-fr">Confidentialité</span></a></div>
+  </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = localStorage.getItem('selectedLanguage') || 'en';
+            if (!['en','fr'].includes(currentLang)) currentLang = 'en';
+            setLanguage(currentLang);
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentLang = this.getAttribute('data-lang');
+                    localStorage.setItem('selectedLanguage', currentLang);
+                    setLanguage(currentLang);
+                });
+            });
+            function setLanguage(lang) {
+                document.querySelectorAll('.lang-en, .lang-fr').forEach(el => { el.style.display = 'none'; });
+                document.querySelectorAll('.lang-' + lang).forEach(el => { el.style.display = 'inline'; });
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('[data-lang="' + lang + '"]').classList.add('active');
+                document.documentElement.lang = lang;
+            }
+        });
+    </script>
+    
+</body>
+</html>
