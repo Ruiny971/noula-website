@@ -26,28 +26,34 @@ exports.handler = async function (event) {
   if (!name) return json(400, { error: 'Name is required.' });
   if (!email) return json(400, { error: 'Email is required.' });
 
-  const events = Array.isArray(body['events'])
-    ? body['events']
-    : clean(body['events']) ? [clean(body['events'])] : [];
-  const areas = Array.isArray(body['areas'])
-    ? body['areas']
-    : clean(body['areas']) ? [clean(body['areas'])] : [];
-  const helpType = Array.isArray(body['help-type'])
-    ? body['help-type']
-    : clean(body['help-type']) ? [clean(body['help-type'])] : [];
+  // Checkbox groups arrive as arrays; a single tick may arrive as a string.
+  const list = (v) => (Array.isArray(v) ? v.map(clean).filter(Boolean) : clean(v) ? [clean(v)] : []);
+  const events = list(body['events']);
+  const areas = list(body['areas']);
+  const helpType = list(body['help-type']);
+  const availability = list(body['availability']);
+  const skills = list(body['skills']);
+  const shift = list(body['noula-day-shift']);
+
+  // Free-text extras go into Notes so nothing is lost.
+  const extras = [];
+  if (clean(body['availability-other'])) extras.push('Availability: ' + clean(body['availability-other']));
+  if (clean(body['skills-other'])) extras.push('Skills: ' + clean(body['skills-other']));
 
   const fields = {
     Name: name,
     Email: email,
     Phone: clean(body['phone']),
-    Availability: clean(body['availability']),
-    Skills: clean(body['skills']),
+    Skills: skills.join(', '),          // long text field in Airtable
     Referral: clean(body['referral']),
+    Notes: extras.join('\n'),
     Status: 'New',
   };
   if (events.length) fields.Events = events;
   if (helpType.length) fields['Type of help'] = helpType;
   if (areas.length) fields.Areas = areas;
+  if (availability.length) fields.Availability = availability;
+  if (shift.length) fields['Noula Day shift'] = shift;
   if (clean(body['consent'])) fields.Consent = 'Yes';
 
   // Duplicate check: Email (case-insensitive)
