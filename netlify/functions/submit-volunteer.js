@@ -39,6 +39,14 @@ exports.handler = async function (event) {
   const extras = [];
   if (clean(body['availability-other'])) extras.push('Availability: ' + clean(body['availability-other']));
   if (clean(body['skills-other'])) extras.push('Skills: ' + clean(body['skills-other']));
+  // Under-18 volunteers: kept in Notes (no extra Airtable columns needed)
+  if (clean(body['under-18'])) {
+    extras.unshift(
+      'UNDER 18 · Parent/guardian: ' + (clean(body['guardian-name']) || '?') +
+      ' · ' + (clean(body['guardian-phone']) || '?') +
+      ' · consent: ' + (clean(body['guardian-consent']) ? 'yes' : 'NO')
+    );
+  }
 
   const fields = {
     Name: name,

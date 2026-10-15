@@ -1,24 +1,22 @@
-# Noula website · soft launch changes · 2026-10-04 21:20
+# Noula website changes · 2026-10-15 17:08
 
-Copy each file to the repo root (same path), replacing the existing file. No new or replaced images. All images referenced already exist in images/.
+Drop these files over the repo root of `Ruiny971/noula-website` (main). Do NOT touch `netlify/functions/submit-volunteer.js` (already updated on GitHub).
 
 ## Files
-- programme-data.js · soft-launch flags: NOULA_SHOW_TIMES=false (times hidden), NOULA_SHOW_ROOMS=false (rooms show "Room to be announced"), NOULA_ADDONS_OPEN=false (add-on booking shown as coming soon). Camille removed. Room names + booking instructions removed from descriptions.
-- programme-of-the-day.html · What's on: "Afternoon / Evening / All day" instead of times; room chip "to be announced"; add-on badges "booking soon" / "pre-orders open soon"; modal shows "booking opens soon" + entry ticket link.
-- deroule.html · Agenda: no time column, Afternoon/Evening groups; room cards removed; "Coming soon · Workshop bookings open soon" banner with entry-ticket CTA + "Get notified" link to newsletter; new "All day · French Caribbean food & drinks" card; intro "Programme of the day · more to be announced"; TBC tags now "To be announced"; meta description updated; dash display fix.
-- programme-modal.js · times hidden in the shared programme modal.
-- artists-data.js · Camille removed from line-up.
-- index.html · Donate CTA to Stripe; newsletter section id="newsletter" (anchor); "few emails a year · no spam" line removed.
-- get-involved.html · Donate section live (Stripe link, Gift Aid line EN/FR, charity No. 1210134); coming-soon state removed.
-- sponsor.html · room names replaced with "Main stage" / "Activities space (names TBC)"; donate links.
-- partners.html · room names removed from stall tiers/table; media form label "Your page, channel or publication"; donate links.
-- about.html, contact.html, directory.html, events.html, noula-day.html, volunteer.html · nav "Donate" + footer "Support us" link to Stripe (new tab), soon badge removed.
+- `partners.html` · stallholder offer simplified to ONE stall type "Stall · £80" / "Stand · 80 £", applications close 30 October 2026. Premium tier, comparison table and tier dropdown removed; form sends hidden `tier` = "Standard £80" to Airtable. Also "kompa" → "konpa".
+- `volunteer.html` · new under-18 block before consent: `under-18` checkbox reveals required `guardian-name`, `guardian-phone`, `guardian-consent` + note (hidden and disabled when unticked). Noula Day shift changed from radios to checkboxes `noula-day-shift[]` (several shifts allowed, values unchanged).
+- `forms.js` · conditional sections now respect checkbox ticked state (needed for the under-18 block).
+- `programme-data.js` · artist-supplied texts: Zouk Love London replaces "Lina" (Konpa class + Zouk karaoke, new EN/FR text, karaoke card now uses the new illustration); Mister Fritz; Biguine Party with Joyce-Lee & Joëlle; KIDOKA ×2 new text; Ralphie (spelling + text); Chanté Nwèl ×2 people + extra paragraph; Charlz and Blodè Prens lines. "Kompa" → "Konpa" (internal id `kompa` unchanged).
+- `artists-data.js` · line-up: Mister Fritz, Ralphie, Zil'Oka, Joyce-Lee & Joëlle names + bios/roles; Charlz "Pop & R&B", Blodè Prens "Reggae · vocals & guitar".
+- `about.html`, `directory.html`, `events.html`, `noula-day.html` · "kompa" → "konpa".
+- `images/artists/fritz.png` · replaces existing (new photo of Mister Fritz).
+- `images/illustrations/zouk-karaoke.png` · new (Zouk karaoke card, illustration + gold Zouk Love logo).
 
-## Preserved
-Netlify function endpoints, Airtable field names, Eventbrite URL (?aff=NoulaWebsite), Mailchimp embed, EN/FR span mechanism.
+## Queue items completed
+- Stallholder offer: single tier.
+- Artist texts update (Zouk Love London, Mister Fritz, Joyce-Lee & Joëlle, Zil'Oka / KIDOKA, Ralphie, Chanté Nwèl, Charlz, Blodè Prens).
+- Konpa spelling site-wide.
+- Volunteer form: under-18 guardian fields + multi-shift checkboxes.
 
-## Optional
-- images/artists/camille.png is no longer referenced (can be deleted from the repo).
-
-## Queue
-Soft launch prep (times hidden, rooms TBC, add-ons coming soon, donations live, Camille removed) → move to Recently done.
+## Optional cleanup for cowork
+- `_status.html` is no longer linked anywhere (footer now links Privacy); it's not in the repo, nothing to do.

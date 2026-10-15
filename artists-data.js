@@ -12,7 +12,7 @@ window.NOULA_LINEUP = [
     id: 'blode', img: 'images/artists/blode-prens.png', name: 'Blodè Prens',
     catEn: 'Singer', catFr: 'Chanteur',
     roleEn: 'Singer', roleFr: 'Chanteur',
-    roleDetailEn: 'Vocals &amp; guitar', roleDetailFr: 'Chant &amp; guitare',
+    roleDetailEn: 'Reggae · vocals &amp; guitar', roleDetailFr: 'Reggae · chant &amp; guitare',
     bioEn: '“A Haitian artist whose music is steeped in emotion and hope. Music touches the soul and stirs the heart, so I chose love and faith, through my songs, to share my story.”',
     bioFr: '« Artiste haïtien dont la musique est empreinte d\'émotion et d\'espoir. La musique touche l\'âme et fait vibrer les cœurs, alors j\'ai choisi l\'amour et la foi, à travers mes chansons, pour partager mon histoire. »'
   },
@@ -20,19 +20,22 @@ window.NOULA_LINEUP = [
     id: 'charlz', img: 'images/artists/charlz.png', name: 'Charlz',
     catEn: 'Singer', catFr: 'Chanteur',
     roleEn: 'Singer', roleFr: 'Chanteur',
-    roleDetailEn: 'Vocals', roleDetailFr: 'Chant',
+    roleDetailEn: 'Pop &amp; R&amp;B', roleDetailFr: 'Pop &amp; R&amp;B',
     bioEn: '“A Haitian singer passionate about bringing emotion. I sing in four different languages, blending diverse sounds and influences.”',
     bioFr: '« Chanteur haïtien passionné par la transmission de l\'émotion. Je chante en quatre langues différentes, mêlant sons et influences variés. »'
   },
   {
-    id: 'beguine', img: 'images/artists/joelle-joyce-slide.png', name: 'Joëlle & Joyce',
+    id: 'beguine', img: 'images/artists/joelle-joyce-slide.png', name: 'Joyce-Lee & Joëlle',
     catEn: 'Workshop', catFr: 'Atelier',
-    roleEn: 'Biguine initiation', roleFr: 'Initiation biguine'
+    roleEn: 'Biguine Party', roleFr: 'Biguine Party',
+    roleDetailEn: 'Biguine initiation · JCPC', roleDetailFr: 'Initiation biguine · JCPC'
   },
   {
-    id: 'tales', img: 'images/artists/ralphy.png', name: 'Ralphy',
+    id: 'tales', img: 'images/artists/ralphy.png', name: 'Ralphie',
     catEn: 'Storytelling', catFr: 'Contes',
-    roleEn: 'Storytelling for kids', roleFr: 'Contes pour enfants'
+    roleEn: 'Storytelling for kids', roleFr: 'Contes pour enfants',
+    bioEn: 'Ralphie is a drummer, storyteller and passionate keeper of Caribbean traditions from Martinique, Guadeloupe and French Guiana. With contagious energy and a deep love of working with young people, he brings rhythm, culture and joy to every gathering.',
+    bioFr: 'Ralphie est batteur, conteur et gardien passionné des traditions caribéennes de Martinique, de Guadeloupe et de Guyane. Avec une énergie contagieuse et un amour profond du travail avec les jeunes, il apporte rythme, culture et joie à chaque rassemblement.'
   },
   {
     id: 'madras', img: 'images/artists/jade.png', name: 'Jade',
@@ -49,10 +52,12 @@ window.NOULA_LINEUP = [
     roleDetailEn: 'Build your own volcano', roleDetailFr: 'Fabrique ton volcan', contain: true
   },
   {
-    id: 'sorbet', img: 'images/artists/fritz.png', name: 'Fritz',
+    id: 'sorbet', img: 'images/artists/fritz.png', name: 'Mister Fritz',
     catEn: 'Workshop', catFr: 'Atelier',
     roleEn: 'Kids sorbet', roleFr: 'Sorbet des enfants',
-    roleDetailEn: 'Kids sorbet making', roleDetailFr: 'Atelier sorbet des enfants'
+    roleDetailEn: 'Kids sorbet making', roleDetailFr: 'Atelier sorbet des enfants',
+    bioEn: '“Hi everyone, I\'m Mister Fritz from Guadeloupe and I\'m happy to share a part of my culture with you: the French Caribbean coconut sorbet. See you at Noula Day!”',
+    bioFr: '« Bonjour à tous, je suis Mister Fritz, de Guadeloupe, et je suis heureux de partager avec vous un morceau de ma culture : le sorbet coco antillais. Rendez-vous à Noula Day ! »'
   },
   {
     id: 'catwalk', img: 'images/artists/ukm.png', name: 'UKM',
@@ -65,8 +70,10 @@ window.NOULA_LINEUP = [
     roleEn: 'DJ · Afterparty', roleFr: 'DJ · Afterparty'
   },
   {
-    id: 'cn1', img: 'images/artists/ziloka.png', name: 'Ziloka',
+    id: 'cn1', img: 'images/artists/ziloka.png', name: "Zil'Oka",
     catEn: 'Chanté Nwèl', catFr: 'Chanté Nwèl',
-    roleEn: 'Chanté Nwèl', roleFr: 'Chanté Nwèl'
+    roleEn: 'Chanté Nwèl', roleFr: 'Chanté Nwèl',
+    bioEn: "Zil'Oka represents and celebrates Martinique, Guadeloupe and French Guiana in London, led by its president Stella, with gwoka pioneer Takadoum, storyteller and drummer Ralphie, and Boca dancer and choreographer Rita.",
+    bioFr: "Zil'Oka représente et célèbre la Martinique, la Guadeloupe et la Guyane à Londres, avec sa présidente Stella, le pionnier du gwoka Takadoum, le conteur et batteur Ralphie, et Rita, danseuse et chorégraphe de tradition Boca."
   }
 ];

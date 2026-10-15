@@ -229,7 +229,7 @@
         var field = sec.getAttribute('data-when-field');
         var want = (sec.getAttribute('data-when-value') || '').split(',').map(function (s) { return s.trim(); });
         var ctrl = form.querySelector('[name="' + field + '"]');
-        var val = ctrl ? ctrl.value : '';
+        var val = !ctrl ? '' : (ctrl.type === 'checkbox' ? (ctrl.checked ? ctrl.value : '') : ctrl.value);
         var show = want.indexOf(val) >= 0;
         sec.style.display = show ? '' : 'none';
         // Disable inputs inside a hidden section so their `required` never

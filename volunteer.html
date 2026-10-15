@@ -220,11 +220,11 @@
         <div class="field" id="noula-day-shift-field" style="display:none;">
           <label><span class="lang-en">When would you like to help on Noula Day?</span><span class="lang-fr">Quand aimeriez-vous aider le jour de Noula Day ?</span></label>
           <div class="checks">
-            <label><input type="radio" name="noula-day-shift" value="1st half 12h00-17h00"> <span class="lang-en">Afternoon shift</span><span class="lang-fr">Créneau après-midi</span></label>
-            <label><input type="radio" name="noula-day-shift" value="2nd half 17h00-22h30"> <span class="lang-en">Evening shift (Chanté Nwèl + afterparty)</span><span class="lang-fr">Créneau soirée (Chanté Nwèl + afterparty)</span></label>
-            <label><input type="radio" name="noula-day-shift" value="Full day"> <span class="lang-en">Full day</span><span class="lang-fr">Journée complète</span></label>
-            <label><input type="radio" name="noula-day-shift" value="Setup day (Fri 27 Nov)"> <span class="lang-en">Setup day (Fri 27 Nov)</span><span class="lang-fr">Jour d'installation (ven. 27 nov.)</span></label>
-            <label><input type="radio" name="noula-day-shift" value="Flexible"> <span class="lang-en">Flexible</span><span class="lang-fr">Flexible</span></label>
+            <label><input type="checkbox" name="noula-day-shift[]" value="1st half 12h00-17h00"> <span class="lang-en">Afternoon shift</span><span class="lang-fr">Créneau après-midi</span></label>
+            <label><input type="checkbox" name="noula-day-shift[]" value="2nd half 17h00-22h30"> <span class="lang-en">Evening shift (Chanté Nwèl + afterparty)</span><span class="lang-fr">Créneau soirée (Chanté Nwèl + afterparty)</span></label>
+            <label><input type="checkbox" name="noula-day-shift[]" value="Full day"> <span class="lang-en">Full day</span><span class="lang-fr">Journée complète</span></label>
+            <label><input type="checkbox" name="noula-day-shift[]" value="Setup day (Fri 27 Nov)"> <span class="lang-en">Setup day (Fri 27 Nov)</span><span class="lang-fr">Jour d'installation (ven. 27 nov.)</span></label>
+            <label><input type="checkbox" name="noula-day-shift[]" value="Flexible"> <span class="lang-en">Flexible</span><span class="lang-fr">Flexible</span></label>
           </div>
           <p class="hint" style="margin-top:0.5rem; color:#888; font-size:0.85rem;"><span class="lang-en">We run 2 shifts (1st + 2nd half) so each volunteer enjoys the other half of the event as a guest.</span><span class="lang-fr">Nous fonctionnons en 2 créneaux (1re + 2e moitié) pour que chaque bénévole profite de l'autre moitié en tant qu'invité.</span></p>
         </div>
@@ -267,6 +267,30 @@
         <div class="field">
           <label for="referral"><span class="lang-en">How did you hear about us? (optional)</span><span class="lang-fr">Comment avez-vous entendu parler de nous ? (facultatif)</span></label>
           <input type="text" id="referral" name="referral">
+        </div>
+
+        <div class="field">
+          <div class="checks">
+            <label><input type="checkbox" name="under-18" value="yes"> <span class="lang-en">I'm under 18</span><span class="lang-fr">J'ai moins de 18 ans</span></label>
+          </div>
+        </div>
+
+        <div class="guardian" data-when-field="under-18" data-when-value="yes" style="display:none;">
+          <div class="field">
+            <label for="guardian-name"><span class="lang-en">Parent or guardian's name</span><span class="lang-fr">Nom du parent ou tuteur</span></label>
+            <input type="text" id="guardian-name" name="guardian-name" required disabled>
+          </div>
+          <div class="field">
+            <label for="guardian-phone"><span class="lang-en">Parent or guardian's phone</span><span class="lang-fr">Téléphone du parent ou tuteur</span></label>
+            <input type="tel" id="guardian-phone" name="guardian-phone" required disabled>
+          </div>
+          <div class="field">
+            <label class="consent">
+              <input type="checkbox" name="guardian-consent" value="yes" required disabled>
+              <span><span class="lang-en">My parent or guardian agrees to me volunteering at Noula Day</span><span class="lang-fr">Mon parent ou tuteur est d'accord pour que je sois bénévole à Noula Day</span></span>
+            </label>
+            <p style="font-size:0.85rem;color:#666;margin:0.6rem 0 0;"><span class="lang-en">Volunteers under 18 are always paired with an adult and don't work at the bar.</span><span class="lang-fr">Les bénévoles de moins de 18 ans sont toujours accompagnés d'un adulte et ne travaillent pas au bar.</span></p>
+          </div>
         </div>
 
         <div class="field">
