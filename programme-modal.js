@@ -51,8 +51,8 @@
     + '.nm-note svg{flex:0 0 auto;margin-top:2px;}'
     + '.nm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem;}'
     + '.nm-dish{background:#fff;border:1px solid rgba(63,39,67,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 24px -18px rgba(0,0,0,0.5);}'
-    + '.nm-img{position:relative;height:140px;background:url("images/madras.png") center/150px repeat;}'
-    + '.nm-img img{width:100%;height:100%;object-fit:cover;display:block;}'
+    + '.nm-img{position:relative;aspect-ratio:4 / 3;max-height:240px;background:url("images/madras.png") center/150px repeat;}'
+    + '.nm-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}'
     + '.nm-dish .nm-txt{padding:0.85rem 0.95rem;}'
     + '.nm-dish h4{font-family:"Playfair Display",Georgia,serif;font-size:1.12rem;color:var(--plum-deep);margin:0 0 0.35rem;line-height:1.2;}'
     + '.nm-dish p{color:var(--text-dark);font-size:0.85rem;line-height:1.5;margin:0;}'
@@ -67,7 +67,7 @@
     if (!menu.length) return '';
     var cards = menu.map(function (m){
       var t = m[L] || m.en || {};
-      var img = m.img ? '<div class="nm-img"><img src="' + m.img + '" alt="' + (t.n || '') + '" onerror="this.style.display=\'none\'"></div>' : '<div class="nm-img"></div>';
+      var img = m.img ? '<div class="nm-img"><img src="' + m.img + '" alt="' + (t.n || '') + '" loading="lazy" onerror="this.style.display=\'none\'"></div>' : '<div class="nm-img"></div>';
       return '<div class="nm-dish">' + img + '<div class="nm-txt"><h4>' + (t.n || '') + '</h4><p>' + (t.d || '') + '</p></div></div>';
     }).join('');
     var head = opts.heading ? '<h3 class="nm-head" style="font-family:\'Playfair Display\',Georgia,serif;color:var(--plum-deep);font-size:1.5rem;margin:0 0 0.9rem;">' + menuCopy.heading[L] + '</h3>' : '';
@@ -87,9 +87,10 @@
   function mediaHTML(d){
     var withImg = (d.people || []).filter(function (p) { return p.img; });
     if (withImg.length){
-      var fit = function (p){ return p.illo ? 'contain' : 'cover'; };
-      var pos = function (p){ return p.illo ? 'center' : 'center top'; };
-      var pad = function (p){ return (p.illo ? 'padding:12px;' : '') + (p.zoom ? 'transform:scale(' + p.zoom + ');transform-origin:' + (p.origin || '50% 10%') + ';' : ''); };
+      var isCover = function (p){ return !p.illo && /\/(illustrations|gallery)\/|\/(shinead|jade)\.png$/.test(p.img); };
+      var fit = function (p){ return p.illo ? 'contain' : (isCover(p) ? 'cover' : 'contain'); };
+      var pos = function (p){ return p.illo ? 'center' : (isCover(p) ? '50% 25%' : 'center bottom'); };
+      var pad = function (p){ return p.illo ? 'padding:12px;' : (isCover(p) ? '' : 'padding-top:6%;'); };
       if (withImg.length > 1){
         return '<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">' + withImg.map(function (p){
           return '<div style="flex:1;height:100%;overflow:hidden;"><img src="' + p.img + '" alt="' + p.n + '" style="width:100%;height:100%;object-fit:' + fit(p) + ';object-position:' + pos(p) + ';' + pad(p) + 'box-sizing:border-box;"></div>';

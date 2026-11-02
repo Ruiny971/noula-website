@@ -224,3 +224,20 @@ var GA_MEASUREMENT_ID = 'G-RBNEY3FPN3';
     init();
   }
 })();
+
+/* Mobile burger menu (fix pass 2026-11-02): injected into every .navbar */
+(function(){
+  function init(){
+    var nav=document.querySelector('.navbar'), box=nav&&nav.querySelector('.nav-container'), links=nav&&nav.querySelector('.nav-links');
+    if(!box||!links||box.querySelector('.nav-burger')) return;
+    if(!links.id) links.id='navLinks';
+    var b=document.createElement('button');
+    b.type='button'; b.className='nav-burger'; b.setAttribute('aria-controls',links.id); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Menu');
+    b.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+    box.appendChild(b);
+    b.addEventListener('click',function(){ var o=nav.classList.toggle('nav-open'); b.setAttribute('aria-expanded',o?'true':'false'); });
+    links.addEventListener('click',function(e){ if(e.target.closest('a')){ nav.classList.remove('nav-open'); b.setAttribute('aria-expanded','false'); } });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ nav.classList.remove('nav-open'); b.setAttribute('aria-expanded','false'); } });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();

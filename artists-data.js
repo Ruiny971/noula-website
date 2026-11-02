@@ -6,7 +6,7 @@
    - roleEn/Fr ... short caption used on the Noula Day slideshow
    - catEn/Fr .... eyebrow category shown on the homepage carousel
    - roleDetailEn/Fr / bioEn/Fr ... optional, only shown on the homepage carousel
-   - contain ..... true = fit the photo inside the frame instead of cropping */
+   All images are transparent cut-outs: shown contain + bottom so heads are never cropped. */
 window.NOULA_LINEUP = [
   {
     id: 'blode', img: 'images/artists/blode-prens.png', name: 'Blodè Prens',
@@ -49,7 +49,7 @@ window.NOULA_LINEUP = [
     id: 'volcano', img: 'images/artists/shinead.png', name: 'Shinead',
     catEn: 'Workshop', catFr: 'Atelier',
     roleEn: 'Volcano workshop', roleFr: 'Atelier volcan',
-    roleDetailEn: 'Build your own volcano', roleDetailFr: 'Fabrique ton volcan', contain: true
+    roleDetailEn: 'Build your own volcano', roleDetailFr: 'Fabrique ton volcan'
   },
   {
     id: 'sorbet', img: 'images/artists/fritz.png', name: 'Mister Fritz',
@@ -62,7 +62,7 @@ window.NOULA_LINEUP = [
   {
     id: 'catwalk', img: 'images/artists/ukm.png', name: 'UKM',
     catEn: 'Carnival', catFr: 'Carnaval',
-    roleEn: 'Carnival catwalk', roleFr: 'Défilé carnaval', contain: true
+    roleEn: 'Carnival catwalk', roleFr: 'Défilé carnaval'
   },
   {
     id: 'after', img: 'images/artists/djahman.png', name: 'DJ Djahman',

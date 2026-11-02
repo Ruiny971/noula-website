@@ -1694,3 +1694,35 @@ footer {
 .upload-error button { background: none; border: none; padding: 0; font: inherit; color: #B23A2E; text-decoration: underline; cursor: pointer; }
 .upload-has-error .upload-pick { border-color: #B23A2E; }
 @media (max-width: 620px) { .upload-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   Fix pass 2026-11-02: Get Involved pill padding, mobile header + burger
+   ============================================================ */
+.nav-links a.nav-getinvolved { padding: 0.36rem 0.95rem; }
+.es-short { display: none; }
+.nav-burger { display: none; }
+@media (max-width: 899px) {
+  .event-strip .es-long { display: none; }
+  .event-strip .es-short { display: inline; }
+  .event-strip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-left: 0.75rem; padding-right: 0.75rem; }
+  .navbar { padding: 0.35rem 0.9rem; }
+  .nav-container { flex-wrap: nowrap; gap: 0.5rem; min-height: 52px; position: relative; }
+  .logo-img { height: 46px !important; width: auto; }
+  nav .container, .nav-container { flex-direction: row !important; align-items: center; justify-content: flex-start; flex-wrap: nowrap !important; gap: 0.6rem; }
+  .nav-left { flex: 0 0 auto; margin: 0; }
+  .nav-left .brand-name { display: none; }
+  .lang-switch { margin-left: auto; flex-wrap: nowrap; justify-content: flex-end; width: auto; }
+  .navbar { max-height: 64px; box-sizing: border-box; overflow: visible; }
+  .nav-burger { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(63,39,67,0.18); border-radius: 12px; background: #fff; color: var(--plum-deep, #2a1a2c); cursor: pointer; flex-shrink: 0; padding: 0; }
+  .nav-burger svg { display: block; }
+  .nav-links { display: none; order: initial; position: absolute; top: calc(100% + 0.35rem); left: -0.9rem; right: -0.9rem; width: auto; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0.15rem; margin: 0; padding: 0.75rem 1.25rem 1.25rem; background: #fff; box-shadow: 0 18px 30px -18px rgba(42,26,44,0.45); max-height: calc(100vh - 110px); overflow-y: auto; }
+  .navbar.nav-open .nav-links { display: flex; }
+  .nav-links > li { width: 100%; }
+  .nav-links a { font-size: 1.05rem; padding: 0.55rem 0.2rem; white-space: normal; }
+  .nav-links a::after { display: none; }
+  .nav-links a.nav-day, .nav-links a.nav-getinvolved { align-self: flex-start; padding: 0.45rem 1rem; margin: 0.25rem 0; }
+  .nav-sub::after { display: none; }
+  .nav-sub > .nav-submenu, .nav-gi > .nav-submenu { position: static; display: block; opacity: 1; visibility: visible; transform: none; min-width: 0; width: auto; max-width: 100%; padding: 0 0 0.3rem 1rem; margin: 0; border: none; border-radius: 0; box-shadow: none; background: transparent; }
+  .nav-submenu a { padding: 0.45rem 0.2rem; font-size: 0.98rem; white-space: normal; }
+  .nav-gi .gi-caret { display: none; }
+}

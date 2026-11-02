@@ -59,9 +59,10 @@ exports.handler = async function () {
         const logoField = pick('Logo', 'logo', 'Image', 'Photo', 'Picture');
         let logo = '';
         if (Array.isArray(logoField) && logoField.length) {
-          const a = logoField[0];
-          logo = (a.thumbnails && (a.thumbnails.large || a.thumbnails.full || {}).url) || a.url || '';
-        } else if (typeof logoField === 'string') {
+          // Airtable attachment URLs expire after a few hours, so never expose them.
+          // Serve through directory-image, which fetches a fresh URL and is CDN-cached.
+          logo = '/.netlify/functions/directory-image?id=' + encodeURIComponent(r.id);
+        } else if (typeof logoField === 'string' && !/airtableusercontent\.com/i.test(logoField)) {
           logo = logoField;
         }
 

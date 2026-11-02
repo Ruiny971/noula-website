@@ -69,8 +69,8 @@ window.NOULA_PROGRAMME = [
         en:{n:'Fish', d:"Braised whole Caribbean fish (poisson rôti braisé) with rice, pois d'angole and sauce chien on the side."},
         fr:{n:'Fish', d:"Poisson caribéen rôti braisé avec riz, pois d'angole et sauce chien à part."} }
     ],
-    en:{t:'Noula kitchen · French Caribbean catering', d:'Traditional French Caribbean dishes served through the day. Full menu published closer to the event.'},
-    fr:{t:'Cuisine Noula · traiteur antillais', d:"Des plats antillais traditionnels servis toute la journée. Menu complet publié plus près de l'événement."} },
+    en:{t:'Noula kitchen · French Caribbean catering', d:'Traditional French Caribbean dishes served through the day. <a href="noula-day.html#ndMenuSection" onclick="event.stopPropagation()">See the menu and pre-order your dishes →</a>'},
+    fr:{t:'Cuisine Noula · traiteur antillais', d:"Des plats antillais traditionnels servis toute la journée. <a href='noula-day.html#ndMenuSection' onclick='event.stopPropagation()'>Voir le menu et précommander vos plats →</a>"} },
   { id:'market', time:'All day', start:'0000', room:'cour', cat:'Market', inAgenda:false, inGrid:true, people:[{n:'Noula team',img:'images/illustrations/makers-market.png'}],
     en:{t:"French Caribbean makers' market", d:'A marketplace of French Caribbean makers, crafts, food and community stalls, open right through the day.'},
     fr:{t:'Marché des créateurs antillais', d:"Un marché de créateurs antillais, artisanat, cuisine et stands communautaires, ouvert toute la journée."} },
@@ -140,7 +140,7 @@ window.NOULA_PROGRAMME = [
     en:{t:'Chanté Nwèl · Part 2', d:"The second half of the Chanté Nwèl carols. Ralphy, Takadoum, Stella and Rita invite you to Chanté Nwèl: Caribbean Christmas songs celebrating the joy, tradition and festive spirit of Martinique, Guadeloupe and French Guiana. Expect contagious rhythms, voices at full power and pure joie de vivre."},
     fr:{t:'Chanté Nwèl · 2ème partie', d:"La seconde partie des cantiques du Chanté Nwèl. Ralphy, Takadoum, Stella et Rita vous invitent au Chanté Nwèl : des chants de Noël caribéens qui célèbrent la joie, la tradition et l'esprit festif de la Martinique, de la Guadeloupe et de la Guyane. Au programme : des rythmes contagieux, des voix à pleine puissance et une vraie joie de vivre."} },
 
-  { id:'after', time:'22h00-23h00', start:'2200', room:'bal', cat:'DJ', madrasBg:true, inAgenda:true, inGrid:true, people:[{n:'DJ Djahman',img:'images/artists/djahman.png'},{n:'DJ Dymenss',img:'images/artists/dymenss.png',zoom:2.2,origin:'45% 6%'}],
+  { id:'after', time:'22h00', start:'2200', room:'bal', cat:'DJ', madrasBg:true, inAgenda:true, inGrid:true, people:[{n:'DJ Djahman',img:'images/artists/djahman.png'},{n:'DJ Dymenss',img:'images/artists/dymenss.png'}],
     en:{t:'Afterparty · DJ Djahman &amp; DJ Dymenss', d:'The afterparty with DJ Djahman and DJ Dymenss · zouk, konpa and island sounds until doors close.'},
     fr:{t:'Afterparty · DJ Djahman &amp; DJ Dymenss', d:"L'afterparty avec DJ Djahman et DJ Dymenss · zouk, konpa et sons des îles jusqu'à la fermeture."} },
 
