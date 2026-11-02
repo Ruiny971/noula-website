@@ -756,6 +756,40 @@
           </span>
         </div>
 
+        <!-- Images (optional) -->
+        <div class="form-section upload-section">
+          <h3>Images</h3>
+          <p class="section-hint"><span class="lang-en">Optional, but it helps us feature you on our Instagram and in the directory.</span><span class="lang-fr">Facultatif, mais ça nous aide à vous mettre en avant sur Instagram et dans l'annuaire.</span></p>
+            <div class="upload-grid">
+              <div class="upload-block">
+                <span class="upload-label"><span class="lang-en">Your logo</span><span class="lang-fr">Votre logo</span></span>
+                <div class="upload-row">
+                  <div class="upload-thumbs"></div>
+                  <label class="upload-pick">
+                    <input type="file" class="upload-input" data-upload="logo" data-kind="logo" data-max="1" accept="image/png,image/jpeg,image/svg+xml,.png,.jpg,.jpeg,.svg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                    <span class="lang-en">Add logo</span><span class="lang-fr">Ajouter</span>
+                  </label>
+                </div>
+                <span class="upload-meta"><span class="lang-en">1 file · PNG, JPG or SVG · max 5 MB</span><span class="lang-fr">1 fichier · PNG, JPG ou SVG · 5 Mo max</span></span>
+                <p class="upload-error" role="alert" hidden></p>
+              </div>
+              <div class="upload-block">
+                <span class="upload-label"><span class="lang-en">Photos of your products / stall</span><span class="lang-fr">Photos de vos produits / stand</span></span>
+                <div class="upload-row">
+                  <div class="upload-thumbs"></div>
+                  <label class="upload-pick">
+                    <input type="file" class="upload-input" data-upload="photos" data-kind="photo" data-max="3" multiple accept="image/png,image/jpeg,.png,.jpg,.jpeg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                    <span class="lang-en">Add photos</span><span class="lang-fr">Ajouter</span>
+                  </label>
+                </div>
+                <span class="upload-meta"><span class="lang-en">Up to 3 files · JPG or PNG · max 5 MB each</span><span class="lang-fr">Jusqu’à 3 fichiers · JPG ou PNG · 5 Mo max chacun</span></span>
+                <p class="upload-error" role="alert" hidden></p>
+              </div>
+            </div>
+        </div>
+
         <div class="field">
           <label for="notes"><span class="lang-en">Anything else we should know?</span><span class="lang-fr">Autre chose à nous signaler ?</span></label>
           <textarea id="notes" name="notes"></textarea>

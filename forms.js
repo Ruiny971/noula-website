@@ -8,11 +8,17 @@
 //
 // Optional per-form attributes:
 //   data-success-en / data-success-fr , custom success headline
+//
+// Image uploads: <input type="file" class="upload-input" data-upload="logo|photos"
+// data-kind="logo|photo" data-max="N"> inside a .upload-block. Files are checked,
+// resized in the browser (photos: max 1600 px long side, JPEG 0.85; SVG logos untouched)
+// and sent as data.uploads = { logo: [{filename, contentType, base64}], photos: [...] }.
 (function () {
   var lang = function () {
     var l = localStorage.getItem('selectedLanguage');
     return l === 'fr' ? 'fr' : 'en';
   };
+  var t = function (en, fr) { return lang() === 'fr' ? fr : en; };
 
   function collect(form) {
     var data = {};
@@ -73,11 +79,36 @@
       statusEl.style.display = 'none';
       form.appendChild(statusEl);
     }
+    function setStatus(cls, msg) {
+      statusEl.style.display = 'block';
+      statusEl.classList.remove('warn', 'err');
+      if (cls) statusEl.classList.add(cls);
+      statusEl.textContent = msg;
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var hp = form.querySelector('[name=bot-field]');
       if (hp && hp.value) return;
+      var ups = form._uploads || [];
+      if (ups.some(function (s) { return s.error; })) {
+        setStatus('err', t('Please fix the image problem above before sending.', 'Corrigez le problème d’image ci-dessus avant l’envoi.'));
+        return;
+      }
+      if (ups.some(function (s) { return s.pending; })) {
+        setStatus('', t('Your images are still being prepared, please try again in a moment.', 'Vos images sont en cours de préparation, réessayez dans un instant.'));
+        return;
+      }
       var data = collect(form);
+      var files = {};
+      ups.forEach(function (s) {
+        if (s.items.length) files[s.key] = s.items.map(function (it) { return { filename: it.filename, contentType: it.contentType, base64: it.base64 }; });
+      });
+      if (Object.keys(files).length) data.uploads = files;
+      var body = JSON.stringify(data);
+      if (body.length > 5500000) {
+        setStatus('err', t('Your images are too large together. Please remove one and try again.', 'Vos images sont trop lourdes au total. Retirez-en une et réessayez.'));
+        return;
+      }
       // Preview test mode: on any non-production host (Claude preview, localhost,
       // *.netlify.app deploy previews) walk the full client flow — validation,
       // conditionals, success panel — and log the payload so field names can be
@@ -88,18 +119,24 @@
       var isProd = /(^|\.)noula\.org\.uk$/i.test(host);
       var forceLive = /[?&]formlive=1/.test(location.search);
       if (!isProd && !forceLive) {
-        try { console.log('[formtest] ' + fn + ' payload →', JSON.stringify(data, null, 2)); } catch (e) {}
+        try {
+          console.log('[formtest] ' + fn + ' payload →', JSON.stringify(data, function (k, v) {
+            return k === 'base64' ? '[' + v.length + ' base64 chars]' : v;
+          }, 2));
+        } catch (e) {}
         successPanel(form);
         return;
       }
       if (btn) btn.disabled = true;
       statusEl.style.display = 'block';
       statusEl.classList.remove('err');
-      statusEl.textContent = lang() === 'fr' ? 'Envoi en cours…' : 'Sending…';
+      statusEl.textContent = data.uploads
+        ? t('Sending… images can take a few seconds.', 'Envoi en cours… les images peuvent prendre quelques secondes.')
+        : t('Sending…', 'Envoi en cours…');
       fetch('/.netlify/functions/' + fn, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: body
       }).then(function (r) {
         var ct = r.headers.get('content-type') || '';
         if (r.ok) { successPanel(form); return; }
@@ -117,11 +154,11 @@
             : "This form only works on the published site, not in this preview.";
           return;
         }
-        // Duplicate submission: softer amber notice, not a hard error
+        // Duplicate submission: shown as an error (nothing was saved)
         if (err && err.duplicate) {
-          statusEl.classList.add('warn');
+          statusEl.classList.add('err');
           statusEl.textContent = lang() === 'fr'
-            ? "Cette organisation ou cet email semble déjà enregistré. Écrivez-nous à fchpf@outlook.com pour mettre à jour votre entrée plutôt que de la resoumettre."
+            ? "Cette entreprise ou cet email est déjà enregistré. Écrivez-nous à fchpf@outlook.com pour modifier votre fiche."
             : (err.error || "This organisation/email appears to already be submitted. Please email fchpf@outlook.com to update your existing entry rather than resubmit.");
           return;
         }
@@ -137,6 +174,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('form[data-airtable-fn]').forEach(uploads);
     document.querySelectorAll('form[data-airtable-fn]').forEach(wire);
     document.querySelectorAll('form[data-airtable-fn]').forEach(conditionals);
     document.querySelectorAll('form[data-airtable-fn] select').forEach(customSelect);
@@ -241,5 +279,151 @@
       el.addEventListener('change', apply);
     });
     apply();
+  }
+
+  // ---------- Image uploads ----------
+  var UP_MAX_BYTES = 5 * 1024 * 1024;
+  var UP_LONG_SIDE = 1600;
+  var UP_QUALITY = 0.85;
+  var UP_TYPES = { logo: ['image/png', 'image/jpeg', 'image/svg+xml'], photo: ['image/png', 'image/jpeg'] };
+
+  function fileType(file) {
+    if (file.type) return file.type === 'image/jpg' ? 'image/jpeg' : file.type;
+    var ext = (file.name.split('.').pop() || '').toLowerCase();
+    return { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', svg: 'image/svg+xml' }[ext] || '';
+  }
+  function readDataURL(blob) {
+    return new Promise(function (res, rej) {
+      var r = new FileReader();
+      r.onload = function () { res(r.result); };
+      r.onerror = rej;
+      r.readAsDataURL(blob);
+    });
+  }
+  function loadImage(file) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () { res(img); };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error('decode')); };
+      img.src = url;
+    });
+  }
+  // SVG: sent as-is. PNG logos keep transparency (re-encoded to JPEG only if still heavy).
+  // Everything else: max 1600 px on the long side, JPEG 0.85 on a white ground.
+  function prepareImage(file, kind, type) {
+    if (type === 'image/svg+xml') {
+      return readDataURL(file).then(function (d) {
+        return { filename: file.name, contentType: type, base64: d.split(',')[1], preview: d };
+      });
+    }
+    return loadImage(file).then(function (img) {
+      var w = img.naturalWidth, h = img.naturalHeight;
+      var s = Math.min(1, UP_LONG_SIDE / Math.max(w, h));
+      var c = document.createElement('canvas');
+      c.width = Math.max(1, Math.round(w * s));
+      c.height = Math.max(1, Math.round(h * s));
+      var ctx = c.getContext('2d');
+      var keepPng = kind === 'logo' && type === 'image/png';
+      if (!keepPng) { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height); }
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(img.src);
+      var outType = keepPng ? 'image/png' : 'image/jpeg';
+      var d = c.toDataURL(outType, UP_QUALITY);
+      if (keepPng && d.length > 2000000) {
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, c.width, c.height);
+        outType = 'image/jpeg';
+        d = c.toDataURL(outType, UP_QUALITY);
+      }
+      var base = file.name.replace(/\.[^.]+$/, '') || 'image';
+      return { filename: base + (outType === 'image/png' ? '.png' : '.jpg'), contentType: outType, base64: d.split(',')[1], preview: d };
+    });
+  }
+
+  function uploads(form) {
+    form._uploads = [];
+    form.querySelectorAll('input[type=file][data-upload]').forEach(function (input) {
+      var block = input.closest('.upload-block');
+      if (!block) return;
+      var thumbs = block.querySelector('.upload-thumbs');
+      var errEl = block.querySelector('.upload-error');
+      var kind = input.getAttribute('data-kind') === 'logo' ? 'logo' : 'photo';
+      var max = parseInt(input.getAttribute('data-max') || '1', 10);
+      var st = { key: input.getAttribute('data-upload'), items: [], pending: 0, error: '' };
+      form._uploads.push(st);
+
+      function showError(msg) {
+        st.error = msg || '';
+        block.classList.toggle('upload-has-error', !!msg);
+        errEl.innerHTML = '';
+        errEl.hidden = !msg;
+        if (!msg) return;
+        var span = document.createElement('span');
+        span.textContent = msg;
+        var clear = document.createElement('button');
+        clear.type = 'button';
+        clear.textContent = t('OK', 'OK');
+        clear.addEventListener('click', function () { showError(''); });
+        errEl.appendChild(span);
+        errEl.appendChild(clear);
+      }
+      function render() {
+        thumbs.innerHTML = '';
+        st.items.forEach(function (it, i) {
+          var box = document.createElement('div');
+          box.className = 'upload-thumb' + (kind === 'logo' ? ' is-logo' : '');
+          var img = document.createElement('img');
+          img.src = it.preview;
+          img.alt = it.filename;
+          var x = document.createElement('button');
+          x.type = 'button';
+          x.className = 'upload-remove';
+          x.setAttribute('aria-label', t('Remove ', 'Retirer ') + it.filename);
+          x.innerHTML = '&times;';
+          x.addEventListener('click', function () { st.items.splice(i, 1); render(); });
+          box.appendChild(img);
+          box.appendChild(x);
+          thumbs.appendChild(box);
+        });
+        block.classList.toggle('upload-full', st.items.length + st.pending >= max);
+      }
+
+      input.addEventListener('change', function () {
+        var files = Array.prototype.slice.call(input.files || []);
+        input.value = '';
+        if (!files.length) return;
+        showError('');
+        if (max === 1) st.items = [];
+        var room = max - st.items.length - st.pending;
+        if (files.length > room) {
+          showError(t('You can add up to ' + max + ' photos. Only the first ' + Math.max(room, 0) + ' were added.',
+                      'Vous pouvez ajouter jusqu’à ' + max + ' photos. Seules les ' + Math.max(room, 0) + ' premières ont été ajoutées.'));
+          files = files.slice(0, Math.max(room, 0));
+        }
+        files.forEach(function (file) {
+          var type = fileType(file);
+          if (UP_TYPES[kind].indexOf(type) < 0) {
+            showError(kind === 'logo'
+              ? t('“' + file.name + '” is not a PNG, JPG or SVG file.', '« ' + file.name + ' » n’est pas un fichier PNG, JPG ou SVG.')
+              : t('“' + file.name + '” is not a JPG or PNG file.', '« ' + file.name + ' » n’est pas un fichier JPG ou PNG.'));
+            return;
+          }
+          if (file.size > UP_MAX_BYTES) {
+            showError(t('“' + file.name + '” is larger than 5 MB.', '« ' + file.name + ' » dépasse 5 Mo.'));
+            return;
+          }
+          st.pending++;
+          render();
+          prepareImage(file, kind, type)
+            .then(function (it) { st.items.push(it); })
+            .catch(function () {
+              showError(t('We couldn’t read “' + file.name + '”. Please try another image.', 'Impossible de lire « ' + file.name + ' ». Essayez une autre image.'));
+            })
+            .then(function () { st.pending--; render(); });
+        });
+      });
+    });
   }
 })();

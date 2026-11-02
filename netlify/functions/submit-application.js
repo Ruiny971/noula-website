@@ -21,9 +21,16 @@
 //   Member perk         Single select   (Yes, Maybe, No)
 //   Member perk details Long text
 //   Notes               Long text
+//   Logo                Attachment      (fldCJ5YZ6crbUJyii)
+//   Product photos      Attachment      (fldXGHEoWQclXXcYM)
 //   Status              Single select   (New, …)  -> set to "New" on submit
 
-const { clean, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody } = require('./_airtable');
+const { clean, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody, uploadFiles } = require('./_airtable');
+
+const UPLOAD_FIELDS = {
+  logo: { field: 'fldCJ5YZ6crbUJyii', max: 1 },
+  photos: { field: 'fldXGHEoWQclXXcYM', max: 3 },
+};
 
 exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') return json(405, { error: 'Method not allowed' });
@@ -83,5 +90,9 @@ exports.handler = async function (event) {
   if (dup.record) return json(409, { error: DUP_MESSAGE, duplicate: true });
 
   const r = await createRecord('Applications', fields);
-  return json(r.status, r.body);
+  if (r.status !== 200 || !r.body.id) return json(r.status, r.body);
+
+  // Record exists: attach images. Failures are logged, never fail the submission.
+  const up = await uploadFiles(r.body.id, body.uploads, UPLOAD_FIELDS, 'submit-application');
+  return json(200, { ...r.body, uploads: up });
 };

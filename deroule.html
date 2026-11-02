@@ -47,6 +47,7 @@
   .pg-room::before { content:""; width:10px; height:10px; border-radius:50%; background:currentColor; flex-shrink:0; }
   .room-bal { background:rgba(232,114,79,0.15); color:#b23c22; }
   .room-cour { background:rgba(63,124,160,0.16); color:#2c6389; }
+  .room-game { background:rgba(196,158,76,0.2); color:#7a5a14; }
   .room-tbc { background:rgba(63,39,67,0.07); color:var(--text-light); }
   .pg-soon { display:inline-block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#8a6d1f; background:#fff; border:1.5px dashed #d9b765; padding:0.25rem 0.65rem; border-radius:999px; margin-bottom:0.55rem; }
   .room-none { color:var(--text-light); font-weight:600; font-size:1rem; justify-self:start; }
@@ -123,7 +124,8 @@
       <span class="pg-eyebrow"><span class="lang-en">Noula Day 2026 · Programme</span><span class="lang-fr">Noula Day 2026 · Programme</span></span>
       <h1><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></h1>
       <p><span class="lang-en">Programme of the day · more to be announced.</span><span class="lang-fr">Programme de la journée · d'autres annonces à venir.</span></p>
-      <p class="meta">St Matthew's Brixton, SW2 · <span class="lang-en">Sat 28 November 2026 · 12h → 22h30</span><span class="lang-fr">Sam. 28 novembre 2026 · 12h → 22h30</span></p>
+      <p class="meta">Montgomery Hall, Kennington SE11 · <span class="lang-en">Sat 28 November 2026 · 12h → 23h</span><span class="lang-fr">Sam. 28 novembre 2026 · 12h → 23h</span></p>
+      <p class="pg-timing-note" style="display:inline-block;margin:0.9rem 0 0;padding:0.45rem 1rem;border-radius:999px;background:rgba(232,199,138,0.14);border:1px solid rgba(232,199,138,0.5);color:#F4E3C3;font-size:0.95rem;line-height:1.4;font-weight:600;max-width:none;"><span class="lang-en">Timings may still change slightly. Check back closer to the day.</span><span class="lang-fr">Les horaires peuvent encore évoluer légèrement. Revenez nous voir à l'approche de l'événement.</span></p><br>
       <a href="programme-of-the-day.html" class="pg-viewlink"><span class="lang-en">← Browse the programme by type</span><span class="lang-fr">← Parcourir le programme par type</span></a>
     </div>
   </section>
@@ -140,11 +142,11 @@
         <g transform="rotate(-12 44 44)"><rect x="34" y="36" width="26" height="17" rx="4" fill="#2D7961"></rect><line x1="47" y1="36" x2="47" y2="53" stroke="#FAF6F1" stroke-width="2" stroke-dasharray="2 3"></line><circle cx="34" cy="44.5" r="3.5" fill="#FBF1DC"></circle><circle cx="60" cy="44.5" r="3.5" fill="#FBF1DC"></circle></g>
       </svg>
       <div>
-        <span class="pg-soon"><span class="lang-en">Coming soon</span><span class="lang-fr">Bientôt</span></span>
-        <h2><span class="lang-en">Workshop bookings open soon</span><span class="lang-fr">Les réservations d'ateliers ouvrent bientôt</span></h2>
-        <p><span class="lang-en">Workshops, kids' activities and the tournaments have limited places. Booking for them opens soon. Entry tickets are already on sale, so you can get yours now. <a href="index.html#newsletter" style="color:var(--coral);font-weight:700;">Get notified when booking opens →</a></span><span class="lang-fr">Les ateliers, les activités enfants et les tournois ont un nombre de places limité. Leurs réservations ouvrent bientôt. Les billets d'entrée sont déjà en vente, vous pouvez prendre le vôtre dès maintenant. <a href="index.html#newsletter" style="color:var(--coral);font-weight:700;">Être prévenu à l'ouverture →</a></span></p>
+        <span class="pg-soon"><span class="lang-en">Booking open</span><span class="lang-fr">Réservations ouvertes</span></span>
+        <h2><span class="lang-en">Book your workshops</span><span class="lang-fr">Réservez vos ateliers</span></h2>
+        <p><span class="lang-en">Workshops (£3) and kids' activities (free) have limited places. Book them on Eventbrite, along with your entry ticket.</span><span class="lang-fr">Les ateliers (3 £) et les activités enfants (gratuites) ont un nombre de places limité. Réservez-les sur Eventbrite, avec votre billet d'entrée.</span></p>
       </div>
-      <a class="cta" href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank"><span class="lang-en">Get your entry ticket →</span><span class="lang-fr">Prendre mon billet d'entrée →</span></a>
+      <a class="cta" href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank"><span class="lang-en">Book on Eventbrite →</span><span class="lang-fr">Réserver sur Eventbrite →</span></a>
     </div>
 
     <div class="pg-food">
@@ -198,7 +200,7 @@
   function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
   var P=(window.NOULA_PROGRAMME||[]).filter(d=>d.inAgenda).slice().sort((a,b)=>a.start.localeCompare(b.start));
   var day=P.filter(d=>d.start<'1830'), eve=P.filter(d=>d.start>='1830');
-  var roomName={bal:'Bal Kréol',cour:'La Cour'};
+  var roomName={bal:'Main hall',cour:'La Cour',game:'Game zone'};
   function row(d,L){
     var room = d.room ? '<span class="pg-room room-'+(window.NOULA_SHOW_ROOMS?d.room:'tbc')+'">'+window.noulaRoomLabel(d.room,L)+'</span>' : '<span class="room-none">·</span>';
     var tbc = d.tbc ? ' <span class="tbc">'+(L==='fr'?'À annoncer':'To be announced')+'</span>' : '';

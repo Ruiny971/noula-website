@@ -58,7 +58,7 @@
   .pm-body .row { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; margin-bottom:0.8rem; }
   .pm-body .pm-time { background:var(--plum-deep); color:#fff; font-weight:700; padding:0.3rem 0.75rem; border-radius:999px; font-size:0.9rem; }
   .pm-room { font-size:0.8rem; font-weight:700; padding:0.3rem 0.7rem; border-radius:999px; }
-  .pm-room.bal { background:rgba(232,114,79,0.16); color:#b23c22; } .pm-room.cour { background:rgba(63,124,160,0.16); color:#2c6389; }
+  .pm-room.bal { background:rgba(232,114,79,0.16); color:#b23c22; } .pm-room.cour { background:rgba(63,124,160,0.16); color:#2c6389; } .pm-room.game { background:rgba(196,158,76,0.2); color:#7a5a14; }
   .pm-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.9rem; color:var(--plum-deep); margin:0.3rem 0 0.4rem; }
   .pm-people { color:var(--gold); font-weight:600; margin:0 0 1rem; }
   .pm-body p { color:var(--text-dark); line-height:1.6; margin:0; }
@@ -117,6 +117,8 @@
         <span class="lang-en">Every activity, workshop, live set and the people behind them. Browse by type below, or see the whole day in running order.</span>
         <span class="lang-fr">Chaque activité, atelier, concert et les personnes qui les animent. Parcourez par type ci-dessous, ou voyez toute la journée dans l'ordre.</span>
       </p>
+      <p class="prog-timing-note" style="display:inline-block;margin:0.4rem auto 0;padding:0.45rem 1rem;border-radius:999px;background:#FDF3DD;border:1px solid #E8C078;color:#6b4f12;font-size:0.92rem;line-height:1.4;font-weight:600;"><span class="lang-en">Timings may still change slightly. Check back closer to the day.</span><span class="lang-fr">Les horaires peuvent encore évoluer légèrement. Revenez nous voir à l'approche de l'événement.</span></p>
+      <br>
       <a href="deroule.html" class="prog-viewlink"><span class="lang-en">See the agenda →</span><span class="lang-fr">Voir le déroulé →</span></a>
     </div>
     <div class="prog-filters" id="filters"></div>
@@ -141,7 +143,7 @@ DAY.forEach(d=>{ present.add(d.cat); if(d.tag) present.add(d.tag); });
 const cats = catOrder.filter(c=>c==='All'||present.has(c));
 function filterLabel(k,L){ return ((catLabel[k]||tagLabel[k])||{en:k,fr:k})[L]; }
 function matches(d){ return active==='All'||d.cat===active||d.tag===active; }
-const roomLabel = {bal:'Bal Kréol',cour:'La Cour'};
+const roomLabel = {bal:'Main hall',cour:'La Cour',game:'Game zone'};
 const addonLabel = { preorder:{en:'Pre-order',fr:'Option à précommander'}, book:{en:'Limited places · book',fr:'Places limitées · réserver'}, dropin:{en:'No booking · just turn up',fr:'Sans réservation · venez'} };
 const ctaLabel = { preorder:{en:'Pre-order on Eventbrite',fr:'Précommander sur Eventbrite'}, book:{en:'Book on Eventbrite',fr:'Réserver sur Eventbrite'} };
 const tagLabel = {Dance:{en:'Dance',fr:'Danse'},Craft:{en:'Craft',fr:'Artisanat'},Cooking:{en:'Cooking',fr:'Cuisine'},Music:{en:'Music',fr:'Musique'},Workshop:{en:'Workshop',fr:'Atelier'}};
@@ -152,6 +154,7 @@ function addonBadge(d,L){
   if(!d.addon) return '';
   if(d.addon==='dropin') return `<p style="margin:0 0 0.75rem;"><span style="display:inline-block;background:#2D7961;color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;">${addonText(d,L)}</span></p>`;
   if(addonSoon(d)) return `<div style="margin:0 0 0.9rem;padding:0.8rem 1rem;background:#fdf3dd;border:1.5px dashed #d9b765;border-radius:12px;"><p style="margin:0 0 0.3rem;font-weight:700;color:#8a6d1f;font-size:0.9rem;">${d.addon==='preorder'?(L==='fr'?'Les précommandes ouvrent bientôt':'Pre-orders open soon'):(L==='fr'?'Places limitées · les réservations ouvrent bientôt':'Limited places · booking opens soon')}</p><p style="margin:0;font-size:0.9rem;color:#5a4a34;">${L==='fr'?'Les billets d\'entrée sont déjà en vente.':'Entry tickets are on sale now.'} <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" style="color:var(--coral);font-weight:700;">${L==='fr'?'Prendre mon billet →':'Get your ticket →'}</a></p></div>`;
+  if(d.addon==='book' && window.noulaBookHTML) return window.noulaBookHTML(d,L);
   return `<p style="margin:0 0 0.75rem;"><a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">${ctaLabel[d.addon][L]} →</a></p>`;
 }
 const filters=document.getElementById('filters'), grid=document.getElementById('grid'), modal=document.getElementById('modal'), pmCard=document.getElementById('pmCard');
@@ -161,7 +164,7 @@ function mediaHTML(d, big){
   if(withImg.length){
     const fitFor = p => (p.illo) ? 'contain' : 'cover';
     const posFor = p => (p.illo) ? 'center' : 'center top';
-    const pad = p => p.illo ? 'padding:12px;' : '';
+    const pad = p => (p.illo ? 'padding:12px;' : '') + (p.zoom ? `transform:scale(${p.zoom});transform-origin:${p.origin||'50% 10%'};` : '');
     if(withImg.length>1) return `<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">${withImg.map(p=>`<div style="flex:1;height:100%;overflow:hidden;"><img src="${p.img}" alt="${p.n}" style="width:100%;height:100%;object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;"></div>`).join('')}</div>`;
     const p=withImg[0];
     return `<img src="${p.img}" alt="${p.n}" style="object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;">`;

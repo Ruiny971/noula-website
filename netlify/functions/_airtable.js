@@ -73,6 +73,67 @@ async function createRecord(table, fields) {
   return { status: 200, body: { ok: true, id } };
 }
 
+// ---------- Attachments ----------
+// Uploads base64 files to an attachment field of an existing record via
+// POST https://content.airtable.com/v0/{base}/{recordId}/{fieldId}/uploadAttachment
+// Airtable limit: 5 MB per file.
+const UPLOAD_TYPES = ['image/png', 'image/jpeg', 'image/svg+xml'];
+const UPLOAD_MAX_BYTES = 5 * 1024 * 1024;
+
+async function uploadAttachment(recordId, fieldId, file) {
+  const token = getToken();
+  if (!token) return { ok: false, error: 'missing token' };
+  try {
+    const res = await fetch(
+      `https://content.airtable.com/v0/${AIRTABLE_BASE}/${recordId}/${fieldId}/uploadAttachment`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contentType: file.contentType, file: file.base64, filename: file.filename }),
+      }
+    );
+    if (!res.ok) return { ok: false, error: `${res.status} ${await res.text()}` };
+    return { ok: true };
+  } catch (e) {
+    return { ok: false, error: String(e) };
+  }
+}
+
+// uploads: body.uploads = { logo: [{filename, contentType, base64}], photos: [...] }
+// fieldMap: { logo: { field: 'fld…', max: 1 }, photos: { field: 'fld…', max: 3 } }
+// Never throws: failures are logged and counted so the submission itself is never lost.
+async function uploadFiles(recordId, uploads, fieldMap, label) {
+  const result = { uploaded: 0, failed: 0 };
+  if (!uploads || typeof uploads !== 'object') return result;
+  const jobs = [];
+  Object.keys(fieldMap).forEach((key) => {
+    const list = Array.isArray(uploads[key]) ? uploads[key].slice(0, fieldMap[key].max) : [];
+    list.forEach((raw, i) => {
+      const f = raw || {};
+      const base64 = typeof f.base64 === 'string' ? f.base64.replace(/^data:[^,]*,/, '') : '';
+      const contentType = clean(f.contentType);
+      const filename = clean(f.filename).slice(0, 120) || `${key}-${i + 1}`;
+      const bytes = Math.floor((base64.length * 3) / 4);
+      if (!base64 || !UPLOAD_TYPES.includes(contentType) || bytes > UPLOAD_MAX_BYTES) {
+        result.failed++;
+        console.error(`[${label}] upload rejected (${key}: ${filename}, ${contentType}, ${bytes} bytes) for ${recordId}`);
+        return;
+      }
+      jobs.push(
+        uploadAttachment(recordId, fieldMap[key].field, { base64, contentType, filename }).then((r) => {
+          if (r.ok) result.uploaded++;
+          else {
+            result.failed++;
+            console.error(`[${label}] upload failed (${key}: ${filename}) for ${recordId}: ${r.error}`);
+          }
+        })
+      );
+    });
+  });
+  await Promise.all(jobs);
+  return result;
+}
+
 function json(statusCode, body) {
   return { statusCode, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
 }
@@ -82,4 +143,4 @@ function parseBody(event) {
   catch (e) { return null; }
 }
 
-module.exports = { AIRTABLE_BASE, getToken, clean, prune, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody };
+module.exports = { AIRTABLE_BASE, getToken, clean, prune, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody, uploadAttachment, uploadFiles };

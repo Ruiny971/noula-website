@@ -22,7 +22,7 @@
     + '.pm-body .row{display:flex;gap:0.6rem;align-items:center;flex-wrap:wrap;margin-bottom:0.8rem;}'
     + '.pm-body .pm-time{background:var(--plum-deep);color:#fff;font-weight:700;padding:0.3rem 0.75rem;border-radius:999px;font-size:0.9rem;}'
     + '.pm-room{font-size:0.8rem;font-weight:700;padding:0.3rem 0.7rem;border-radius:999px;}'
-    + '.pm-room.bal{background:rgba(232,114,79,0.16);color:#b23c22;}.pm-room.cour{background:rgba(63,124,160,0.16);color:#2c6389;}'
+    + '.pm-room.bal{background:rgba(232,114,79,0.16);color:#b23c22;}.pm-room.cour{background:rgba(63,124,160,0.16);color:#2c6389;}.pm-room.game{background:rgba(196,158,76,0.2);color:#7a5a14;}.pm-room.tbc{background:rgba(63,39,67,0.08);color:var(--text-light);}'
     + '.pm-body h2{font-family:"Playfair Display",Georgia,serif;font-size:1.9rem;color:var(--plum-deep);margin:0.3rem 0 0.4rem;}'
     + '.pm-people{color:var(--gold);font-weight:600;margin:0 0 1rem;}'
     + '.pm-body p{color:var(--text-dark);line-height:1.6;margin:0;}'
@@ -89,7 +89,7 @@
     if (withImg.length){
       var fit = function (p){ return p.illo ? 'contain' : 'cover'; };
       var pos = function (p){ return p.illo ? 'center' : 'center top'; };
-      var pad = function (p){ return p.illo ? 'padding:12px;' : ''; };
+      var pad = function (p){ return (p.illo ? 'padding:12px;' : '') + (p.zoom ? 'transform:scale(' + p.zoom + ');transform-origin:' + (p.origin || '50% 10%') + ';' : ''); };
       if (withImg.length > 1){
         return '<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">' + withImg.map(function (p){
           return '<div style="flex:1;height:100%;overflow:hidden;"><img src="' + p.img + '" alt="' + p.n + '" style="width:100%;height:100%;object-fit:' + fit(p) + ';object-position:' + pos(p) + ';' + pad(p) + 'box-sizing:border-box;"></div>';
@@ -122,9 +122,11 @@
     ensureMenuCSS();
     var L = lang();
     if (window.noulaTrack) window.noulaTrack('programme_card_click', { card_id: d.id, card_name: (d[L] && d[L].t) || d.id });
-    var roomChip = d.room ? '<span class="pm-room ' + d.room + '">' + roomLabel[d.room] + '</span>' : '';
+    var roomChip = d.room ? '<span class="pm-room ' + (window.NOULA_SHOW_ROOMS === false ? 'tbc' : d.room) + '">' + (window.noulaRoomLabel ? window.noulaRoomLabel(d.room, L) : roomLabel[d.room]) + '</span>' : '';
     var addon = '';
-    if (d.addon === 'preorder' || d.addon === 'book') {
+    if (d.addon === 'book' && window.noulaBookHTML) {
+      addon = window.noulaBookHTML(d, L);
+    } else if (d.addon === 'preorder' || d.addon === 'book') {
       addon = '<p style="margin:0 0 0.75rem;"><a href="' + EB + '" target="_blank" rel="noopener" style="display:inline-block;background:var(--coral);color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;text-decoration:none;">' + ctaLabel[d.addon][L] + ' →</a></p>';
     } else if (d.addon === 'dropin') {
       addon = '<p style="margin:0 0 0.75rem;"><span style="display:inline-block;background:#2D7961;color:#fff;padding:0.4rem 0.9rem;border-radius:999px;font-weight:600;font-size:0.85rem;">' + addonLabel[d.addon][L] + '</span></p>';

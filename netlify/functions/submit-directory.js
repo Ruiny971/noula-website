@@ -9,13 +9,20 @@
 //   Instagram    Single line text
 //   Contact name Single line text
 //   Email        Email / Single line text
-//   Member perk  Single select  (Interested, …)
+//   Member perk  Long text      (the perk they offer, from the "member-perk" field)
+//   Logo         Attachment     (fldZmMDM4Ju46FxDr)
+//   Photos       Attachment     (fld6RMOQuBUlrfmB5)
 //   Status       Single select  -> set to "New" (you publish approved ones)
 //
 // The public directory reads only rows you mark published — new submissions
 // land as Status = New for review.
 
-const { clean, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody } = require('./_airtable');
+const { clean, createRecord, findRecord, esc, DUP_MESSAGE, json, parseBody, uploadFiles } = require('./_airtable');
+
+const UPLOAD_FIELDS = {
+  logo: { field: 'fldZmMDM4Ju46FxDr', max: 1 },
+  photos: { field: 'fld6RMOQuBUlrfmB5', max: 3 },
+};
 
 exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') return json(405, { error: 'Method not allowed' });
@@ -38,7 +45,10 @@ exports.handler = async function (event) {
     Email: email,
     Status: 'New',
   };
-  if (clean(body['perk-interest'])) fields['Member perk'] = 'Interested';
+  // The form field is "member-perk" (free text). "perk-interest" kept as a legacy fallback.
+  const perk = clean(body['member-perk']);
+  if (perk) fields['Member perk'] = perk;
+  else if (clean(body['perk-interest'])) fields['Member perk'] = 'Interested';
 
   // Duplicate check: Name OR Email (case-insensitive)
   const dupParts = [`LOWER({Name})=LOWER('${esc(name)}')`];
@@ -47,5 +57,9 @@ exports.handler = async function (event) {
   if (dup.record) return json(409, { error: DUP_MESSAGE, duplicate: true });
 
   const r = await createRecord('Listings', fields);
-  return json(r.status, r.body);
+  if (r.status !== 200 || !r.body.id) return json(r.status, r.body);
+
+  // Record exists: attach images. Failures are logged, never fail the submission.
+  const up = await uploadFiles(r.body.id, body.uploads, UPLOAD_FIELDS, 'submit-directory');
+  return json(200, { ...r.body, uploads: up });
 };

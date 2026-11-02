@@ -73,9 +73,13 @@ exports.handler = async function () {
           id: r.id,
           name: asText(pick('Name', 'Business name', 'Business', 'Title', 'Listing name')).trim(),
           category: asText(pick('Category', 'Categories', 'Type', 'Sector')).trim(),
-          description: asText(
-            pick('Description', 'Short description', 'About', 'Bio', 'Summary')
-          ).trim(),
+          // Bilingual: returns { en, fr } when a French description exists,
+          // otherwise a plain string (directory.html handles both).
+          description: (function () {
+            const en = asText(pick('Short description EN', 'Description', 'Short description', 'About', 'Bio', 'Summary')).trim();
+            const fr = asText(pick('Short description FR', 'Description FR')).trim();
+            return fr ? { en: en || fr, fr } : en;
+          })(),
           location: asText(pick('Location', 'City', 'Region', 'Area', 'Town')).trim(),
           website: asText(pick('Website', 'Site', 'URL', 'Web', 'Link')).trim(),
           instagram: asText(pick('Instagram', 'IG', 'Insta', 'Instagram handle')).trim(),
