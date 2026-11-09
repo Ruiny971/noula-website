@@ -10,7 +10,7 @@
     <meta property="og:description" content="Cultural events, workshops and community celebrations for the French Caribbean diaspora in the UK. Sat 28 Nov 2026: Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://noula.org.uk/">
-    <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.png">
+    <meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
@@ -42,7 +42,7 @@
         .hero { padding: 6rem 2rem 5rem; }
         .hero::before, .hero::after {
             top: 0; bottom: 0; height: auto !important; width: 300px !important;
-            background: url('images/madras.png') center/cover no-repeat !important;
+            background: url('images/madras.webp') center/cover no-repeat !important;
             opacity: 0.22 !important;
         }
         .hero::before {
@@ -198,8 +198,9 @@
         }
         .artist-photo::after {
             content: ""; position: absolute; inset: 0; opacity: 0.1; mix-blend-mode: screen;
-            background: url('images/madras.png') center/180px repeat;
+            background: url('images/madras.webp') center/180px repeat;
         }
+        .artist-photo img.ap-badge { position:absolute; top:1rem; right:1rem; z-index:2; width:26%; height:auto; aspect-ratio:1; padding:6px; box-sizing:border-box; border-radius:50%; background:#FAF6F1; box-shadow:0 0 0 3px #C49E4C, 0 10px 22px rgba(0,0,0,0.45); object-fit:contain; transform:none; }
         .artist-photo img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit:contain; object-position:center bottom; padding-top:6%; box-sizing:border-box; display: block; }
         .artist-copy .artist-eyebrow2 {
             display: inline-block; letter-spacing: 0.14em; text-transform: uppercase;
@@ -263,7 +264,7 @@
         <div class="nav-container">
             <div class="nav-left">
                 <a href="index.html" class="logo-link" aria-label="Noula home">
-                    <img src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104">
+                    <img decoding="async" src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104">
                 </a>
                 <div class="brand-name"></div>
             </div>
@@ -277,7 +278,7 @@
             <li><a href="programme-of-the-day.html"><span class="lang-en">What's on</span><span class="lang-fr">Au programme</span></a></li>
             <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
-        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        </li><li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img width="160" height="160" decoding="async" class="nav-dir-icon" src="images/directory-pin.webp" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
                 
                 <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
                 <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -302,7 +303,7 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <img src="images/logo-hero.png" alt="Noula" class="hero-title" style="display:block; width:min(340px,70%); height:auto; margin:0 auto 1.5rem;">
+            <img width="680" height="680" decoding="async" src="images/logo-hero.webp" alt="Noula" class="hero-title" style="display:block; width:min(340px,70%); height:auto; margin:0 auto 1.5rem;">
             <h2 class="hero-subtitle">
                 <span class="lang-en">Celebrating and sharing French Caribbean culture in the UK</span>
                 <span class="lang-fr">Célébrer et partager la culture antillaise au Royaume-Uni</span>
@@ -325,7 +326,8 @@
 
     <!-- FLAGSHIP EVENT 3 -->
     <section class="flagship" id="flagship">
-        <a href="images/NOULA-Day-2026-banner.png" id="homeFlyer" style="display:block; width:100%; max-width:1320px; margin:0 auto 2.75rem; cursor:zoom-in;"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty" style="display:block; width:100%; height:auto; border-radius:18px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7);"></a>
+        <a href="images/NOULA-Day-2026-banner.webp" id="homeFlyer" style="display:block; width:100%; max-width:1320px; margin:0 auto 2.75rem; cursor:zoom-in;"><img width="1920" height="960" decoding="async" src="images/NOULA-Day-2026-banner.webp" alt="Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty" style="display:block; width:100%; height:auto; border-radius:18px; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7);"></a>
+        <p style="text-align:center; margin:-1.5rem auto 1.75rem; max-width:1320px; padding:0 1rem; font-weight:600; font-size:1.15rem; line-height:1.4; text-wrap:balance;"><span class="lang-en">Headlining: <strong style="color:var(--coral);">Callmeludo</strong>, live</span><span class="lang-fr">En tête d'affiche : <strong style="color:var(--coral);">Callmeludo</strong>, sur scène</span></p>
         <div class="facts">
             <div><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>12h → 22h30</strong></div>
             <div><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>Montgomery Hall, Kennington SE11</strong></div>
@@ -468,7 +470,7 @@
             <div class="events-grid">
                 <!-- Event 3: Noula Day 2026 -->
                 <div class="event-card">
-                    <img class="event-media" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty" loading="lazy" style="object-fit: contain; background: #2D1F3D;">
+                    <img width="1920" height="960" decoding="async" class="event-media" src="images/NOULA-Day-2026-banner.webp" alt="Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty" loading="lazy" style="object-fit: contain; background: #2D1F3D;">
                     <div class="event-header">
                         <div class="event-date">
                             <span class="lang-en">Saturday, 28 November 2026</span>
@@ -510,7 +512,7 @@
     <!-- Community Hub -->
     <section class="section-community" id="community">
         <div class="container">
-            <img src="images/directory-pin.png" alt="" aria-hidden="true" style="display:block; width:52px; height:auto; margin:0 auto 0.6rem; filter:drop-shadow(0 4px 10px rgba(42,26,44,0.18));">
+            <img width="160" height="160" decoding="async" src="images/directory-pin.webp" alt="" aria-hidden="true" style="display:block; width:52px; height:auto; margin:0 auto 0.6rem; filter:drop-shadow(0 4px 10px rgba(42,26,44,0.18));">
             <h2 class="section-title">
                 <span class="lang-en">Noula Directory</span>
                 <span class="lang-fr">Annuaire Noula</span>
@@ -658,9 +660,9 @@
             <p style="text-align:center; letter-spacing:0.22em; text-transform:uppercase; font-size:0.82rem; color:#E8C078; font-weight:600; margin:0 0 0.4rem;"><span class="lang-en">Past events</span><span class="lang-fr">Événements passés</span></p>
             <h2 style="font-family:'Playfair Display',Georgia,serif; text-align:center; color:#FAF6F1; font-size:2rem; margin:0 0 1.75rem;">Chanté Nwèl 2025</h2>
             <div class="montage-grid">
-                <figure class="montage-big" data-full="images/gallery/cn25-crowd.jpg"><img src="images/gallery/cn25-crowd.jpg" alt="A full community hall singing together at Chanté Nwèl 2025" loading="lazy"></figure>
-                <figure data-full="images/gallery/cn25-host.jpg"><img src="images/gallery/cn25-host.jpg" alt="A host in a madras-trimmed shirt with guests" loading="lazy" style="object-position:50% 30%;"></figure>
-                <figure data-full="images/gallery/cn25-table.jpg"><img src="images/gallery/cn25-table.jpg" alt="Three generations sharing a table under French Caribbean flags" loading="lazy" style="object-position:50% 30%;"></figure>
+                <figure class="montage-big" data-full="images/gallery/cn25-crowd.webp"><img width="1000" height="596" decoding="async" src="images/gallery/cn25-crowd.webp" alt="A full community hall singing together at Chanté Nwèl 2025" loading="lazy"></figure>
+                <figure data-full="images/gallery/cn25-host.webp"><img width="800" height="1000" decoding="async" src="images/gallery/cn25-host.webp" alt="A host in a madras-trimmed shirt with guests" loading="lazy" style="object-position:50% 30%;"></figure>
+                <figure data-full="images/gallery/cn25-table.webp"><img width="800" height="1000" decoding="async" src="images/gallery/cn25-table.webp" alt="Three generations sharing a table under French Caribbean flags" loading="lazy" style="object-position:50% 30%;"></figure>
             </div>
             <p class="montage-caption">
                 <span class="lang-en">Chanté Nwèl 2025 · our first Créole Christmas celebration in London</span>
@@ -670,7 +672,7 @@
     </section>
 
   <!-- Home flyer lightbox -->
-  <div id="flyerLB" style="position:fixed; inset:0; background:rgba(15,7,18,0.92); display:none; align-items:center; justify-content:center; z-index:3000; padding:2rem; cursor:zoom-out;"><img loading="lazy" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer" style="max-width:96vw; max-height:92vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,0.6);"></div>
+  <div id="flyerLB" style="position:fixed; inset:0; background:rgba(15,7,18,0.92); display:none; align-items:center; justify-content:center; z-index:3000; padding:2rem; cursor:zoom-out;"><img width="1920" height="960" decoding="async" loading="lazy" src="images/NOULA-Day-2026-banner.webp" alt="Noula Day 2026 flyer" style="width:auto; height:auto; max-width:96vw; max-height:92vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,0.6);"></div>
   <script>(function(){var a=document.getElementById('homeFlyer'),lb=document.getElementById('flyerLB');if(a&&lb){a.addEventListener('click',function(e){e.preventDefault();lb.style.display='flex';});lb.addEventListener('click',function(){lb.style.display='none';});document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none';});}})();</script>
 
     <!-- Footer -->
@@ -757,13 +759,13 @@
             var track = document.getElementById('artistTrack');
             if(!track || !window.NOULA_LINEUP) return;
             track.innerHTML = window.NOULA_LINEUP.map(function(a, idx){
-                var st = '';
+                var st = a.fit==='cover' ? ' style="object-fit:cover;object-position:50% 20%;padding-top:0;"' : (a.pos ? ' style="object-position:'+a.pos+';'+(a.zoom ? 'transform:scale('+a.zoom+');transform-origin:'+a.pos+';' : '')+'"' : '');
                 var roleEn = a.roleDetailEn || a.roleEn, roleFr = a.roleDetailFr || a.roleFr;
                 var bio = a.bioEn ? '<p class="artist-bio">'
                     + '<span class="lang-en">' + a.bioEn + '</span>'
                     + '<span class="lang-fr">' + a.bioFr + '</span></p>' : '';
                 return '<div class="artist-slide' + (idx===0?' active':'') + '">'
-                    + '<div class="artist-photo"><img src="' + a.img + '" alt="' + a.name + '"' + st + (idx?' loading="lazy"':'') + '></div>'
+                    + '<div class="artist-photo"><img src="' + a.img + '" alt="' + a.name + '"' + st + (idx?' loading="lazy"':'') + '>' + (a.badge ? '<img class="ap-badge" src="' + a.badge + '" alt="" loading="lazy" decoding="async">' : '') + '</div>'
                     + '<div class="artist-copy">'
                     + '<span class="artist-eyebrow2"><span class="lang-en">' + a.catEn + '</span><span class="lang-fr">' + a.catFr + '</span></span>'
                     + '<h3>' + a.name + '</h3>'

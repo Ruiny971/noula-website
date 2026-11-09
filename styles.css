@@ -1567,7 +1567,7 @@ footer {
 .section-community::after,
 .section-partners::before,
 .section-chante-nwel::before {
-  background: url('images/madras.png') center/cover no-repeat !important;
+  background: url('images/madras.webp') center/cover no-repeat !important;
 }
 .hero::before { opacity: 0.20; }
 .hero::after { opacity: 0.15; }

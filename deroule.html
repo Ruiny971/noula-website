@@ -6,7 +6,7 @@
 <title>Agenda · Noula Day 2026</title>
 <meta name="description" content="Noula Day 2026 programme of the day · more to be announced. Sat 28 November 2026, Montgomery Hall, Kennington.">
 <meta property="og:title" content="Agenda · Noula Day 2026">
-<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.png">
+<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="styles.css">
@@ -87,7 +87,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-left">
-        <a href="index.html" class="logo-link" aria-label="Noula home"><img src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img decoding="async" src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
         <div class="brand-name"></div>
       </div>
       <ul class="nav-links">
@@ -100,7 +100,7 @@
             <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img width="160" height="160" decoding="async" class="nav-dir-icon" src="images/directory-pin.webp" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -152,7 +152,7 @@
     </div>
 
     <div class="pg-food">
-      <img loading="lazy" src="images/illustrations/caribbean-catering.png" alt="" aria-hidden="true">
+      <img width="603" height="850" decoding="async" loading="lazy" src="images/illustrations/caribbean-catering.webp" alt="" aria-hidden="true">
       <div>
         <span class="eyebrow"><span class="lang-en">All day</span><span class="lang-fr">Toute la journée</span></span>
         <h2><span class="lang-en">French Caribbean food &amp; drinks</span><span class="lang-fr">Cuisine et boissons antillaises</span></h2>
@@ -212,7 +212,7 @@
     var room = d.room ? '<span class="pg-room room-'+(window.NOULA_SHOW_ROOMS?d.room:'tbc')+'">'+window.noulaRoomLabel(d.room,L)+'</span>' : '<span class="room-none">·</span>';
     var tbc = d.tbc ? ' <span class="tbc">'+(L==='fr'?'À annoncer':'To be announced')+'</span>' : '';
     var time = window.NOULA_SHOW_TIMES ? '<span class="pg-time">'+d.time+'</span>' : '';
-    return '<div class="pg-item'+(window.NOULA_SHOW_TIMES?'':' no-time')+'" role="button" tabindex="0" data-id="'+d.id+'">'+time+'<span class="pg-act">'+d[L].t+tbc+'</span>'+room+'</div>';
+    return '<div class="pg-item'+(window.NOULA_SHOW_TIMES?'':' no-time')+'" role="button" tabindex="0" data-id="'+d.id+'">'+time+'<span class="pg-act">'+(d[L].at||d[L].t)+tbc+'</span>'+room+'</div>';
   }
   function renderAgenda(){ var L=lang(); document.getElementById('pg-day').innerHTML=day.map(function(d){return row(d,L);}).join(''); document.getElementById('pg-eve').innerHTML=eve.map(function(d){return row(d,L);}).join(''); }
   renderAgenda();

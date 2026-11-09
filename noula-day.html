@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty</title>
-<meta name="description" content="Noula Day 2026 · a full day of French Caribbean culture in South London flowing into a warm Chanté Nwèl afterparty. Sat 28 November 2026, Montgomery Hall, Kennington.">
+<meta name="description" content="Noula Day 2026 · a full day of French Caribbean culture in South London flowing into a warm Chanté Nwèl afterparty, with Martinican comedian Callmeludo. Sat 28 November 2026, Montgomery Hall, Kennington.">
+<meta property="og:description" content="Noula Day 2026 · a full day of French Caribbean culture in South London flowing into a warm Chanté Nwèl afterparty, with Martinican comedian Callmeludo. Sat 28 November 2026, Montgomery Hall, Kennington.">
 <meta property="og:title" content="Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty">
-<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://noula.org.uk/images/callmeludo-poster-4x5.jpg">
+<meta property="og:image:width" content="976">
+<meta property="og:image:height" content="1200">
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -67,14 +68,14 @@
   /* Line-up */
   .nd-lineup { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:1.5rem; }
   .nd-artist { background:linear-gradient(160deg,#2D1F3D,#4B2E4E); border-radius:14px; overflow:hidden; box-shadow:0 18px 40px -26px rgba(0,0,0,0.6); }
-  .nd-artist .ph { height:250px; background:#3a2440 url('images/madras.png') center/180px; position:relative; }
+  .nd-artist .ph { height:250px; background:linear-gradient(rgba(42,24,48,0.58),rgba(42,24,48,0.58)), #3a2440 url('images/madras.webp') center/180px; position:relative; }
   .nd-artist .ph img { width:100%; height:100%; object-fit:contain; object-position:center bottom; padding-top:6%; box-sizing:border-box; display:block; }
   .nd-artist .meta { padding:1rem 1.15rem 1.3rem; color:#FAF6F1; }
   .nd-artist .meta .r { color:#E8C078; font-size:0.76rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
   .nd-artist .meta h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; margin:0.2rem 0 0; color:#FAF6F1; }
   .nd-note { color:var(--text-light); font-style:italic; margin:1.3rem 0 0; }
   /* Hero line-up auto slideshow */
-  .nd-lineup-show { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); background:#3a2440 url('images/madras.png') center/200px; aspect-ratio:4/5; }
+  .nd-lineup-show { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 30px 60px -26px rgba(0,0,0,0.7); background:linear-gradient(rgba(42,24,48,0.58),rgba(42,24,48,0.58)), #3a2440 url('images/madras.webp') center/200px; aspect-ratio:4/5; }
   .nls-track { position:absolute; inset:0; }
   .nls-slide { position:absolute; inset:0; opacity:0; transition:opacity 0.8s ease; cursor:pointer; pointer-events:none; }
   .nls-slide.active { pointer-events:auto; }
@@ -85,7 +86,11 @@
   .nls-cap .r { display:inline-block; color:#3F2743; background:linear-gradient(135deg,#EFC878,#C49E4C); font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.08em; padding:0.28rem 0.75rem; border-radius:999px; box-shadow:0 4px 12px -4px rgba(0,0,0,0.4); }
   .nls-cap h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; margin:0.15rem 0 0; color:#FAF6F1; }
   .nls-more { display:inline-block; margin-top:0.7rem; font-size:0.82rem; font-weight:700; letter-spacing:0.02em; color:#3F2743; background:linear-gradient(135deg,#EFC878,#C49E4C); padding:0.32rem 0.85rem; border-radius:999px; }
-  .nls-eyebrow { position:absolute; top:1rem; left:1rem; z-index:2; }
+  .nls-slide img.nls-badge { position:absolute; top:3.2rem; right:1rem; z-index:2; width:26%; height:auto; aspect-ratio:1; padding:6px; box-sizing:border-box; border-radius:50%; background:#FAF6F1; box-shadow:0 0 0 3px #C49E4C, 0 10px 22px rgba(0,0,0,0.45); object-fit:contain; transform:none; }
+  .nls-eyebrow { position:absolute; top:1rem; left:1rem; z-index:2; background:rgba(36,20,40,0.82); padding:0.35rem 0.8rem; border-radius:999px; }
+  .nls-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:44px; height:44px; border-radius:50%; border:0; background:rgba(250,246,241,0.92); color:#3F2743; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.35); }
+  .nls-arrow:hover { background:#E8C078; }
+  .nls-prev { left:0.7rem; } .nls-next { right:0.7rem; }
   .nls-dots { position:absolute; bottom:1.2rem; right:1.2rem; z-index:2; display:flex; gap:0.4rem; }
   .nls-dot { width:9px; height:9px; border-radius:999px; background:rgba(250,246,241,0.35); border:none; padding:0; cursor:pointer; transition:background .2s; }
   .nls-dot.active { background:#E8C078; }
@@ -108,7 +113,10 @@
   .nd-qr #eb-qr { width:100%; height:100%; } .nd-qr #eb-qr img { width:100%; height:100%; image-rendering:pixelated; }
   .nd-qr-label { text-align:center; margin-top:0.7rem; font-size:0.9rem; color:var(--candle); font-weight:600; }
 
+  .nd-ludo-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,360px); gap:3rem; align-items:center; }
+  .nd-ludo-vid { min-width:0; }
   @media(max-width:820px){
+    .nd-ludo-grid{ grid-template-columns:minmax(0,1fr); gap:1.8rem; }
     .nd-hero-inner{ grid-template-columns:1fr; gap:1.6rem; }
     .nd-hero-info h1{ font-size:2.3rem; }
     .nd-split{ grid-template-columns:1fr; gap:1.6rem; }
@@ -119,7 +127,7 @@
 </style>
     <script src="analytics.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Event","name":"Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty","startDate":"2026-11-28T12:00:00+00:00","endDate":"2026-11-28T22:30:00+00:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://noula.org.uk/images/NOULA-Day-2026-banner.png"],"description":"A full day of French Caribbean culture in South London flowing into a warm Chanté Nwèl afterparty, at Montgomery Hall, Kennington.","location":{"@type":"Place","name":"Montgomery Hall","address":{"@type":"PostalAddress","streetAddress":"58 Kennington Oval","addressLocality":"London","postalCode":"SE11 5SR","addressCountry":"GB"}},"organizer":{"@type":"Organization","name":"Noula","url":"https://noula.org.uk"},"offers":{"@type":"Offer","url":"https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite","availability":"https://schema.org/InStock"}}
+{"@context":"https://schema.org","@type":"Event","name":"Noula Day 2026 · French Créole Fair + Chanté Nwèl Afterparty","startDate":"2026-11-28T12:00:00+00:00","endDate":"2026-11-28T22:30:00+00:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://noula.org.uk/images/NOULA-Day-2026-banner.webp"],"description":"A full day of French Caribbean culture in South London flowing into a warm Chanté Nwèl afterparty, at Montgomery Hall, Kennington.","location":{"@type":"Place","name":"Montgomery Hall","address":{"@type":"PostalAddress","streetAddress":"58 Kennington Oval","addressLocality":"London","postalCode":"SE11 5SR","addressCountry":"GB"}},"performer":[{"@type":"Person","name":"Callmeludo","sameAs":"https://www.instagram.com/callmeludo"}],"organizer":{"@type":"Organization","name":"Noula","url":"https://noula.org.uk"},"offers":{"@type":"Offer","url":"https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite","availability":"https://schema.org/InStock"}}
 </script>
 </head>
 <body>
@@ -131,7 +139,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-left">
-        <a href="index.html" class="logo-link" aria-label="Noula home"><img src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img decoding="async" src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
         <div class="brand-name"></div>
       </div>
       <ul class="nav-links">
@@ -144,7 +152,7 @@
             <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img width="160" height="160" decoding="async" class="nav-dir-icon" src="images/directory-pin.webp" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -177,6 +185,7 @@
         <span class="nd-eyebrow"><span class="lang-en">Flagship event of the year</span><span class="lang-fr">Événement phare de l'année</span></span>
         <h1>Noula Day 2026</h1>
         <p class="nd-sub"><span class="lang-en">French Créole Fair + Chanté Nwèl Afterparty</span><span class="lang-fr">Kermesse Créole + Afterparty Chanté Nwèl</span></p>
+        <a href="#headliner" style="display:flex; align-items:center; gap:0.9rem; margin:-0.4rem 0 1.5rem; padding:0.7rem 1.1rem 0.7rem 0.75rem; border-radius:14px; background:rgba(232,192,120,0.12); border:1px solid rgba(232,192,120,0.45); text-decoration:none; color:#FAF6F1; max-width:100%; box-sizing:border-box;"><img src="images/artists/callmeludo.webp" alt="" style="width:52px; height:52px; border-radius:50%; object-fit:cover; object-position:50% 18%; flex-shrink:0; box-shadow:0 0 0 2px #E8C078;"><span style="display:flex; flex-direction:column; gap:0.15rem; min-width:0;"><span style="font-size:0.74rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#E8C078; white-space:nowrap;"><span class="lang-en">Headlining</span><span class="lang-fr">En tête d'affiche</span></span><span style="font-family:'Playfair Display',Georgia,serif; font-size:1.7rem; line-height:1.05; font-weight:700; white-space:nowrap;">Callmeludo</span><span style="font-size:0.9rem; font-weight:600; color:rgba(250,246,241,0.82); white-space:nowrap;"><span class="lang-en">Live stand-up · 20h00</span><span class="lang-fr">Stand-up sur scène · 20h00</span></span></span></a>
         <div class="nd-facts2">
           <div class="row"><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong>Sat 28 Nov 2026 · 12h → 22h30</strong></div>
           <div class="row"><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong>Montgomery Hall, Kennington SE11</strong></div>
@@ -198,7 +207,29 @@
           <a href="deroule.html" class="nd-cta ghost"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a>
           <a href="partners.html" class="nd-cta ghost"><span class="lang-en">Apply for a stall</span><span class="lang-fr">Proposer un stand</span></a>
         </div>
-        <button type="button" class="nd-flyerthumb" id="flyerBtn"><img src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer"><span class="nd-flyerlabel"><span class="lang-en">See the flyer</span><span class="lang-fr">Voir le flyer</span><span class="nd-zoom">⤢</span></span></button>
+        <button type="button" class="nd-flyerthumb" id="flyerBtn"><img width="1920" height="960" decoding="async" src="images/NOULA-Day-2026-banner.webp" alt="Noula Day 2026 flyer"><span class="nd-flyerlabel"><span class="lang-en">See the flyer</span><span class="lang-fr">Voir le flyer</span><span class="nd-zoom">⤢</span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEADLINER · CALLMELUDO -->
+  <section class="nd-band nd-ludo" id="headliner" style="background:linear-gradient(160deg,#241528,#3F2743 60%,#4B2E4E); color:#FAF6F1;">
+    <div class="nd-wrap">
+      <div class="nd-ludo-grid">
+        <div>
+          <p class="nd-kicker" style="color:#E8C078;"><span class="lang-en">Headliner · Zouk Love London &amp; Noula present</span><span class="lang-fr">Tête d'affiche · Zouk Love London &amp; Noula présentent</span></p>
+          <h2 class="nd-h2" style="color:#FAF6F1;">Callmeludo</h2>
+          <p class="body" style="color:rgba(250,246,241,0.9);"><span class="lang-en">Comedian from Martinique. His latest show <em>On fait comme on a dit</em> was filmed at La Cigale in Paris. At Noula Day he brings his stand-up to the Main hall.</span><span class="lang-fr">Humoriste martiniquais. Son dernier spectacle <em>On fait comme on a dit</em> a été capté à La Cigale à Paris. À Noula Day, il pose son stand-up dans la grande salle.</span></p>
+          <div class="nd-facts2" style="margin-top:1.2rem;">
+            <div class="row"><small><span class="lang-en">When</span><span class="lang-fr">Quand</span></small><strong><span class="lang-en">Sat 28 Nov · 20h00 to 21h00</span><span class="lang-fr">Sam. 28 nov. · 20h00 à 21h00</span></strong></div>
+            <div class="row"><small><span class="lang-en">Where</span><span class="lang-fr">Où</span></small><strong><span class="lang-en">Main hall · Montgomery Hall, Kennington</span><span class="lang-fr">Grande salle · Montgomery Hall, Kennington</span></strong></div>
+          </div>
+          <div class="nd-btns">
+            <a href="https://nouladay2026.eventbrite.co.uk/?aff=NoulaWebsite" target="_blank" class="nd-cta"><span class="lang-en">Book tickets →</span><span class="lang-fr">Réserver →</span></a>
+            <a href="https://www.instagram.com/callmeludo" target="_blank" rel="noopener" class="nd-cta ghost">@callmeludo</a>
+          </div>
+        </div>
+        <div class="nd-ludo-vid"><a class="nd-ludo-reel" href="https://www.instagram.com/callmeludo/p/DfckZCtRYnE/" target="_blank" rel="noopener" aria-label="Callmeludo, Martinican comedian, in his Noula Day video (opens Instagram)" style="position:relative; display:block; width:100%; max-width:360px; aspect-ratio:9/16; margin:0 auto; border-radius:30px; overflow:hidden; border:7px solid #1c1020; box-shadow:0 30px 60px -24px rgba(0,0,0,0.7),0 0 0 1px rgba(232,192,120,0.35); box-sizing:border-box; background:#000;"><img src="images/callmeludo-teaser-poster.webp" alt="Callmeludo, Martinican comedian, in his Noula Day video" width="563" height="1000" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;"><span aria-hidden="true" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:76px; height:76px; border-radius:50%; background:#FAF6F1; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px rgba(0,0,0,0.45);"><svg width="30" height="30" viewBox="0 0 24 24" fill="#3F2743"><path d="M9 5v14l11-7z"/></svg></span></a><p style="text-align:center; margin:0.9rem auto 0; max-width:360px; font-size:0.95rem; font-weight:600;"><a href="https://www.instagram.com/callmeludo/p/DfckZCtRYnE/" target="_blank" rel="noopener" style="color:inherit;"><span class="lang-en">Watch Callmeludo's message on Instagram</span><span class="lang-fr">Regardez le message de Callmeludo sur Instagram</span></a></p></div>
       </div>
     </div>
   </section>
@@ -270,7 +301,7 @@
     </div>
   </section>
 
-  <div class="nd-lightbox" id="flyerLightbox"><button class="close" aria-label="Close">&times;</button><img loading="lazy" src="images/NOULA-Day-2026-banner.png" alt="Noula Day 2026 flyer"></div>
+  <div class="nd-lightbox" id="flyerLightbox"><button class="close" aria-label="Close">&times;</button><img width="1920" height="960" decoding="async" loading="lazy" src="images/NOULA-Day-2026-banner.webp" alt="Noula Day 2026 flyer" style="width:auto; height:auto;"></div>
 
   <footer class="footer">
     <div class="footer-content">
@@ -325,9 +356,9 @@
   if(show&&track){
     var LINEUP = window.NOULA_LINEUP || [];
     track.innerHTML=LINEUP.map(function(a,idx){
-      var st = '';
+      var st = a.fit==='cover' ? 'object-fit:cover;object-position:50% 20%;padding-top:0;' : (a.pos ? 'object-position:'+a.pos+';' : '') + (a.zoom ? 'transform:scale('+a.zoom+');transform-origin:'+(a.pos||'center bottom')+';' : '');
       return '<div class="nls-slide'+(idx===0?' active':'')+'" data-id="'+a.id+'" role="button" tabindex="0" aria-label="'+a.name+', view details">'
-        +'<img src="'+a.img+'" alt="'+a.name+'"'+(st?(' style="'+st+'"'):'')+(idx?' loading="lazy"':'')+'>'
+        +'<img decoding="async" src="'+a.img+'" alt="'+a.name+'"'+(st?(' style="'+st+'"'):'')+(idx?' loading="lazy"':'')+'>'+(a.badge?'<img class="nls-badge" src="'+a.badge+'" alt="" loading="lazy" decoding="async">':'')
         +'<div class="nls-cap"><span class="r"><span class="lang-en">'+a.roleEn+'</span><span class="lang-fr">'+a.roleFr+'</span></span><h4>'+a.name+'</h4>'
         +'<span class="nls-more"><span class="lang-en">View details →</span><span class="lang-fr">Voir les détails →</span></span></div></div>';
     }).join('');
@@ -336,6 +367,12 @@
     var dots=dotsWrap.querySelectorAll('.nls-dot');
     function go(n){ slides[i].classList.remove('active'); dots[i].classList.remove('active'); i=(n+slides.length)%slides.length; slides[i].classList.add('active'); dots[i].classList.add('active'); applyLang(slides[i]); }
     function reset(){ clearInterval(t); t=setInterval(function(){go(i+1);},4000); }
+    (function(){ var show=document.getElementById('ndShow'); if(!show) return;
+      ['prev','next'].forEach(function(d){ var b=document.createElement('button'); b.type='button'; b.className='nls-arrow nls-'+d; b.setAttribute('aria-label',d==='prev'?'Previous':'Next'); b.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="'+(d==='prev'?'15 5 8 12 15 19':'9 5 16 12 9 19')+'"/></svg>'; b.addEventListener('click',function(e){ e.stopPropagation(); go(d==='prev'?i-1:i+1); reset(); }); show.appendChild(b); });
+      var x0=null,y0=null; show.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
+      show.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0; if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){ go(dx<0?i+1:i-1); reset(); } x0=null; },{passive:true});
+      show.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft'){ go(i-1); reset(); } if(e.key==='ArrowRight'){ go(i+1); reset(); } });
+    })();
     function applyLang(scope){ var l=(localStorage.getItem('selectedLanguage')==='fr')?'fr':'en'; (scope||track).querySelectorAll('.lang-en,.lang-fr').forEach(function(e){ e.style.display=e.classList.contains('lang-'+l)?'inline':'none'; }); }
     function openCur(el){ var id=el.getAttribute('data-id'); if(id&&window.NoulaProgrammeModal) window.NoulaProgrammeModal.openById(id); }
     slides.forEach(function(s){

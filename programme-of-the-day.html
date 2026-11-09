@@ -6,7 +6,7 @@
 <title>What's on · Noula Day 2026</title>
 <meta name="description" content="The full programme for Noula Day 2026, activities, workshops, live sets and the people making them happen. Browse by type.">
 <meta property="og:title" content="What's on · Noula Day 2026">
-<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.png">
+<meta property="og:image" content="https://noula.org.uk/images/NOULA-Day-2026-banner-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <link rel="stylesheet" href="styles.css">
@@ -29,7 +29,7 @@
   .prog-card:hover { transform:translateY(-3px); box-shadow:0 22px 44px -22px rgba(42,26,44,0.55); }
   .prog-media { position:relative; aspect-ratio:4 / 3; height:auto; background:linear-gradient(160deg,#3a2440,#4B2E4E); overflow:hidden; }
   .prog-media img { width:100%; height:100%; object-fit:contain; object-position:center bottom; display:block; }
-  .prog-madras { position:absolute; inset:0; background:url('images/madras.png') center/200px repeat; }
+  .prog-madras { position:absolute; inset:0; background:url('images/madras.webp') center/200px repeat; }
   .prog-madras::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(42,26,44,0.22),rgba(42,26,44,0) 45%); }
   .prog-time { position:absolute; top:12px; left:12px; z-index:2; background:rgba(42,26,44,0.86); color:#fff; font-weight:700; font-size:0.9rem; padding:0.32rem 0.7rem; border-radius:999px; }
   .prog-cat { position:absolute; top:12px; right:12px; z-index:2; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.3rem 0.7rem; border-radius:999px; color:#fff; }
@@ -37,10 +37,12 @@
   .prog-body h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; color:var(--plum-deep); margin:0 0 0.5rem; line-height:1.15; }
   .prog-people { font-size:0.9rem; color:var(--gold); font-weight:600; margin:0 0 0.6rem; }
   .prog-desc { font-size:0.96rem; color:var(--text-light); line-height:1.55; margin:0; }
+  .prog-teaser { text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; align-self:flex-start; margin-top:0.9rem; background:var(--plum-deep); color:#FAF6F1; font-weight:700; font-size:0.88rem; padding:0.55rem 1.05rem; border-radius:999px; cursor:pointer; min-height:44px; box-sizing:border-box; }
+  .prog-teaser:hover { background:#5a3a5e; }
   .prog-note { text-align:center; color:var(--text-light); max-width:640px; margin:0 auto 5rem; padding:0 1.5rem; font-style:italic; }
   .cat-Music{background:#E8724F} .cat-Food{background:#2D7961} .cat-Workshop{background:#7A2E3B} .cat-Storytelling{background:#B07A2E}
   .cat-Kids{background:#3F7CA0} .cat-DJ{background:#8A4E8C} .cat-Market{background:#C49E4C} .cat-Host{background:#556B2F} .cat-Tournament{background:#4A6C8C}
-  .cat-Dance{background:#B0506E} .cat-Chante{background:#9C3B2E} .cat-Carnival{background:#B23A7A}
+  .cat-Dance{background:#B0506E} .cat-Chante{background:#9C3B2E} .cat-Carnival{background:#B23A7A} .cat-Comedy{background:#C8901E}
   .prog-addon { display:inline-block; align-self:flex-start; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#fff; background:var(--coral); padding:0.28rem 0.65rem; border-radius:999px; margin-bottom:0.6rem; }
   .prog-chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.6rem; }
   .prog-chips .prog-addon { margin-bottom:0; }
@@ -54,7 +56,7 @@
   .pm-card { background:#fff; border-radius:18px; max-width:560px; width:100%; overflow:hidden; box-shadow:0 40px 90px -30px rgba(0,0,0,0.7); position:relative; max-height:90vh; overflow-y:auto; }
   .pm-media { position:relative; height:360px; background:linear-gradient(160deg,#3a2440,#4B2E4E); }
   .pm-media img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-  .pm-madras { position:absolute; inset:0; background:url('images/madras.png') center/170px repeat; }
+  .pm-madras { position:absolute; inset:0; background:url('images/madras.webp') center/170px repeat; }
   .pm-close { position:absolute; top:12px; right:14px; z-index:3; background:rgba(42,26,44,0.8); color:#fff; border:none; width:38px; height:38px; border-radius:999px; font-size:1.4rem; cursor:pointer; line-height:1; }
   .pm-body { padding:1.75rem; }
   .pm-body .row { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; margin-bottom:0.8rem; }
@@ -77,7 +79,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-left">
-        <a href="index.html" class="logo-link" aria-label="Noula home"><img src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
+        <a href="index.html" class="logo-link" aria-label="Noula home"><img decoding="async" src="logo-256.jpg" alt="Noula logo" class="logo-img" width="104" height="104"></a>
         <div class="brand-name"></div>
       </div>
       <ul class="nav-links">
@@ -90,7 +92,7 @@
             <li><a href="deroule.html"><span class="lang-en">Agenda</span><span class="lang-fr">Le déroulé</span></a></li><li><a href="partners.html#stallholder"><span class="lang-en">Stallholders</span><span class="lang-fr">Exposants</span></a></li>
           </ul>
         </li>
-        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img class="nav-dir-icon" src="images/directory-pin.png" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
+        <li><a href="directory.html" class="nav-directory" aria-label="Noula Directory" title="Noula Directory"><img width="160" height="160" decoding="async" class="nav-dir-icon" src="images/directory-pin.webp" alt=""><span class="nav-dir-label"><span class="nav-dir-top">Noula</span><span class="lang-en">Directory</span><span class="lang-fr">Annuaire</span></span></a></li>
         
         <li><a href="about.html"><span class="lang-en">About</span><span class="lang-fr">À propos</span></a></li>
         <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
@@ -170,8 +172,8 @@
 <script>
 const DAY = (window.NOULA_PROGRAMME||[]).filter(d=>d.inGrid);
 function lang(){ var l=localStorage.getItem('selectedLanguage'); return (l==='fr')?'fr':'en'; }
-const catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'},Dance:{en:'Dance',fr:'Danse'},Chante:{en:'Chanté Nwèl',fr:'Chanté Nwèl'},Carnival:{en:'Carnival',fr:'Carnaval'}};
-const catOrder = ['All','Music','Chante','Dance','Carnival','Workshop','Craft','Cooking','Kids','Tournament','DJ','Storytelling','Food','Market','Host'];
+const catLabel = {All:{en:'All',fr:'Tout'},Market:{en:'Market',fr:'Marché'},Music:{en:'Music',fr:'Musique'},Food:{en:'Food',fr:'Cuisine'},Workshop:{en:'Workshop',fr:'Atelier'},Tournament:{en:'Tournament',fr:'Tournoi'},Storytelling:{en:'Storytelling',fr:'Contes'},Kids:{en:'Kids',fr:'Enfants'},DJ:{en:'DJ',fr:'DJ'},Host:{en:'Host',fr:'Animation'},Dance:{en:'Dance',fr:'Danse'},Chante:{en:'Chanté Nwèl',fr:'Chanté Nwèl'},Carnival:{en:'Carnival',fr:'Carnaval'},Comedy:{en:'Comedy',fr:'Humour'}};
+const catOrder = ['All','Comedy','Music','Chante','Dance','Carnival','Workshop','Craft','Cooking','Kids','Tournament','DJ','Storytelling','Food','Market','Host'];
 const present = new Set();
 DAY.forEach(d=>{ present.add(d.cat); if(d.tag) present.add(d.tag); });
 const cats = catOrder.filter(c=>c==='All'||present.has(c));
@@ -196,13 +198,13 @@ let active='All';
 function mediaHTML(d, big){
   const withImg=(d.people||[]).filter(p=>p.img);
   if(withImg.length){
-    const isCover = p => !p.illo && /\/(illustrations|gallery)\/|\/(shinead|jade)\.png$/.test(p.img);
+    const isCover = p => !p.illo && /\/(illustrations|gallery)\/|\/(shinead|jade)\.png$|\/callmeludo\.jpg$/.test(p.img);
     const fitFor = p => p.illo ? 'contain' : (isCover(p) ? 'cover' : 'contain');
     const posFor = p => p.illo ? 'center' : (isCover(p) ? '50% 25%' : 'center bottom');
     const pad = p => p.illo ? 'padding:12px;' : (isCover(p) ? '' : 'padding-top:6%;');
-    if(withImg.length>1) return `<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">${withImg.map(p=>`<div style="flex:1;height:100%;overflow:hidden;"><img loading="lazy" src="${p.img}" alt="${p.n}" style="width:100%;height:100%;object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;"></div>`).join('')}</div>`;
+    if(withImg.length>1) return `<div style="display:flex;height:100%;align-items:flex-end;justify-content:center;">${withImg.map(p=>`<div style="flex:1;height:100%;overflow:hidden;"><img loading="lazy" decoding="async" src="${p.img}" alt="${p.n}" style="width:100%;height:100%;object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;"></div>`).join('')}</div>`;
     const p=withImg[0];
-    return `<img loading="lazy" src="${p.img}" alt="${p.n}" style="object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;">`;
+    return `<img loading="lazy" decoding="async" src="${p.img}" alt="${p.n}" style="object-fit:${fitFor(p)};object-position:${posFor(p)};${pad(p)}box-sizing:border-box;">`;
   }
   return `<div class="${big?'pm-madras':'prog-madras'}"></div>`;
 }
@@ -211,9 +213,9 @@ function render(){
   const L=lang(); grid.innerHTML='';
   DAY.filter(matches).forEach(d=>{
     const c=document.createElement('button'); c.className='prog-card'; c.type='button';
-    c.innerHTML=`<div class="prog-media"${d.madrasBg?` style="background:url('images/madras.png') center/200px"`:''}><span class="prog-time">${window.noulaTimeLabel(d,L)}</span><span class="prog-cat cat-${d.cat}">${catLabel[d.cat][L]}</span>${mediaHTML(d,false)}</div>
-      <div class="prog-body">${(d.addon||d.tag)?`<div class="prog-chips">${d.addon?`<span class="prog-addon${d.addon==='dropin'?' dropin':''}${addonSoon(d)?' soon':''}">${addonText(d,L)}</span>`:''}${d.tag?`<span class="prog-tag">${tagLabel[d.tag][L]}</span>`:''}</div>`:''}<h3>${d[L].t}</h3><p class="prog-people">${names(d)}</p><p class="prog-desc">${d[L].d}</p></div>`;
-    c.onclick=()=>openModal(d);
+    c.innerHTML=`<div class="prog-media"${d.madrasBg?` style="background:url('images/madras.webp') center/200px"`:''}><span class="prog-time">${window.noulaTimeLabel(d,L)}</span><span class="prog-cat cat-${d.cat}">${catLabel[d.cat][L]}</span>${mediaHTML(d,false)}</div>
+      <div class="prog-body">${(d.addon||d.tag)?`<div class="prog-chips">${d.addon?`<span class="prog-addon${d.addon==='dropin'?' dropin':''}${addonSoon(d)?' soon':''}">${addonText(d,L)}</span>`:''}${d.tag?`<span class="prog-tag">${tagLabel[d.tag][L]}</span>`:''}</div>`:''}<h3>${d[L].t}</h3><p class="prog-people">${d.credit?d.credit[L]:names(d)}</p><p class="prog-desc">${d[L].d}</p>${d.teaser?`<span class="prog-teaser" role="link" tabindex="0" data-href="https://www.instagram.com/callmeludo/p/DfckZCtRYnE/">${L==='fr'?'▶ Voir le teaser':'▶ Watch the teaser'}</span>`:''}</div>`;
+    c.onclick=(e)=>{ const tz=e.target.closest('.prog-teaser'); if(tz){ window.open(tz.dataset.href,'_blank','noopener'); return; } openModal(d); };
     grid.appendChild(c);
   });
 }
@@ -223,9 +225,9 @@ function openModal(d){
   const roomChip = d.room ? `<span class="pm-room ${window.NOULA_SHOW_ROOMS?d.room:'tbc'}">${window.noulaRoomLabel(d.room,L)}</span>` : '';
   const menuBlock = (d.menu && d.menu.length && window.NoulaMenu) ? (window.NoulaMenu.ensureCSS(), `<div style="margin-top:1.4rem;">${window.NoulaMenu.html(d,L,{heading:true})}</div>`) : '';
   pmCard.innerHTML=`<button class="pm-close" aria-label="Close">&times;</button>
-    <div class="pm-media"${d.madrasBg?` style="background:url('images/madras.png') center/230px"`:''}>${mediaHTML(d,true)}</div>
+    <div class="pm-media"${d.madrasBg?` style="background:url('images/madras.webp') center/230px"`:''}>${mediaHTML(d,true)}</div>
     <div class="pm-body"><div class="row"><span class="pm-time">${window.noulaTimeLabel(d,L)}</span><span class="prog-cat cat-${d.cat}" style="position:static;">${catLabel[d.cat][L]}</span>${d.tag?`<span class="pm-tag">${tagLabel[d.tag][L]}</span>`:''}${roomChip}</div>
-    <h2>${d[L].t}</h2><p class="pm-people">${names(d)}</p>${addonBadge(d,L)}<p>${d[L].d}</p>${menuBlock}</div>`;
+    <h2>${d[L].t}</h2><p class="pm-people">${d.credit?d.credit[L]:names(d)}</p>${addonBadge(d,L)}<p>${d[L].d}</p>${menuBlock}</div>`;
   pmCard.querySelector('.pm-close').onclick=closeModal;
   modal.classList.add('open');
 }
