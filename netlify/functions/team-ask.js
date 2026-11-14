@@ -31,8 +31,7 @@ const SYSTEM = [
   'ORGANISATION NOTES',
   '==================',
   KNOWLEDGE,
-].join('
-');
+].join(String.fromCharCode(10));
 
 const json = (statusCode, body) => ({
   statusCode,
@@ -74,8 +73,7 @@ exports.handler = async function (event) {
     });
     const out = await res.json();
     if (!res.ok) return json(502, { error: 'The assistant is busy, please try again.' });
-    const text = (out.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('
-').trim();
+    const text = (out.content || []).filter((b) => b.type === 'text').map((b) => b.text).join(' ').trim();
     return json(200, { answer: text || 'Sorry, no answer. Ask Ruiny, Tricia or Lina.' });
   } catch (e) {
     return json(502, { error: 'The assistant is busy, please try again.' });
