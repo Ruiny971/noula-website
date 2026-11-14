@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Noula Day · Team assistant</title>
+<link rel="icon" href="logo-256.jpg">
+<style>
+  :root { --plum:#4a1f3d; --gold:#c99a2e; --cream:#fbf6ec; --ink:#2a1a24; --mut:#7a6a72; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: -apple-system, Segoe UI, Roboto, sans-serif; background: var(--cream); color: var(--ink); }
+  header { background: var(--plum); color:#fff; padding: 18px 20px; display:flex; gap:12px; align-items:center; }
+  header img { width:44px; height:44px; border-radius:50%; }
+  header h1 { margin:0; font-size:18px; }
+  header p { margin:2px 0 0; font-size:13px; opacity:.85; }
+  main { max-width: 640px; margin: 0 auto; padding: 18px 16px 60px; }
+  .card { background:#fff; border:1px solid #eadfcf; border-radius:12px; padding:16px; margin-bottom:14px; } 
+  label { font-size:13px; color: var(--mut); display:block; margin-bottom:6px; } 
+  input, textarea { width:100%; font: inherit; font-size:16px; padding:10px; border:1px solid #d9cbb4; border-radius:8px; } 
+  textarea { min-height: 80px; resize: vertical; } 
+  button { margin-top:10px; background: var(--plum); color:#fff; border:0; border-radius:8px; padding:11px 18px; font-size:16px; cursor:pointer; width:100%; } 
+  button:disabled { opacity:.6; } 
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; } 
+  .chips span { background: var(--cream); border:1px solid #e6d8c2; border-radius:14px; padding:5px 10px; font-size:13px; cursor:pointer; } 
+  #answer { white-space: pre-wrap; line-height:1.5; } 
+  .note { font-size:12px; color: var(--mut); margin-top:8px; } 
+  .hidden { display:none; } 
+</style>
+</head>
+<body>
+<header>
+  <img src="logo-256.jpg" alt="Noula">
+  <div>
+    <h1>Noula Day · Team assistant</h1>
+    <p>Ask anything about the day · Posez vos questions</p>
+  </div>
+</header>
+<main>
+  <div class="card" id="login">
+    <label for="pw">Team password</label>
+    <input id="pw" type="password" autocomplete="current-password">
+    <button id="enter">Enter</button>
+    <p class="note" id="loginMsg"></p>
+  </div>
+
+  <div class="card hidden" id="askCard">
+    <label for="q">Your question</label>
+    <textarea id="q" placeholder="e.g. What time is the team briefing? Where do people pay?"></textarea>
+    <button id="ask">Ask</button>
+    <div class="chips" id="chips"></div>
+    <p class="note">Answers come from the Noula Day organisation notes. Timings may still change a bit. Not sure? Ask Ruiny, Tricia or Lina.</p>
+  </div>
+
+  <div class="card hidden" id="answerCard">
+    <div id="answer"></div>
+  </div>
+</main>
+<script>
+(function () {
+  var KEY = 'noulaTeamPw';
+  var pw = '';
+  try { pw = sessionStorage.getItem(KEY) || ''; } catch (e) {}
+  var $ = function (id) { return document.getElementById(id); };
+  var examples = [
+    'What time is the team briefing?',
+    'Where do people pay for food?',
+    'How does the dance class entry work?',
+    'What do stallholders get?',
+    'Qui contacter en cas de problème ?'
+  ];
+  examples.forEach(function (t) {
+    var s = document.createElement('span'); s.textContent = t;
+    s.onclick = function () { $('q').value = t; ask(); };
+    $('chips').appendChild(s);
+  });
+
+  function showAsk() { $('login').classList.add('hidden'); $('askCard').classList.remove('hidden'); }
+  if (pw) showAsk();
+
+  $('enter').onclick = function () {
+    pw = $('pw').value.trim();
+    if (!pw) return;
+    try { sessionStorage.setItem(KEY, pw); } catch (e) {}
+    showAsk();
+  };
+  $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('enter').click(); });
+
+  function ask() {
+    var q = $('q').value.trim();
+    if (!q) return;
+    $('ask').disabled = true;
+    $('answerCard').classList.remove('hidden');
+    $('answer').textContent = 'Thinking…';
+    fetch('/.netlify/functions/team-ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pw, question: q })
+    }).then(function (r) { return r.json().then(function (d) { return { s: r.status, d: d }; }); })
+      .then(function (res) {
+        if (res.s === 401) {
+          try { sessionStorage.removeItem(KEY); } catch (e) {}
+          $('askCard').classList.add('hidden'); $('login').classList.remove('hidden');
+          $('loginMsg').textContent = 'Wrong password, please try again.';
+          $('answerCard').classList.add('hidden');
+          return;
+        }
+        $('answer').textContent = res.d.answer || res.d.error || 'Sorry, something went wrong.';
+      })
+      .catch(function () { $('answer').textContent = 'Connection problem, please try again.'; })
+      .then(function () { $('ask').disabled = false; });
+  }
+  $('ask').onclick = ask;
+})();
+</script>
+</body>
+</html>
