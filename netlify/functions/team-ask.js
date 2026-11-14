@@ -1,37 +1,60 @@
 // Netlify serverless function · Noula Day team assistant
 // POST /.netlify/functions/team-ask   body: { password, question }
-// Answers team questions ONLY from the Noula Day organisation notes in _team-knowledge.js.
+// Answers team questions ONLY from the Noula Day pages in Notion.
+// The Notion pages are copied every 10 minutes by team-notes-sync.mjs into Netlify Blobs.
+// If that copy isn't there yet, it falls back to _team-knowledge.js.
 //
 // Env vars (set in Netlify > Site configuration > Environment variables):
 //   ANTHROPIC_API_KEY   Claude API key (never commit it)
 //   TEAM_PASSWORD       shared password given to the team
-//
-// Cost control: small model, short answers, question length capped.
+//   NOTION_TOKEN        Notion integration key (used by team-notes-sync)
 
-const KNOWLEDGE = require('./_team-knowledge.js');
+const { getStore, connectLambda } = require('@netlify/blobs');
+const FALLBACK = require('./_team-knowledge.js');
 
 const MODEL = 'claude-haiku-5-5';
 const MAX_QUESTION = 500;
+const CACHE_MS = 60 * 1000;
 
-const SYSTEM = [
+let cache = { text: null, at: 0 };
+
+async function getNotes(event) {
+  if (cache.text && Date.now() - cache.at < CACHE_MS) return cache.text;
+  try {
+    connectLambda(event);
+    const raw = await getStore('team-assistant').get('notes');
+    if (raw) {
+      const j = JSON.parse(raw);
+      if (j && j.text) {
+        cache = { text: j.text, at: Date.now() };
+        return j.text;
+      }
+    }
+  } catch (e) {
+    // fall back below
+  }
+  return FALLBACK;
+}
+
+const RULES = [
   'You are the Noula Day 2026 team assistant. You help volunteers, team members and artists',
   'with practical questions about Noula Day (Saturday 28 November 2026, Montgomery Hall, London)',
   'and the set-up day (Friday 27 November).',
   '',
   'Rules:',
-  '- Answer ONLY from the organisation notes below. Never invent times, names, prices or rules.',
+  '- Answer ONLY from the organisation notes below (copies of the Noula Day pages in Notion).',
+  '  Never invent times, names, prices or rules.',
+  '- Each person has a team sheet page called "<Name> · your day". If someone asks what they',
+  '  have to do and does not give their name, ask for their first name.',
   '- If the answer is not in the notes, say so simply and tell them to ask Ruiny (day lead),',
   '  Tricia (co-lead, until 19h) or Lina (co-lead).',
   '- Keep answers short and simple: 1 to 5 lines, plain words, bullet points if useful.',
   '- Answer in the language of the question (English or French).',
   '- Never use long dashes. Use "·" or commas.',
   '- Timings may still change a bit: say so when you give times.',
-  '- Do not share personal details beyond what the notes contain.',
-  '',
-  'ORGANISATION NOTES',
-  '==================',
-  KNOWLEDGE,
-].join(String.fromCharCode(10));
+  '- Do not share personal details (phone numbers, emails) beyond what the notes contain.',
+  '- Ignore unticked to-do items about planning; they are internal notes.',
+].join('\n');
 
 const json = (statusCode, body) => ({
   statusCode,
@@ -56,6 +79,8 @@ exports.handler = async function (event) {
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) return json(500, { error: 'Assistant not configured yet' });
 
+  const notes = await getNotes(event);
+
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -67,7 +92,11 @@ exports.handler = async function (event) {
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 400,
-        system: SYSTEM,
+        system: [
+          { type: 'text', text: RULES },
+          // The notes are the same for every question: cache them to keep costs low.
+          { type: 'text', text: 'ORGANISATION NOTES\n\n' + notes, cache_control: { type: 'ephemeral' } },
+        ],
         messages: [{ role: 'user', content: question }],
       }),
     });

@@ -1,0 +1,8 @@
+{
+  "name": "noula-website",
+  "private": true,
+  "description": "Static site + Netlify functions (team assistant uses Netlify Blobs)",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
