@@ -101,5 +101,5 @@ module.exports = [
   "- Kitchen: Valerie, Lashine, Poncho (all day). Bar: Fabrice, Noha (all day), William 18h-22h.",
   "- Floaters: Stephanie (also dance class steward and foyer host 19h-22h), William, Jade (from 14h, Story of Madras 16h, foyer host 17h-19h).",
   "- Back room: Tricia, Aaliyah. Game zone: Teddy, Toulou. Stallholders: Katrina then Nylda. Catwalk backstage: Nylda.",
-  "- Chairs in 18h45 / out 21h00: Ruiny, Lina, Teddy, Stephanie, William, Jade, D Chief."
-].join("\n")
+  "- Chairs in 18h45 / out 21h00: Ruiny, Lina, Teddy, Stephanie, William, Jade, D Chief.",
+].join(String.fromCharCode(10));
