@@ -15,17 +15,17 @@
   header h1 { margin:0; font-size:18px; }
   header p { margin:2px 0 0; font-size:13px; opacity:.85; }
   main { max-width: 640px; margin: 0 auto; padding: 18px 16px 60px; }
-  .card { background:#fff; border:1px solid #eadfcf; border-radius:12px; padding:16px; margin-bottom:14px; } 
-  label { font-size:13px; color: var(--mut); display:block; margin-bottom:6px; } 
-  input, textarea { width:100%; font: inherit; font-size:16px; padding:10px; border:1px solid #d9cbb4; border-radius:8px; } 
-  textarea { min-height: 80px; resize: vertical; } 
-  button { margin-top:10px; background: var(--plum); color:#fff; border:0; border-radius:8px; padding:11px 18px; font-size:16px; cursor:pointer; width:100%; } 
-  button:disabled { opacity:.6; } 
-  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; } 
-  .chips span { background: var(--cream); border:1px solid #e6d8c2; border-radius:14px; padding:5px 10px; font-size:13px; cursor:pointer; } 
-  #answer { white-space: pre-wrap; line-height:1.5; } 
-  .note { font-size:12px; color: var(--mut); margin-top:8px; } 
-  .hidden { display:none; } 
+  .card { background:#fff; border:1px solid #eadfcf; border-radius:12px; padding:16px; margin-bottom:14px; }
+  label { font-size:13px; color: var(--mut); display:block; margin-bottom:6px; }
+  input, textarea { width:100%; font: inherit; font-size:16px; padding:10px; border:1px solid #d9cbb4; border-radius:8px; }
+  textarea { min-height: 80px; resize: vertical; }
+  button { margin-top:10px; background: var(--plum); color:#fff; border:0; border-radius:8px; padding:11px 18px; font-size:16px; cursor:pointer; width:100%; }
+  button:disabled { opacity:.6; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .chips span { background: var(--cream); border:1px solid #e6d8c2; border-radius:14px; padding:5px 10px; font-size:13px; cursor:pointer; }
+  #answer { white-space: pre-wrap; line-height:1.5; }
+  .note { font-size:12px; color: var(--mut); margin-top:8px; }
+  .hidden { display:none; }
 </style>
 </head>
 <body>
@@ -55,6 +55,12 @@
   <div class="card hidden" id="answerCard">
     <div id="answer"></div>
   </div>
+
+  <div class="card hidden" id="mapCard">
+    <label>Floor plan · Plan de la salle</label>
+    <a href="images/team-floor-plan.png" target="_blank"><img id="mapImg" src="images/team-floor-plan.png" alt="Noula Day floor plan" style="width:100%;border-radius:8px;display:block" onerror="document.getElementById('mapCard').style.display='none'"></a>
+    <p class="note">Tap the plan to open it full size.</p>
+  </div>
 </main>
 <script>
 (function () {
@@ -75,7 +81,7 @@
     $('chips').appendChild(s);
   });
 
-  function showAsk() { $('login').classList.add('hidden'); $('askCard').classList.remove('hidden'); }
+  function showAsk() { $('login').classList.add('hidden'); $('askCard').classList.remove('hidden'); $('mapCard').classList.remove('hidden'); }
   if (pw) showAsk();
 
   $('enter').onclick = function () {
@@ -100,7 +106,7 @@
       .then(function (res) {
         if (res.s === 401) {
           try { sessionStorage.removeItem(KEY); } catch (e) {}
-          $('askCard').classList.add('hidden'); $('login').classList.remove('hidden');
+          $('askCard').classList.add('hidden'); $('mapCard').classList.add('hidden'); $('login').classList.remove('hidden');
           $('loginMsg').textContent = 'Wrong password, please try again.';
           $('answerCard').classList.add('hidden');
           return;
